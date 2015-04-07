@@ -1,0 +1,22 @@
+site_name: OpendTect Plugins
+repo_url: https://github.com/waynegm/OpendTect-5-plugins
+site_description: Documentation for WAYNEGM's OpendTect plugins
+site_author: Wayne Mogg
+site_favicon: favicon-32x32.png
+copyright: All content and images &copy; 2015 by Wayne Mogg
+pages:
+- ['index.md', 'Home']
+- ['Installation/download-binary.md','Installation','Download']
+- ['Installation/installation.md','Installation','Install']
+- ['Installation/building-from-source.md','Installation','Build from source']
+- ['Installation/faq.md','Installation','Issues/FAQ']
+- ['Attributes/AVOAttrib.md','Plugins','AVO attributes']
+- ['Attributes/ExternalAttrib.md','Plugins','External attribute']
+- ['Attributes/LTFAttrib.md','Plugins','Local time-frequency attribute']
+- ['Attributes/MLVFilter.md','Plugins','Mean of least variance filter']
+- ['Attributes/RSpecAttrib.md','Plugins','Recursive time-frequency attribute']
+- ['External-Attributes/LPA-Smoothing.md','External Attributes']
+- ['relnotes.md', 'Release Notes']
+
+markdown_extensions: [attr_list]
+
