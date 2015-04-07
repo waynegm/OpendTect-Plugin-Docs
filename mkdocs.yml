@@ -16,7 +16,8 @@ pages:
 - ['Attributes/MLVFilter.md','Plugins','Mean of least variance filter']
 - ['Attributes/RSpecAttrib.md','Plugins','Recursive time-frequency attribute']
 - ['External-Attributes/LPA-Smoothing.md','External Attributes']
-- ['relnotes.md', 'Release Notes']
+- ['license.md', 'About','License']
+- ['relnotes.md', 'About','Release Notes']
 
 markdown_extensions: [attr_list]
 
