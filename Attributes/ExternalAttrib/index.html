@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Wayne Mogg">
+        
+        <link rel="shortcut icon" href="../../../../favicon-32x32.png">
+        
+
+        <title>External attribute - OpendTect Plugins</title>
+
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <link href="../../css/juxtapose.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../..">OpendTect Plugins</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Installation <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            <li >
+                                <a href="../../Installation/download-binary">Download</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../../Installation/installation">Install</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../../Installation/building-from-source">Build from source</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../../Installation/faq">Issues/FAQ</a>
+                            </li>
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Plugins <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            <li >
+                                <a href="../AVOAttrib">AVO attributes</a>
+                            </li>
+                        
+                            <li class="active">
+                                <a href=".">External attribute</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../LTFAttrib">Local time-frequency attribute</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../MLVFilter">Mean of least variance filter</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../RSpecAttrib">Recursive time-frequency attribute</a>
+                            </li>
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">External Attributes <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            <li >
+                                <a href="../../External-Attributes/LPA-Smoothing">LPA Smoothing</a>
+                            </li>
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            <li >
+                                <a href="../../license">License</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../../relnotes">Release Notes</a>
+                            </li>
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+            
+
+            
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                
+                
+                <li >
+                    <a rel="next" href="../AVOAttrib">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="../LTFAttrib">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+                
+                <li>
+                    <a href="https://github.com/waynegm/OpendTect-5-plugins">
+                        
+                            <i class="fa fa-github"></i>
+                        
+                        GitHub
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#externalattrib">ExternalAttrib</a></li>
+        
+            <li><a href="#description">Description</a></li>
+        
+            <li><a href="#input-parameters">Input Parameters</a></li>
+        
+            <li><a href="#attribute-json-parameter-string">Attribute JSON Parameter String</a></li>
+        
+            <li><a href="#issues">Issues</a></li>
+        
+            <li><a href="#structure-of-a-conforming-application">Structure of a Conforming Application</a></li>
+        
+    
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="externalattrib">ExternalAttrib</h1>
+<p>This is an attribute plugin for the open source seismic interpretation platform <a href="http://www.opendtect.org/" target="_blank">OpendTect</a> - that allows the calculation of single and multitrace attributes outside of OpendTect by a user specified external application. It is currently limited to single attribute input. </p>
+<p>Although still a work in progess it currently works under both Linux and Windows. The source and binary distributions include a reference implementation for writing external attributes in Python/Numpy (version 3).</p>
+<h2 id="description">Description</h2>
+<p>Instead of doing the attribute calculation within OpendTect this plugin starts up a user specified external application and then reads and writes the trace data to/from the external application's stdin and stdout. The external application must conform to some <a href="#Structure_of_a_Conforming_Application">simple rules</a> but could be written in any programming language, compiled or interpreted. This essentially means you can write a new OpendTect attribute in your computer language of choice and not have to delve into the internals of OpendTect.</p>
+<p>The source and binary distributions of the plugin includes a reference implementation for writing external attributes in Python/Numpy (version 3). This consists of a module <em>extattrib.py</em> that handles the stdin/stdout details and presents the trace data as a numpy array. Two examples using this module are included in the plugin distribution and shown in full below. More examples can be found at <a href="https://gist.github.com/search?q=OpendTect+External+Attribute">gist.github.com</a>.</p>
+<h3 id="recursive-lowpass-filter-ex_lowpass_filterpy">Recursive Lowpass Filter (ex_lowpass_filter.py)</h3>
+<p>This example implements a Butterworth Lowpass filter using Python/Numpy/SciPy.  This is an example of an attribute with single trace input and output.</p>
+<p><strong>NOTE:</strong> the <em>extattrib.py</em> module must either be in the same folder as the attribute <em>.py</em> file or on the Python module search path.</p>
+<pre><code class="python">#
+# Simple Butterworth LowPass Filter using Numpy/Scipy
+# for the OpendTect ExternalAttrib plugin
+#
+import sys
+import numpy as np
+import scipy.signal as sig
+#
+# Import the module with the I/O scaffolding of the External Attribute
+#
+import extattrib as xa
+
+#
+# Set the attribute parameters
+#
+xa.params = {
+    'Input': 'Filter Input',
+    'ZSampMargin' : {'Value': [-30,30]},
+    'Par_0' : {'Name': 'Filter Cutoff', 'Value': 40},
+    'Par_1' : {'Name': 'Filter Order', 'Value': 3},
+    'Help'  : 'https://gist.github.com/waynegm/ed83d99c088db5cb37a9'
+}
+#
+# Define the compute function
+#
+def doCompute():
+#   global Output
+    order = xa.params['Par_1']['Value']
+    nyquist = 1.0/(2.0*xa.SI['zstep'])
+    cutoff = xa.params['Par_0']['Value']/nyquist
+    b, a = sig.butter(order, cutoff, 'low', analog=False)
+    while True:
+        xa.doInput()
+        xa.Output = sig.filtfilt(b, a, xa.Input[0,0,:], padtype=None, padlen=0)
+        xa.doOutput()
+
+#
+# Assign the compute function to the attribute
+#
+xa.doCompute = doCompute
+#
+# Do it
+#
+xa.run(sys.argv[1:])
+</code></pre>
+
+<h3 id="prewitt-gradient-filter-ex_prewitt_filterpy">Prewitt Gradient Filter (ex_prewitt_filter.py)</h3>
+<p>This is a simple example of using Python/Numpy/SciPy and the External Attribute plugin to define a multi-trace attribute that generates multi-attribute output. This attribute replicates a significant portion of the functionality of the native OpendTect Convolve attribute.</p>
+<p>This attribute has the flexibility to output any of the calculated parameters (in-line, cross-line, Z and average gradient) to a display element on the tree or to write one or more outputs to a file. This flexibility comes with the penalty that all attributes are calculated regardless of if they are required or not. If the independent components (in-line, cross-line and Z gradient) were being used separately it would be best to split these out into separate attributes for improved performance.</p>
+<p><strong>NOTE:</strong> the <em>extattrib.py</em> module must either be in the same folder as the attribute <em>.py</em> file or on the Python module search path.</p>
+<pre><code class="python">#
+# Apply Prewitt filter
+#
+import sys
+import numpy as np
+from scipy.ndimage import prewitt
+#
+# Import the module with the I/O scaffolding of the External Attribute
+#
+import extattrib as xa
+
+#
+# These are the attribute parameters
+#
+xa.params = {
+    'Input': 'Input',
+    'Output': ['Average gradient', 'In-line gradient', 'Cross-line gradient', 'Z gradient'],
+    'ZSampMargin' : {'Value': [-1,1], 'Hidden': True},
+    'StepOut' : {'Value': [1,1], 'Hidden': True},
+    'Help'    : 'https://gist.github.com/waynegm/84f323ec4aab3961c23d'
+}
+#
+# Define the compute function
+#
+def doCompute():
+#
+# index of current trace position in Input numpy array
+#
+    ilndx = xa.SI['nrinl']//2
+    crldx = xa.SI['nrcrl']//2
+    while True:
+        xa.doInput()
+        xa.Output['In-line gradient'] = prewitt(xa.Input, axis=0)[ilndx,crldx,:]
+        xa.Output['Cross-line gradient'] = prewitt(xa.Input, axis=1)[ilndx,crldx,:]
+        xa.Output['Z gradient'] = prewitt(xa.Input, axis=2)[ilndx,crldx,:]
+        xa.Output['Average gradient'] = (xa.Output['In-line gradient'] 
+                                        + xa.Output['Cross-line gradient'] 
+                                        + xa.Output['Z gradient'])/3
+        xa.doOutput()
+
+#
+# Assign the compute function to the attribute
+#
+xa.doCompute = doCompute
+#
+# Do it
+#
+xa.run(sys.argv[1:])
+
+</code></pre>
+
+<h2 id="input-parameters">Input Parameters</h2>
+<p>This attribute has 3 required parameters and up to 9 optional parameters determined by the <a href="#Attribute_JSON_Parameter_String">JSON parameter string</a> provided by the external application:</p>
+<table>
+<thead>
+<tr>
+<th>NAME</th>
+<th>DESCRIPTION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Interpreter</td>
+<td style="width:70%">For external attributes written in a scripted language this field specifies the location of the  interpreter required to run the script, eg /usr/bin/python3</td>
+</tr>
+<tr>
+<td>External File</td>
+<td>The external application to be used for attribute calculation.</td>
+</tr>
+<tr>
+<td>Input</td>
+<td>The input attribute to use</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Input Parameters" src="../../images/ExternalAttrib_input.jpg" title="External Attribute input parameters" />  </p>
+<h2 id="attribute-json-parameter-string">Attribute JSON Parameter String</h2>
+<p>The external application can specify a set of parameters as a JSON object string</p>
+<table>
+<thead>
+<tr>
+<th>JSON KEYWORD</th>
+<th>PARAMETER FORMAT</th>
+<th>DESCRIPTON</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Input</td>
+<td>String</td>
+<td style="width:50%">Specifies a label to appear beside the attribute selection UI element</td>
+</tr>
+<tr>
+<td>Output</td>
+<td>Array of strings</td>
+<td>Each string specifies the name of an attribute output. If not supplied a single output attribute is assumed.</td>
+</tr>
+<tr>
+<td>ZSampMargin</td>
+<td>Object with a 'Value' *array of 2 numbers)  and optional 'Hidden' (boolean) parameter.</td>
+<td>The 'Value' parameter is an array of 2 numbers specifing the desired minimum number of samples above and below the calculation point required for the calculation. If not supplied only a single value will be provided when the attribute is computed on a timeslice or horizon. The 'Hidden' parameter is a boolean which if set to false makes the ZSampMargin parameter read only. (optional)</td>
+</tr>
+<tr>
+<td>StepOut</td>
+<td>Object with a 'Value' (array of 2 numbers) and optional 'Hidden' (boolean) parameter.</td>
+<td>The 'Value' parameter is an array of 2 numbers specifing the block of traces to be used around the current calculation position. If not supplied only a single trace is provided. The 'Hidden' parameter is a boolean which if set to false makes the StepOut parameter read only. (optional)</td>
+</tr>
+<tr>
+<td>Selection</td>
+<td>Object with a 'Name' (string), 'Values' (array of strings) and 'Select' (number) parameters</td>
+<td>Displays a list box labeled 'Name' with options specified in 'Values' and default selection being item number 'Select'. (optional)</td>
+</tr>
+<tr>
+<td>Par0</td>
+<td>Object with a 'Name' (string) and 'Value' (number) parameter</td>
+<td>Displays an entry box labeled 'Name' with default value 'Value' (optional)</td>
+</tr>
+<tr>
+<td>Par1</td>
+<td>As above</td>
+<td>As above</td>
+</tr>
+<tr>
+<td>Par2</td>
+<td>As above</td>
+<td>As above</td>
+</tr>
+<tr>
+<td>Par3</td>
+<td>As above</td>
+<td>As above</td>
+</tr>
+<tr>
+<td>Par4</td>
+<td>As above</td>
+<td>As above</td>
+</tr>
+<tr>
+<td>Help</td>
+<td>String</td>
+<td>URL pointing to documentation for the external attribute (optional)</td>
+</tr>
+</tbody>
+</table>
+<p>Here is an example parameter string:</p>
+<pre><code>{
+    'Input': 'Test Input',
+    'Output': ['Left', 'Right'],
+    'ZSampMargin' : {'Value': [-10,10]},
+    'StepOut' : {'Value': [1,1], 'Hidden': true},
+    'Par_0' : {'Name': 'First Parameter', 'Value' : 100.0},
+    'Par_1' : {'Name': 'Second Parameter','Value': 200.0},
+    'Help'  : 'https://gist.github.com/waynegm/84f323ec4aab3961c23d'
+}
+</code></pre>
+
+<h2 id="issues">Issues</h2>
+<h3 id="opendtect-linux-hangs-after-selecting-a-python-external-attribute-in-the-attribute-description-editor">OpendTect (Linux) hangs after selecting a Python external attribute in the Attribute Description Editor</h3>
+<p>This can happen if the Python file has Windows/DOS linebreaks. Use the dos2unix command on the Python file and all should be ok.</p>
+<h3 id="setting-up-a-pythonnumpyscipy-environment">Setting up a Python/Numpy/Scipy environment</h3>
+<p>On both Linux and Windows it can be a bit of a pain to set up a Python/Numpy/Scipy development stack for Python 3 from scratch. Continuum Analytics provide free Python installers for Linux and Windows in <a href="http://continuum.io/downloads#all">Anaconda</a>. There is also a smaller DIY option called <a href="http://conda.pydata.org/miniconda.html">Miniconda</a> which allows you to select just the packages you need (the examples only require Python 3, Numpy and Scipy).</p>
+<h2 id="structure-of-a-conforming-application">Structure of a Conforming Application</h2>
+<p>The rules that a comforming application must follow are:</p>
+<ul>
+<li>When invoked with a commandline argument of <code>-g</code> the application should write out a  <a href="#Attribute_JSON_Parameter_String">JSON parameter string</a> to stdout describing the attribute parameters and exit.</li>
+<li>When invoked with a commandline argument of <code>-c json-parameter-string</code> the application <ul>
+<li>should read and parse the contents of <code>json-parameter-string</code> to get the attribute parameters</li>
+<li>read a 24 byte block of binary data from stdin called the SeismicInfo block (described below)</li>
+<li>start an endless loop that:<ul>
+<li>reads a 16 byte block of binary data from stdin called the TraceInfo block (described below)</li>
+<li>reads a data block of 4 byte binary floats from stdin that contains the seismic trace data. The size of the data block depends on the content of the SeismicInfo (number of traces) and TraceInfo ( number of samples) blocks<ul>
+<li><code>number_of_traces * number_of_samples * 4 bytes</code>.</li>
+</ul>
+</li>
+<li>calculates the attribute output</li>
+<li>writes a data block of 4 byte binary floats to stdout that contains the attribute output. The size of the output data block depends on the content of the TraceInfo ( number of samples) block and the number of output attributes<ul>
+<li><code>number_of_samples * number_of_outputs * 4 bytes</code>.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="seismicinfo-block">SeismicInfo Block</h3>
+<p>This block of binary data is written to the applications stdin immediately after it is started with the <code>-c</code> argument. It consists of 24 bytes as follows:</p>
+<table>
+<thead>
+<tr>
+<th>SIZE</th>
+<th>FORMAT</th>
+<th>DESCRIPTION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4 bytes</td>
+<td>integer</td>
+<td>number of traces in the input data block</td>
+</tr>
+<tr>
+<td>4 bytes</td>
+<td>integer</td>
+<td>number of inline traces in the input data block</td>
+</tr>
+<tr>
+<td>4 bytes</td>
+<td>integer</td>
+<td>number of crossline traces in the input data block</td>
+</tr>
+<tr>
+<td>4 bytes</td>
+<td>float</td>
+<td>trace sampling interval  (result of OpendTect API call <code>SI().zstep()</code>)</td>
+</tr>
+<tr>
+<td>4 bytes</td>
+<td>float</td>
+<td>distance between inlines (result of OpendTect API call <code>SI().inlDistance()</code>)</td>
+</tr>
+<tr>
+<td>4 bytes</td>
+<td>float</td>
+<td>distance between crosslines (result of OpendTect API call <code>SI().crlDistance()</code>)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="traceinfo-block">TraceInfo Block</h3>
+<p>This block of binary data is written to the application stdin immediately before each block of trace data. It consists of 16 bytes as follows:</p>
+<table>
+<thead>
+<tr>
+<th>SIZE</th>
+<th>FORMAT</th>
+<th>DESCRIPTION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="width:10%">4 bytes</td>
+<td>integer</td>
+<td>number of samples in each trace within the input data block (OpendTect <code>nrsamples</code> parameter)</td>
+</tr>
+<tr>
+<td>4 bytes</td>
+<td>integer</td>
+<td>position of first sample in data trace within entire seismic trace ( OpendTect <code>z0</code> parameter)</td>
+</tr>
+<tr>
+<td>4 bytes</td>
+<td>integer</td>
+<td>inline number of current calculation position</td>
+</tr>
+<tr>
+<td>4 bytes</td>
+<td>integer</td>
+<td>crossline number of current calculation position</td>
+</tr>
+</tbody>
+</table>
+</div>
+            
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            
+            <p>All content and images &copy; 2015 by Wayne Mogg</p>
+            
+            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+
+        
+
+        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/prettify-1.0.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+        <script src="../../js/base.js"></script>
+        <script src="../../js/juxtapose.min.js"></script>
+    </body>
+</html>

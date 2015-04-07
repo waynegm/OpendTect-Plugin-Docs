@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Wayne Mogg">
+        
+        <link rel="shortcut icon" href="../../../../favicon-32x32.png">
+        
+
+        <title>Recursive time-frequency attribute - OpendTect Plugins</title>
+
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <link href="../../css/juxtapose.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../..">OpendTect Plugins</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Installation <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            <li >
+                                <a href="../../Installation/download-binary">Download</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../../Installation/installation">Install</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../../Installation/building-from-source">Build from source</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../../Installation/faq">Issues/FAQ</a>
+                            </li>
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Plugins <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            <li >
+                                <a href="../AVOAttrib">AVO attributes</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../ExternalAttrib">External attribute</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../LTFAttrib">Local time-frequency attribute</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../MLVFilter">Mean of least variance filter</a>
+                            </li>
+                        
+                            <li class="active">
+                                <a href=".">Recursive time-frequency attribute</a>
+                            </li>
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">External Attributes <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            <li >
+                                <a href="../../External-Attributes/LPA-Smoothing">LPA Smoothing</a>
+                            </li>
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            <li >
+                                <a href="../../license">License</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../../relnotes">Release Notes</a>
+                            </li>
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+            
+
+            
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                
+                
+                <li >
+                    <a rel="next" href="../MLVFilter">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="../../External-Attributes/LPA-Smoothing">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+                
+                <li>
+                    <a href="https://github.com/waynegm/OpendTect-5-plugins">
+                        
+                            <i class="fa fa-github"></i>
+                        
+                        GitHub
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#rspecattrib">RSpecAttrib</a></li>
+        
+            <li><a href="#description">Description</a></li>
+        
+            <li><a href="#examples">Examples</a></li>
+        
+            <li><a href="#input-parameters">Input Parameters</a></li>
+        
+    
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="rspecattrib">RSpecAttrib</h1>
+<p>Recursive time-frequency decomposition attribute for the open source seismic interpretation platform <a href="http://www.opendtect.org/" target="_blank">OpendTect</a>.</p>
+<h2 id="description">Description</h2>
+<p>This plugin can be used as an alternative to the <a href="http://opendtect.org/rel/doc/User/base/appendix_spectral-decomposition.htm" target="_blank">OpendTect FFT spectral decomposition attribute</a>.</p>
+<p>It does spectral decomposition using <a href="https://bora.uib.no/bitstream/handle/1956/3036/42162315.pdf?sequence=1" title="Recursive time-frequency reassignment. Geir Kjetil Nilsen. University of Bergen, Norway MSc Thesis">Nilsen's (2007)</a> time-frequency analysis algorithm which is a recursive filter approximation to a special case of the short time fourier transform (STFT). </p>
+<p>The primary advantage of this plugin over the standard OpendTect FFT spectral decomposition is that it can be evaluated significantly faster. As an example, under Linux on an Intel Core i5 for a 2000 sample per trace dataset, this attribute can generate a single frequency cube at 4000 traces per second. This is considerably faster than the 140-150 traces per second achieved when applying the OpendTect FFT spectral decomposition attribute. This processing speed advantage is reduced as the number of output frequencies increases but in this test case it still remains substantially faster even for output of up to 30 frequencies.</p>
+<h2 id="examples">Examples</h2>
+<p><div class="juxtapose" style="margin:0px;padding:0px" data-startingposition="50" data-showlabels="true" data-showcredits="false" data-animate="false" data-mode="horizontal">
+<img src="../.././images/RSpecAttrib_sd.jpg" data-label="FFT Spectral Decomposition (30Hz +/-28ms window)" data-credit="">
+<img src="../.././images/RSpecAttrib_1.jpg"  data-label="Recursive time-frequency attribute (30Hz +/- 22ms window)" data-credit="">
+</div></p>
+<p>The output of the RSpec attribute (rfreq30) is visually identical and also highly correlated to the OpendTect FFT spectral decomposition (sdfreq30) as shown in the following crossplot of the two attributes.</p>
+<p><strong>Crossplot of RSpecAttrib vs FFT Spectral Decomposition</strong></p>
+<p><img alt="Crossplot of RSpecAttrib vs FFT Spectral Decomposition" src="../../images/RSpecAttrib_2.jpg" title="Crossplot of RSpecAttrib vs FFT Spectral Decomposition" /></p>
+<h2 id="input-parameters">Input Parameters</h2>
+<p>This attribute has 4 parameters:</p>
+<table>
+<thead>
+<tr>
+<th>NAME</th>
+<th>DESCRIPTION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Input Volume</td>
+<td style="width:60%">The attribute volume to be analysed.</td>
+</tr>
+<tr>
+<td>Time/Depth Gate</td>
+<td>This determines the position and time resolution of the analysis. The value from the gate centre is output - useful for analysing a zone offset from an horizon. Recommend setting the gate length equal to or less than the FFT window length you would used for the standard OpendTect FFT spectral decomposition.</td>
+</tr>
+<tr>
+<td>Output frequency</td>
+<td>When displaying the attribute in the tree this is the frequency slice that will be generated</td>
+</tr>
+<tr>
+<td>Step</td>
+<td>This determines the set of frequencies that can be chosen when generating a frequency volume.</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Input parameters" src="../../images/RSpecAttrib_input.jpg" title="RSpecAttrib input parameter dialog" /></p>
+</div>
+            
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            
+            <p>All content and images &copy; 2015 by Wayne Mogg</p>
+            
+            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+
+        
+
+        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/prettify-1.0.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+        <script src="../../js/base.js"></script>
+        <script src="../../js/juxtapose.min.js"></script>
+    </body>
+</html>
