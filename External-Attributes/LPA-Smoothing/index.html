@@ -184,6 +184,9 @@
         <li class="main "><a href="#examples">Examples</a></li>
         
     
+        <li class="main "><a href="#input-parameters">Input Parameters</a></li>
+        
+    
         <li class="main "><a href="#references">References</a></li>
         
     
@@ -196,10 +199,10 @@
 <p>There are 2 versions of the attribute:</p>
 <ul>
 <li>
-<p><a href="https://gist.github.com/waynegm/bff2e62490dda32a74b4">ex_lpa.py</a> - which uses the 3D convolution filter included in scipy.ndimage</p>
+<p><a href="https://gist.github.com/waynegm/bff2e62490dda32a74b4">ex_lpa_smooth.py</a> - which uses the 3D convolution filter included in scipy.ndimage</p>
 </li>
 <li>
-<p><a href="https://gist.github.com/waynegm/bff2e62490dda32a74b4">ex_lpa_numba.py</a> - which uses the <a href="http://numba.pydata.org/">Numba JIT compiler</a> to dramatically speed up the convolution. This version is approximately 4 times faster.</p>
+<p><a href="https://gist.github.com/waynegm/bff2e62490dda32a74b4">ex_lpa_smooth_numba.py</a> - which uses the <a href="http://numba.pydata.org/">Numba JIT compiler</a> to dramatically speed up the convolution. My own tests show a 3-4 times increase in throughput.</p>
 </li>
 </ul>
 <h2 id="examples">Examples</h2>
@@ -207,9 +210,34 @@
 <img src="../.././images/lpa_input.jpg" data-label="Input" data-credit="">
 <img src="../.././images/lpa_5x5x5.jpg"  data-label="lpa 5x5x5 WF: 0.5" data-credit="">
 </div></p>
+<h2 id="input-parameters">Input Parameters</h2>
+<p><img alt="Input Parameters" src="../../images/lpa_smooth_inputpar.jpg" title="LPA smoothing filter input parameters" /></p>
+<table>
+<thead>
+<tr>
+<th>NAME</th>
+<th>DESCRIPTION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Z window (+/-samples)</td>
+<td style="width:60%">Specifies the extent of the analysis cube in the Z direction. Number of Z samples in cube will be 2*Z_window+1.</td>
+</tr>
+<tr>
+<td>Stepout</td>
+<td>Specifies the inline and crossline extent of the analysis cube. Number of samples in each direction will be 2*Stepout+1.</td>
+</tr>
+<tr>
+<td>Weight Factor</td>
+<td>Determines the extent of the gaussian weight function used in the weighted least squares approximation.  A value of 0.15 gives near zero weight for points at the extent of the analysis cube.</td>
+</tr>
+</tbody>
+</table>
+<p>Increasing either the Weight Factor or analysis cube size increases the smoothing.</p>
 <h2 id="references">References</h2>
-<p><a href="../../www.doc.ic.ac.uk/research/technicalreports/2006/DTR06-8.pdf">Anisotropic Multidimensional Savitzky Golay kernels for Smoothing, Differentiation and Reconstruction</a></p>
-<p><a href="../../www.diva-portal.org/smash/get/diva2:302485/FULLTEXT01.pdf">Polynomial Expansion for Orientation and Motion Estimation</a></p>
+<p><a href="http://www.doc.ic.ac.uk/research/technicalreports/2006/DTR06-8.pdf">Anisotropic Multidimensional Savitzky Golay kernels for Smoothing, Differentiation and Reconstruction</a></p>
+<p><a href="http://www.diva-portal.org/smash/get/diva2:302485/FULLTEXT01.pdf">Polynomial Expansion for Orientation and Motion Estimation</a></p>
 </div>
             
         </div>
