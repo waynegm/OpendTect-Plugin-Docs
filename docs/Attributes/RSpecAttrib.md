@@ -20,7 +20,7 @@ The output of the RSpec attribute (rfreq30) is visually identical and also highl
 
 **Crossplot of RSpecAttrib vs FFT Spectral Decomposition**
 
-![Crossplot of RSpecAttrib vs FFT Spectral Decomposition](../../images/RSpecAttrib_2.jpg "Crossplot of RSpecAttrib vs FFT Spectral Decomposition")
+![Crossplot of RSpecAttrib vs FFT Spectral Decomposition](../images/RSpecAttrib_2.jpg "Crossplot of RSpecAttrib vs FFT Spectral Decomposition")
 
 ## Input Parameters
 
@@ -33,6 +33,6 @@ This attribute has 4 parameters:
 | Output frequency | When displaying the attribute in the tree this is the frequency slice that will be generated |
 | Step             | This determines the set of frequencies that can be chosen when generating a frequency volume.|
   
-![Input parameters](../../images/RSpecAttrib_input.jpg "RSpecAttrib input parameter dialog")
+![Input parameters](../images/RSpecAttrib_input.jpg "RSpecAttrib input parameter dialog")
 
 

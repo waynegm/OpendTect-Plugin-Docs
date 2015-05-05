@@ -20,7 +20,7 @@ The output of the LTF attribute (ltf30) is visually identical and also highly co
 
 **Crossplot of LTFAttrib vs FFT Spectral Decomposition**
 
-![Crossplot of LTFAttrib vs FFT Spectral Decomposition](../../images/LTFAttrib_2.jpg "Crossplot of LTFAttrib vs FFT Spectral Decomposition")
+![Crossplot of LTFAttrib vs FFT Spectral Decomposition](../images/LTFAttrib_2.jpg "Crossplot of LTFAttrib vs FFT Spectral Decomposition")
 
 ## Input Parameters
 
@@ -34,7 +34,7 @@ This attribute has 4 parameters:
 | Iterations       | The number of inversion iterations. |
 | Margin           | Amount of data around the calculation sample to include in the calculation. Specified in number of smoothing radii. |
     
-![Input Parameters](../../images/LTFAttrib_input_parameters.jpg "LTF Attributes input parameters")
+![Input Parameters](../images/LTFAttrib_input_parameters.jpg "LTF Attributes input parameters")
 
 
 

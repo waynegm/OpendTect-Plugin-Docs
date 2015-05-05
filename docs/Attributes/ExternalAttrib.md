@@ -129,7 +129,7 @@ This attribute has 3 required parameters and up to 9 optional parameters determi
 | External File    | The external application to be used for attribute calculation. |
 | Input | The input attribute to use |
     
-![Input Parameters](../../images/ExternalAttrib_input.jpg "External Attribute input parameters")	
+![Input Parameters](../images/ExternalAttrib_input.jpg "External Attribute input parameters")	
 
 ## Attribute JSON Parameter String
 The external application can specify a set of parameters as a JSON object string

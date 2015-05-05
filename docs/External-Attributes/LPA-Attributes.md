@@ -12,7 +12,7 @@ The first 2 attributes, LPA Smoothing and LPA Dip, have the most practical poten
 ## Input Parameters
 All attributes have the same set of input parameters. The only difference is that some have a choice of output attribute.
 
-![Input Parameters](../../images/lpa_smooth_inputpar.jpg "LPA external attribute input parameters")
+![Input Parameters](../images/lpa_smooth_inputpar.jpg "LPA external attribute input parameters")
 
 | NAME             | DESCRIPTION |
 |------------------|-------------|
@@ -37,7 +37,7 @@ There are 2 versions of the attribute:
 ## LPA Dip 
 This attribute (__ex_lpa_dip.py__) uses the local polynomial approximation coefficients to estimate an orientation tensor as per [Farnebäck (2002)](http://dx.doi.org/10.1190/geo2012-0427.1  "Farnebäck, Gunnar. Polynomial Expansion for Orientation and Motion Estimation. Linköping Studies in Science and Technology. Dissertations No, 790") and assumes the orientation of the first eigenvector is normal to the local event dip. Output can be either the inline or crossline dip. The example shows inline dip on a crossline calculated using a 5x5x5 sample volume (Z_window: 2, Stepout: 2,2) with a subsequent 3x3x3 sample median filter applied to remove spurious dips. Only a [Numba JIT compiler](http://numba.pydata.org/) version of this attribute is provided.
 
-![LPA Dip](../../images/lpa_dip_2x2x2.jpg "LPA Dip external attribute")
+![LPA Dip](../images/lpa_dip_2x2x2.jpg "LPA Dip external attribute")
 
 ## LPA Coefficients 
 This attribute (__ex_lpa_coef.py__) outputs all of the local polynomial approximation coefficients. The r0 output is identical to the LPA Smoothing attribute. Only a [Numba JIT compiler](http://numba.pydata.org/) version of this attribute is provided. The example below shows the inline first and second derivative components on a crossline.
