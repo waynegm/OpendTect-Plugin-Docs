@@ -209,9 +209,9 @@
 <p>AVO attribute plugin for the open source seismic interpretation platform <a href="http://www.opendtect.org/" target="_blank">OpendTect</a> - calculates 6 attributes based on different parameterizations of reflection intercept and gradient.</p>
 <h2 id="description">Description</h2>
 <p>The intercept-gradient crossplot is widely used for amplitude-variation-with-offset (AVO) analysis in hydrocarbon exploration.  The intercept is the zero offset or normal incidence reflection amplitude/coefficient of an event while the gradient is the change in reflection amplitude/coefficient with offset at normal incidence. Some authors refer to intercept as A or P and gradient as B or G. Modelling studies show that changes in subsurface rock properties such as lithology, porosity and pore fluid content result in systematic changes in intercept-gradient space. The following figure, adapted from the very informative paper on AVO by <a href="http://library.seg.org/doi/abs/10.1190/1.3467825" title="Interpretation of AVO anomalies. Douglas J. Foster, Robert G. Keys, and F. David Lane. GEOPHYSICS 2010 75:5, 75A3-75A13">Foster etal (2010)</a>, illustrates the ideal intercept-gradient crossplot response for a clastic sequence to changes in porosity and pore fluid. The Fluid Line or Background Trend is where reflections from shales and some wet sands that have little contrast in Vp/Vs plot.</p>
-<p><img alt="Ideal AVO for clastics" src="../../../images/AVOAttrib_ideal_crossplot.jpg" title="Ideal AVO crossplot for a clastic sequence" /></p>
+<p><img alt="Ideal AVO for clastics" src="../../images/AVOAttrib_ideal_crossplot.jpg" title="Ideal AVO crossplot for a clastic sequence" /></p>
 <p>Another popular classification of AVO effects on the intercept-gradient crossplot is the 3 class AVO scheme of <a href="http://library.seg.org/doi/abs/10.1190/1.1442696" title="Amplitude‐versus‐offset variations in gas sands. Steven R. Rutherford and Robert H. Williams GEOPHYSICS 1989 54:6, 680-688">Rutherford and Williams (1989)</a> based on acoustic impedance contrasts with the addition of a 4th class for high porosity gas sands introduced by <a href="http://library.seg.org/doi/abs/10.1190/1.1437626" title="Principles of AVO crossplotting. John P. Castagna and Herbert W. Swan. The Leading Edge 1997 16:4, 337-344">Castagna and Swan (1997)</a>. The position of these 4 AVO classes on the intercept-gradient crossplot is shown in the following figure.</p>
-<p><img alt="AVO classes" src="../../../images/AVOAttrib_classes.jpg" title="AVO classes" /></p>
+<p><img alt="AVO classes" src="../../images/AVOAttrib_classes.jpg" title="AVO classes" /></p>
 <p>This plugin calculates 6 attributes which are essentially just coordinate transformations of the intercept and gradient that aim to highlight changes of a particular rock property based on the expected behaviour of pore fluid changes in clastic reservoir sequences.</p>
 <table>
 <thead>
@@ -222,27 +222,27 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>Fluid Factor</strong> <br> <img alt="Fluid Factor" src="../../../images/AVOAttrib_fluidfactor_crossplot.jpg" title="Fluid Factor Crossplot" /></td>
+<td><strong>Fluid Factor</strong> <br> <img alt="Fluid Factor" src="../../images/AVOAttrib_fluidfactor_crossplot.jpg" title="Fluid Factor Crossplot" /></td>
 <td>Fluid Factor is a reprojection of intercept/gradient coordinates that highlights deviation from the Fluid Line. As the name implies this attribute highlights changes related to fluid compressibility. The Fluid Factor was introduced by <a href="http://gp.eage.org/publication/publicationdetails/?publication=32676" title="Weighted stacking for rock property estimation and detection of gas. G. C. Smith and P. M. Gidlow. Geophysical Prospecting 1987, Vol. 35, No. 9, pp. 993 - 1014">Smith and Gidlow (1987)</a>.</td>
 </tr>
 <tr>
-<td><strong>Lithology Factor</strong> <br>  <img alt="Lithology Factor" src="../../../images/AVOAttrib_lithfactor_crossplot.jpg" title="Lithology Factor Crossplot" /></td>
+<td><strong>Lithology Factor</strong> <br>  <img alt="Lithology Factor" src="../../images/AVOAttrib_lithfactor_crossplot.jpg" title="Lithology Factor Crossplot" /></td>
 <td style="width:60%">Lithology Factor is the companion coordinate reprojection to Fluid Factor. It highlights changes parallel to the Fluid Line.</td>
 </tr>
 <tr>
-<td><strong>Porosity Factor</strong> <br>  <img alt="Porosity Factor" src="../../../images/AVOAttrib_porofactor_crossplot.jpg" title="Porosity Factor Crossplot" /></td>
+<td><strong>Porosity Factor</strong> <br>  <img alt="Porosity Factor" src="../../images/AVOAttrib_porofactor_crossplot.jpg" title="Porosity Factor Crossplot" /></td>
 <td>Porosity Factor is just Lithology Factor with the values above the fluid line reversed so the attribute magnitude always increases in the same sense as the effect of increasing porosity, i.e. the attribute magnitude increases to the upper left below the Fluid Line and to the lower right above the Fluid Line.</td>
 </tr>
 <tr>
-<td><strong>Crossplot Angle</strong> <br> <img alt="Crossplot Angle" src="../../../images/AVOAttrib_angle_crossplot.jpg" title="Crossplot Angle Crossplot" /></td>
+<td><strong>Crossplot Angle</strong> <br> <img alt="Crossplot Angle" src="../../images/AVOAttrib_angle_crossplot.jpg" title="Crossplot Angle Crossplot" /></td>
 <td>Crossplot Angle is the angle between an intercept-gradient point and the Fluid Line. It runs from 0 to 180 below the Fluid Line measured counter-clockwise from the upper left projection of the Fluid Line. It runs from 0 to -180 above the Fluid Line measured counter-clockwise from the lower right projection of the Fluid Line. The Crossplot Angle and Deviation can be interpreted as the polar coordinates of a data point in the intercept-gradient crossplot space.</td>
 </tr>
 <tr>
-<td><strong>Crossplot Deviation</strong> <br> <img alt="Crossplot Deviation" src="../../../images/AVOAttrib_deviation_crossplot.jpg" title="Crossplot Deviation Crossplot" /></td>
+<td><strong>Crossplot Deviation</strong> <br> <img alt="Crossplot Deviation" src="../../images/AVOAttrib_deviation_crossplot.jpg" title="Crossplot Deviation Crossplot" /></td>
 <td>Crossplot Deviation is the distance from the crossplot origin. This attribute is most useful as a transparency mask to remove data close to the centre of the crossplot.</td>
 </tr>
 <tr>
-<td><strong>AVO Class</strong> <br> <img alt="Crossplot Class" src="../../../images/AVOAttrib_class_crossplot.jpg" title="AVO Class Crossplot" /></td>
+<td><strong>AVO Class</strong> <br> <img alt="Crossplot Class" src="../../images/AVOAttrib_class_crossplot.jpg" title="AVO Class Crossplot" /></td>
 <td>AVO Class classifies intercept-gradient points according to the 4 class AVO scheme of Rutherford and Williams (1989) and Castagna and Swan (1997). Points below the Fluid Line have a positive class number and those above have a negative class number.</td>
 </tr>
 </tbody>
@@ -291,7 +291,7 @@
 </tr>
 </tbody>
 </table>
-<p><img alt="Input Parameters" src="../../../images/AVOAttrib_input_parameters.jpg" title="AVO Attributes input parameters" /></p></div>
+<p><img alt="Input Parameters" src="../../images/AVOAttrib_input_parameters.jpg" title="AVO Attributes input parameters" /></p></div>
             
         </div>
 
@@ -313,7 +313,7 @@
 
         <!--
         MkDocs version  : 0.12.2
-        Docs Build Date : 2015-05-05 12:18:09.913498
+        Docs Build Date : 2015-05-05 12:23:11.002020
         -->
     </body>
 </html>
