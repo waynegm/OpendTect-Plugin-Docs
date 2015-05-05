@@ -10,7 +10,7 @@
         <link rel="shortcut icon" href="../../../../favicon-32x32.png">
         
 
-        <title>Mean of least variance filter - OpendTect Plugins</title>
+	<title>Mean of least variance filter - OpendTect Plugins</title>
 
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -24,6 +24,16 @@
             <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
 
+        
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-62607269-1', 'OpendTect-Plugin-Docs');
+            ga('send', 'pageview');
+        </script>
         
     </head>
 
@@ -55,24 +65,30 @@
                 <ul class="nav navbar-nav">
                 
                 
+                    <li >
+                        <a href="../..">Home</a>
+                    </li>
+                
+                
+                
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Installation <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             <li >
-                                <a href="../../Installation/download-binary">Download</a>
+                                <a href="../../Installation/download-binary/">Download</a>
                             </li>
                         
                             <li >
-                                <a href="../../Installation/installation">Install</a>
+                                <a href="../../Installation/installation/">Install</a>
                             </li>
                         
                             <li >
-                                <a href="../../Installation/building-from-source">Build from source</a>
+                                <a href="../../Installation/building-from-source/">Build from source</a>
                             </li>
                         
                             <li >
-                                <a href="../../Installation/faq">Issues/FAQ</a>
+                                <a href="../../Installation/faq/">Issues/FAQ</a>
                             </li>
                         
                         </ul>
@@ -85,23 +101,23 @@
                         <ul class="dropdown-menu">
                         
                             <li >
-                                <a href="../AVOAttrib">AVO attributes</a>
+                                <a href="../AVOAttrib/">AVO attributes</a>
                             </li>
                         
                             <li >
-                                <a href="../ExternalAttrib">External attribute</a>
+                                <a href="../ExternalAttrib/">External attribute</a>
                             </li>
                         
                             <li >
-                                <a href="../LTFAttrib">Local time-frequency attribute</a>
+                                <a href="../LTFAttrib/">Local time-frequency attribute</a>
                             </li>
                         
                             <li class="active">
-                                <a href=".">Mean of least variance filter</a>
+                                <a href="./">Mean of least variance filter</a>
                             </li>
                         
                             <li >
-                                <a href="../RSpecAttrib">Recursive time-frequency attribute</a>
+                                <a href="../RSpecAttrib/">Recursive time-frequency attribute</a>
                             </li>
                         
                         </ul>
@@ -114,7 +130,7 @@
                         <ul class="dropdown-menu">
                         
                             <li >
-                                <a href="../../External-Attributes/LPA-Smoothing">LPA Smoothing</a>
+                                <a href="../../External-Attributes/LPA-Attributes/">Local Polynomial Approximation</a>
                             </li>
                         
                         </ul>
@@ -127,11 +143,11 @@
                         <ul class="dropdown-menu">
                         
                             <li >
-                                <a href="../../license">License</a>
+                                <a href="../../license/">License</a>
                             </li>
                         
                             <li >
-                                <a href="../../relnotes">Release Notes</a>
+                                <a href="../../relnotes/">Release Notes</a>
                             </li>
                         
                         </ul>
@@ -147,12 +163,12 @@
                 
                 
                 <li >
-                    <a rel="next" href="../LTFAttrib">
+                    <a rel="next" href="../LTFAttrib/">
                         <i class="fa fa-arrow-left"></i> Previous
                     </a>
                 </li>
                 <li >
-                    <a rel="prev" href="../RSpecAttrib">
+                    <a rel="prev" href="../RSpecAttrib/">
                         Next <i class="fa fa-arrow-right"></i>
                     </a>
                 </li>
@@ -197,19 +213,19 @@
 <p>This attribute is an implementation of a mean of least variance filter <a href="http://proceedings.spiedigitallibrary.org/proceeding.aspx?articleid=1008684" title="Value-and-criterion filters: a new filter structure based on morphological opening and closing. Mark A. Schulze and John A. Pearce. Proc. SPIE 1902, Nonlinear Image Processing IV, 106 (May 21, 1993)">Schulze &amp; Pearce (1993)</a> where the analysis elements are all the possible planes through the sample points in the analysis block. This algorithm may be similar to that proposed by <a href="http://library.seg.org/doi/abs/10.1190/1.3627375" title="Structure‐preserving smoothing for 3D seismic attributes. Saleh Al‐Dossary and Yuchun Eugene Wang. SEG Technical Program Expanded Abstracts 2011. January 2011, 1004-1008">Al-Dossary &amp; Wang (2011)</a>. </p>
 <p>The sample variance for all samples on each analysis element is calculated and the output statistic (average, mean or element index) is output for the element with the least variance. </p>
 <p>The following figure shows the relationship between the geometry of the analysis elements and the element index.</p>
-<p><img alt="Element Index" src="../../images/MLVFilterAttrib_elements.jpg" title="MLV Filter analysis elements" /></p>
+<p><img alt="Element Index" src="../../../images/MLVFilterAttrib_elements.jpg" title="MLV Filter analysis elements" /></p>
 <h2 id="examples">Examples</h2>
 <p><div class="juxtapose" style="margin:0px;padding:0px" data-startingposition="50" data-showlabels="true" data-showcredits="false" data-animate="false" data-mode="horizontal">
-<img src="../.././images/MLVFilterAttrib_input.jpg" data-label="Input" data-credit="">
-<img src="../.././images/MLVFilterAttrib_MLV3_Mean.jpg"  data-label="MLV Size 3 Average - 1 pass" data-credit="">
+<img src="../../images/MLVFilterAttrib_input.jpg" data-label="Input" data-credit="">
+<img src="../../images/MLVFilterAttrib_MLV3_Mean.jpg"  data-label="MLV Size 3 Average - 1 pass" data-credit="">
 </div></p>
 <div class="juxtapose" style="margin:0px;padding:0px" data-startingposition="50" data-showlabels="true" data-showcredits="false" data-animate="false" data-mode="horizontal">
-<img src="../.././images/MLVFilterAttrib_MLV5_Mean.jpg" data-label="MLV Size 5 Average - 1 pass" data-credit="">
-<img src="../.././images/MLVFilterAttrib_MLV3_Mean2.jpg"  data-label="MLV Size 3 Average - 2 passes" data-credit="">
+<img src="../../images/MLVFilterAttrib_MLV5_Mean.jpg" data-label="MLV Size 5 Average - 1 pass" data-credit="">
+<img src="../../images/MLVFilterAttrib_MLV3_Mean2.jpg"  data-label="MLV Size 3 Average - 2 passes" data-credit="">
 </div>
 
 <p><strong>MLV Size 3 Elements over Input</strong></p>
-<p><img alt="MLV 3 Elements" src="../../images/MLVFilterAttrib_MLV3_Elements.jpg" title="MLV 3 elements" /></p>
+<p><img alt="MLV 3 Elements" src="../../../images/MLVFilterAttrib_MLV3_Elements.jpg" title="MLV 3 elements" /></p>
 <h2 id="input-parameters">Input Parameters</h2>
 <p>This attribute has 2 parameters:</p>
 <table>
@@ -230,8 +246,7 @@
 </tr>
 </tbody>
 </table>
-<p><img alt="Input Parameters" src="../../images/MLVFilterAttrib_par1.jpg" title="MLF Filter input parameters" /></p>
-</div>
+<p><img alt="Input Parameters" src="../../../images/MLVFilterAttrib_par1.jpg" title="MLF Filter input parameters" /></p></div>
             
         </div>
 
@@ -245,11 +260,15 @@
 
         
 
-        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="../../js/jquery-1.10.2.min.js"></script>
         <script src="../../js/bootstrap-3.0.3.min.js"></script>
-        <script src="../../js/prettify-1.0.min.js"></script>
         <script src="../../js/highlight.pack.js"></script>
         <script src="../../js/base.js"></script>
         <script src="../../js/juxtapose.min.js"></script>
+
+        <!--
+        MkDocs version  : 0.12.2
+        Docs Build Date : 2015-05-05 12:18:09.948633
+        -->
     </body>
 </html>

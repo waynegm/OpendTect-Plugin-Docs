@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Wayne Mogg">
+        
+        <link rel="shortcut icon" href="../../../../favicon-32x32.png">
+        
+
+	<title>Local Polynomial Approximation - OpendTect Plugins</title>
+
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <link href="../../css/juxtapose.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-62607269-1', 'OpendTect-Plugin-Docs');
+            ga('send', 'pageview');
+        </script>
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../..">OpendTect Plugins</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Installation <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            <li >
+                                <a href="../../Installation/download-binary/">Download</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../../Installation/installation/">Install</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../../Installation/building-from-source/">Build from source</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../../Installation/faq/">Issues/FAQ</a>
+                            </li>
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Plugins <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            <li >
+                                <a href="../../Attributes/AVOAttrib/">AVO attributes</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../../Attributes/ExternalAttrib/">External attribute</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../../Attributes/LTFAttrib/">Local time-frequency attribute</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../../Attributes/MLVFilter/">Mean of least variance filter</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../../Attributes/RSpecAttrib/">Recursive time-frequency attribute</a>
+                            </li>
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">External Attributes <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            <li class="active">
+                                <a href="./">Local Polynomial Approximation</a>
+                            </li>
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            <li >
+                                <a href="../../license/">License</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../../relnotes/">Release Notes</a>
+                            </li>
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+            
+
+            
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                
+                
+                <li >
+                    <a rel="next" href="../../Attributes/RSpecAttrib/">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="../../license/">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+                
+                <li>
+                    <a href="https://github.com/waynegm/OpendTect-5-plugins">
+                        
+                            <i class="fa fa-github"></i>
+                        
+                        GitHub
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#description">Description</a></li>
+        
+    
+        <li class="main "><a href="#input-parameters">Input Parameters</a></li>
+        
+    
+        <li class="main "><a href="#lpa-smoothing">LPA Smoothing</a></li>
+        
+    
+        <li class="main "><a href="#lpa-dip">LPA Dip</a></li>
+        
+    
+        <li class="main "><a href="#lpa-coefficients">LPA Coefficients</a></li>
+        
+    
+        <li class="main "><a href="#lpa-eigenvalues">LPA Eigenvalues</a></li>
+        
+    
+        <li class="main "><a href="#lpa-eigenvectors">LPA Eigenvectors</a></li>
+        
+    
+        <li class="main "><a href="#references">References</a></li>
+        
+    
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h2 id="description">Description</h2>
+<p>This series of External Attributes are based around fitting a second order 3D polynomial to a region of data around each sample location using gaussian weighted least squares. For regularly sampled data the fit can be calculated very efficiently by convolution. </p>
+<p>The approximation has the following form:</p>
+<pre><code>r0 + r1*x + r2*y + r3*z + r4*x^2 + r5*y^2 +r6*z^2 + r7*xy + r8*xz + r9*yz
+</code></pre>
+<p>where x (inline), y (crossline) and z (time/depth) are relative to the analysis location, ie the analysis location has x=y=z=0.</p>
+<p>The first 2 attributes, LPA Smoothing and LPA Dip, have the most practical potential. The others provide access to intermediate results which were used for checking the accuracy of the calculations during development and may be of interest to the ultra-curious.</p>
+<h2 id="input-parameters">Input Parameters</h2>
+<p>All attributes have the same set of input parameters. The only difference is that some have a choice of output attribute.</p>
+<p><img alt="Input Parameters" src="../../../images/lpa_smooth_inputpar.jpg" title="LPA external attribute input parameters" /></p>
+<table>
+<thead>
+<tr>
+<th>NAME</th>
+<th>DESCRIPTION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Z window (+/-samples)</td>
+<td style="width:60%">Specifies the extent of the analysis cube in the Z direction. Number of Z samples in cube will be 2*Z_window+1.</td>
+</tr>
+<tr>
+<td>Stepout</td>
+<td>Specifies the inline and crossline extent of the analysis cube. Number of samples in each direction will be 2*Stepout+1.</td>
+</tr>
+<tr>
+<td>Weight Factor</td>
+<td>Determines the extent of the gaussian weight function used in the weighted least squares approximation.  The standard deviation of the gaussian weight function (<strong>sigma</strong>) is related to this value by <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>sigma = min(2*Stepout, 2*Z_Window) * Weight_Factor</strong>.<br/> A value of 0.15 gives near zero weight for points at the smallest extent of the analysis cube.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="lpa-smoothing">LPA Smoothing</h2>
+<p>This attribute calulates and outputs only the r0 term of the local polynomial approximation. This provides a smoother version of the input with relatively minor smearing of steep dips and fault cuts. Increasing either the Weight Factor or size of the analysis volume (StepOut or Z window) increases the amount of smoothing.</p>
+<p>There are 2 versions of the attribute:</p>
+<ul>
+<li>
+<p><strong>ex_lpa_smooth_scipy.py</strong> - which uses the 3D convolution routine in scipy.ndimage</p>
+</li>
+<li>
+<p><strong>ex_lpa_smooth.py</strong> - which uses the <a href="http://numba.pydata.org/">Numba JIT compiler</a> to dramatically speed up the convolution. My own tests show a 3-4 times increase in throughput.</p>
+</li>
+</ul>
+<div class="juxtapose" style="margin:0px;padding:0px" data-startingposition="50" data-showlabels="true" data-showcredits="false" data-animate="false" data-mode="horizontal">
+<img src="../../images/lpa_input.jpg" data-label="Input" data-credit="">
+<img src="../../images/lpa_2x2x2.jpg"  data-label="lpa 2x2x2 WF: 0.5" data-credit="">
+</div>
+
+<h2 id="lpa-dip">LPA Dip</h2>
+<p>This attribute (<strong>ex_lpa_dip.py</strong>) uses the local polynomial approximation coefficients to estimate an orientation tensor as per <a href="http://dx.doi.org/10.1190/geo2012-0427.1" title="Farnebäck, Gunnar. Polynomial Expansion for Orientation and Motion Estimation. Linköping Studies in Science and Technology. Dissertations No, 790">Farnebäck (2002)</a> and assumes the orientation of the first eigenvector is normal to the local event dip. Output can be either the inline or crossline dip. The example shows inline dip on a crossline calculated using a 5x5x5 sample volume (Z_window: 2, Stepout: 2,2) with a subsequent 3x3x3 sample median filter applied to remove spurious dips. Only a <a href="http://numba.pydata.org/">Numba JIT compiler</a> version of this attribute is provided.</p>
+<p><img alt="LPA Dip" src="../../../images/lpa_dip_2x2x2.jpg" title="LPA Dip external attribute" /></p>
+<h2 id="lpa-coefficients">LPA Coefficients</h2>
+<p>This attribute (<strong>ex_lpa_coef.py</strong>) outputs all of the local polynomial approximation coefficients. The r0 output is identical to the LPA Smoothing attribute. Only a <a href="http://numba.pydata.org/">Numba JIT compiler</a> version of this attribute is provided. The example below shows the inline first and second derivative components on a crossline.</p>
+<div class="juxtapose" style="margin:0px;padding:0px" data-startingposition="50" data-showlabels="true" data-showcredits="false" data-animate="false" data-mode="horizontal">
+<img src="../../images/lpa_coef_r1_2x2x2.jpg" data-label="lpa inline gradient" data-credit="">
+<img src="../../images/lpa_coef_r4_2x2x2.jpg"  data-label="lpa inline 2nd derivative" data-credit="">
+</div>
+
+<h2 id="lpa-eigenvalues">LPA Eigenvalues</h2>
+<p>This attribute (<strong>ex_lpa_eigenvals.py</strong>) uses the local polynomial approximation coefficients to estimate an orientation tensor as per <a href="http://dx.doi.org/10.1190/geo2012-0427.1" title="Farnebäck, Gunnar. Polynomial Expansion for Orientation and Motion Estimation. Linköping Studies in Science and Technology. Dissertations No, 790">Farnebäck (2002)</a>. Output are the eigenvalues (e1, e2, e3) of the tensor in descending order. Only a <a href="http://numba.pydata.org/">Numba JIT compiler</a> version of this attribute is provided. The example below shows the first and second eignevalues on a crossline.</p>
+<div class="juxtapose" style="margin:0px;padding:0px" data-startingposition="50" data-showlabels="true" data-showcredits="false" data-animate="false" data-mode="horizontal">
+<img src="../../images/lpa_eigval_1_2x2x2.jpg" data-label="lpa 1st eigenvalue" data-credit="">
+<img src="../../images/lpa_eigval_2_2x2x2.jpg"  data-label="lpa 2nd eignevalue" data-credit="">
+</div>
+
+<h2 id="lpa-eigenvectors">LPA Eigenvectors</h2>
+<p>This attribute (<strong>ex_lpa_eigenvec.py</strong>) uses the local polynomial approximation coefficients to estimate an orientation tensor as per <a href="http://dx.doi.org/10.1190/geo2012-0427.1" title="Farnebäck, Gunnar. Polynomial Expansion for Orientation and Motion Estimation. Linköping Studies in Science and Technology. Dissertations No, 790">Farnebäck (2002)</a>. Output are the eigenvectors (t1x,t1y,t1z,t2x,t2y,t2z,t3x,t3y,t3z) of the tensor. Eigenvector [t1x, t1y t1z] corresponds to the first eigenvalue, e1 etc. Only a <a href="http://numba.pydata.org/">Numba JIT compiler</a> version of this attribute is provided.</p>
+<div class="juxtapose" style="margin:0px;padding:0px" data-startingposition="50" data-showlabels="true" data-showcredits="false" data-animate="false" data-mode="horizontal">
+<img src="../../images/lpa_eigvec_t1y_2x2x2.jpg" data-label="lpa t1y" data-credit="">
+<img src="../../images/lpa_eigvec_t1z_2x2x2.jpg"  data-label="lpa t1z" data-credit="">
+</div>
+
+<h2 id="references">References</h2>
+<p><a href="http://www.doc.ic.ac.uk/research/technicalreports/2006/DTR06-8.pdf">Anisotropic Multidimensional Savitzky Golay kernels for Smoothing, Differentiation and Reconstruction</a></p>
+<p><a href="http://www.diva-portal.org/smash/get/diva2:302485/FULLTEXT01.pdf">Polynomial Expansion for Orientation and Motion Estimation</a></p></div>
+            
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            
+            <p>All content and images &copy; 2015 by Wayne Mogg</p>
+            
+            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+
+        
+
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+        <script src="../../js/base.js"></script>
+        <script src="../../js/juxtapose.min.js"></script>
+
+        <!--
+        MkDocs version  : 0.12.2
+        Docs Build Date : 2015-05-05 12:18:09.967054
+        -->
+    </body>
+</html>

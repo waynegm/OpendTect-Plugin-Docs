@@ -10,7 +10,7 @@
         <link rel="shortcut icon" href="../../../../favicon-32x32.png">
         
 
-        <title>Recursive time-frequency attribute - OpendTect Plugins</title>
+	<title>Recursive time-frequency attribute - OpendTect Plugins</title>
 
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -24,6 +24,16 @@
             <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
 
+        
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-62607269-1', 'OpendTect-Plugin-Docs');
+            ga('send', 'pageview');
+        </script>
         
     </head>
 
@@ -55,24 +65,30 @@
                 <ul class="nav navbar-nav">
                 
                 
+                    <li >
+                        <a href="../..">Home</a>
+                    </li>
+                
+                
+                
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Installation <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             <li >
-                                <a href="../../Installation/download-binary">Download</a>
+                                <a href="../../Installation/download-binary/">Download</a>
                             </li>
                         
                             <li >
-                                <a href="../../Installation/installation">Install</a>
+                                <a href="../../Installation/installation/">Install</a>
                             </li>
                         
                             <li >
-                                <a href="../../Installation/building-from-source">Build from source</a>
+                                <a href="../../Installation/building-from-source/">Build from source</a>
                             </li>
                         
                             <li >
-                                <a href="../../Installation/faq">Issues/FAQ</a>
+                                <a href="../../Installation/faq/">Issues/FAQ</a>
                             </li>
                         
                         </ul>
@@ -85,23 +101,23 @@
                         <ul class="dropdown-menu">
                         
                             <li >
-                                <a href="../AVOAttrib">AVO attributes</a>
+                                <a href="../AVOAttrib/">AVO attributes</a>
                             </li>
                         
                             <li >
-                                <a href="../ExternalAttrib">External attribute</a>
+                                <a href="../ExternalAttrib/">External attribute</a>
                             </li>
                         
                             <li >
-                                <a href="../LTFAttrib">Local time-frequency attribute</a>
+                                <a href="../LTFAttrib/">Local time-frequency attribute</a>
                             </li>
                         
                             <li >
-                                <a href="../MLVFilter">Mean of least variance filter</a>
+                                <a href="../MLVFilter/">Mean of least variance filter</a>
                             </li>
                         
                             <li class="active">
-                                <a href=".">Recursive time-frequency attribute</a>
+                                <a href="./">Recursive time-frequency attribute</a>
                             </li>
                         
                         </ul>
@@ -114,7 +130,7 @@
                         <ul class="dropdown-menu">
                         
                             <li >
-                                <a href="../../External-Attributes/LPA-Smoothing">LPA Smoothing</a>
+                                <a href="../../External-Attributes/LPA-Attributes/">Local Polynomial Approximation</a>
                             </li>
                         
                         </ul>
@@ -127,11 +143,11 @@
                         <ul class="dropdown-menu">
                         
                             <li >
-                                <a href="../../license">License</a>
+                                <a href="../../license/">License</a>
                             </li>
                         
                             <li >
-                                <a href="../../relnotes">Release Notes</a>
+                                <a href="../../relnotes/">Release Notes</a>
                             </li>
                         
                         </ul>
@@ -147,12 +163,12 @@
                 
                 
                 <li >
-                    <a rel="next" href="../MLVFilter">
+                    <a rel="next" href="../MLVFilter/">
                         <i class="fa fa-arrow-left"></i> Previous
                     </a>
                 </li>
                 <li >
-                    <a rel="prev" href="../../External-Attributes/LPA-Smoothing">
+                    <a rel="prev" href="../../External-Attributes/LPA-Attributes/">
                         Next <i class="fa fa-arrow-right"></i>
                     </a>
                 </li>
@@ -199,12 +215,12 @@
 <p>The primary advantage of this plugin over the standard OpendTect FFT spectral decomposition is that it can be evaluated significantly faster. As an example, under Linux on an Intel Core i5 for a 2000 sample per trace dataset, this attribute can generate a single frequency cube at 4000 traces per second. This is considerably faster than the 140-150 traces per second achieved when applying the OpendTect FFT spectral decomposition attribute. This processing speed advantage is reduced as the number of output frequencies increases but in this test case it still remains substantially faster even for output of up to 30 frequencies.</p>
 <h2 id="examples">Examples</h2>
 <p><div class="juxtapose" style="margin:0px;padding:0px" data-startingposition="50" data-showlabels="true" data-showcredits="false" data-animate="false" data-mode="horizontal">
-<img src="../.././images/RSpecAttrib_sd.jpg" data-label="FFT Spectral Decomposition (30Hz +/-28ms window)" data-credit="">
-<img src="../.././images/RSpecAttrib_1.jpg"  data-label="Recursive time-frequency attribute (30Hz +/- 22ms window)" data-credit="">
+<img src="../../images/RSpecAttrib_sd.jpg" data-label="FFT Spectral Decomposition (30Hz +/-28ms window)" data-credit="">
+<img src="../../images/RSpecAttrib_1.jpg"  data-label="Recursive time-frequency attribute (30Hz +/- 22ms window)" data-credit="">
 </div></p>
 <p>The output of the RSpec attribute (rfreq30) is visually identical and also highly correlated to the OpendTect FFT spectral decomposition (sdfreq30) as shown in the following crossplot of the two attributes.</p>
 <p><strong>Crossplot of RSpecAttrib vs FFT Spectral Decomposition</strong></p>
-<p><img alt="Crossplot of RSpecAttrib vs FFT Spectral Decomposition" src="../../images/RSpecAttrib_2.jpg" title="Crossplot of RSpecAttrib vs FFT Spectral Decomposition" /></p>
+<p><img alt="Crossplot of RSpecAttrib vs FFT Spectral Decomposition" src="../../../images/RSpecAttrib_2.jpg" title="Crossplot of RSpecAttrib vs FFT Spectral Decomposition" /></p>
 <h2 id="input-parameters">Input Parameters</h2>
 <p>This attribute has 4 parameters:</p>
 <table>
@@ -233,8 +249,7 @@
 </tr>
 </tbody>
 </table>
-<p><img alt="Input parameters" src="../../images/RSpecAttrib_input.jpg" title="RSpecAttrib input parameter dialog" /></p>
-</div>
+<p><img alt="Input parameters" src="../../../images/RSpecAttrib_input.jpg" title="RSpecAttrib input parameter dialog" /></p></div>
             
         </div>
 
@@ -248,11 +263,15 @@
 
         
 
-        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="../../js/jquery-1.10.2.min.js"></script>
         <script src="../../js/bootstrap-3.0.3.min.js"></script>
-        <script src="../../js/prettify-1.0.min.js"></script>
         <script src="../../js/highlight.pack.js"></script>
         <script src="../../js/base.js"></script>
         <script src="../../js/juxtapose.min.js"></script>
+
+        <!--
+        MkDocs version  : 0.12.2
+        Docs Build Date : 2015-05-05 12:18:09.955437
+        -->
     </body>
 </html>
