@@ -231,7 +231,7 @@
 <p>The first 2 attributes, LPA Smoothing and LPA Dip, have the most practical potential. The others provide access to intermediate results which were used for checking the accuracy of the calculations during development and may be of interest to the ultra-curious.</p>
 <h2 id="input-parameters">Input Parameters</h2>
 <p>All attributes have the same set of input parameters. The only difference is that some have a choice of output attribute.</p>
-<p><img alt="Input Parameters" src="../../../images/lpa_smooth_inputpar.jpg" title="LPA external attribute input parameters" /></p>
+<p><img alt="Input Parameters" src="../../images/lpa_smooth_inputpar.jpg" title="LPA external attribute input parameters" /></p>
 <table>
 <thead>
 <tr>
@@ -272,7 +272,7 @@
 
 <h2 id="lpa-dip">LPA Dip</h2>
 <p>This attribute (<strong>ex_lpa_dip.py</strong>) uses the local polynomial approximation coefficients to estimate an orientation tensor as per <a href="http://dx.doi.org/10.1190/geo2012-0427.1" title="Farnebäck, Gunnar. Polynomial Expansion for Orientation and Motion Estimation. Linköping Studies in Science and Technology. Dissertations No, 790">Farnebäck (2002)</a> and assumes the orientation of the first eigenvector is normal to the local event dip. Output can be either the inline or crossline dip. The example shows inline dip on a crossline calculated using a 5x5x5 sample volume (Z_window: 2, Stepout: 2,2) with a subsequent 3x3x3 sample median filter applied to remove spurious dips. Only a <a href="http://numba.pydata.org/">Numba JIT compiler</a> version of this attribute is provided.</p>
-<p><img alt="LPA Dip" src="../../../images/lpa_dip_2x2x2.jpg" title="LPA Dip external attribute" /></p>
+<p><img alt="LPA Dip" src="../../images/lpa_dip_2x2x2.jpg" title="LPA Dip external attribute" /></p>
 <h2 id="lpa-coefficients">LPA Coefficients</h2>
 <p>This attribute (<strong>ex_lpa_coef.py</strong>) outputs all of the local polynomial approximation coefficients. The r0 output is identical to the LPA Smoothing attribute. Only a <a href="http://numba.pydata.org/">Numba JIT compiler</a> version of this attribute is provided. The example below shows the inline first and second derivative components on a crossline.</p>
 <div class="juxtapose" style="margin:0px;padding:0px" data-startingposition="50" data-showlabels="true" data-showcredits="false" data-animate="false" data-mode="horizontal">
@@ -318,7 +318,7 @@
 
         <!--
         MkDocs version  : 0.12.2
-        Docs Build Date : 2015-05-05 12:28:53.106005
+        Docs Build Date : 2015-05-05 12:30:00.970486
         -->
     </body>
 </html>
