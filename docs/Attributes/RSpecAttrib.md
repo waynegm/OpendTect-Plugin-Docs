@@ -12,15 +12,15 @@ The primary advantage of this plugin over the standard OpendTect FFT spectral de
 
 ## Examples
 <div class="juxtapose" style="margin:0px;padding:0px" data-startingposition="50" data-showlabels="true" data-showcredits="false" data-animate="false" data-mode="horizontal">
-<img src="./images/RSpecAttrib_sd.jpg" data-label="FFT Spectral Decomposition (30Hz +/-28ms window)" data-credit="">
-<img src="./images/RSpecAttrib_1.jpg"  data-label="Recursive time-frequency attribute (30Hz +/- 22ms window)" data-credit="">
+<img src="../../images/RSpecAttrib_sd.jpg" data-label="FFT Spectral Decomposition (30Hz +/-28ms window)" data-credit="">
+<img src="../../images/RSpecAttrib_1.jpg"  data-label="Recursive time-frequency attribute (30Hz +/- 22ms window)" data-credit="">
 </div>
 
 The output of the RSpec attribute (rfreq30) is visually identical and also highly correlated to the OpendTect FFT spectral decomposition (sdfreq30) as shown in the following crossplot of the two attributes.
 
 **Crossplot of RSpecAttrib vs FFT Spectral Decomposition**
 
-![Crossplot of RSpecAttrib vs FFT Spectral Decomposition](images/RSpecAttrib_2.jpg "Crossplot of RSpecAttrib vs FFT Spectral Decomposition")
+![Crossplot of RSpecAttrib vs FFT Spectral Decomposition](../../images/RSpecAttrib_2.jpg "Crossplot of RSpecAttrib vs FFT Spectral Decomposition")
 
 ## Input Parameters
 
@@ -33,6 +33,6 @@ This attribute has 4 parameters:
 | Output frequency | When displaying the attribute in the tree this is the frequency slice that will be generated |
 | Step             | This determines the set of frequencies that can be chosen when generating a frequency volume.|
   
-![Input parameters](images/RSpecAttrib_input.jpg "RSpecAttrib input parameter dialog")
+![Input parameters](../../images/RSpecAttrib_input.jpg "RSpecAttrib input parameter dialog")
 
 

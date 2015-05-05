@@ -10,22 +10,22 @@ The sample variance for all samples on each analysis element is calculated and t
 
 The following figure shows the relationship between the geometry of the analysis elements and the element index.
 
-![Element Index](images/MLVFilterAttrib_elements.jpg "MLV Filter analysis elements")
+![Element Index](../../images/MLVFilterAttrib_elements.jpg "MLV Filter analysis elements")
 
 ## Examples
 <div class="juxtapose" style="margin:0px;padding:0px" data-startingposition="50" data-showlabels="true" data-showcredits="false" data-animate="false" data-mode="horizontal">
-<img src="./images/MLVFilterAttrib_input.jpg" data-label="Input" data-credit="">
-<img src="./images/MLVFilterAttrib_MLV3_Mean.jpg"  data-label="MLV Size 3 Average - 1 pass" data-credit="">
+<img src="../../images/MLVFilterAttrib_input.jpg" data-label="Input" data-credit="">
+<img src="../../images/MLVFilterAttrib_MLV3_Mean.jpg"  data-label="MLV Size 3 Average - 1 pass" data-credit="">
 </div>
 
 <div class="juxtapose" style="margin:0px;padding:0px" data-startingposition="50" data-showlabels="true" data-showcredits="false" data-animate="false" data-mode="horizontal">
-<img src="./images/MLVFilterAttrib_MLV5_Mean.jpg" data-label="MLV Size 5 Average - 1 pass" data-credit="">
-<img src="./images/MLVFilterAttrib_MLV3_Mean2.jpg"  data-label="MLV Size 3 Average - 2 passes" data-credit="">
+<img src="../../images/MLVFilterAttrib_MLV5_Mean.jpg" data-label="MLV Size 5 Average - 1 pass" data-credit="">
+<img src="../../images/MLVFilterAttrib_MLV3_Mean2.jpg"  data-label="MLV Size 3 Average - 2 passes" data-credit="">
 </div>
 
 **MLV Size 3 Elements over Input**
 
-![MLV 3 Elements](images/MLVFilterAttrib_MLV3_Elements.jpg "MLV 3 elements")
+![MLV 3 Elements](../../images/MLVFilterAttrib_MLV3_Elements.jpg "MLV 3 elements")
 
 ## Input Parameters
 
@@ -36,6 +36,6 @@ This attribute has 2 parameters:
 | Filter size | Specifies a cube of samples centred  at the analysis location. Increasing the size will increase the degree of smoothing at the risk of smearing structural features. As the examples show it may be better to apply multiple passes of a small size filter than a single pass of a larger filter to reduce the risk of artifacts in the output. OpendTect makes it really easy to cascade multiple filter passes.{: style="width:60%"} |
 | Output statistic | What the filter will output. The options are average, median or the element index. The element index is included for curiosity and quality control. Generally the default *Average* provides the most pleasing output. |
 
-![Input Parameters](images/MLVFilterAttrib_par1.jpg "MLF Filter input parameters")
+![Input Parameters](../../images/MLVFilterAttrib_par1.jpg "MLF Filter input parameters")
 
 

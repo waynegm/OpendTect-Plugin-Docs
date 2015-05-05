@@ -129,7 +129,7 @@ This attribute has 3 required parameters and up to 9 optional parameters determi
 | External File    | The external application to be used for attribute calculation. |
 | Input | The input attribute to use |
     
-![Input Parameters](images/ExternalAttrib_input.jpg "External Attribute input parameters")	
+![Input Parameters](../../images/ExternalAttrib_input.jpg "External Attribute input parameters")	
 
 ## Attribute JSON Parameter String
 The external application can specify a set of parameters as a JSON object string
@@ -193,6 +193,8 @@ This block of binary data is written to the applications stdin immediately after
 | 4 bytes | float   | trace sampling interval  (result of OpendTect API call `SI().zstep()`) |
 | 4 bytes | float   | distance between inlines (result of OpendTect API call `SI().inlDistance()`) |
 | 4 bytes | float   | distance between crosslines (result of OpendTect API call `SI().crlDistance()`) |
+| 4 bytes | float   | (result of OpendTect API call `zFactor()`)
+| 4 bytes | float   | (result of OpendTect API call `dipFactor()`) |
 
 ### TraceInfo Block
 This block of binary data is written to the application stdin immediately before each block of trace data. It consists of 16 bytes as follows:

@@ -12,15 +12,15 @@ This attribute can be unstable. The issue apppears to be in the Madagascar libra
 
 ## Examples
 <div class="juxtapose" style="margin:0px;padding:0px" data-startingposition="50" data-showlabels="true" data-showcredits="false" data-animate="false" data-mode="horizontal">
-<img src="./images/LTFAttrib_sd.jpg" data-label="FFT Spectral Decomposition (30Hz +/-28ms window)" data-credit="">
-<img src="./images/LTFAttrib_1.jpg"  data-label="Local time-frequency attribute (30Hz 7 sample smoothing radius)" data-credit="">
+<img src="../../images/LTFAttrib_sd.jpg" data-label="FFT Spectral Decomposition (30Hz +/-28ms window)" data-credit="">
+<img src="../../images/LTFAttrib_1.jpg"  data-label="Local time-frequency attribute (30Hz 7 sample smoothing radius)" data-credit="">
 </div>
 
 The output of the LTF attribute (ltf30) is visually identical and also highly correlated to the OpendTect FFT spectral decomposition (sdfreq30) as shown in the following crossplot of the two attributes.
 
 **Crossplot of LTFAttrib vs FFT Spectral Decomposition**
 
-![Crossplot of LTFAttrib vs FFT Spectral Decomposition](images/LTFAttrib_2.jpg "Crossplot of LTFAttrib vs FFT Spectral Decomposition")
+![Crossplot of LTFAttrib vs FFT Spectral Decomposition](../../images/LTFAttrib_2.jpg "Crossplot of LTFAttrib vs FFT Spectral Decomposition")
 
 ## Input Parameters
 
@@ -34,7 +34,7 @@ This attribute has 4 parameters:
 | Iterations       | The number of inversion iterations. |
 | Margin           | Amount of data around the calculation sample to include in the calculation. Specified in number of smoothing radii. |
     
-![Input Parameters](images/LTFAttrib_input_parameters.jpg "LTF Attributes input parameters")
+![Input Parameters](../../images/LTFAttrib_input_parameters.jpg "LTF Attributes input parameters")
 
 
 
