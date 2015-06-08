@@ -1,6 +1,6 @@
 # ExternalAttrib
 
-This is an attribute plugin for the open source seismic interpretation platform <a href="http://www.opendtect.org/" target="_blank">OpendTect</a> - that allows the calculation of single and multitrace attributes outside of OpendTect by a user specified external application. It is currently limited to single attribute input. 
+This is an attribute plugin for the open source seismic interpretation platform <a href="http://www.opendtect.org/" target="_blank">OpendTect</a> - that allows the calculation of single and multitrace attributes outside of OpendTect by a user specified external application. The plugin supports multi-trace multiattribute input and multi-attribute output as well as parallel execution.
 
 Although still a work in progess it currently works under both Linux and Windows. The source and binary distributions include a reference implementation for writing external attributes in Python/Numpy (version 3).
 
@@ -8,7 +8,7 @@ Although still a work in progess it currently works under both Linux and Windows
 
 Instead of doing the attribute calculation within OpendTect this plugin starts up a user specified external application and then reads and writes the trace data to/from the external application's stdin and stdout. The external application must conform to some [simple rules](#Structure_of_a_Conforming_Application) but could be written in any programming language, compiled or interpreted. This essentially means you can write a new OpendTect attribute in your computer language of choice and not have to delve into the internals of OpendTect.
 
-The source and binary distributions of the plugin includes a reference implementation for writing external attributes in Python/Numpy (version 3). This consists of a module *extattrib.py* that handles the stdin/stdout details and presents the trace data as a numpy array. Two examples using this module are included in the plugin distribution and shown in full below. More examples can be found at [gist.github.com](https://gist.github.com/search?q=OpendTect+External+Attribute).
+The source and binary distributions of the plugin includes a reference implementation for writing external attributes in Python/Numpy (version 3). This consists of a module *extattrib.py* that handles the stdin/stdout details and presents the trace data as a numpy array. Two simple examples are shown below while a number of other  examples are included in the plugin distribution and described in the [External Attributes]() section of this documentation.
 
 ### Recursive Lowpass Filter (ex_lowpass_filter.py)
 This example implements a Butterworth Lowpass filter using Python/Numpy/SciPy.  This is an example of an attribute with single trace input and output.
@@ -132,26 +132,67 @@ This attribute has 3 required parameters and up to 9 optional parameters determi
 ![Input Parameters](../images/ExternalAttrib_input.jpg "External Attribute input parameters")	
 
 ## Attribute JSON Parameter String
-The external application can specify a set of parameters as a JSON object string
+The external application can specify a set of parameters as a JSON object string. The following keywords are supported:
 
-| JSON KEYWORD | PARAMETER FORMAT | DESCRIPTON |
-|--------------|--------|------------|
-| Input        | String | Specifies a label to appear beside the attribute selection UI element{: style="width:50%"} |
-| Output       | Array of strings | Each string specifies the name of an attribute output. If not supplied a single output attribute is assumed. |
-| ZSampMargin  | Object with a 'Value' *array of 2 numbers)  and optional 'Hidden' (boolean) parameter. | The 'Value' parameter is an array of 2 numbers specifing the desired minimum number of samples above and below the calculation point required for the calculation. If not supplied only a single value will be provided when the attribute is computed on a timeslice or horizon. The 'Hidden' parameter is a boolean which if set to false makes the ZSampMargin parameter read only. (optional) |
-| StepOut      | Object with a 'Value' (array of 2 numbers) and optional 'Hidden' (boolean) parameter. | The 'Value' parameter is an array of 2 numbers specifing the block of traces to be used around the current calculation position. If not supplied only a single trace is provided. The 'Hidden' parameter is a boolean which if set to false makes the StepOut parameter read only. (optional) |
-| Selection    | Object with a 'Name' (string), 'Values' (array of strings) and 'Select' (number) parameters | Displays a list box labeled 'Name' with options specified in 'Values' and default selection being item number 'Select'. (optional) |
-| Par0         | Object with a 'Name' (string) and 'Value' (number) parameter | Displays an entry box labeled 'Name' with default value 'Value' (optional)| 
-| Par1         | As above | As above |
-| Par2         | As above | As above |
-| Par3         | As above | As above |
-| Par4         | As above | As above |
-| Help         | String | URL pointing to documentation for the external attribute (optional) |
+| JSON KEYWORD| Input (depreciated)|
+|--------:|:--------|
+| **TYPE** |  String    |
+| **DESCRIPTION**| Specifies a label to appear beside the attribute selection UI element. </br>Superceded by the "Inputs" keyword but is supported for backward compatibility. |
+| **EXAMPLE** | `'Input': 'Input Data'` |
+
+| JSON KEYWORD| Inputs|
+|--------:|:--------|
+| **TYPE** |  Array of Strings    |
+| **DESCRIPTION**| Each string is used as a label for an attribute selection UI element.</br> Currently limited to a maximum of 6 attribute inputs. |
+| **EXAMPLE** | `'Inputs': ['Input 1','Input 2','Input 3']` |
+
+| JSON KEYWORD| Output (optional)|
+|--------:|:--------|
+| **TYPE** |  Array of Strings    |
+| **DESCRIPTION**| Each string specifies the name of an output attribute.</br>If this keyword is not supplied a single output attribute is assumed. |
+| **EXAMPLE** | `'Output': ['Out 1','Out 2','Out 3']` |
+
+| JSON KEYWORD| ZSampMargin (optional)|
+|--------:|:--------|
+| **TYPE** |  Object with a 'Value' (array of 2 numbers)  and optional 'Hidden' (boolean) and 'Symmetric' (boolean) parameters.    |
+| **DESCRIPTION**| The 'Value' parameter is an array of 2 numbers specifing the desired minimum number of samples above and below the calculation point required for the calculation. If not supplied only a single value will be provided when the attribute is computed on a timeslice or horizon.</br>The optional 'Hidden' parameter is a boolean which if set to true makes the ZSampMargin parameter read only.</br>The optional 'Symmetric' parameter is a boolean which if true causes only a single entry to be displayed in the UI. |
+| **EXAMPLES** | `'ZSampMargin': {'Value': [-2,2]}` </br>`'ZSampMargin': {'Value': [-2,2], 'Symmetric': True}`|
+
+| JSON KEYWORD| StepOut (optional)|
+|--------:|:--------|
+| **TYPE** |  Object with a 'Value' (array of 2 numbers)  and optional 'Hidden' (boolean) parameters.    |
+| **DESCRIPTION**| The 'Value' parameter is an array of 2 numbers specifing the inline and crossline stepout defining the block of traces to be used around the current calculation position. If not supplied only a single trace is provided.</br>The optional 'Hidden' parameter is a boolean which if set to true makes the StepOut parameter read only. |
+| **EXAMPLES** | `'StepOut': {'Value': [2,2]}` </br>`'StepOut': {'Value': [2,2], 'Hidden': True}`|
+
+| JSON KEYWORD| Select (optional)|
+|--------:|:--------|
+| **TYPE** |  Object with a 'Name' (string), 'Values' (array of strings) and 'Select' (number) parameters.    |
+| **DESCRIPTION**| Displays a list box labeled 'Name' with options specified in 'Values' and default selection being item number 'Select'. |
+| **EXAMPLES** | `'Select': {'Name': 'Type', 'Values': ['None', 'Median', 'Average'], 'Selection': 0}`|
+
+| JSON KEYWORDS| Par0, Par1, Par2, Par3, Par4, Par5, Par6 (all optional)|
+|--------:|:--------|
+| **TYPE** |  Object with a 'Name' (string) and 'Value' (number) parameter.    |
+| **DESCRIPTION**| Displays an entry box labeled 'Name' with default value 'Value'. |
+| **EXAMPLES** | `'Par_0' : {'Name': 'First Parameter', 'Value' : 100.0},`</br>`'Par_1' : {'Name': 'Second Parameter', 'Value' : 200.0},`|
+
+| JSON KEYWORD| Help (optional)|
+|--------:|:--------|
+| **TYPE** |  String    |
+| **DESCRIPTION**| URL pointing to documentation for the external attribute.</br> Causes an icon help button to be displayed in the UI. |
+| **EXAMPLES** | `'Help'  : 'http://waynegm.github.io/OpendTect-Plugin-Docs/External-Attributes/LPA-Attributes/'`|
+
+| JSON KEYWORD| Parallel (optional)|
+|--------:|:--------|
+| **TYPE** |  Boolean    |
+| **DESCRIPTION**| Default is True which allows parallel execution. If set to False then calculations only use a single thread. |
+| **EXAMPLES** | `'Parallel'  : False`|
+
 
 Here is an example parameter string:
 ```
 {
-	'Input': 'Test Input',
+	'Inputs': ['Test Input'],
     'Output': ['Left', 'Right'],
 	'ZSampMargin' : {'Value': [-10,10]},
 	'StepOut' : {'Value': [1,1], 'Hidden': true},
