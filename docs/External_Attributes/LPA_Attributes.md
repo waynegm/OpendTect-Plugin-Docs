@@ -23,11 +23,12 @@ All attributes have the same set of input parameters. The only difference is tha
 ## LPA Smoothing
 This attribute calculates and outputs only the r0 term of the local polynomial approximation. This provides a smoother version of the input with relatively minor smearing of steep dips and fault cuts. Increasing either the Weight Factor or size of the analysis volume (StepOut or Z window) increases the amount of smoothing.
 
-There are 2 versions of the attribute:
+There are 3 versions of the attribute:
 
 * __ex_lpa_smooth_scipy.py__ - which uses the 3D convolution routine in scipy.ndimage
 
 * __ex_lpa_smooth.py__ - which uses the [Numba JIT compiler](http://numba.pydata.org/) to dramatically speed up the convolution. My own tests show a 3-4 times increase in throughput.
+* __ex_lpa_smooth_single.py__ which is the single threaded version of __ex_lpa_smooth.py__ 
 
 <div class="juxtapose" style="margin:0px;padding:0px" data-startingposition="50" data-showlabels="true" data-showcredits="false" data-animate="false" data-mode="horizontal">
 <img src="../../images/lpa_input.jpg" data-label="Input" data-credit="">

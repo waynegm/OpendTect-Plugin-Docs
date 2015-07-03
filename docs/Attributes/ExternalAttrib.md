@@ -2,13 +2,13 @@
 
 This is an attribute plugin for the open source seismic interpretation platform <a href="http://www.opendtect.org/" target="_blank">OpendTect</a> - that allows the calculation of single and multitrace attributes outside of OpendTect by a user specified external application. The plugin supports multi-trace multiattribute input and multi-attribute output as well as parallel execution.
 
-Although still a work in progess it currently works under both Linux and Windows. The source and binary distributions include a reference implementation for writing external attributes in Python/Numpy (version 3).
+The source and binary distributions include a reference implementation for writing external attributes in Python/Numpy (version 3).
 
 ## Description
 
 Instead of doing the attribute calculation within OpendTect this plugin starts up a user specified external application and then reads and writes the trace data to/from the external application's stdin and stdout. The external application must conform to some [simple rules](#Structure_of_a_Conforming_Application) but could be written in any programming language, compiled or interpreted. This essentially means you can write a new OpendTect attribute in your computer language of choice and not have to delve into the internals of OpendTect.
 
-The source and binary distributions of the plugin includes a reference implementation for writing external attributes in Python/Numpy (version 3). This consists of a module *extattrib.py* that handles the stdin/stdout details and presents the trace data as a numpy array. Two simple examples are shown below while a number of other  examples are included in the plugin distribution and described in the [External Attributes]() section of this documentation.
+The source and binary distributions of the plugin includes a reference implementation for writing external attributes in Python/Numpy (version 3). This consists of a module *extattrib.py* that handles the stdin/stdout details and presents the trace data as a numpy array. Two simple examples are shown below while a number of other  examples are included in the plugin distribution and described in the [External Attributes](../External_Attributes/LPA_Attributes) section of this documentation.
 
 ### Recursive Lowpass Filter (ex_lowpass_filter.py)
 This example implements a Butterworth Lowpass filter using Python/Numpy/SciPy.  This is an example of an attribute with single trace input and output.
@@ -137,13 +137,13 @@ The external application can specify a set of parameters as a JSON object string
 | JSON KEYWORD| Input (depreciated)|
 |--------:|:--------|
 | **TYPE** |  String    |
-| **DESCRIPTION**| Specifies a label to appear beside the attribute selection UI element. </br>Superceded by the "Inputs" keyword but is supported for backward compatibility. |
+| **DESCRIPTION**| Specifies a label to appear beside the input attribute selection UI element. </br>Superceded by the "Inputs" keyword but is supported for backward compatibility. |
 | **EXAMPLE** | `'Input': 'Input Data'` |
 
 | JSON KEYWORD| Inputs|
 |--------:|:--------|
 | **TYPE** |  Array of Strings    |
-| **DESCRIPTION**| Each string is used as a label for an attribute selection UI element.</br> Currently limited to a maximum of 6 attribute inputs. |
+| **DESCRIPTION**| Each string is used as a label for an input attribute selection UI element.</br> Currently limited to a maximum of 6 attribute inputs. |
 | **EXAMPLE** | `'Inputs': ['Input 1','Input 2','Input 3']` |
 
 | JSON KEYWORD| Output (optional)|
@@ -209,26 +209,28 @@ This can happen if the Python file has Windows/DOS linebreaks. Use the dos2unix 
 On both Linux and Windows it can be a bit of a pain to set up a Python/Numpy/Scipy development stack for Python 3 from scratch. Continuum Analytics provide free Python installers for Linux and Windows in [Anaconda](http://continuum.io/downloads#all). There is also a smaller DIY option called [Miniconda](http://conda.pydata.org/miniconda.html) which allows you to select just the packages you need (the examples only require Python 3, Numpy and Scipy).
 
 ## Structure of a Conforming Application
-The rules that a comforming application must follow are:
+The rules that a comforming application must follow are described below and the extattrib.py module included in the plugin distribution provides a reference implementation.
 
 - When invoked with a commandline argument of `-g` the application should write out a  [JSON parameter string](#Attribute_JSON_Parameter_String) to stdout describing the attribute parameters and exit.
 - When invoked with a commandline argument of `-c json-parameter-string` the application 
 	- should read and parse the contents of `json-parameter-string` to get the attribute parameters
-	- read a 24 byte block of binary data from stdin called the SeismicInfo block (described below)
+	- read a 40 byte block of binary data from stdin called the SeismicInfo block (described below)
 	- start an endless loop that:
 		- reads a 16 byte block of binary data from stdin called the TraceInfo block (described below)
-		- reads a data block of 4 byte binary floats from stdin that contains the seismic trace data. The size of the data block depends on the content of the SeismicInfo (number of traces) and TraceInfo ( number of samples) blocks
-			- `number_of_traces * number_of_samples * 4 bytes`.
+		- reads a data block of 4 byte binary floats from stdin that contains the seismic trace data. The size of the data block depends on the content of the SeismicInfo (number of traces and number of inputs) and TraceInfo ( number of samples) blocks
+			- `number_of_inputs * number_of_traces * number_of_samples * 4 bytes`.
 		- calculates the attribute output
 		- writes a data block of 4 byte binary floats to stdout that contains the attribute output. The size of the output data block depends on the content of the TraceInfo ( number of samples) block and the number of output attributes
 			- `number_of_samples * number_of_outputs * 4 bytes`.
 
 ### SeismicInfo Block
-This block of binary data is written to the applications stdin immediately after it is started with the `-c` argument. It consists of 24 bytes as follows:
+This block of binary data is written to the applications stdin immediately after it is started with the `-c` argument. It consists of 40 bytes as follows:
 
 | SIZE    | FORMAT  | DESCRIPTION |
 |---------|---------|-------------|
-| 4 bytes | integer | number of traces in the input data block |
+| 4 bytes | integer | number of traces for each input attribute |
+| 4 bytes | integer | number of input attributes |
+| 4 bytes | integer | number of output atrributes |
 | 4 bytes | integer | number of inline traces in the input data block |
 | 4 bytes | integer | number of crossline traces in the input data block |
 | 4 bytes | float   | trace sampling interval  (result of OpendTect API call `SI().zstep()`) |
@@ -242,7 +244,7 @@ This block of binary data is written to the application stdin immediately before
 
 | SIZE    | FORMAT  | DESCRIPTION |
 |---------|---------|-------------|
-| 4 bytes{: style="width:10%"} | integer | number of samples in each trace within the input data block (OpendTect `nrsamples` parameter) |
+| 4 bytes | integer | number of samples in each trace within the input data block (OpendTect `nrsamples` parameter) |
 | 4 bytes | integer | position of first sample in data trace within entire seismic trace ( OpendTect `z0` parameter) |
 | 4 bytes | integer | inline number of current calculation position |
 | 4 bytes | integer | crossline number of current calculation position |

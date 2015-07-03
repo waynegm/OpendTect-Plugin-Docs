@@ -16,7 +16,7 @@ pages:
 - ['Attributes/LTFAttrib.md','Plugins','Local time-frequency attribute']
 - ['Attributes/MLVFilter.md','Plugins','Mean of least variance filter']
 - ['Attributes/RSpecAttrib.md','Plugins','Recursive time-frequency attribute']
-- ['External-Attributes/LPA-Attributes.md','External Attributes', 'Local Polynomial Approximation']
+- ['External_Attributes/LPA_Attributes.md','External Attributes', 'Local Polynomial Approximation']
 - ['license.md', 'About','License']
 - ['relnotes.md', 'About','Release Notes']
 

@@ -1,5 +1,13 @@
 # Release Notes
 
+## Release 5.0.7
+#### ExternalAttrib
+- Support multi-threaded execution by starting multiple copies of the external application
+- Support multi-attribute multi-trace input (upto 6 input attributes)
+- Add "Parallel" (boolean) tag to the JSON parameter string to control single vs multi-threaded computation
+- Add "Inputs" (Array of Strings) tag to the JSON parameter string to indicate the input attributes
+- Add simple python examples of multi-attribute single trace input and multi-attribute multi-trace input
+
 ## Release 5.0.6-1
 #### AVOAttrib
 - Add example color tables
