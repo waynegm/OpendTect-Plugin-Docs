@@ -255,8 +255,8 @@
 </tbody>
 </table>
 <h2 id="lpa-smoothing">LPA Smoothing</h2>
-<p>This attribute calulates and outputs only the r0 term of the local polynomial approximation. This provides a smoother version of the input with relatively minor smearing of steep dips and fault cuts. Increasing either the Weight Factor or size of the analysis volume (StepOut or Z window) increases the amount of smoothing.</p>
-<p>There are 2 versions of the attribute:</p>
+<p>This attribute calculates and outputs only the r0 term of the local polynomial approximation. This provides a smoother version of the input with relatively minor smearing of steep dips and fault cuts. Increasing either the Weight Factor or size of the analysis volume (StepOut or Z window) increases the amount of smoothing.</p>
+<p>There are 3 versions of the attribute:</p>
 <ul>
 <li>
 <p><strong>ex_lpa_smooth_scipy.py</strong> - which uses the 3D convolution routine in scipy.ndimage</p>
@@ -264,6 +264,7 @@
 <li>
 <p><strong>ex_lpa_smooth.py</strong> - which uses the <a href="http://numba.pydata.org/">Numba JIT compiler</a> to dramatically speed up the convolution. My own tests show a 3-4 times increase in throughput.</p>
 </li>
+<li><strong>ex_lpa_smooth_single.py</strong> which is the single threaded version of <strong>ex_lpa_smooth.py</strong> </li>
 </ul>
 <div class="juxtapose" style="margin:0px;padding:0px" data-startingposition="50" data-showlabels="true" data-showcredits="false" data-animate="false" data-mode="horizontal">
 <img src="../../images/lpa_input.jpg" data-label="Input" data-credit="">
@@ -318,7 +319,7 @@
 
         <!--
         MkDocs version  : 0.12.2
-        Docs Build Date : 2015-05-05 12:30:00.970486
+        Docs Build Date : 2015-07-03 10:24:14.614416
         -->
     </body>
 </html>

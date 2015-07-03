@@ -130,7 +130,7 @@
                         <ul class="dropdown-menu">
                         
                             <li >
-                                <a href="../../External-Attributes/LPA-Attributes/">Local Polynomial Approximation</a>
+                                <a href="../../External_Attributes/LPA_Attributes/">Local Polynomial Approximation</a>
                             </li>
                         
                         </ul>
@@ -212,11 +212,11 @@
                 <div class="col-md-9" role="main">
 
 <h1 id="externalattrib">ExternalAttrib</h1>
-<p>This is an attribute plugin for the open source seismic interpretation platform <a href="http://www.opendtect.org/" target="_blank">OpendTect</a> - that allows the calculation of single and multitrace attributes outside of OpendTect by a user specified external application. It is currently limited to single attribute input. </p>
-<p>Although still a work in progess it currently works under both Linux and Windows. The source and binary distributions include a reference implementation for writing external attributes in Python/Numpy (version 3).</p>
+<p>This is an attribute plugin for the open source seismic interpretation platform <a href="http://www.opendtect.org/" target="_blank">OpendTect</a> - that allows the calculation of single and multitrace attributes outside of OpendTect by a user specified external application. The plugin supports multi-trace multiattribute input and multi-attribute output as well as parallel execution.</p>
+<p>The source and binary distributions include a reference implementation for writing external attributes in Python/Numpy (version 3).</p>
 <h2 id="description">Description</h2>
 <p>Instead of doing the attribute calculation within OpendTect this plugin starts up a user specified external application and then reads and writes the trace data to/from the external application's stdin and stdout. The external application must conform to some <a href="#Structure_of_a_Conforming_Application">simple rules</a> but could be written in any programming language, compiled or interpreted. This essentially means you can write a new OpendTect attribute in your computer language of choice and not have to delve into the internals of OpendTect.</p>
-<p>The source and binary distributions of the plugin includes a reference implementation for writing external attributes in Python/Numpy (version 3). This consists of a module <em>extattrib.py</em> that handles the stdin/stdout details and presents the trace data as a numpy array. Two examples using this module are included in the plugin distribution and shown in full below. More examples can be found at <a href="https://gist.github.com/search?q=OpendTect+External+Attribute">gist.github.com</a>.</p>
+<p>The source and binary distributions of the plugin includes a reference implementation for writing external attributes in Python/Numpy (version 3). This consists of a module <em>extattrib.py</em> that handles the stdin/stdout details and presents the trace data as a numpy array. Two simple examples are shown below while a number of other  examples are included in the plugin distribution and described in the <a href="../../External_Attributes/LPA_Attributes">External Attributes</a> section of this documentation.</p>
 <h3 id="recursive-lowpass-filter-ex_lowpass_filterpy">Recursive Lowpass Filter (ex_lowpass_filter.py)</h3>
 <p>This example implements a Butterworth Lowpass filter using Python/Numpy/SciPy.  This is an example of an attribute with single trace input and output.</p>
 <p><strong>NOTE:</strong> the <em>extattrib.py</em> module must either be in the same folder as the attribute <em>.py</em> file or on the Python module search path.</p>
@@ -347,76 +347,208 @@ xa.run(sys.argv[1:])
 </table>
 <p><img alt="Input Parameters" src="../../images/ExternalAttrib_input.jpg" title="External Attribute input parameters" />   </p>
 <h2 id="attribute-json-parameter-string">Attribute JSON Parameter String</h2>
-<p>The external application can specify a set of parameters as a JSON object string</p>
+<p>The external application can specify a set of parameters as a JSON object string. The following keywords are supported:</p>
 <table>
 <thead>
 <tr>
-<th>JSON KEYWORD</th>
-<th>PARAMETER FORMAT</th>
-<th>DESCRIPTON</th>
+<th align="right">JSON KEYWORD</th>
+<th align="left">Input (depreciated)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Input</td>
-<td>String</td>
-<td style="width:50%">Specifies a label to appear beside the attribute selection UI element</td>
+<td align="right"><strong>TYPE</strong></td>
+<td align="left">String</td>
 </tr>
 <tr>
-<td>Output</td>
-<td>Array of strings</td>
-<td>Each string specifies the name of an attribute output. If not supplied a single output attribute is assumed.</td>
+<td align="right"><strong>DESCRIPTION</strong></td>
+<td align="left">Specifies a label to appear beside the input attribute selection UI element. </br>Superceded by the "Inputs" keyword but is supported for backward compatibility.</td>
 </tr>
 <tr>
-<td>ZSampMargin</td>
-<td>Object with a 'Value' *array of 2 numbers)  and optional 'Hidden' (boolean) parameter.</td>
-<td>The 'Value' parameter is an array of 2 numbers specifing the desired minimum number of samples above and below the calculation point required for the calculation. If not supplied only a single value will be provided when the attribute is computed on a timeslice or horizon. The 'Hidden' parameter is a boolean which if set to false makes the ZSampMargin parameter read only. (optional)</td>
+<td align="right"><strong>EXAMPLE</strong></td>
+<td align="left"><code>'Input': 'Input Data'</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="right">JSON KEYWORD</th>
+<th align="left">Inputs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right"><strong>TYPE</strong></td>
+<td align="left">Array of Strings</td>
 </tr>
 <tr>
-<td>StepOut</td>
-<td>Object with a 'Value' (array of 2 numbers) and optional 'Hidden' (boolean) parameter.</td>
-<td>The 'Value' parameter is an array of 2 numbers specifing the block of traces to be used around the current calculation position. If not supplied only a single trace is provided. The 'Hidden' parameter is a boolean which if set to false makes the StepOut parameter read only. (optional)</td>
+<td align="right"><strong>DESCRIPTION</strong></td>
+<td align="left">Each string is used as a label for an input attribute selection UI element.</br> Currently limited to a maximum of 6 attribute inputs.</td>
 </tr>
 <tr>
-<td>Selection</td>
-<td>Object with a 'Name' (string), 'Values' (array of strings) and 'Select' (number) parameters</td>
-<td>Displays a list box labeled 'Name' with options specified in 'Values' and default selection being item number 'Select'. (optional)</td>
+<td align="right"><strong>EXAMPLE</strong></td>
+<td align="left"><code>'Inputs': ['Input 1','Input 2','Input 3']</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="right">JSON KEYWORD</th>
+<th align="left">Output (optional)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right"><strong>TYPE</strong></td>
+<td align="left">Array of Strings</td>
 </tr>
 <tr>
-<td>Par0</td>
-<td>Object with a 'Name' (string) and 'Value' (number) parameter</td>
-<td>Displays an entry box labeled 'Name' with default value 'Value' (optional)</td>
+<td align="right"><strong>DESCRIPTION</strong></td>
+<td align="left">Each string specifies the name of an output attribute.</br>If this keyword is not supplied a single output attribute is assumed.</td>
 </tr>
 <tr>
-<td>Par1</td>
-<td>As above</td>
-<td>As above</td>
+<td align="right"><strong>EXAMPLE</strong></td>
+<td align="left"><code>'Output': ['Out 1','Out 2','Out 3']</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="right">JSON KEYWORD</th>
+<th align="left">ZSampMargin (optional)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right"><strong>TYPE</strong></td>
+<td align="left">Object with a 'Value' (array of 2 numbers)  and optional 'Hidden' (boolean) and 'Symmetric' (boolean) parameters.</td>
 </tr>
 <tr>
-<td>Par2</td>
-<td>As above</td>
-<td>As above</td>
+<td align="right"><strong>DESCRIPTION</strong></td>
+<td align="left">The 'Value' parameter is an array of 2 numbers specifing the desired minimum number of samples above and below the calculation point required for the calculation. If not supplied only a single value will be provided when the attribute is computed on a timeslice or horizon.</br>The optional 'Hidden' parameter is a boolean which if set to true makes the ZSampMargin parameter read only.</br>The optional 'Symmetric' parameter is a boolean which if true causes only a single entry to be displayed in the UI.</td>
 </tr>
 <tr>
-<td>Par3</td>
-<td>As above</td>
-<td>As above</td>
+<td align="right"><strong>EXAMPLES</strong></td>
+<td align="left"><code>'ZSampMargin': {'Value': [-2,2]}</code> </br><code>'ZSampMargin': {'Value': [-2,2], 'Symmetric': True}</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="right">JSON KEYWORD</th>
+<th align="left">StepOut (optional)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right"><strong>TYPE</strong></td>
+<td align="left">Object with a 'Value' (array of 2 numbers)  and optional 'Hidden' (boolean) parameters.</td>
 </tr>
 <tr>
-<td>Par4</td>
-<td>As above</td>
-<td>As above</td>
+<td align="right"><strong>DESCRIPTION</strong></td>
+<td align="left">The 'Value' parameter is an array of 2 numbers specifing the inline and crossline stepout defining the block of traces to be used around the current calculation position. If not supplied only a single trace is provided.</br>The optional 'Hidden' parameter is a boolean which if set to true makes the StepOut parameter read only.</td>
 </tr>
 <tr>
-<td>Help</td>
-<td>String</td>
-<td>URL pointing to documentation for the external attribute (optional)</td>
+<td align="right"><strong>EXAMPLES</strong></td>
+<td align="left"><code>'StepOut': {'Value': [2,2]}</code> </br><code>'StepOut': {'Value': [2,2], 'Hidden': True}</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="right">JSON KEYWORD</th>
+<th align="left">Select (optional)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right"><strong>TYPE</strong></td>
+<td align="left">Object with a 'Name' (string), 'Values' (array of strings) and 'Select' (number) parameters.</td>
+</tr>
+<tr>
+<td align="right"><strong>DESCRIPTION</strong></td>
+<td align="left">Displays a list box labeled 'Name' with options specified in 'Values' and default selection being item number 'Select'.</td>
+</tr>
+<tr>
+<td align="right"><strong>EXAMPLES</strong></td>
+<td align="left"><code>'Select': {'Name': 'Type', 'Values': ['None', 'Median', 'Average'], 'Selection': 0}</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="right">JSON KEYWORDS</th>
+<th align="left">Par0, Par1, Par2, Par3, Par4, Par5, Par6 (all optional)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right"><strong>TYPE</strong></td>
+<td align="left">Object with a 'Name' (string) and 'Value' (number) parameter.</td>
+</tr>
+<tr>
+<td align="right"><strong>DESCRIPTION</strong></td>
+<td align="left">Displays an entry box labeled 'Name' with default value 'Value'.</td>
+</tr>
+<tr>
+<td align="right"><strong>EXAMPLES</strong></td>
+<td align="left"><code>'Par_0' : {'Name': 'First Parameter', 'Value' : 100.0},</code></br><code>'Par_1' : {'Name': 'Second Parameter', 'Value' : 200.0},</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="right">JSON KEYWORD</th>
+<th align="left">Help (optional)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right"><strong>TYPE</strong></td>
+<td align="left">String</td>
+</tr>
+<tr>
+<td align="right"><strong>DESCRIPTION</strong></td>
+<td align="left">URL pointing to documentation for the external attribute.</br> Causes an icon help button to be displayed in the UI.</td>
+</tr>
+<tr>
+<td align="right"><strong>EXAMPLES</strong></td>
+<td align="left"><code>'Help'  : 'http://waynegm.github.io/OpendTect-Plugin-Docs/External-Attributes/LPA-Attributes/'</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="right">JSON KEYWORD</th>
+<th align="left">Parallel (optional)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right"><strong>TYPE</strong></td>
+<td align="left">Boolean</td>
+</tr>
+<tr>
+<td align="right"><strong>DESCRIPTION</strong></td>
+<td align="left">Default is True which allows parallel execution. If set to False then calculations only use a single thread.</td>
+</tr>
+<tr>
+<td align="right"><strong>EXAMPLES</strong></td>
+<td align="left"><code>'Parallel'  : False</code></td>
 </tr>
 </tbody>
 </table>
 <p>Here is an example parameter string:</p>
 <pre><code>{
-    'Input': 'Test Input',
+    'Inputs': ['Test Input'],
     'Output': ['Left', 'Right'],
     'ZSampMargin' : {'Value': [-10,10]},
     'StepOut' : {'Value': [1,1], 'Hidden': true},
@@ -432,16 +564,16 @@ xa.run(sys.argv[1:])
 <h3 id="setting-up-a-pythonnumpyscipy-environment">Setting up a Python/Numpy/Scipy environment</h3>
 <p>On both Linux and Windows it can be a bit of a pain to set up a Python/Numpy/Scipy development stack for Python 3 from scratch. Continuum Analytics provide free Python installers for Linux and Windows in <a href="http://continuum.io/downloads#all">Anaconda</a>. There is also a smaller DIY option called <a href="http://conda.pydata.org/miniconda.html">Miniconda</a> which allows you to select just the packages you need (the examples only require Python 3, Numpy and Scipy).</p>
 <h2 id="structure-of-a-conforming-application">Structure of a Conforming Application</h2>
-<p>The rules that a comforming application must follow are:</p>
+<p>The rules that a comforming application must follow are described below and the extattrib.py module included in the plugin distribution provides a reference implementation.</p>
 <ul>
 <li>When invoked with a commandline argument of <code>-g</code> the application should write out a  <a href="#Attribute_JSON_Parameter_String">JSON parameter string</a> to stdout describing the attribute parameters and exit.</li>
 <li>When invoked with a commandline argument of <code>-c json-parameter-string</code> the application <ul>
 <li>should read and parse the contents of <code>json-parameter-string</code> to get the attribute parameters</li>
-<li>read a 24 byte block of binary data from stdin called the SeismicInfo block (described below)</li>
+<li>read a 40 byte block of binary data from stdin called the SeismicInfo block (described below)</li>
 <li>start an endless loop that:<ul>
 <li>reads a 16 byte block of binary data from stdin called the TraceInfo block (described below)</li>
-<li>reads a data block of 4 byte binary floats from stdin that contains the seismic trace data. The size of the data block depends on the content of the SeismicInfo (number of traces) and TraceInfo ( number of samples) blocks<ul>
-<li><code>number_of_traces * number_of_samples * 4 bytes</code>.</li>
+<li>reads a data block of 4 byte binary floats from stdin that contains the seismic trace data. The size of the data block depends on the content of the SeismicInfo (number of traces and number of inputs) and TraceInfo ( number of samples) blocks<ul>
+<li><code>number_of_inputs * number_of_traces * number_of_samples * 4 bytes</code>.</li>
 </ul>
 </li>
 <li>calculates the attribute output</li>
@@ -455,7 +587,7 @@ xa.run(sys.argv[1:])
 </li>
 </ul>
 <h3 id="seismicinfo-block">SeismicInfo Block</h3>
-<p>This block of binary data is written to the applications stdin immediately after it is started with the <code>-c</code> argument. It consists of 24 bytes as follows:</p>
+<p>This block of binary data is written to the applications stdin immediately after it is started with the <code>-c</code> argument. It consists of 40 bytes as follows:</p>
 <table>
 <thead>
 <tr>
@@ -468,7 +600,17 @@ xa.run(sys.argv[1:])
 <tr>
 <td>4 bytes</td>
 <td>integer</td>
-<td>number of traces in the input data block</td>
+<td>number of traces for each input attribute</td>
+</tr>
+<tr>
+<td>4 bytes</td>
+<td>integer</td>
+<td>number of input attributes</td>
+</tr>
+<tr>
+<td>4 bytes</td>
+<td>integer</td>
+<td>number of output atrributes</td>
 </tr>
 <tr>
 <td>4 bytes</td>
@@ -519,7 +661,7 @@ xa.run(sys.argv[1:])
 </thead>
 <tbody>
 <tr>
-<td style="width:10%">4 bytes</td>
+<td>4 bytes</td>
 <td>integer</td>
 <td>number of samples in each trace within the input data block (OpendTect <code>nrsamples</code> parameter)</td>
 </tr>
@@ -561,7 +703,7 @@ xa.run(sys.argv[1:])
 
         <!--
         MkDocs version  : 0.12.2
-        Docs Build Date : 2015-05-05 12:30:00.938064
+        Docs Build Date : 2015-07-03 10:24:14.582955
         -->
     </body>
 </html>

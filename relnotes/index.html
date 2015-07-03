@@ -130,7 +130,7 @@
                         <ul class="dropdown-menu">
                         
                             <li >
-                                <a href="../External-Attributes/LPA-Attributes/">Local Polynomial Approximation</a>
+                                <a href="../External_Attributes/LPA_Attributes/">Local Polynomial Approximation</a>
                             </li>
                         
                         </ul>
@@ -196,6 +196,8 @@
     
         <li class="main active"><a href="#release-notes">Release Notes</a></li>
         
+            <li><a href="#release-507">Release 5.0.7</a></li>
+        
             <li><a href="#release-506-1">Release 5.0.6-1</a></li>
         
             <li><a href="#release-506">Release 5.0.6</a></li>
@@ -206,12 +208,21 @@
                 <div class="col-md-9" role="main">
 
 <h1 id="release-notes">Release Notes</h1>
+<h2 id="release-507">Release 5.0.7</h2>
+<h4 id="externalattrib">ExternalAttrib</h4>
+<ul>
+<li>Support multi-threaded execution by starting multiple copies of the external application</li>
+<li>Support multi-attribute multi-trace input (upto 6 input attributes)</li>
+<li>Add "Parallel" (boolean) tag to the JSON parameter string to control single vs multi-threaded computation</li>
+<li>Add "Inputs" (Array of Strings) tag to the JSON parameter string to indicate the input attributes</li>
+<li>Add simple python examples of multi-attribute single trace input and multi-attribute multi-trace input</li>
+</ul>
 <h2 id="release-506-1">Release 5.0.6-1</h2>
 <h4 id="avoattrib">AVOAttrib</h4>
 <ul>
 <li>Add example color tables</li>
 </ul>
-<h4 id="externalattrib">ExternalAttrib</h4>
+<h4 id="externalattrib_1">ExternalAttrib</h4>
 <ul>
 <li>Add local polynomial approximation external attribute examples</li>
 <li>Add dipFactor and zFactor items to the SeismicInfo block exported to external attribute scripts (note changes to extattrib.py)</li>
@@ -227,7 +238,7 @@
 <ul>
 <li>Fix typo in UI</li>
 </ul>
-<h4 id="externalattrib_1">ExternalAttrib</h4>
+<h4 id="externalattrib_2">ExternalAttrib</h4>
 <ul>
 <li>Add "Help" tag to JSON parameter string. The value of the tag is a url string pointing to a help page for the attribute. This is optional.</li>
 <li>Add "Selection" tag to JSON parameter string. The value of the tag is an object with a 'Name' (string), 'Values' (array of strings) and 'Select' (number) tags. Displays a list box labeled 'Name' with options specified in 'Values' and default selection being item number 'Select'. This is optional.</li>
@@ -257,7 +268,7 @@
 
         <!--
         MkDocs version  : 0.12.2
-        Docs Build Date : 2015-05-05 12:30:00.979854
+        Docs Build Date : 2015-07-03 10:24:14.624557
         -->
     </body>
 </html>
