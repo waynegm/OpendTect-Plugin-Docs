@@ -1,24 +1,28 @@
 site_name: OpendTect Plugins
-repo_url: https://github.com/waynegm/OpendTect-5-plugins
+repo_url: https://github.com/waynegm/OpendTect-Plugins
 site_description: Documentation for WAYNEGM's OpendTect plugins
 site_author: Wayne Mogg
 site_favicon: favicon-32x32.png
 copyright: All content and images &copy; 2015 by Wayne Mogg
 google_analytics: ['UA-62607269-1', 'OpendTect-Plugin-Docs']
 pages:
-- ['index.md', 'Home']
-- ['Installation/download-binary.md','Installation','Download']
-- ['Installation/installation.md','Installation','Install']
-- ['Installation/building-from-source.md','Installation','Build from source']
-- ['Installation/faq.md','Installation','Issues/FAQ']
-- ['Attributes/AVOAttrib.md','Plugins','AVO attributes']
-- ['Attributes/ExternalAttrib.md','Plugins','External attribute']
-- ['Attributes/LTFAttrib.md','Plugins','Local time-frequency attribute']
-- ['Attributes/MLVFilter.md','Plugins','Mean of least variance filter']
-- ['Attributes/RSpecAttrib.md','Plugins','Recursive time-frequency attribute']
-- ['External_Attributes/LPA_Attributes.md','External Attributes', 'Local Polynomial Approximation']
-- ['license.md', 'About','License']
-- ['relnotes.md', 'About','Release Notes']
+- Home: 'index.md'
+- Installation:
+    - Download: 'Installation/download-binary.md'
+    - Install: 'Installation/installation.md'
+    - Build from source: 'Installation/building-from-source.md'
+    - Issues/FAQ: 'Installation/faq.md'
+- Plugins:
+    - AVO attributes: 'Attributes/AVOAttrib.md'
+    - External attributes: 'Attributes/ExternalAttrib.md'
+    - Local time-frequency attribute: 'Attributes/LTFAttrib.md'
+    - Mean of least variance filter: 'Attributes/MLVFilter.md'
+    - Recursive time-frequency decomposition: 'Attributes/RSpecAttrib.md'
+- External Attributes:
+    - Local polynomial approximation: 'External_Attributes/LPA_Attributes.md'
+- About:
+    - License: 'license.md'
+    - Release notes: 'relnotes.md'
 
 markdown_extensions: [attr_list]
 

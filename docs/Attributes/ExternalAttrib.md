@@ -155,7 +155,7 @@ The external application can specify a set of parameters as a JSON object string
 | JSON KEYWORD| ZSampMargin (optional)|
 |--------:|:--------|
 | **TYPE** |  Object with a 'Value' (array of 2 numbers)  and optional 'Hidden' (boolean) and 'Symmetric' (boolean) parameters.    |
-| **DESCRIPTION**| The 'Value' parameter is an array of 2 numbers specifing the desired minimum number of samples above and below the calculation point required for the calculation. If not supplied only a single value will be provided when the attribute is computed on a timeslice or horizon.</br>The optional 'Hidden' parameter is a boolean which if set to true makes the ZSampMargin parameter read only.</br>The optional 'Symmetric' parameter is a boolean which if true causes only a single entry to be displayed in the UI. |
+| **DESCRIPTION**| The 'Value' parameter is an array of 2 numbers specifing the desired minimum number of samples before and after the calculation point required for the calculation respectively. If not supplied only a single value will be provided when the attribute is computed on a timeslice or horizon.</br>The optional 'Hidden' parameter is a boolean which if set to true makes the ZSampMargin parameter read only.</br>The optional 'Symmetric' parameter is a boolean which if true causes only a single entry to be displayed in the UI. |
 | **EXAMPLES** | `'ZSampMargin': {'Value': [-2,2]}` </br>`'ZSampMargin': {'Value': [-2,2], 'Symmetric': True}`|
 
 | JSON KEYWORD| StepOut (optional)|
@@ -170,7 +170,7 @@ The external application can specify a set of parameters as a JSON object string
 | **DESCRIPTION**| Displays a list box labeled 'Name' with options specified in 'Values' and default selection being item number 'Select'. |
 | **EXAMPLES** | `'Select': {'Name': 'Type', 'Values': ['None', 'Median', 'Average'], 'Selection': 0}`|
 
-| JSON KEYWORDS| Par0, Par1, Par2, Par3, Par4, Par5, Par6 (all optional)|
+| JSON KEYWORDS| Par_0, Par_1, Par_2, Par_3, Par_4, Par_5 (all optional)|
 |--------:|:--------|
 | **TYPE** |  Object with a 'Name' (string) and 'Value' (number) parameter.    |
 | **DESCRIPTION**| Displays an entry box labeled 'Name' with default value 'Value'. |

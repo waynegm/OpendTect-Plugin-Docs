@@ -1,5 +1,12 @@
 # Release Notes
 
+## Release 6.0.0pre7
+#### All Attributes
+- Port all attributes for compatibility with OpendTect v6
+
+#### ExternalAttrib
+- Fix so changing attribute clears Input ui controls
+
 ## Release 5.0.7
 #### ExternalAttrib
 - Support multi-threaded execution by starting multiple copies of the external application
