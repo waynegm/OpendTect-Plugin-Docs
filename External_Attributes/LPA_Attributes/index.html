@@ -10,7 +10,7 @@
         <link rel="shortcut icon" href="../../../../favicon-32x32.png">
         
 
-	<title>Local Polynomial Approximation - OpendTect Plugins</title>
+	<title>Local polynomial approximation - OpendTect Plugins</title>
 
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -75,21 +75,29 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Installation <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
-                            <li >
-                                <a href="../../Installation/download-binary/">Download</a>
-                            </li>
+                            
+<li >
+    <a href="../../Installation/download-binary/">Download</a>
+</li>
+
                         
-                            <li >
-                                <a href="../../Installation/installation/">Install</a>
-                            </li>
+                            
+<li >
+    <a href="../../Installation/installation/">Install</a>
+</li>
+
                         
-                            <li >
-                                <a href="../../Installation/building-from-source/">Build from source</a>
-                            </li>
+                            
+<li >
+    <a href="../../Installation/building-from-source/">Build from source</a>
+</li>
+
                         
-                            <li >
-                                <a href="../../Installation/faq/">Issues/FAQ</a>
-                            </li>
+                            
+<li >
+    <a href="../../Installation/faq/">Issues/FAQ</a>
+</li>
+
                         
                         </ul>
                     </li>
@@ -100,25 +108,35 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Plugins <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
-                            <li >
-                                <a href="../../Attributes/AVOAttrib/">AVO attributes</a>
-                            </li>
+                            
+<li >
+    <a href="../../Attributes/AVOAttrib/">AVO attributes</a>
+</li>
+
                         
-                            <li >
-                                <a href="../../Attributes/ExternalAttrib/">External attribute</a>
-                            </li>
+                            
+<li >
+    <a href="../../Attributes/ExternalAttrib/">External attributes</a>
+</li>
+
                         
-                            <li >
-                                <a href="../../Attributes/LTFAttrib/">Local time-frequency attribute</a>
-                            </li>
+                            
+<li >
+    <a href="../../Attributes/LTFAttrib/">Local time-frequency attribute</a>
+</li>
+
                         
-                            <li >
-                                <a href="../../Attributes/MLVFilter/">Mean of least variance filter</a>
-                            </li>
+                            
+<li >
+    <a href="../../Attributes/MLVFilter/">Mean of least variance filter</a>
+</li>
+
                         
-                            <li >
-                                <a href="../../Attributes/RSpecAttrib/">Recursive time-frequency attribute</a>
-                            </li>
+                            
+<li >
+    <a href="../../Attributes/RSpecAttrib/">Recursive time-frequency decomposition</a>
+</li>
+
                         
                         </ul>
                     </li>
@@ -129,9 +147,11 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">External Attributes <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
-                            <li class="active">
-                                <a href="./">Local Polynomial Approximation</a>
-                            </li>
+                            
+<li class="active">
+    <a href="./">Local polynomial approximation</a>
+</li>
+
                         
                         </ul>
                     </li>
@@ -142,13 +162,17 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
-                            <li >
-                                <a href="../../license/">License</a>
-                            </li>
+                            
+<li >
+    <a href="../../license/">License</a>
+</li>
+
                         
-                            <li >
-                                <a href="../../relnotes/">Release Notes</a>
-                            </li>
+                            
+<li >
+    <a href="../../relnotes/">Release notes</a>
+</li>
+
                         
                         </ul>
                     </li>
@@ -157,34 +181,35 @@
                 </ul>
             
 
-            
-            <!-- Search, Navigation and Repo links -->
             <ul class="nav navbar-nav navbar-right">
-                
-                
-                <li >
-                    <a rel="next" href="../../Attributes/RSpecAttrib/">
-                        <i class="fa fa-arrow-left"></i> Previous
-                    </a>
-                </li>
-                <li >
-                    <a rel="prev" href="../../license/">
-                        Next <i class="fa fa-arrow-right"></i>
-                    </a>
-                </li>
-                
-                
                 <li>
-                    <a href="https://github.com/waynegm/OpendTect-5-plugins">
-                        
-                            <i class="fa fa-github"></i>
-                        
-                        GitHub
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
                     </a>
                 </li>
+                
+                    <li >
+                        <a rel="next" href="../../Attributes/RSpecAttrib/">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../../license/">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a href="https://github.com/waynegm/OpendTect-Plugins">
+                            
+                                <i class="fa fa-github"></i>
+                            
+                            GitHub
+                        </a>
+                    </li>
                 
             </ul>
-            
         </div>
     </div>
 </div>
@@ -272,8 +297,18 @@
 </div>
 
 <h2 id="lpa-dip">LPA Dip</h2>
-<p>This attribute (<strong>ex_lpa_dip.py</strong>) uses the local polynomial approximation coefficients to estimate an orientation tensor as per <a href="http://dx.doi.org/10.1190/geo2012-0427.1" title="Farnebäck, Gunnar. Polynomial Expansion for Orientation and Motion Estimation. Linköping Studies in Science and Technology. Dissertations No, 790">Farnebäck (2002)</a> and assumes the orientation of the first eigenvector is normal to the local event dip. Output can be either the inline or crossline dip. The example shows inline dip on a crossline calculated using a 5x5x5 sample volume (Z_window: 2, Stepout: 2,2) with a subsequent 3x3x3 sample median filter applied to remove spurious dips. Only a <a href="http://numba.pydata.org/">Numba JIT compiler</a> version of this attribute is provided.</p>
-<p><img alt="LPA Dip" src="../../images/lpa_dip_2x2x2.jpg" title="LPA Dip external attribute" /></p>
+<p>This attribute (<strong>ex_lpa_dip.py</strong>) uses the local polynomial approximation coefficients to estimate an orientation tensor as per <a href="http://dx.doi.org/10.1190/geo2012-0427.1" title="Farnebäck, Gunnar. Polynomial Expansion for Orientation and Motion Estimation. Linköping Studies in Science and Technology. Dissertations No, 790">Farnebäck (2002)</a> and assumes the orientation of the first eigenvector is normal to the local event dip. Output can be either the inline or crossline dip. The units are millseconds per meter for time data and millimetres per metre for depth data.  Only <a href="http://numba.pydata.org/">Numba JIT compiler</a> versions of this attribute are provided.</p>
+<p>There are two versions of the attribute:</p>
+<ul>
+<li><strong>ex_lpa_dip_raw.py</strong> which does not include any post processing of the computed dips. The output will include a lot of steep non-geologic dips whenever an event ends. These spurious dips can generally be removed by applying a median filter (as per the example below).</li>
+<li><strong>ex_lpa_dip.py</strong> which includes dip processing comprising removal of dips beyond a user specified limit and a low pass filter along the Z direction.</li>
+</ul>
+<p>The example on the left shows inline dip on a crossline from a PSDM volume calculated by <strong>ex_lpa_dip_raw.py</strong> using a 5x5x5 sample volume (Zwindow: 2, Stepout: 2,2) with a subsequent 3x3x3 sample median filter applied to remove spurious dips. The image on the right shows the output of <strong>ex_lpa_dip.py</strong> for the same sample volume with a dip range limit of +/-1200 mm/m. </p>
+<div class="juxtapose" style="margin:0px;padding:0px" data-startingposition="50" data-showlabels="true" data-showcredits="false" data-animate="false" data-mode="horizontal">
+<img src="../../images/lpa_dip_raw_med_2x2x2.jpg" data-label="lpa_dip_raw 2x2x2 + median filter" data-credit="">
+<img src="../../images/lpa_dip_2x2x2.jpg"  data-label="lpa_dip 2x2x2" data-credit="">
+</div>
+
 <h2 id="lpa-coefficients">LPA Coefficients</h2>
 <p>This attribute (<strong>ex_lpa_coef.py</strong>) outputs all of the local polynomial approximation coefficients. The r0 output is identical to the LPA Smoothing attribute. Only a <a href="http://numba.pydata.org/">Numba JIT compiler</a> version of this attribute is provided. The example below shows the inline first and second derivative components on a crossline.</p>
 <div class="juxtapose" style="margin:0px;padding:0px" data-startingposition="50" data-showlabels="true" data-showcredits="false" data-animate="false" data-mode="horizontal">
@@ -282,14 +317,14 @@
 </div>
 
 <h2 id="lpa-eigenvalues">LPA Eigenvalues</h2>
-<p>This attribute (<strong>ex_lpa_eigenvals.py</strong>) uses the local polynomial approximation coefficients to estimate an orientation tensor as per <a href="http://dx.doi.org/10.1190/geo2012-0427.1" title="Farnebäck, Gunnar. Polynomial Expansion for Orientation and Motion Estimation. Linköping Studies in Science and Technology. Dissertations No, 790">Farnebäck (2002)</a>. Output are the eigenvalues (e1, e2, e3) of the tensor in descending order. Only a <a href="http://numba.pydata.org/">Numba JIT compiler</a> version of this attribute is provided. The example below shows the first and second eignevalues on a crossline.</p>
+<p>This attribute (<strong>ex_lpa_eigenvals.py</strong>) uses the local polynomial approximation coefficients to estimate an orientation tensor as per <a href="http://dx.doi.org/10.1190/geo2012-0427.1" title="Farnebäck, Gunnar. Polynomial Expansion for Orientation and Motion Estimation. Linköping Studies in Science and Technology. Dissertations No, 790">Farnebäck (2002)</a>. Output are the eigenvalues (e1, e2, e3) of the tensor in descending order. Only a <a href="http://numba.pydata.org/">Numba JIT compiler</a> version of this attribute is provided. The example below shows the first (left image) and second (right image) eigenvalues on a crossline.</p>
 <div class="juxtapose" style="margin:0px;padding:0px" data-startingposition="50" data-showlabels="true" data-showcredits="false" data-animate="false" data-mode="horizontal">
 <img src="../../images/lpa_eigval_1_2x2x2.jpg" data-label="lpa 1st eigenvalue" data-credit="">
 <img src="../../images/lpa_eigval_2_2x2x2.jpg"  data-label="lpa 2nd eignevalue" data-credit="">
 </div>
 
 <h2 id="lpa-eigenvectors">LPA Eigenvectors</h2>
-<p>This attribute (<strong>ex_lpa_eigenvec.py</strong>) uses the local polynomial approximation coefficients to estimate an orientation tensor as per <a href="http://dx.doi.org/10.1190/geo2012-0427.1" title="Farnebäck, Gunnar. Polynomial Expansion for Orientation and Motion Estimation. Linköping Studies in Science and Technology. Dissertations No, 790">Farnebäck (2002)</a>. Output are the eigenvectors (t1x,t1y,t1z,t2x,t2y,t2z,t3x,t3y,t3z) of the tensor. Eigenvector [t1x, t1y t1z] corresponds to the first eigenvalue, e1 etc. Only a <a href="http://numba.pydata.org/">Numba JIT compiler</a> version of this attribute is provided.</p>
+<p>This attribute (<strong>ex_lpa_eigenvec.py</strong>) uses the local polynomial approximation coefficients to estimate an orientation tensor as per <a href="http://dx.doi.org/10.1190/geo2012-0427.1" title="Farnebäck, Gunnar. Polynomial Expansion for Orientation and Motion Estimation. Linköping Studies in Science and Technology. Dissertations No, 790">Farnebäck (2002)</a>. Output are the eigenvectors (t1x,t1y,t1z,t2x,t2y,t2z,t3x,t3y,t3z) of the tensor. Eigenvector [t1x, t1y t1z] corresponds to the first eigenvalue, e1 etc. Only a <a href="http://numba.pydata.org/">Numba JIT compiler</a> version of this attribute is provided. The example below shows the y-component (left image) and z-component (right image) of the first eigenvector, ie t1y and t1z.</p>
 <div class="juxtapose" style="margin:0px;padding:0px" data-startingposition="50" data-showlabels="true" data-showcredits="false" data-animate="false" data-mode="horizontal">
 <img src="../../images/lpa_eigvec_t1y_2x2x2.jpg" data-label="lpa t1y" data-credit="">
 <img src="../../images/lpa_eigvec_t1z_2x2x2.jpg"  data-label="lpa t1z" data-credit="">
@@ -304,22 +339,43 @@
         <footer class="col-md-12">
             <hr>
             
-            <p>All content and images &copy; 2015 by Wayne Mogg</p>
+                <p>All content and images &copy; 2015 by Wayne Mogg</p>
             
             <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
 
-        
-
         <script src="../../js/jquery-1.10.2.min.js"></script>
         <script src="../../js/bootstrap-3.0.3.min.js"></script>
         <script src="../../js/highlight.pack.js"></script>
+        <script>var base_url = '../..';</script>
+        <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script>
         <script src="../../js/base.js"></script>
         <script src="../../js/juxtapose.min.js"></script>
 
-        <!--
-        MkDocs version  : 0.12.2
-        Docs Build Date : 2015-07-03 10:24:14.614416
-        -->
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            From here you can search these documents. Enter
+                            your search terms below.
+                        </p>
+                        <form role="form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                            </div>
+                        </form>
+                        <div id="mkdocs-search-results"></div>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </body>
 </html>
