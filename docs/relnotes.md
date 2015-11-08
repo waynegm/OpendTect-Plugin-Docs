@@ -1,5 +1,18 @@
 # Release Notes
 
+## Release 6.0.0pre7-1
+#### ExternalAttrib
+- Allow %ENVVAR% construct in interpreter field where ENVVAR is a system environment variable with the interpreter path [#12]
+- Use environment variable, OD_EX_DIR, as the root of the folder structure containing the external attribute files [#13]
+- Export ExternalAttrib and ExtProc classes to fix link errors during Windows build
+
+## Release 5.0.10
+#### ExternalAttrib
+- Fix so changing attribute clears Input ui controls
+- Allow %ENVVAR% construct in interpreter field where ENVVAR is a system environment variable with the interpreter path [#12]
+- Use environment variable, OD_EX_DIR, as the root of the folder structure containing the external attribute files [#13]
+- Export ExternalAttrib and ExtProc classes to fix link errors during Windows build
+
 ## Release 6.0.0pre7
 #### All Attributes
 - Port all attributes for compatibility with OpendTect v6

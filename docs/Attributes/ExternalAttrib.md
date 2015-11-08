@@ -131,6 +131,37 @@ This attribute has 3 required parameters and up to 9 optional parameters determi
     
 ![Input Parameters](../images/ExternalAttrib_input.jpg "External Attribute input parameters")	
 
+## Cross Platform Setup
+Prior to release 5.10 and 6.0.0pre7-1 any attribute set containing external attributes could not be shared between Windows and Linux because the Interpeter and External File input fields contain platform specific file paths.
+
+Release 5.10 and 6.0.0pre7-1 introduced an optional mechanism to support cross platform attribute sets containing external attributes by using environment variables. Consider the following script for starting OpendTect on Linux:
+```
+#!/bin/csh -f
+setenv DTECT_SETTINGS "$HOME/.od6"
+setenv OD_USER_PLUGIN_DIR "$HOME/.od6"
+setenv EX_PYTHON "/opt/anaconda3/bin/python"
+setenv OD_EX_DIR "$HOME/Development/GIT_AREA/OpendTect-External-Attributes/"
+/opt/seismic/OpendTect_6/6.0.0/start_dtect ```
+
+And an equivalent Windows command file:
+```
+@set OD_USER_PLUGIN_DIR=%HOMEPATH%\od6
+@set EX_PYTHON=C:\Miniconda3\python.exe
+@set OD_EX_DIR=E:\Development\GIT_AREA\OpendTect-External-Attributes\
+start "" "C:\Program Files\OpendTect_6\6.0.0\bin\win64\Release\od_start_dtect.exe"
+```
+The environment variable EX_PYTHON points to the python interpreter for each platform and entering %EX_PYTHON% into the Interpreter input field ensures the platform appropriate interpreter is used. Any name can be used for the environment variable.
+
+The  environment variable OD_EX_DIR points to a root folder below which the attribute script files can be found. The setting in the Linux startup script points to a Linux folder. The corresponding setting in the Windows command file points to the same location via a network share. This environment variable name is hard wired into the code so this variable name cannot be changed. Note that the script files cam be located in subfolders of the OD_EX_DIR folder.
+
+This type of setup produces attribute set descriptions like this:
+```
+7.Definition: ExternalAttrib interpfile=%EX_PYTHON% exfile=%OD_EX_DIR%tests/ex_ui_test_all.py zmargin=[-1,1] stepout=1,1 selection=2 par0=0 par1=1 par2=2 par3=3 par4=4 par5=5 output=0
+```
+which can be used on either platform without change.
+
+Attribute sets created by release 5.0.10 and 6.0.0pre7-1 and later will not work in earlier versions of the External Attribute plugin.
+
 ## Attribute JSON Parameter String
 The external application can specify a set of parameters as a JSON object string. The following keywords are supported:
 
