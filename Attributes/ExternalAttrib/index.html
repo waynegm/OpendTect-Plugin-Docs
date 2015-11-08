@@ -225,6 +225,8 @@
         
             <li><a href="#input-parameters">Input Parameters</a></li>
         
+            <li><a href="#cross-platform-setup">Cross Platform Setup</a></li>
+        
             <li><a href="#attribute-json-parameter-string">Attribute JSON Parameter String</a></li>
         
             <li><a href="#issues">Issues</a></li>
@@ -371,6 +373,32 @@ xa.run(sys.argv[1:])
 </tbody>
 </table>
 <p><img alt="Input Parameters" src="../../images/ExternalAttrib_input.jpg" title="External Attribute input parameters" />   </p>
+<h2 id="cross-platform-setup">Cross Platform Setup</h2>
+<p>Prior to release 5.10 and 6.0.0pre7-1 any attribute set containing external attributes could not be shared between Windows and Linux because the Interpeter and External File input fields contain platform specific file paths.</p>
+<p>Release 5.10 and 6.0.0pre7-1 introduced an optional mechanism to support cross platform attribute sets containing external attributes by using environment variables. Consider the following script for starting OpendTect on Linux:</p>
+<pre><code>#!/bin/csh -f
+setenv DTECT_SETTINGS &quot;$HOME/.od6&quot;
+setenv OD_USER_PLUGIN_DIR &quot;$HOME/.od6&quot;
+setenv EX_PYTHON &quot;/opt/anaconda3/bin/python&quot;
+setenv OD_EX_DIR &quot;$HOME/Development/GIT_AREA/OpendTect-External-Attributes/&quot;
+/opt/seismic/OpendTect_6/6.0.0/start_dtect 
+</code></pre>
+
+<p>And an equivalent Windows command file:</p>
+<pre><code>@set OD_USER_PLUGIN_DIR=%HOMEPATH%\od6
+@set EX_PYTHON=C:\Miniconda3\python.exe
+@set OD_EX_DIR=E:\Development\GIT_AREA\OpendTect-External-Attributes\
+start &quot;&quot; &quot;C:\Program Files\OpendTect_6\6.0.0\bin\win64\Release\od_start_dtect.exe&quot;
+</code></pre>
+
+<p>The environment variable EX_PYTHON points to the python interpreter for each platform and entering %EX_PYTHON% into the Interpreter input field ensures the platform appropriate interpreter is used. Any name can be used for the environment variable.</p>
+<p>The  environment variable OD_EX_DIR points to a root folder below which the attribute script files can be found. The setting in the Linux startup script points to a Linux folder. The corresponding setting in the Windows command file points to the same location via a network share. This environment variable name is hard wired into the code so this variable name cannot be changed. Note that the script files cam be located in subfolders of the OD_EX_DIR folder.</p>
+<p>This type of setup produces attribute set descriptions like this:</p>
+<pre><code>7.Definition: ExternalAttrib interpfile=%EX_PYTHON% exfile=%OD_EX_DIR%tests/ex_ui_test_all.py zmargin=[-1,1] stepout=1,1 selection=2 par0=0 par1=1 par2=2 par3=3 par4=4 par5=5 output=0
+</code></pre>
+
+<p>which can be used on either platform without change.</p>
+<p>Attribute sets created by release 5.0.10 and 6.0.0pre7-1 and later that use these environment variables will not work in earlier versions of the External Attribute plugin.</p>
 <h2 id="attribute-json-parameter-string">Attribute JSON Parameter String</h2>
 <p>The external application can specify a set of parameters as a JSON object string. The following keywords are supported:</p>
 <table>
