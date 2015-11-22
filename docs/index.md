@@ -8,7 +8,7 @@ This is the documentation site for various plugins  I have developed for the ope
 |--------|-------------|
 | [AVOAttrib](Attributes/AVOAttrib.md) | Six attributes derived from reflection intercept and gradient |
 | [ExternalAttrib](Attributes/ExternalAttrib.md) | Attribute calculation outside OpendTect using an external process such as a python script |
-| [LTFAttrib](Attributes/LTFAttrib.md) | Local time-frequency decomposition (requires [Madagascar](www.ahay.org) - not available for Windows) |
+| [LTFAttrib](Attributes/LTFAttrib.md) | Local time-frequency decomposition (requires [Madagascar](http://www.ahay.org) - not available for Windows) |
 | [MLVFilter](Attributes/MLVFilter.md) | Structure preserving filter |
 | [RSpecAttrib](Attributes/RSpecAttrib.md) | Recursive time-frequency decomposition |
 
