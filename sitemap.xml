@@ -4,7 +4,7 @@
     
     <url>
      <loc>None/</loc>
-     <lastmod>2015-11-08</lastmod>
+     <lastmod>2015-11-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -13,25 +13,25 @@
         
     <url>
      <loc>None/Installation/download-binary/</loc>
-     <lastmod>2015-11-08</lastmod>
+     <lastmod>2015-11-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/Installation/installation/</loc>
-     <lastmod>2015-11-08</lastmod>
+     <lastmod>2015-11-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/Installation/building-from-source/</loc>
-     <lastmod>2015-11-08</lastmod>
+     <lastmod>2015-11-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/Installation/faq/</loc>
-     <lastmod>2015-11-08</lastmod>
+     <lastmod>2015-11-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -41,31 +41,31 @@
         
     <url>
      <loc>None/Attributes/AVOAttrib/</loc>
-     <lastmod>2015-11-08</lastmod>
+     <lastmod>2015-11-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/Attributes/ExternalAttrib/</loc>
-     <lastmod>2015-11-08</lastmod>
+     <lastmod>2015-11-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/Attributes/LTFAttrib/</loc>
-     <lastmod>2015-11-08</lastmod>
+     <lastmod>2015-11-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/Attributes/MLVFilter/</loc>
-     <lastmod>2015-11-08</lastmod>
+     <lastmod>2015-11-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/Attributes/RSpecAttrib/</loc>
-     <lastmod>2015-11-08</lastmod>
+     <lastmod>2015-11-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -75,7 +75,7 @@
         
     <url>
      <loc>None/External_Attributes/LPA_Attributes/</loc>
-     <lastmod>2015-11-08</lastmod>
+     <lastmod>2015-11-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -85,13 +85,13 @@
         
     <url>
      <loc>None/license/</loc>
-     <lastmod>2015-11-08</lastmod>
+     <lastmod>2015-11-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/relnotes/</loc>
-     <lastmod>2015-11-08</lastmod>
+     <lastmod>2015-11-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         

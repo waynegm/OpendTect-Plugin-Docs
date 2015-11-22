@@ -17,7 +17,7 @@
         },
         {
             "location": "/Installation/download-binary/",
-            "text": "Download Binary Distribution\n\n\nCompiled versions of the plugins for Linux x86_64 and Windows x86_64 are available for download at the links below. After download follow the \ninstallation instructions\n to put them to use.\n\n\nOpendTect Version 6\n\n\n\n\n\n\n\n\nOS\n\n\n\n\n\n\n\n\n\n\n\n\nLinux\n\n\n \n \n\n\n\n\n\n\nWindows\n\n\n \n \n\n\n\n\n\n\n\n\nOpendTect Version 5\n\n\n\n\n\n\n\n\nOS\n\n\n\n\n\n\n\n\n\n\n\n\nLinux\n\n\n \n \n\n\n\n\n\n\nWindows\n\n\n \n \n\n\n\n\n\n\n\n\nOpendTect Version 4",
+            "text": "Download Binary Distribution\n\n\nCompiled versions of the plugins for Linux x86_64 and Windows x86_64 are available for download at the links below. After download follow the \ninstallation instructions\n to put them to use.\n\n\nOpendTect Version 6\n\n\n\n\n\n\n\n\nOS\n\n\nLATEST\n\n\nOTHER\n\n\n\n\n\n\n\n\n\n\nLinux\n\n\n \n \n\n\nOn Bintray\n\n\n\n\n\n\nWindows\n\n\n \n \n\n\nOn Bintray\n\n\n\n\n\n\n\n\nOpendTect Version 5\n\n\n\n\n\n\n\n\nOS\n\n\nLATEST\n\n\nOTHER\n\n\n\n\n\n\n\n\n\n\nLinux\n\n\n \n \n\n\nOn Bintray\n\n\n\n\n\n\nWindows\n\n\n \n \n\n\nOn Bintray\n\n\n\n\n\n\n\n\nOpendTect Version 4",
             "title": "Download"
         },
         {
@@ -27,12 +27,12 @@
         },
         {
             "location": "/Installation/download-binary/#opendtect-version-6",
-            "text": "OS       Linux         Windows",
+            "text": "OS  LATEST  OTHER      Linux       On Bintray    Windows       On Bintray",
             "title": "OpendTect Version 6"
         },
         {
             "location": "/Installation/download-binary/#opendtect-version-5",
-            "text": "OS       Linux         Windows",
+            "text": "OS  LATEST  OTHER      Linux       On Bintray    Windows       On Bintray",
             "title": "OpendTect Version 5"
         },
         {
