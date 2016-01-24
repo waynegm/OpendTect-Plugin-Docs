@@ -10,7 +10,7 @@
         <link rel="shortcut icon" href="../../../../favicon-32x32.png">
         
 
-	<title>Mean of least variance filter - OpendTect Plugins</title>
+	<title>Gradient attribute - OpendTect Plugins</title>
 
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -121,8 +121,8 @@
 
                         
                             
-<li >
-    <a href="../GradientAttrib/">Gradient attribute</a>
+<li class="active">
+    <a href="./">Gradient attribute</a>
 </li>
 
                         
@@ -133,8 +133,8 @@
 
                         
                             
-<li class="active">
-    <a href="./">Mean of least variance filter</a>
+<li >
+    <a href="../MLVFilter/">Mean of least variance filter</a>
 </li>
 
                         
@@ -195,12 +195,12 @@
                 </li>
                 
                     <li >
-                        <a rel="next" href="../LTFAttrib/">
+                        <a rel="next" href="../ExternalAttrib/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../RSpecAttrib/">
+                        <a rel="prev" href="../LTFAttrib/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -225,11 +225,9 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#mlv-filter">MLV Filter</a></li>
+        <li class="main active"><a href="#gradientattrib">GradientAttrib</a></li>
         
             <li><a href="#description">Description</a></li>
-        
-            <li><a href="#examples">Examples</a></li>
         
             <li><a href="#input-parameters">Input Parameters</a></li>
         
@@ -238,27 +236,15 @@
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="mlv-filter">MLV Filter</h1>
-<p>Structure preserving Mean of Least Variance Filter plugin for open source seismic interpretation platform <a href="http://www.opendtect.org/" target="_blank">OpendTect</a>.</p>
+<h1 id="gradientattrib">GradientAttrib</h1>
+<p>Calculation of inline, crossline and time/depth gradient for the open source seismic interpretation platform <a href="http://www.opendtect.org/" target="_blank">OpendTect</a> 6.0.0 or later.</p>
 <h2 id="description">Description</h2>
-<p>This attribute is an implementation of a mean of least variance filter <a href="http://proceedings.spiedigitallibrary.org/proceeding.aspx?articleid=1008684" title="Value-and-criterion filters: a new filter structure based on morphological opening and closing. Mark A. Schulze and John A. Pearce. Proc. SPIE 1902, Nonlinear Image Processing IV, 106 (May 21, 1993)">Schulze &amp; Pearce (1993)</a> where the analysis elements are all the possible planes through the sample points in the analysis block. This algorithm may be similar to that proposed by <a href="http://library.seg.org/doi/abs/10.1190/1.3627375" title="Structure‐preserving smoothing for 3D seismic attributes. Saleh Al‐Dossary and Yuchun Eugene Wang. SEG Technical Program Expanded Abstracts 2011. January 2011, 1004-1008">Al-Dossary &amp; Wang (2011)</a>. </p>
-<p>The sample variance for all samples on each analysis element is calculated and the output statistic (average, mean or element index) is output for the element with the least variance. </p>
-<p>The following figure shows the relationship between the geometry of the analysis elements and the element index.</p>
-<p><img alt="Element Index" src="../../images/MLVFilterAttrib_elements.jpg" title="MLV Filter analysis elements" /></p>
-<h2 id="examples">Examples</h2>
-<p><div class="juxtapose" style="margin:0px;padding:0px" data-startingposition="50" data-showlabels="true" data-showcredits="false" data-animate="false" data-mode="horizontal">
-<img src="../../images/MLVFilterAttrib_input.jpg" data-label="Input" data-credit="">
-<img src="../../images/MLVFilterAttrib_MLV3_Mean.jpg"  data-label="MLV Size 3 Average - 1 pass" data-credit="">
-</div></p>
-<div class="juxtapose" style="margin:0px;padding:0px" data-startingposition="50" data-showlabels="true" data-showcredits="false" data-animate="false" data-mode="horizontal">
-<img src="../../images/MLVFilterAttrib_MLV5_Mean.jpg" data-label="MLV Size 5 Average - 1 pass" data-credit="">
-<img src="../../images/MLVFilterAttrib_MLV3_Mean2.jpg"  data-label="MLV Size 3 Average - 2 passes" data-credit="">
-</div>
-
-<p><strong>MLV Size 3 Elements over Input</strong></p>
-<p><img alt="MLV 3 Elements" src="../../images/MLVFilterAttrib_MLV3_Elements.jpg" title="MLV 3 elements" /></p>
+<p>This plugin calculates the inline, crossline or time/depth gradient using operators optimised for rotation invariance, ie equal response in all directions, proposed  by <a href="http://www.k-zone.nl/Kroon_DerivativePaper.pdf" title="NUMERICAL OPTIMIZATION OF KERNEL BASED IMAGE DERIVATIVES. Dirk-Jan Kroon, University of Twente, Enschede">Kroon (2009)</a> and <a href="http://www.cns.nyu.edu/pub/lcv/farid03-reprint.pdf" title="Differentiation of Discrete Multidimensional Signals. Hany Farid and Eero P. Simoncelli, IEEE TRANSACTIONS ON IMAGE PROCESSING, VOL. 13, NO. 4, APRIL 2004
+">Farid and Simoncelli(2004)</a>. These provide more accurate alternatives to the Prewitt filter option of the OpendTect Convolve attribute for computing gradients.</p>
+<p>The attribute offers a choice of Kroon's 3x3x3, Farid and Simoncelli's 5x5x5 or Farid and Simoncelli's 7x7x7 operator. The following figures demonstrate the relative accuracy of these operators and the OpendTect Prewitt filter on a simple periodic signal (top left) with event dip angle shown top right. Gradients calculated using each operator are used to compute the event dip angle and the absolute dip angle error. The superior accuracy of the operators provided by this attribute is clear.</p>
+<p><img alt="Gradient operator accuracy test" src="../../images/gradient_attrib.jpg" /></p>
 <h2 id="input-parameters">Input Parameters</h2>
-<p>This attribute has 2 parameters:</p>
+<p>This attribute has 3 parameters:</p>
 <table>
 <thead>
 <tr>
@@ -268,16 +254,20 @@
 </thead>
 <tbody>
 <tr>
-<td>Filter size</td>
-<td style="width:60%">Specifies a cube of samples centred  at the analysis location. Increasing the size will increase the degree of smoothing at the risk of smearing structural features. As the examples show it may be better to apply multiple passes of a small size filter than a single pass of a larger filter to reduce the risk of artifacts in the output. OpendTect makes it really easy to cascade multiple filter passes.</td>
+<td>Input Volume</td>
+<td>The input attribute volume.</td>
 </tr>
 <tr>
-<td>Output statistic</td>
-<td>What the filter will output. The options are average, median or the element index. The element index is included for curiosity and quality control. Generally the default <em>Average</em> provides the most pleasing output.</td>
+<td>Output Gradient</td>
+<td>What to calculate - choice of Inline, Crossline or Z gradient.</td>
+</tr>
+<tr>
+<td>Operator</td>
+<td>What operator to use - choice of Kroon's 3x3x3, Farid's 5x5x5 or Farid's 7x7x7.</td>
 </tr>
 </tbody>
 </table>
-<p><img alt="Input Parameters" src="../../images/MLVFilterAttrib_par1.jpg" title="MLF Filter input parameters" /></p></div>
+<p><img alt="Input parameters" src="../../images/GradientAttrib_input.jpg" title="Gradient attribute input parameter dialog" /></p></div>
             
         </div>
 
