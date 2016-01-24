@@ -15,6 +15,7 @@ pages:
 - Plugins:
     - AVO attributes: 'Attributes/AVOAttrib.md'
     - External attributes: 'Attributes/ExternalAttrib.md'
+    - Gradient attribute: 'Attributes/GradientAttrib.md'
     - Local time-frequency attribute: 'Attributes/LTFAttrib.md'
     - Mean of least variance filter: 'Attributes/MLVFilter.md'
     - Recursive time-frequency decomposition: 'Attributes/RSpecAttrib.md'
