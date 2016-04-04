@@ -7,15 +7,15 @@
         
         <meta name="author" content="Wayne Mogg">
         
-        <link rel="shortcut icon" href="../../../../favicon-32x32.png">
+        <link rel="shortcut icon" href="../../favicon-32x32.png">
         
 
 	<title>Recursive time-frequency decomposition - OpendTect Plugins</title>
 
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
-        <link href="../../css/base.css" rel="stylesheet">
         <link rel="stylesheet" href="../../css/highlight.css">
+        <link href="../../css/base.css" rel="stylesheet">
         <link href="../../css/juxtapose.css" rel="stylesheet">
 
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -44,7 +44,6 @@
 
         <!-- Collapsed navigation -->
         <div class="navbar-header">
-            
             <!-- Expander button -->
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -52,7 +51,6 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            
 
             <!-- Main title -->
             <a class="navbar-brand" href="../..">OpendTect Plugins</a>
@@ -60,160 +58,181 @@
 
         <!-- Expanded navigation -->
         <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
             
-                <!-- Main navigation -->
-                <ul class="nav navbar-nav">
-                
-                
-                    <li >
-                        <a href="../..">Home</a>
-                    </li>
-                
-                
-                
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Installation <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
+            
+                <li >
+                    <a href="../..">Home</a>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Installation <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
                         
-                            
 <li >
     <a href="../../Installation/download-binary/">Download</a>
 </li>
 
+                    
                         
-                            
 <li >
     <a href="../../Installation/installation/">Install</a>
 </li>
 
+                    
                         
-                            
 <li >
     <a href="../../Installation/building-from-source/">Build from source</a>
 </li>
 
+                    
                         
-                            
 <li >
     <a href="../../Installation/faq/">Issues/FAQ</a>
 </li>
 
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Plugins <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
                         
-                        </ul>
-                    </li>
-                
-                
-                
-                    <li class="dropdown active">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Plugins <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                        
-                            
 <li >
     <a href="../AVOAttrib/">AVO attributes</a>
 </li>
 
+                    
                         
-                            
 <li >
     <a href="../ExternalAttrib/">External attributes</a>
 </li>
 
+                    
                         
-                            
 <li >
     <a href="../GradientAttrib/">Gradient attribute</a>
 </li>
 
+                    
                         
-                            
 <li >
     <a href="../LTFAttrib/">Local time-frequency attribute</a>
 </li>
 
+                    
                         
-                            
 <li >
     <a href="../MLVFilter/">Mean of least variance filter</a>
 </li>
 
+                    
                         
-                            
 <li class="active">
     <a href="./">Recursive time-frequency decomposition</a>
 </li>
 
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">External Attributes <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
                         
-                        </ul>
-                    </li>
-                
-                
-                
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">External Attributes <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
+<li >
+    <a href="../../External_Attributes/ExternalAttributes/">Introduction</a>
+</li>
+
+                    
                         
-                            
+<li >
+    <a href="../../External_Attributes/DipandAzimuth/">Dip and Azimuth</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../External_Attributes/LPA_Smooth/">LPA Smoothing</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../External_Attributes/Vector_Filters/">Vector Filters</a>
+</li>
+
+                    
+                        
 <li >
     <a href="../../External_Attributes/LPA_Attributes/">Local polynomial approximation</a>
 </li>
 
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
                         
-                        </ul>
-                    </li>
-                
-                
-                
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                        
-                            
 <li >
     <a href="../../license/">License</a>
 </li>
 
+                    
                         
-                            
 <li >
     <a href="../../relnotes/">Release notes</a>
 </li>
 
-                        
-                        </ul>
-                    </li>
-                
-                
-                </ul>
+                    
+                    </ul>
+                </li>
             
+            
+            </ul>
 
+            <!-- Search, Navigation and Repo links -->
             <ul class="nav navbar-nav navbar-right">
                 <li>
                     <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
                         <i class="fa fa-search"></i> Search
                     </a>
                 </li>
+                <li >
+                    <a rel="next" href="../MLVFilter/">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="../../External_Attributes/ExternalAttributes/">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
                 
-                    <li >
-                        <a rel="next" href="../MLVFilter/">
-                            <i class="fa fa-arrow-left"></i> Previous
-                        </a>
-                    </li>
-                    <li >
-                        <a rel="prev" href="../../External_Attributes/LPA_Attributes/">
-                            Next <i class="fa fa-arrow-right"></i>
-                        </a>
-                    </li>
-                
-                
-                    <li>
-                        <a href="https://github.com/waynegm/OpendTect-Plugins">
-                            
-                                <i class="fa fa-github"></i>
-                            
-                            GitHub
-                        </a>
-                    </li>
+                <li>
+                    <a href="https://github.com/waynegm/OpendTect-Plugins">
+                        
+                            <i class="fa fa-github"></i>
+                        
+                        GitHub
+                    </a>
+                </li>
                 
             </ul>
         </div>
@@ -221,8 +240,7 @@
 </div>
 
         <div class="container">
-            
-                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
         <li class="main active"><a href="#rspecattrib">RSpecAttrib</a></li>
@@ -236,7 +254,7 @@
     
     </ul>
 </div></div>
-                <div class="col-md-9" role="main">
+            <div class="col-md-9" role="main">
 
 <h1 id="rspecattrib">RSpecAttrib</h1>
 <p>Recursive time-frequency decomposition attribute for the open source seismic interpretation platform <a href="http://www.opendtect.org/" target="_blank">OpendTect</a>.</p>
@@ -264,7 +282,7 @@
 <tbody>
 <tr>
 <td>Input Volume</td>
-<td style="width:60%">The attribute volume to be analysed.</td>
+<td>The attribute volume to be analysed.</td>
 </tr>
 <tr>
 <td>Time/Depth Gate</td>
@@ -281,15 +299,14 @@
 </tbody>
 </table>
 <p><img alt="Input parameters" src="../../images/RSpecAttrib_input.jpg" title="RSpecAttrib input parameter dialog" /></p></div>
-            
         </div>
 
         <footer class="col-md-12">
             <hr>
             
-                <p>All content and images &copy; 2015 by Wayne Mogg</p>
+                <center>All content and images &copy; 2015 by Wayne Mogg</center>
             
-            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            <center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</center>
         </footer>
 
         <script src="../../js/jquery-1.10.2.min.js"></script>
@@ -324,6 +341,5 @@
                 </div>
             </div>
         </div>
-
     </body>
 </html>

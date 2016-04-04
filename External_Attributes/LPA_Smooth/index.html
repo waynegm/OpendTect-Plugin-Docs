@@ -10,7 +10,7 @@
         <link rel="shortcut icon" href="../../favicon-32x32.png">
         
 
-	<title>Build from source - OpendTect Plugins</title>
+	<title>LPA Smoothing - OpendTect Plugins</title>
 
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -68,31 +68,31 @@
             
             
             
-                <li class="dropdown active">
+                <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Installation <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                     
                         
 <li >
-    <a href="../download-binary/">Download</a>
+    <a href="../../Installation/download-binary/">Download</a>
 </li>
 
                     
                         
 <li >
-    <a href="../installation/">Install</a>
-</li>
-
-                    
-                        
-<li class="active">
-    <a href="./">Build from source</a>
+    <a href="../../Installation/installation/">Install</a>
 </li>
 
                     
                         
 <li >
-    <a href="../faq/">Issues/FAQ</a>
+    <a href="../../Installation/building-from-source/">Build from source</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../Installation/faq/">Issues/FAQ</a>
 </li>
 
                     
@@ -146,37 +146,37 @@
             
             
             
-                <li class="dropdown">
+                <li class="dropdown active">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">External Attributes <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                     
                         
 <li >
-    <a href="../../External_Attributes/ExternalAttributes/">Introduction</a>
+    <a href="../ExternalAttributes/">Introduction</a>
 </li>
 
                     
                         
 <li >
-    <a href="../../External_Attributes/DipandAzimuth/">Dip and Azimuth</a>
+    <a href="../DipandAzimuth/">Dip and Azimuth</a>
+</li>
+
+                    
+                        
+<li class="active">
+    <a href="./">LPA Smoothing</a>
 </li>
 
                     
                         
 <li >
-    <a href="../../External_Attributes/LPA_Smooth/">LPA Smoothing</a>
+    <a href="../Vector_Filters/">Vector Filters</a>
 </li>
 
                     
                         
 <li >
-    <a href="../../External_Attributes/Vector_Filters/">Vector Filters</a>
-</li>
-
-                    
-                        
-<li >
-    <a href="../../External_Attributes/LPA_Attributes/">Local polynomial approximation</a>
+    <a href="../LPA_Attributes/">Local polynomial approximation</a>
 </li>
 
                     
@@ -215,12 +215,12 @@
                     </a>
                 </li>
                 <li >
-                    <a rel="next" href="../installation/">
+                    <a rel="next" href="../DipandAzimuth/">
                         <i class="fa fa-arrow-left"></i> Previous
                     </a>
                 </li>
                 <li >
-                    <a rel="prev" href="../faq/">
+                    <a rel="prev" href="../Vector_Filters/">
                         Next <i class="fa fa-arrow-right"></i>
                     </a>
                 </li>
@@ -243,87 +243,67 @@
             <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#building-from-source">Building from Source</a></li>
+        <li class="main active"><a href="#local-polynomial-approximation-smoothing">Local Polynomial Approximation Smoothing</a></li>
         
-            <li><a href="#linux">Linux</a></li>
+            <li><a href="#script-ex_lpa_smoothpy">Script: ex_lpa_smooth.py</a></li>
         
-            <li><a href="#windows">Windows</a></li>
+            <li><a href="#description">Description</a></li>
+        
+            <li><a href="#examples">Examples</a></li>
+        
+            <li><a href="#input-parameters">Input Parameters</a></li>
+        
+    
+        <li class="main "><a href="#references">References</a></li>
         
     
     </ul>
 </div></div>
             <div class="col-md-9" role="main">
 
-<h1 id="building-from-source">Building from Source</h1>
-<h2 id="linux">Linux</h2>
-<p>These instructions are for Linux. Some of the attributes won't build (eg <a href="../../Attributes/LTFAttrib/">LTFAttrib</a>)unless Madagascar is installed.</p>
-<ol>
-<li>Download the source for the plugins for the appropriate version of OpendTect from Github</li>
-<li><a href="https://github.com/waynegm/OpendTect-5-plugins/archive/master.zip">OpendTect v5+</a></li>
-<li>
-<p><a href="https://github.com/waynegm/OpendTect-4-plugins/archive/master.zip">OpendTect v4</a></p>
-</li>
-<li>
-<p>Use the OpendTect installation manager to install the OpendTect developer packages and install any other packages required for compiling and building code for your operating environment as per the <a href="http://www.opendtect.org/rel/doc/Programmer/" target="_blank">OpendTect Programmer's Manual</a></p>
-</li>
-<li>
-<p>Start OpendTect</p>
-</li>
-<li>
-<p>Select the <em>Utilities-Tools-Create Plugin Devel. Env.</em> menu item to create a development work folder (eg /home/user/ODWork).</p>
-</li>
-<li>
-<p>Unzip the attribute source zip archive downloaded in step 1 in the development work folder. This will overwrite the <em>CMakeLists.txt</em> in the development work folder and add the plugin source folders to the plugin folder.</p>
-</li>
-<li>
-<p>Optionally edit <em>CMakeCache.txt</em> in the development work folder and change Debug to Release.</p>
-</li>
-<li>
-<p>Optionally set the environment variable pointing to your Madagascar install</p>
-</li>
-</ol>
-<pre><code>    export RSFROOT=/opt/OpendTect_4/4.6.0/Madagascar
+<h1 id="local-polynomial-approximation-smoothing">Local Polynomial Approximation Smoothing</h1>
+<h4 id="script-ex_lpa_smoothpy">Script: ex_lpa_smooth.py</h4>
+<h2 id="description">Description</h2>
+<p>This <a href="../../Attributes/ExternalAttrib">External Attribute</a> script can be used to apply structure preserving smoothing. A region of data around each sample location is fitted by a second order 3D polynomial using gaussian weighted least squares. </p>
+<p>The approximation has the following form:</p>
+<pre><code>r0 + r1*x + r2*y + r3*z + r4*x^2 + r5*y^2 +r6*z^2 + r7*xy + r8*xz + r9*yz
 </code></pre>
+<p>where x (inline), y (crossline) and z (time/depth) are relative to the analysis location, ie the analysis location has x=y=z=0.</p>
+<p>This attribute calculates and outputs only the r0 term of the local polynomial approximation. This provides a smoother version of the input with relatively minor smearing of steep dips and fault cuts. Increasing either the Weight Factor or size of the analysis volume (StepOut or Z window) increases the amount of smoothing.</p>
+<h2 id="examples">Examples</h2>
+<div class="juxtapose" style="margin:0px;padding:0px" data-startingposition="50" data-showlabels="true" data-showcredits="false" data-animate="false" data-mode="horizontal">
+<img src="../../images/lpa_input.jpg" data-label="Input" data-credit="">
+<img src="../../images/lpa_2x2x2.jpg"  data-label="lpa 2x2x2 WF: 0.5" data-credit="">
+</div>
 
-<ol>
-<li>Open a terminal, cd to the development work folder and type:</li>
-</ol>
-<pre><code>    cmake .
-    make
-</code></pre>
-
-<ol>
-<li>This should create the binary files for each plugin, lib*.so and libui*.so, in the bin folder (eg in ODWork/bin/lux64/Release/) and four *.alo files for each plugin in the root of the development work folder.</li>
-</ol>
-<p>If you don't have Madagascar installed or RSFROOT is not set the plugins that depend on the Madagascar libraries (eg LTFAttrib) won't build and there will be error messages. These error messages can be ignored if you don't want the Madagascar dependent attributes.</p>
-<h2 id="windows">Windows</h2>
-<p>These instructions are for Windows. Note that the attributes that require Madagascar (eg <a href="../../Attributes/LTFAttrib/">LTFAttrib</a>) cannot be built on Windows.</p>
-<ol>
-<li>Download the source for the plugins for the appropriate version of OpendTect from Github</li>
-<li><a href="https://github.com/waynegm/OpendTect-5-plugins/archive/master.zip">OpendTect v5+</a></li>
-<li>
-<p><a href="https://github.com/waynegm/OpendTect-4-plugins/archive/master.zip">OpendTect v4</a></p>
-</li>
-<li>
-<p>Use the OpendTect installation manager to install the OpendTect developer packages and install any other packages required for compiling and building code for your operating environment as per the <a href="http://www.opendtect.org/rel/doc/Programmer/" target="_blank">OpendTect Programmer's Manual</a></p>
-</li>
-<li>
-<p>Start OpendTect</p>
-</li>
-<li>
-<p>Select the <em>Utilities-Tools-Create Plugin Devel. Env.</em> menu item to create a development work folder (eg c:\Users\user\ODWork).</p>
-</li>
-<li>
-<p>Unzip the attribute source zip archive downloaded in step 1 in the development work folder. This will overwrite the <em>CMakeLists.txt</em> in the development work folder and add the plugin source folders to the plugin folder.</p>
-</li>
-<li>
-<p>Follow the instructions in the <a href="http://opendtect.org/rel/doc/Programmer/windows.html">OpendTect Programmer's Manual</a> to configure and build the plugins.</p>
-</li>
-<li>
-<p>This should create the binary files for each plugin in the bin folder (eg in ODWork\bin\win64\Release).</p>
-</li>
-</ol>
-<p>On Windows you must use "Release" build plugins with the "Release" version of OpendTect.</p></div>
+<h2 id="input-parameters">Input Parameters</h2>
+<p>All attributes have the same set of input parameters. The only difference is that some have a choice of output attribute.</p>
+<p><img alt="Input Parameters" src="../../images/lpa_smooth_inputpar.jpg" title="LPA external attribute input parameters" /></p>
+<table>
+<thead>
+<tr>
+<th>NAME</th>
+<th>DESCRIPTION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Z window (+/-samples)</td>
+<td style="width:60%">Specifies the extent of the analysis cube in the Z direction. Number of Z samples in cube will be 2*Z_window+1.</td>
+</tr>
+<tr>
+<td>Stepout</td>
+<td>Specifies the inline and crossline extent of the analysis cube. Number of samples in each direction will be 2*Stepout+1.</td>
+</tr>
+<tr>
+<td>Weight Factor</td>
+<td>Determines the extent of the gaussian weight function used in the weighted least squares approximation.  The standard deviation of the gaussian weight function (<strong>sigma</strong>) is related to this value by <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>sigma = min(2*Stepout, 2*Z_Window) * Weight_Factor</strong>.<br/> A value of 0.15 gives near zero weight for points at the smallest extent of the analysis cube.</td>
+</tr>
+</tbody>
+</table>
+<h1 id="references">References</h1>
+<p><a href="http://www.doc.ic.ac.uk/research/technicalreports/2006/DTR06-8.pdf">Anisotropic Multidimensional Savitzky Golay kernels for Smoothing, Differentiation and Reconstruction</a></p>
+<p><a href="http://www.diva-portal.org/smash/get/diva2:302485/FULLTEXT01.pdf">Polynomial Expansion for Orientation and Motion Estimation</a></p></div>
         </div>
 
         <footer class="col-md-12">
