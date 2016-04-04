@@ -33,7 +33,7 @@ This attribute has 2 parameters:
 
 | NAME             | DESCRIPTION |
 |------------------|-------------|
-| Filter size | Specifies a cube of samples centred  at the analysis location. Increasing the size will increase the degree of smoothing at the risk of smearing structural features. As the examples show it may be better to apply multiple passes of a small size filter than a single pass of a larger filter to reduce the risk of artifacts in the output. OpendTect makes it really easy to cascade multiple filter passes.{: style="width:60%"} |
+| Filter size | Specifies a cube of samples centred  at the analysis location. Increasing the size will increase the degree of smoothing at the risk of smearing structural features. As the examples show it may be better to apply multiple passes of a small size filter than a single pass of a larger filter to reduce the risk of artifacts in the output. OpendTect makes it really easy to cascade multiple filter passes. |
 | Output statistic | What the filter will output. The options are average, median or the element index. The element index is included for curiosity and quality control. Generally the default *Average* provides the most pleasing output. |
 
 ![Input Parameters](../images/MLVFilterAttrib_par1.jpg "MLF Filter input parameters")

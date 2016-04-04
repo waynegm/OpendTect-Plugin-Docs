@@ -28,7 +28,7 @@ This attribute has 4 parameters:
 
 | NAME             | DESCRIPTION |
 |------------------|-------------|
-| Input Volume     | The attribute volume to be analysed.{: style="width:60%"} |
+| Input Volume     | The attribute volume to be analysed. |
 | Frequency        | The frequency component to estimate. |
 | Smoothing Radius | In shaping regularization this parameter controls the smoothness of the model. |
 | Iterations       | The number of inversion iterations. |

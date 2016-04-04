@@ -28,7 +28,7 @@ This attribute has 4 parameters:
 
 | NAME             | DESCRIPTION |
 |------------------|-------------|
-| Input Volume     | The attribute volume to be analysed.{: style="width:60%"} |
+| Input Volume     | The attribute volume to be analysed. |
 | Time/Depth Gate | This determines the position and time resolution of the analysis. The value from the gate centre is output - useful for analysing a zone offset from an horizon. Recommend setting the gate length equal to or less than the FFT window length you would used for the standard OpendTect FFT spectral decomposition. |
 | Output frequency | When displaying the attribute in the tree this is the frequency slice that will be generated |
 | Step             | This determines the set of frequencies that can be chosen when generating a frequency volume.|

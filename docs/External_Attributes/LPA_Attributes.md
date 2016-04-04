@@ -1,3 +1,4 @@
+# Local Polynomial Approximation
 ## Description
 This series of External Attributes are based around fitting a second order 3D polynomial to a region of data around each sample location using gaussian weighted least squares. For regularly sampled data the fit can be calculated very efficiently by convolution. 
 
@@ -7,7 +8,6 @@ The approximation has the following form:
 	
 where x (inline), y (crossline) and z (time/depth) are relative to the analysis location, ie the analysis location has x=y=z=0.
 
-The first 2 attributes, LPA Smoothing and LPA Dip, have the most practical potential. The others provide access to intermediate results which were used for checking the accuracy of the calculations during development and may be of interest to the ultra-curious.
 
 ## Input Parameters
 All attributes have the same set of input parameters. The only difference is that some have a choice of output attribute.
@@ -20,20 +20,6 @@ All attributes have the same set of input parameters. The only difference is tha
 | Stepout               | Specifies the inline and crossline extent of the analysis cube. Number of samples in each direction will be 2*Stepout+1. |
 | Weight Factor         | Determines the extent of the gaussian weight function used in the weighted least squares approximation.  The standard deviation of the gaussian weight function (__sigma__) is related to this value by <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__sigma = min(2\*Stepout, 2\*Z_Window) * Weight_Factor__.<br/> A value of 0.15 gives near zero weight for points at the smallest extent of the analysis cube. |
 
-## LPA Smoothing
-This attribute calculates and outputs only the r0 term of the local polynomial approximation. This provides a smoother version of the input with relatively minor smearing of steep dips and fault cuts. Increasing either the Weight Factor or size of the analysis volume (StepOut or Z window) increases the amount of smoothing.
-
-There are 3 versions of the attribute:
-
-* __ex_lpa_smooth_scipy.py__ - which uses the 3D convolution routine in scipy.ndimage
-
-* __ex_lpa_smooth.py__ - which uses the [Numba JIT compiler](http://numba.pydata.org/) to dramatically speed up the convolution. My own tests show a 3-4 times increase in throughput.
-* __ex_lpa_smooth_single.py__ which is the single threaded version of __ex_lpa_smooth.py__ 
-
-<div class="juxtapose" style="margin:0px;padding:0px" data-startingposition="50" data-showlabels="true" data-showcredits="false" data-animate="false" data-mode="horizontal">
-<img src="../../images/lpa_input.jpg" data-label="Input" data-credit="">
-<img src="../../images/lpa_2x2x2.jpg"  data-label="lpa 2x2x2 WF: 0.5" data-credit="">
-</div>
 
 ## LPA Dip 
 This attribute (__ex_lpa_dip.py__) uses the local polynomial approximation coefficients to estimate an orientation tensor as per [Farnebäck (2002)](http://dx.doi.org/10.1190/geo2012-0427.1  "Farnebäck, Gunnar. Polynomial Expansion for Orientation and Motion Estimation. Linköping Studies in Science and Technology. Dissertations No, 790") and assumes the orientation of the first eigenvector is normal to the local event dip. Output can be either the inline or crossline dip. The units are millseconds per meter for time data and millimetres per metre for depth data.  Only [Numba JIT compiler](http://numba.pydata.org/) versions of this attribute are provided.

@@ -1,4 +1,4 @@
-# Vector Filter External Attribute Script
+# Vector Filter
 #### Script: ex_vector_filter_dip.py
 ## Description
 This [External Attribute](../Attributes/ExternalAttrib) script can be used to apply a vector filter to orientation ( inline and crossline dip) data. The script offers a choice of mean vector, L1 vector median and L2 vector median filters.

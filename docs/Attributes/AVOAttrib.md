@@ -30,7 +30,7 @@ These attributes have 4 required parameters and 4 extra parameters that may be r
 
 | NAME             | DESCRIPTION |
 |------------------|-------------|
-| Intercept Volume | The attribute volume to use as the zero offset or normal incidence reflection amplitude/coefficient. If no intercept volume is available a near angle or offset stack can be used as an alternative.{: style="width:60%"} |
+| Intercept Volume | The attribute volume to use as the zero offset or normal incidence reflection amplitude/coefficient. If no intercept volume is available a near angle or offset stack can be used as an alternative. |
 | Gradient Volume | The attribute volume to use as the change in reflection amplitude/coefficient with offset at normal incidence. If no gradient volume is available, the difference between amplitudes on far and near angle or offset stacks can be used as an alternative. |
 | Output | The attribute to calculate. There is a choice of Fluid Factor, Lithology Factor, Porosity Factor, Crossplot Angle, Crossplot Deviation or AVO Class. |
 | Crossplot Slope | The slope of the fluid line interpreted on the intercept-gradient crossplot. This can be read from the properties dialog of the crossplot tool. |
