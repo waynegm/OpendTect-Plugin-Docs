@@ -1,4 +1,9 @@
 # Release Notes
+
+## Release 6.0.2
+#### ExternalAttrib
+- Fix for multi-trace multi-attribute input - no longer restricted to input from same multi-attribute volume [#17]
+
 ## Release 6.0.1
 #### ExternalAttrib
 - Add Minimum option to ZSampMargin and StepOut parameters [#15]
