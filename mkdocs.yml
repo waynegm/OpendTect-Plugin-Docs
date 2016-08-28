@@ -24,8 +24,9 @@ pages:
     - Introduction: 'External_Attributes/ExternalAttributes.md'
     - Dip and Azimuth: 'External_Attributes/DipandAzimuth.md'
     - LPA Smoothing: 'External_Attributes/LPA_Smooth.md'
-    - Vector Filters: 'External_Attributes/Vector_Filters.md'
     - Local polynomial approximation: 'External_Attributes/LPA_Attributes.md'
+    - Vector Filters: 'External_Attributes/Vector_Filters.md'
+    - Z Delay Estimation: 'External_Attributes/Z_Delay_Est.md'
 - About:
     - License: 'license.md'
     - Release notes: 'relnotes.md'
