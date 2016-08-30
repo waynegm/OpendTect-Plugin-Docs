@@ -9,7 +9,7 @@ Takes as input 4 angle stacks and the corresponding angles and fits a least squa
 ### Input Parameters
 ![Input Parameters](../images/ex_AVOIG_4_input.jpg "ex_angle_stacks_4_to_AVOIG.py input parameters")
 
-There are no input parameters other than selection of the input volume.
+For each input volume the corresponding incident angle must be provided.
 
 
 
