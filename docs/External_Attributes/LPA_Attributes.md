@@ -4,8 +4,10 @@ This series of External Attributes are based around fitting a second order 3D po
 
 The approximation has the following form:
 
-	r0 + r1*x + r2*y + r3*z + r4*x^2 + r5*y^2 +r6*z^2 + r7*xy + r8*xz + r9*yz
-	
+$$
+	r_0 + r_1*x + r_2*y + r_3*z + r_4*x^2 + r_5*y^2 +r_6*z^2 + r_7*x*y + r_8*x*z + r_9*y*z
+$$
+
 where x (inline), y (crossline) and z (time/depth) are relative to the analysis location, ie the analysis location has x=y=z=0.
 
 

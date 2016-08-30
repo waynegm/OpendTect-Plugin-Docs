@@ -33,5 +33,15 @@ pages:
     - License: 'license.md'
     - Release notes: 'relnotes.md'
 
-markdown_extensions: [attr_list]
+markdown_extensions: 
+    - pymdownx.arithmatex
+    
+extra_css:
+    - css/juxtapose.css
+    
+extra_javascript:
+    - js/juxtapose.min.js
+    - js/mathjax-config.js
+    - https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+    
 
