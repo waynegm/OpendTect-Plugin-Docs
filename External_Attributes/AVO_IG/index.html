@@ -10,7 +10,7 @@
         <link rel="shortcut icon" href="../../favicon-32x32.png">
         
 
-	<title>Vector Filters - OpendTect Plugins</title>
+	<title>AVO Intercept and Gradient - OpendTect Plugins</title>
 
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -157,8 +157,8 @@
 
                     
                         
-<li >
-    <a href="../AVO_IG/">AVO Intercept and Gradient</a>
+<li class="active">
+    <a href="./">AVO Intercept and Gradient</a>
 </li>
 
                     
@@ -181,8 +181,8 @@
 
                     
                         
-<li class="active">
-    <a href="./">Vector Filters</a>
+<li >
+    <a href="../Vector_Filters/">Vector Filters</a>
 </li>
 
                     
@@ -233,12 +233,12 @@
                     </a>
                 </li>
                 <li >
-                    <a rel="next" href="../LPA_Attributes/">
+                    <a rel="next" href="../ExternalAttributes/">
                         <i class="fa fa-arrow-left"></i> Previous
                     </a>
                 </li>
                 <li >
-                    <a rel="prev" href="../Z_Delay_Est/">
+                    <a rel="prev" href="../DipandAzimuth/">
                         Next <i class="fa fa-arrow-right"></i>
                     </a>
                 </li>
@@ -261,87 +261,26 @@
             <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#vector-filter">Vector Filter</a></li>
-        
-            <li><a href="#script-ex_vector_filter_dippy">Script: ex_vector_filter_dip.py</a></li>
+        <li class="main active"><a href="#avo-intercept-and-gradient">AVO Intercept and Gradient</a></li>
         
             <li><a href="#description">Description</a></li>
         
-            <li><a href="#examples">Examples</a></li>
-        
-            <li><a href="#input-parameters">Input Parameters</a></li>
+            <li><a href="#intercept-and-gradient-from-4-angle-stacks">Intercept and Gradient from 4 Angle Stacks</a></li>
         
     
     </ul>
 </div></div>
             <div class="col-md-9" role="main">
 
-<h1 id="vector-filter">Vector Filter</h1>
-<h4 id="script-ex_vector_filter_dippy">Script: ex_vector_filter_dip.py</h4>
+<h1 id="avo-intercept-and-gradient">AVO Intercept and Gradient</h1>
 <h2 id="description">Description</h2>
-<p>This <a href="../../Attributes/ExternalAttrib">External Attribute</a> script can be used to apply a vector filter to orientation ( inline and crossline dip) data. The script offers a choice of mean vector, L1 vector median and L2 vector median filters.</p>
-<p>The following outputs are available after filtering:</p>
-<table>
-<thead>
-<tr>
-<th>OUTPUT</th>
-<th>DESCRIPTION</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Inline Dip</td>
-<td>Event dip observed on a crossline in microseconds per metre for time surveys and millimetres per metre for depth surveys. Output can be positive or negative with the convention that events dipping towards larger inline numbers producing positive dips.</td>
-</tr>
-<tr>
-<td>Crossline Dip</td>
-<td>Event dip observed on an inline in microseconds per metre for time surveys and millimetres per metre for depth surveys. Output can be positive or negative with the convention that events dipping towards larger crossline numbers producing positive dips.</td>
-</tr>
-<tr>
-<td>True Dip</td>
-<td>Event dip in microseconds per metre for time surveys and millimetres per metre for depth surveys. Output is always positive.</td>
-</tr>
-<tr>
-<td>Dip Azimuth</td>
-<td>Azimuth of the True Dip direction relative to the survey orientation. Output ranges from -180 to 180 degrees. Positive azimuth is defined from the inline in the direction of increasing crossline numbers. Azimuth = 0 indicates that the dip is dipping in the direction of increasing crossline numbers. Azimuth = 90 indicates that the dip is dipping in the direction of increasing inline numbers.</td>
-</tr>
-</tbody>
-</table>
-<p>The script require the numba Python package.</p>
-<h2 id="examples">Examples</h2>
-<p>Unfiltered phase dip - crossline dip on an inline
-<img alt="Unfiltered" src="../../images/ex_phase_dip.jpg" title="Unfiltered phase dip" /></p>
-<p>Mean vector filtered phase dip - 3x3x3 (Stepout and ZWindow of 1)<img alt="Unfiltered" src="../../images/ex_vfmean_phase_dip.jpg" title="mean vector filtered phase dip" /></p>
-<p>L1 vector median filtered phase dip - 3x3x3 (Stepout and ZWindow of 1)<img alt="Unfiltered" src="../../images/ex_vfl1_phase_dip.jpg" title="L1 vector median filtered phase dip" /></p>
-<p>L2 vector median filtered phase dip - 3x3x3 (Stepout and ZWindow of 1)<img alt="Unfiltered" src="../../images/ex_vfl2_phase_dip.jpg" title="L2 vector median filtered phase dip" /></p>
-<h2 id="input-parameters">Input Parameters</h2>
-<p><img alt="Input Parameters" src="../../images/ex_vector_filter_dip_input.jpg" title="ex_vector_filter_dip.py input parameters" /></p>
-<table>
-<thead>
-<tr>
-<th>NAME</th>
-<th>DESCRIPTION</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Output</td>
-<td>What to calculate - choice of inline dip, crossline dip, true dip or dip azimuth.</td>
-</tr>
-<tr>
-<td>Z window (+/-samples)</td>
-<td>Specifies the extent of the analysis cube in the Z direction. Number of Z samples in cube will be 2*Z_window+1.</td>
-</tr>
-<tr>
-<td>Stepout</td>
-<td>Specifies the inline and crossline extent of the analysis cube. Number of samples in each direction will be 2*Stepout+1.</td>
-</tr>
-<tr>
-<td>Filter</td>
-<td>Choice of Mean Dip, L1 Vector Median or L2 Vector Median</td>
-</tr>
-</tbody>
-</table></div>
+<p>These <a href="../../Attributes/ExternalAttrib">External Attribute</a> scripts estimate AVO intercept and gradient based on Shuey's 2 term approximation to the Zoeppritz  equation.</p>
+<h2 id="intercept-and-gradient-from-4-angle-stacks">Intercept and Gradient from 4 Angle Stacks</h2>
+<h4 id="script-miscellaneousex_angle_stacks_4_to_avoigpy">Script: Miscellaneous/ex_angle_stacks_4_to_AVOIG.py</h4>
+<p>Takes as input 4 angle stacks and the corresponding angles and fits a least squares line to the amplitude and \(sin^2(angle)\) at each sample point. Ouput includes the intercept, gradient and the correlation coefficient.</p>
+<h3 id="input-parameters">Input Parameters</h3>
+<p><img alt="Input Parameters" src="../../images/ex_AVOIG_4_input.jpg" title="ex_angle_stacks_4_to_AVOIG.py input parameters" /></p>
+<p>For each input volume the corresponding incident angle must be provided.</p></div>
         </div>
 
         <footer class="col-md-12">

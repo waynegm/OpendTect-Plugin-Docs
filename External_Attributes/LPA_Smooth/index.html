@@ -158,6 +158,12 @@
                     
                         
 <li >
+    <a href="../AVO_IG/">AVO Intercept and Gradient</a>
+</li>
+
+                    
+                        
+<li >
     <a href="../DipandAzimuth/">Dip and Azimuth</a>
 </li>
 
@@ -183,6 +189,12 @@
                         
 <li >
     <a href="../Z_Delay_Est/">Z Delay Estimation</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../ZC_Block/">Zero crossing trace block</a>
 </li>
 
                     
@@ -272,8 +284,9 @@
 <h2 id="description">Description</h2>
 <p>This <a href="../../Attributes/ExternalAttrib">External Attribute</a> script can be used to apply structure preserving smoothing. A region of data around each sample location is fitted by a second order 3D polynomial using gaussian weighted least squares. </p>
 <p>The approximation has the following form:</p>
-<pre><code>r0 + r1*x + r2*y + r3*z + r4*x^2 + r5*y^2 +r6*z^2 + r7*xy + r8*xz + r9*yz
-</code></pre>
+<p>\[
+    r_0 + r_1 * x + r_2 * y + r_3 * z + r_4 * x^2 + r_5 * y^2 + r_6 * z^2 + r_7 * x*y + r_8 * x*z + r_9 * y*z
+\]</p>
 <p>where x (inline), y (crossline) and z (time/depth) are relative to the analysis location, ie the analysis location has x=y=z=0.</p>
 <p>This attribute calculates and outputs only the r0 term of the local polynomial approximation. This provides a smoother version of the input with relatively minor smearing of steep dips and fault cuts. Increasing either the Weight Factor or size of the analysis volume (StepOut or Z window) increases the amount of smoothing.</p>
 <h2 id="examples">Examples</h2>
@@ -295,7 +308,7 @@
 <tbody>
 <tr>
 <td>Z window (+/-samples)</td>
-<td style="width:60%">Specifies the extent of the analysis cube in the Z direction. Number of Z samples in cube will be 2*Z_window+1.</td>
+<td>Specifies the extent of the analysis cube in the Z direction. Number of Z samples in cube will be 2*Z_window+1.{: style="width:60%"}</td>
 </tr>
 <tr>
 <td>Stepout</td>
@@ -327,6 +340,8 @@
         <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script>
         <script src="../../js/base.js"></script>
         <script src="../../js/juxtapose.min.js"></script>
+        <script src="../../js/mathjax-config.js"></script>
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
             <div class="modal-dialog">
