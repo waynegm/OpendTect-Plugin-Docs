@@ -26,6 +26,7 @@ pages:
     - Dip and Azimuth: 'External_Attributes/DipandAzimuth.md'
     - LPA Smoothing: 'External_Attributes/LPA_Smooth.md'
     - Local polynomial approximation: 'External_Attributes/LPA_Attributes.md'
+    - Spatial filtering: 'External_Attributes/Spatial_Filter.md'
     - Vector Filters: 'External_Attributes/Vector_Filters.md'
     - Z Delay Estimation: 'External_Attributes/Z_Delay_Est.md'
     - Zero crossing trace block: 'External_Attributes/ZC_Block.md'

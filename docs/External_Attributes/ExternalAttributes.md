@@ -8,6 +8,7 @@ This [repository of attribute  scripts](https://github.com/waynegm/OpendTect-Ext
 | [Dip and Azimuth](./DipandAzimuth/) | Orientation estimation (eg inline dip, crossline dip, true dip and dip azimuth) using a variety of algorithms |
 | [LPA Smoothing](./LPA_Smooth/) | Structure preserving smoothing using local polynomial approximation |
 | [LPA Attributes](./LPA_Attributes/) | Various attributes calculated using a local polynomial approximation |
+| [Spatial Filter](./Spatial_Filter/) | Apply spatial lowpass, highpass, bandpass or band reject filter |
 | [Vector Filtering](./Vector_Filters/) | Vector filter for orientation ( inline and crossline dip) data |
 | [Z Delay Estimation](./Z_Delay_Est) | Estimate Z delays between 2 volumes using local correlation |
 | [Zero crossing trace blocking](./ZC_Block) | Replace a trace with a blocky/square wave version of itself honouring local min/max. |
