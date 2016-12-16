@@ -10,7 +10,7 @@
         <link rel="shortcut icon" href="../../favicon-32x32.png">
         
 
-	<title>Local time-frequency attribute - OpendTect Plugins</title>
+	<title>Spatial filter - Circular - OpendTect Plugins</title>
 
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -101,43 +101,43 @@
             
             
             
-                <li class="dropdown active">
+                <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Plugins <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                     
                         
 <li >
-    <a href="../AVOAttrib/">AVO attributes</a>
+    <a href="../../Attributes/AVOAttrib/">AVO attributes</a>
 </li>
 
                     
                         
 <li >
-    <a href="../ExternalAttrib/">External attributes</a>
+    <a href="../../Attributes/ExternalAttrib/">External attributes</a>
 </li>
 
                     
                         
 <li >
-    <a href="../GradientAttrib/">Gradient attribute</a>
-</li>
-
-                    
-                        
-<li class="active">
-    <a href="./">Local time-frequency attribute</a>
+    <a href="../../Attributes/GradientAttrib/">Gradient attribute</a>
 </li>
 
                     
                         
 <li >
-    <a href="../MLVFilter/">Mean of least variance filter</a>
+    <a href="../../Attributes/LTFAttrib/">Local time-frequency attribute</a>
 </li>
 
                     
                         
 <li >
-    <a href="../RSpecAttrib/">Recursive time-frequency decomposition</a>
+    <a href="../../Attributes/MLVFilter/">Mean of least variance filter</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../Attributes/RSpecAttrib/">Recursive time-frequency decomposition</a>
 </li>
 
                     
@@ -146,67 +146,67 @@
             
             
             
-                <li class="dropdown">
+                <li class="dropdown active">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">External Attributes <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                     
                         
 <li >
-    <a href="../../External_Attributes/ExternalAttributes/">Introduction</a>
+    <a href="../ExternalAttributes/">Introduction</a>
 </li>
 
                     
                         
 <li >
-    <a href="../../External_Attributes/AVO_IG/">AVO Intercept and Gradient</a>
+    <a href="../AVO_IG/">AVO Intercept and Gradient</a>
 </li>
 
                     
                         
 <li >
-    <a href="../../External_Attributes/DipandAzimuth/">Dip and Azimuth</a>
+    <a href="../DipandAzimuth/">Dip and Azimuth</a>
 </li>
 
                     
                         
 <li >
-    <a href="../../External_Attributes/LPA_Smooth/">LPA Smoothing</a>
+    <a href="../LPA_Smooth/">LPA Smoothing</a>
 </li>
 
                     
                         
 <li >
-    <a href="../../External_Attributes/LPA_Attributes/">Local polynomial approximation</a>
+    <a href="../LPA_Attributes/">Local polynomial approximation</a>
+</li>
+
+                    
+                        
+<li class="active">
+    <a href="./">Spatial filter - Circular</a>
 </li>
 
                     
                         
 <li >
-    <a href="../../External_Attributes/Spatial_Filter_Circular/">Spatial filter - Circular</a>
+    <a href="../Spatial_Filter_Rectangular/">Spatial filter - Rectangular</a>
 </li>
 
                     
                         
 <li >
-    <a href="../../External_Attributes/Spatial_Filter_Rectangular/">Spatial filter - Rectangular</a>
+    <a href="../Vector_Filters/">Vector Filters</a>
 </li>
 
                     
                         
 <li >
-    <a href="../../External_Attributes/Vector_Filters/">Vector Filters</a>
+    <a href="../Z_Delay_Est/">Z Delay Estimation</a>
 </li>
 
                     
                         
 <li >
-    <a href="../../External_Attributes/Z_Delay_Est/">Z Delay Estimation</a>
-</li>
-
-                    
-                        
-<li >
-    <a href="../../External_Attributes/ZC_Block/">Zero crossing trace block</a>
+    <a href="../ZC_Block/">Zero crossing trace block</a>
 </li>
 
                     
@@ -245,12 +245,12 @@
                     </a>
                 </li>
                 <li >
-                    <a rel="next" href="../GradientAttrib/">
+                    <a rel="next" href="../LPA_Attributes/">
                         <i class="fa fa-arrow-left"></i> Previous
                     </a>
                 </li>
                 <li >
-                    <a rel="prev" href="../MLVFilter/">
+                    <a rel="prev" href="../Spatial_Filter_Rectangular/">
                         Next <i class="fa fa-arrow-right"></i>
                     </a>
                 </li>
@@ -273,7 +273,9 @@
             <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#ltfattrib">LTFAttrib</a></li>
+        <li class="main active"><a href="#spatial-filters">Spatial Filters</a></li>
+        
+            <li><a href="#script-filteringex_spatial_filter_circularpy">Script: Filtering/ex_spatial_filter_circular.py</a></li>
         
             <li><a href="#description">Description</a></li>
         
@@ -286,22 +288,33 @@
 </div></div>
             <div class="col-md-9" role="main">
 
-<h1 id="ltfattrib">LTFAttrib</h1>
-<p>Local time frequency attribute plugin for the open source seismic interpretation platform <a href="http://www.opendtect.org/" target="_blank">OpendTect</a>.</p>
+<h1 id="spatial-filters">Spatial Filters</h1>
+<h4 id="script-filteringex_spatial_filter_circularpy">Script: Filtering/ex_spatial_filter_circular.py</h4>
 <h2 id="description">Description</h2>
-<p>This is an implementation of the method of local time-frequency analysis described by <a href="http://library.seg.org/doi/abs/10.1190/geo2010-0185.1" title="Time-frequency analysis of seismic data using local attributes. Guochang Liu, Sergey Fomel, and Xiaohong Chen. GEOPHYSICS 2011 76:6, P23-P34">Liu, G etal (2011)</a>. The time-frequency decomposition uses least-squares inversion with shaping regularization. It is different to STFT (short time fourier transform) which divides the data into windows to  localize frequency content in time.</p>
-<p>This plugin requires a working installation of <a href="http://www.ahay.org/" target="_blank">Madagascar</a> and provides an example of an attribute using the Madagascar libraries.</p>
-<p>This attribute can be unstable. The issue apppears to be in the Madagascar libraries as the same instabilites exist when the equivalent Madagascar command line program (<a href="http://www.reproducibility.org/RSF/sftimefreq.html" target="_blank">sftimefreq</a>) is applied.</p>
+<p>This Python <a href="../../Attributes/ExternalAttrib">External Attribute</a> script applies lowpass, highpass, bandpass or band reject circularly symmetric spatial filters. The filters are applied by direct spatial convolution using the MAXFLAT operators presented by <a href="https://www.researchgate.net/publication/3384111_Explicit_formulae_for_coefficients_of_2D_circular_symmetric_MAXFLATFIR_lowhigh_pass_digital_filters" title="Explicit formulae for coefficients of 2D circular symmetric MAXFLAT FIR low/high pass digital filters.  Electronics Letters Volume: 37, Issue: 24, 22 Nov 2001">Khan and Ohba (2001)</a>.</p>
+<p><img alt="Filter responses" src="../../images/ex_spatial_filter_resp.jpg" title="Filter responses" /></p>
+<p>Note that the filter cutoff or band pass/reject frequency is specified in Normalised Spatial Frequency. Normalised Frequency ranges from 0 to 1 at the spatial nyquist. Converting a spatial frequency in cycles/metre to the equivalent Normalised Spatial Frequency is as simple as dividing it by the spatial nyquist frequency.</p>
+<p>As written the filter does not take into account differences in spatial sampling in the inline and crossline directions.</p>
 <h2 id="examples">Examples</h2>
+<p>This example uses a Low Pass filter to remove acquisition footprint from the F3 Demo dataset.</p>
+<h4 id="inline-425-fk-spectrum">Inline 425: FK Spectrum</h4>
+<p><img alt="FK Spectrum Input" src="../../images/ex_spatial_filter_fkinput.jpg" title="FK spectrum of inline 425" /></p>
+<p>Note the noise at 0.0133 cycles/metre or 0.67 normalised frequency (i.e. 0.0133/0.02).</p>
+<p>A spatial low pass filter with a normalised frequency cutoff of 0.5 is very effective at attenuating this acquisition footprint.</p>
+<h4 id="inline-425">Inline 425</h4>
 <p><div class="juxtapose" style="margin:0px;padding:0px" data-startingposition="50" data-showlabels="true" data-showcredits="false" data-animate="false" data-mode="horizontal">
-<img src="../../images/LTFAttrib_sd.jpg" data-label="FFT Spectral Decomposition (30Hz +/-28ms window)" data-credit="">
-<img src="../../images/LTFAttrib_1.jpg"  data-label="Local time-frequency attribute (30Hz 7 sample smoothing radius)" data-credit="">
+<img src="../../images/ex_spatial_filter_inline_input.jpg" data-label="Input" data-credit="">
+<img src="../../images/ex_spatial_filter_inline_filtered.jpg"  data-label="Lowpass Filtered" data-credit="">
 </div></p>
-<p>The output of the LTF attribute (ltf30) is visually identical and also highly correlated to the OpendTect FFT spectral decomposition (sdfreq30) as shown in the following crossplot of the two attributes.</p>
-<p><strong>Crossplot of LTFAttrib vs FFT Spectral Decomposition</strong></p>
-<p><img alt="Crossplot of LTFAttrib vs FFT Spectral Decomposition" src="../../images/LTFAttrib_2.jpg" title="Crossplot of LTFAttrib vs FFT Spectral Decomposition" /></p>
+<h4 id="inline-425-fk-spectrum-after-filter">Inline 425: FK Spectrum after filter</h4>
+<p><img alt="FK Spectrum Output" src="../../images/ex_spatial_filter_fkoutput.jpg" title="FK spectrum of inline 425" /></p>
+<h4 id="time-slice-300ms">Time Slice 300ms</h4>
+<p><div class="juxtapose" style="margin:0px;padding:0px" data-startingposition="50" data-showlabels="true" data-showcredits="false" data-animate="false" data-mode="horizontal">
+<img src="../../images/ex_spatial_filter_slice_input.jpg" data-label="Input" data-credit="">
+<img src="../../images/ex_spatial_filter_slice_filtered.jpg"  data-label="Lowpass Filtered" data-credit="">
+</div></p>
 <h2 id="input-parameters">Input Parameters</h2>
-<p>This attribute has 4 parameters:</p>
+<p><img alt="Input Parameters" src="../../images/ex_spatial_filter_input.jpg" title="ex_spatial_filter.py input parameters" /></p>
 <table>
 <thead>
 <tr>
@@ -311,28 +324,19 @@
 </thead>
 <tbody>
 <tr>
-<td>Input Volume</td>
-<td>The attribute volume to be analysed.</td>
+<td>Stepout</td>
+<td>Determines the size of the convolution operator. Minimum of 9 (filter kernel size of 19) recommended</td>
 </tr>
 <tr>
-<td>Frequency</td>
-<td>The frequency component to estimate.</td>
+<td>Type</td>
+<td>Filter type - Low Pass, High Pass, Band Pass or Band Reject</td>
 </tr>
 <tr>
-<td>Smoothing Radius</td>
-<td>In shaping regularization this parameter controls the smoothness of the model.</td>
-</tr>
-<tr>
-<td>Iterations</td>
-<td>The number of inversion iterations.</td>
-</tr>
-<tr>
-<td>Margin</td>
-<td>Amount of data around the calculation sample to include in the calculation. Specified in number of smoothing radii.</td>
+<td>Normalised Spatial Frequency</td>
+<td>For Low Pass and High Pass filters this specifies the filter cutoff. For Band Pass/Reject filters this is the centre of the pass/reject band. The width of the band is hardwired to +/- 0.1 in the script. The filter cutoff corresponds to the half amplitude point.</td>
 </tr>
 </tbody>
-</table>
-<p><img alt="Input Parameters" src="../../images/LTFAttrib_input_parameters.jpg" title="LTF Attributes input parameters" /></p></div>
+</table></div>
         </div>
 
         <footer class="col-md-12">

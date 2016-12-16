@@ -10,7 +10,7 @@
         <link rel="shortcut icon" href="../../favicon-32x32.png">
         
 
-	<title>Spatial filtering - OpendTect Plugins</title>
+	<title>Spatial filter - Rectangular - OpendTect Plugins</title>
 
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -181,8 +181,14 @@
 
                     
                         
+<li >
+    <a href="../Spatial_Filter_Circular/">Spatial filter - Circular</a>
+</li>
+
+                    
+                        
 <li class="active">
-    <a href="./">Spatial filtering</a>
+    <a href="./">Spatial filter - Rectangular</a>
 </li>
 
                     
@@ -239,7 +245,7 @@
                     </a>
                 </li>
                 <li >
-                    <a rel="next" href="../LPA_Attributes/">
+                    <a rel="next" href="../Spatial_Filter_Circular/">
                         <i class="fa fa-arrow-left"></i> Previous
                     </a>
                 </li>
@@ -267,9 +273,9 @@
             <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#spatial-filters">Spatial Filters</a></li>
+        <li class="main active"><a href="#spatial-filters-rectangular-symmetry">Spatial Filters - Rectangular Symmetry</a></li>
         
-            <li><a href="#script-filteringex_spatial_filterpy">Script: Filtering/ex_spatial_filter.py</a></li>
+            <li><a href="#script-filteringex_spatial_filter_rectangularpy">Script: Filtering/ex_spatial_filter_rectangular.py</a></li>
         
             <li><a href="#description">Description</a></li>
         
@@ -282,33 +288,38 @@
 </div></div>
             <div class="col-md-9" role="main">
 
-<h1 id="spatial-filters">Spatial Filters</h1>
-<h4 id="script-filteringex_spatial_filterpy">Script: Filtering/ex_spatial_filter.py</h4>
+<h1 id="spatial-filters-rectangular-symmetry">Spatial Filters - Rectangular Symmetry</h1>
+<h4 id="script-filteringex_spatial_filter_rectangularpy">Script: Filtering/ex_spatial_filter_rectangular.py</h4>
 <h2 id="description">Description</h2>
-<p>This Python <a href="../../Attributes/ExternalAttrib">External Attribute</a> script applies lowpass, highpass, bandpass or band reject circularly symmetric spatial filters. The filters are applied by direct spatial convolution using the MAXFLAT operators presented by <a href="https://www.researchgate.net/publication/3384111_Explicit_formulae_for_coefficients_of_2D_circular_symmetric_MAXFLATFIR_lowhigh_pass_digital_filters" title="Explicit formulae for coefficients of 2D circular symmetric MAXFLAT FIR low/high pass digital filters.  Electronics Letters Volume: 37, Issue: 24, 22 Nov 2001">Khan and Ohba (2001)</a>.</p>
-<p><img alt="Filter responses" src="../../images/ex_spatial_filter_resp.jpg" title="Filter responses" /></p>
+<p>This Python <a href="../../Attributes/ExternalAttrib">External Attribute</a> script applies lowpass, highpass, bandpass or band reject spatial filters with rectangular symmetry. The filters are applied by direct spatial convolution of a kernel formed by cascading two 1D MAXFLAT operators (<a href="https://www.researchgate.net/publication/3384111_Explicit_formulae_for_coefficients_of_2D_circular_symmetric_MAXFLATFIR_lowhigh_pass_digital_filters" title="Explicit formulae for coefficients of 2D circular symmetric MAXFLAT FIR low/high pass digital filters.  Electronics Letters Volume: 37, Issue: 24, 22 Nov 2001">Khan and Ohba (2001)</a>).</p>
+<p>By setting the stepout in one direction to 0 the filter will be applied as a 1D spatial filter in the other direction.</p>
 <p>Note that the filter cutoff or band pass/reject frequency is specified in Normalised Spatial Frequency. Normalised Frequency ranges from 0 to 1 at the spatial nyquist. Converting a spatial frequency in cycles/metre to the equivalent Normalised Spatial Frequency is as simple as dividing it by the spatial nyquist frequency.</p>
-<p>As written the filter does not take into account differences in spatial sampling in the inline and crossline directions.</p>
 <h2 id="examples">Examples</h2>
-<p>This example uses a Low Pass filter to remove acquisition footprint from the F3 Demo dataset.</p>
-<h4 id="inline-425-fk-spectrum">Inline 425: FK Spectrum</h4>
-<p><img alt="FK Spectrum Input" src="../../images/ex_spatial_filter_fkinput.jpg" title="FK spectrum of inline 425" /></p>
-<p>Note the noise at 0.0133 cycles/metre or 0.67 normalised frequency (i.e. 0.0133/0.02).</p>
-<p>A spatial low pass filter with a normalised frequency cutoff of 0.5 is very effective at attenuating this acquisition footprint.</p>
-<h4 id="inline-425">Inline 425</h4>
+<p>This example shows inline and crossline FK spectra after applying a 2D lowpass rectangular filter with inline and crossline normalised frequemcy cutoffs of 0.6 and 0.3 respectively.</p>
+<h4 id="inline-fk-spectrum">Inline FK Spectrum</h4>
 <p><div class="juxtapose" style="margin:0px;padding:0px" data-startingposition="50" data-showlabels="true" data-showcredits="false" data-animate="false" data-mode="horizontal">
-<img src="../../images/ex_spatial_filter_inline_input.jpg" data-label="Input" data-credit="">
-<img src="../../images/ex_spatial_filter_inline_filtered.jpg"  data-label="Lowpass Filtered" data-credit="">
+<img src="../../images/ex_spatial_filter_rect_inlinefk.jpg" data-label="Input" data-credit="">
+<img src="../../images/ex_spatial_filter_rect_inlinefiltfk.jpg"  data-label="Lowpass Filtered" data-credit="">
 </div></p>
-<h4 id="inline-425-fk-spectrum-after-filter">Inline 425: FK Spectrum after filter</h4>
-<p><img alt="FK Spectrum Output" src="../../images/ex_spatial_filter_fkoutput.jpg" title="FK spectrum of inline 425" /></p>
-<h4 id="time-slice-300ms">Time Slice 300ms</h4>
+<h4 id="crossline-fk-spectrum">Crossline FK Spectrum</h4>
+<p><div class="juxtapose" style="margin:0px;padding:0px" data-startingposition="50" data-showlabels="true" data-showcredits="false" data-animate="false" data-mode="horizontal">
+<img src="../../images/ex_spatial_filter_rect_xlinefk.jpg" data-label="Input" data-credit="">
+<img src="../../images/ex_spatial_filter_rect_xlinefiltfk.jpg"  data-label="Lowpass Filtered" data-credit="">
+</div></p>
+<p>This example shows a timeslice at 300ms TWT from the F3 Demo dataset after applying a 1D spatial filter along the inlines (stepout of 0,9) with a crossline normalised frequency cutoff of 0.5.</p>
+<h4 id="crossline-lowpass-filter">Crossline Lowpass Filter</h4>
 <p><div class="juxtapose" style="margin:0px;padding:0px" data-startingposition="50" data-showlabels="true" data-showcredits="false" data-animate="false" data-mode="horizontal">
 <img src="../../images/ex_spatial_filter_slice_input.jpg" data-label="Input" data-credit="">
-<img src="../../images/ex_spatial_filter_slice_filtered.jpg"  data-label="Lowpass Filtered" data-credit="">
+<img src="../../images/ex_spatial_filter_slice_1Dlowpass.jpg"  data-label="Xline Lowpass Filtered" data-credit="">
+</div></p>
+<p>This example shows the timeslice at 300ms TWT from the F3 Demo dataset with the crossline lowpass filter above followed by a 1D spatial filter along the crosslines (stepout 9,0) with an inline normalised rejection frequency of 0.17.</p>
+<h4 id="inline-bandreject-filter">Inline Bandreject Filter</h4>
+<p><div class="juxtapose" style="margin:0px;padding:0px" data-startingposition="50" data-showlabels="true" data-showcredits="false" data-animate="false" data-mode="horizontal">
+<img src="../../images/ex_spatial_filter_slice_1Dlowpass.jpg" data-label="Xline Lowpass Input" data-credit="">
+<img src="../../images/ex_spatial_filter_slice_1Dlowpass_1Dnotch.jpg"  data-label="Inline Bandreject Filtered" data-credit="">
 </div></p>
 <h2 id="input-parameters">Input Parameters</h2>
-<p><img alt="Input Parameters" src="../../images/ex_spatial_filter_input.jpg" title="ex_spatial_filter.py input parameters" /></p>
+<p><img alt="Input Parameters" src="../../images/ex_spatial_filter_rect_input.jpg" title="ex_spatial_filte_rectangular.py input parameters" /></p>
 <table>
 <thead>
 <tr>
@@ -319,15 +330,19 @@
 <tbody>
 <tr>
 <td>Stepout</td>
-<td>Determines the size of the convolution operator. Minimum of 9 (filter kernel size of 19) recommended</td>
+<td>Determines the size of the convolution operator. Minimum of 9 (filter kernel size of 19) recommended. Setting the stepout to zero will apply a 1D filter, e.g. a stepout of 0,9 will apply a 1D crossline frequency filter</td>
 </tr>
 <tr>
 <td>Type</td>
 <td>Filter type - Low Pass, High Pass, Band Pass or Band Reject</td>
 </tr>
 <tr>
-<td>Normalised Spatial Frequency</td>
-<td>For Low Pass and High Pass filters this specifies the filter cutoff. For Band Pass/Reject filters this is the centre of the pass/reject band. The width of the band is hardwired to +/- 0.2 in the script. The filter cutoff corresponds to the half amplitude point.</td>
+<td>Normalised Inline Spatial Frequency</td>
+<td>For Low Pass and High Pass filters this specifies the inline filter cutoff. For Band Pass/Reject filters this is the centre of the pass/reject band. The width of the band is hardwired to +/- 0.2 in the script. The filter cutoff corresponds to the half amplitude point.</td>
+</tr>
+<tr>
+<td>Normalised Xline Spatial Frequency</td>
+<td>For Low Pass and High Pass filters this specifies the crosslineline filter cutoff. For Band Pass/Reject filters this is the centre of the pass/reject band. The width of the band is hardwired to +/- 0.1 in the script. The filter cutoff corresponds to the half amplitude point.</td>
 </tr>
 </tbody>
 </table></div>
