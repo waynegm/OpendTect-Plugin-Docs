@@ -10,7 +10,7 @@ install:
 script:
     - set -e
     - mkdocs build --verbose --clean --strict
-    - doctr deploy --built-docs site/
+    - doctr deploy . --built-docs site/
     
 env:
       global:
