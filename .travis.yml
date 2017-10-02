@@ -1,0 +1,17 @@
+sudo: false
+language: python
+
+python:
+    - 3.6
+
+install:
+    - pip install mkdocs doctr pymdown-extensions
+    
+script:
+    - set -e
+    - mkdocs build --verbose -clean --strict
+    - doctr deploy--built-docs site/
+    
+env:
+      global:`
+        - secure: "Gg0yagctBmtRwF0Rt4ajiNCT3dJsbdpq21b2W0DzVS+q0dIk58u6viEPs6xJR90DeEq92MbNfpK2FoXnkGR/WVXyGW6L/HZLP6keoguHCEaRkvmB9FyguYVRRq9wU047yF2hWRKOwKKWGdx+guWWjAQM5Dcyz31GV9H4gUbquiTKlkd63BjxlFjBstxmdwTmbrH41tVNbwCuOExPYNEIDCN7m/NNgJohcnLZ7lhrIs/2ka6MbeIPOyoHKogXQX13SN/ijZOuyq+HiQemaG4aesRrMIcIV4Cv1/y7UhHO85v+nuNGnzd0ocMSQncki5MM5DsIHBeBIZHr3hrI+eCVhGrQJhyzAs1arQgptycFQpknibs2/2euqY2jZLyyTvNiKbxZMbl91/VEYSjArUDpkSEJu3i2iXJ0++YawxkhXtF99HdwJWDYS0RN+boy90ZDUeK4AFNfOi75PSPvMDQtgwMcosV1nm4nRXJzhD8IT/yqOiqr6aJXQkMdGNbsS0MUQxsRQFnBfjye7ujBIz6znHqg9g3rviJZjG+Z+mF/XATWCRfcEBXITLMRj2lqAAcOt1Y+SHfQLUESuqDhyQInMPyvuHwrI76DxHuRJUDnWOOp+L2bbLZrSNi18MiIZfCeIX3shtGuJuMvxNncH0HrFZ8tcp/lMC+8+rCbJ/SpKC4="
