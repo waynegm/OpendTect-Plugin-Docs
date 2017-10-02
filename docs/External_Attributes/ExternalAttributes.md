@@ -4,6 +4,7 @@ This [repository of attribute  scripts](https://github.com/waynegm/OpendTect-Ext
 
 | LINK | DESCRIPTION |
 |------|-------------|
+| [Add Noise](./Add_Noise/) | Add gaussian distributed noise |
 | [AVO Intercept and Gradient](./AVO_IG/) | Compute AVO intercept and gradient from angle stacks |
 | [Dip and Azimuth](./DipandAzimuth/) | Orientation estimation (eg inline dip, crossline dip, true dip and dip azimuth) using a variety of algorithms |
 | [LPA Smoothing](./LPA_Smooth/) | Structure preserving smoothing using local polynomial approximation |

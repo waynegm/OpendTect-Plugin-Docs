@@ -22,6 +22,7 @@ pages:
     - Recursive time-frequency decomposition: 'Attributes/RSpecAttrib.md'
 - External Attributes:
     - Introduction: 'External_Attributes/ExternalAttributes.md'
+    - Add Noise: 'External_Attributes/Add_Noise.md'
     - AVO Intercept and Gradient: 'External_Attributes/AVO_IG.md'
     - Dip and Azimuth: 'External_Attributes/DipandAzimuth.md'
     - LPA Smoothing: 'External_Attributes/LPA_Smooth.md'
