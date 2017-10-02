@@ -10,7 +10,7 @@
         <link rel="shortcut icon" href="favicon-32x32.png">
         
 
-	<title>Download - OpendTect Plugins</title>
+	<title>Add Noise - OpendTect Plugins</title>
 
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -68,31 +68,31 @@
             
             
             
-                <li class="dropdown active">
+                <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Installation <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                     
                         
-<li class="active">
-    <a href="./">Download</a>
+<li >
+    <a href="../../Installation/download-binary/">Download</a>
 </li>
 
                     
                         
 <li >
-    <a href="../installation/">Install</a>
+    <a href="../../Installation/installation/">Install</a>
 </li>
 
                     
                         
 <li >
-    <a href="../building-from-source/">Build from source</a>
+    <a href="../../Installation/building-from-source/">Build from source</a>
 </li>
 
                     
                         
 <li >
-    <a href="../faq/">Issues/FAQ</a>
+    <a href="../../Installation/faq/">Issues/FAQ</a>
 </li>
 
                     
@@ -146,73 +146,73 @@
             
             
             
-                <li class="dropdown">
+                <li class="dropdown active">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">External Attributes <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                     
                         
 <li >
-    <a href="../../External_Attributes/ExternalAttributes/">Introduction</a>
+    <a href="../ExternalAttributes/">Introduction</a>
+</li>
+
+                    
+                        
+<li class="active">
+    <a href="./">Add Noise</a>
 </li>
 
                     
                         
 <li >
-    <a href="../../External_Attributes/Add_Noise/">Add Noise</a>
+    <a href="../AVO_IG/">AVO Intercept and Gradient</a>
 </li>
 
                     
                         
 <li >
-    <a href="../../External_Attributes/AVO_IG/">AVO Intercept and Gradient</a>
+    <a href="../DipandAzimuth/">Dip and Azimuth</a>
 </li>
 
                     
                         
 <li >
-    <a href="../../External_Attributes/DipandAzimuth/">Dip and Azimuth</a>
+    <a href="../LPA_Smooth/">LPA Smoothing</a>
 </li>
 
                     
                         
 <li >
-    <a href="../../External_Attributes/LPA_Smooth/">LPA Smoothing</a>
+    <a href="../LPA_Attributes/">Local polynomial approximation</a>
 </li>
 
                     
                         
 <li >
-    <a href="../../External_Attributes/LPA_Attributes/">Local polynomial approximation</a>
+    <a href="../Spatial_Filter_Circular/">Spatial filter - Circular</a>
 </li>
 
                     
                         
 <li >
-    <a href="../../External_Attributes/Spatial_Filter_Circular/">Spatial filter - Circular</a>
+    <a href="../Spatial_Filter_Rectangular/">Spatial filter - Rectangular</a>
 </li>
 
                     
                         
 <li >
-    <a href="../../External_Attributes/Spatial_Filter_Rectangular/">Spatial filter - Rectangular</a>
+    <a href="../Vector_Filters/">Vector Filters</a>
 </li>
 
                     
                         
 <li >
-    <a href="../../External_Attributes/Vector_Filters/">Vector Filters</a>
+    <a href="../Z_Delay_Est/">Z Delay Estimation</a>
 </li>
 
                     
                         
 <li >
-    <a href="../../External_Attributes/Z_Delay_Est/">Z Delay Estimation</a>
-</li>
-
-                    
-                        
-<li >
-    <a href="../../External_Attributes/ZC_Block/">Zero crossing trace block</a>
+    <a href="../ZC_Block/">Zero crossing trace block</a>
 </li>
 
                     
@@ -251,12 +251,12 @@
                     </a>
                 </li>
                 <li >
-                    <a rel="next" href="../..">
+                    <a rel="next" href="../ExternalAttributes/">
                         <i class="fa fa-arrow-left"></i> Previous
                     </a>
                 </li>
                 <li >
-                    <a rel="prev" href="../installation/">
+                    <a rel="prev" href="../AVO_IG/">
                         Next <i class="fa fa-arrow-right"></i>
                     </a>
                 </li>
@@ -279,67 +279,44 @@
             <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#download-binary-distribution">Download Binary Distribution</a></li>
+        <li class="main active"><a href="#add-noise">Add Noise</a></li>
         
-            <li><a href="#opendtect-version-6">OpendTect Version 6</a></li>
+            <li><a href="#script-miscellaneousex_add_noisepy">Script: Miscellaneous/ex_add_noise.py</a></li>
         
-            <li><a href="#opendtect-version-5">OpendTect Version 5</a></li>
+            <li><a href="#description">Description</a></li>
         
-            <li><a href="#opendtect-version-4">OpendTect Version 4</a></li>
+            <li><a href="#examples">Examples</a></li>
+        
+            <li><a href="#input-parameters">Input Parameters</a></li>
         
     
     </ul>
 </div></div>
             <div class="col-md-9" role="main">
 
-<h1 id="download-binary-distribution">Download Binary Distribution</h1>
-<p>Compiled versions of the plugins for Linux x86_64 and Windows x86_64 are available for download at the links below. After download follow the <a href="../installation/">installation instructions</a> to put them to use.</p>
-<h2 id="opendtect-version-6">OpendTect Version 6</h2>
+<h1 id="add-noise">Add Noise</h1>
+<h4 id="script-miscellaneousex_add_noisepy">Script: Miscellaneous/ex_add_noise.py</h4>
+<h2 id="description">Description</h2>
+<p>This Python <a href="../../Attributes/ExternalAttrib">External Attribute</a> script adds gaussian distributed noise to an input signal.</p>
+<h2 id="examples">Examples</h2>
+<p>This example shows an input signal with different levels of added noise.</p>
+<p><img alt="Add Noise" src="../../images/ex_add_noise_example.jpg" title="Zero crossing block" /></p>
+<h2 id="input-parameters">Input Parameters</h2>
+<p><img alt="Input Parameters" src="../../images/ex_add_noise_input.jpg" title="ex_add_noise.py input parameters" /></p>
 <table>
 <thead>
 <tr>
-<th>OS</th>
-<th>LATEST</th>
-<th>OTHER</th>
+<th>NAME</th>
+<th>DESCRIPTION</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Linux</td>
-<td><a href="https://bintray.com/waynegm/OpendTect-Plugins/OpendTect-6-plugins-linux/_latestVersion"> <img alt="Download" src="https://api.bintray.com/packages/waynegm/OpendTect-Plugins/OpendTect-6-plugins-linux/images/download.svg" /> </a></td>
-<td><a href="https://bintray.com/waynegm/OpendTect-Plugins/OpendTect-6-plugins-linux/view">On Bintray</a></td>
-</tr>
-<tr>
-<td>Windows</td>
-<td><a href="https://bintray.com/waynegm/OpendTect-Plugins/OpendTect-6-plugins-windows/_latestVersion"> <img alt="Download" src="https://api.bintray.com/packages/waynegm/OpendTect-Plugins/OpendTect-6-plugins-windows/images/download.svg" /> </a></td>
-<td><a href="https://bintray.com/waynegm/OpendTect-Plugins/OpendTect-6-plugins-windows/view">On Bintray</a></td>
+<td>S/N Ratio</td>
+<td>Desired signal to noise ratio.</td>
 </tr>
 </tbody>
-</table>
-<h2 id="opendtect-version-5">OpendTect Version 5</h2>
-<table>
-<thead>
-<tr>
-<th>OS</th>
-<th>LATEST</th>
-<th>OTHER</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Linux</td>
-<td><a href="https://bintray.com/waynegm/OpendTect-Plugins/OpendTect-5-plugins-linux/_latestVersion"> <img alt="Download" src="https://api.bintray.com/packages/waynegm/OpendTect-Plugins/OpendTect-5-plugins-linux/images/download.svg" /> </a></td>
-<td><a href="https://bintray.com/waynegm/OpendTect-Plugins/OpendTect-5-plugins-linux/view">On Bintray</a></td>
-</tr>
-<tr>
-<td>Windows</td>
-<td><a href="https://bintray.com/waynegm/OpendTect-Plugins/OpendTect-5-plugins-windows/_latestVersion"> <img alt="Download" src="https://api.bintray.com/packages/waynegm/OpendTect-Plugins/OpendTect-5-plugins-windows/images/download.svg" /> </a></td>
-<td><a href="https://bintray.com/waynegm/OpendTect-Plugins/OpendTect-5-plugins-windows/view">On Bintray</a></td>
-</tr>
-</tbody>
-</table>
-<h2 id="opendtect-version-4">OpendTect Version 4</h2>
-<p><a href="https://bintray.com/waynegm/OpendTect-Plugins/OpendTect-4-plugins/_latestVersion"> <img alt="Download" src="https://api.bintray.com/packages/waynegm/OpendTect-Plugins/OpendTect-4-plugins/images/download.svg" /> </a></p></div>
+</table></div>
         </div>
 
         <footer class="col-md-12">
