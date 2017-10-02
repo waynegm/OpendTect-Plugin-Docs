@@ -5,7 +5,7 @@ python:
     - 3.6
 
 install:
-    - pip install mkdocs doctr pymdown-extensions
+    - pip install mkdocs doctr pymdown-extensions mkdocs-bootswatch
     
 script:
     - set -e
