@@ -3,8 +3,8 @@
 
     
     <url>
-     <loc>None/</loc>
-     <lastmod>2016-12-16</lastmod>
+     <loc>/</loc>
+     <lastmod>2017-10-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -12,66 +12,26 @@
     
         
     <url>
-     <loc>None/Installation/download-binary/</loc>
-     <lastmod>2016-12-16</lastmod>
+     <loc>/Installation/download-binary/</loc>
+     <lastmod>2017-10-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/Installation/installation/</loc>
-     <lastmod>2016-12-16</lastmod>
+     <loc>/Installation/installation/</loc>
+     <lastmod>2017-10-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/Installation/building-from-source/</loc>
-     <lastmod>2016-12-16</lastmod>
+     <loc>/Installation/building-from-source/</loc>
+     <lastmod>2017-10-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/Installation/faq/</loc>
-     <lastmod>2016-12-16</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    
-
-    
-        
-    <url>
-     <loc>None/Attributes/AVOAttrib/</loc>
-     <lastmod>2016-12-16</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None/Attributes/ExternalAttrib/</loc>
-     <lastmod>2016-12-16</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None/Attributes/GradientAttrib/</loc>
-     <lastmod>2016-12-16</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None/Attributes/LTFAttrib/</loc>
-     <lastmod>2016-12-16</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None/Attributes/MLVFilter/</loc>
-     <lastmod>2016-12-16</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None/Attributes/RSpecAttrib/</loc>
-     <lastmod>2016-12-16</lastmod>
+     <loc>/Installation/faq/</loc>
+     <lastmod>2017-10-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -80,62 +40,38 @@
     
         
     <url>
-     <loc>None/External_Attributes/ExternalAttributes/</loc>
-     <lastmod>2016-12-16</lastmod>
+     <loc>/Attributes/AVOAttrib/</loc>
+     <lastmod>2017-10-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/External_Attributes/AVO_IG/</loc>
-     <lastmod>2016-12-16</lastmod>
+     <loc>/Attributes/ExternalAttrib/</loc>
+     <lastmod>2017-10-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/External_Attributes/DipandAzimuth/</loc>
-     <lastmod>2016-12-16</lastmod>
+     <loc>/Attributes/GradientAttrib/</loc>
+     <lastmod>2017-10-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/External_Attributes/LPA_Smooth/</loc>
-     <lastmod>2016-12-16</lastmod>
+     <loc>/Attributes/LTFAttrib/</loc>
+     <lastmod>2017-10-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/External_Attributes/LPA_Attributes/</loc>
-     <lastmod>2016-12-16</lastmod>
+     <loc>/Attributes/MLVFilter/</loc>
+     <lastmod>2017-10-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/External_Attributes/Spatial_Filter_Circular/</loc>
-     <lastmod>2016-12-16</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None/External_Attributes/Spatial_Filter_Rectangular/</loc>
-     <lastmod>2016-12-16</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None/External_Attributes/Vector_Filters/</loc>
-     <lastmod>2016-12-16</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None/External_Attributes/Z_Delay_Est/</loc>
-     <lastmod>2016-12-16</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None/External_Attributes/ZC_Block/</loc>
-     <lastmod>2016-12-16</lastmod>
+     <loc>/Attributes/RSpecAttrib/</loc>
+     <lastmod>2017-10-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -144,14 +80,78 @@
     
         
     <url>
-     <loc>None/license/</loc>
-     <lastmod>2016-12-16</lastmod>
+     <loc>/External_Attributes/ExternalAttributes/</loc>
+     <lastmod>2017-10-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/relnotes/</loc>
-     <lastmod>2016-12-16</lastmod>
+     <loc>/External_Attributes/AVO_IG/</loc>
+     <lastmod>2017-10-02</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/External_Attributes/DipandAzimuth/</loc>
+     <lastmod>2017-10-02</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/External_Attributes/LPA_Smooth/</loc>
+     <lastmod>2017-10-02</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/External_Attributes/LPA_Attributes/</loc>
+     <lastmod>2017-10-02</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/External_Attributes/Spatial_Filter_Circular/</loc>
+     <lastmod>2017-10-02</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/External_Attributes/Spatial_Filter_Rectangular/</loc>
+     <lastmod>2017-10-02</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/External_Attributes/Vector_Filters/</loc>
+     <lastmod>2017-10-02</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/External_Attributes/Z_Delay_Est/</loc>
+     <lastmod>2017-10-02</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/External_Attributes/ZC_Block/</loc>
+     <lastmod>2017-10-02</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>/license/</loc>
+     <lastmod>2017-10-02</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/relnotes/</loc>
+     <lastmod>2017-10-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
         

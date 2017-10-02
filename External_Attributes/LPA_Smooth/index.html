@@ -7,7 +7,7 @@
         
         <meta name="author" content="Wayne Mogg">
         
-        <link rel="shortcut icon" href="../../favicon-32x32.png">
+        <link rel="shortcut icon" href="favicon-32x32.png">
         
 
 	<title>LPA Smoothing - OpendTect Plugins</title>
@@ -296,10 +296,9 @@
 <h2 id="description">Description</h2>
 <p>This <a href="../../Attributes/ExternalAttrib">External Attribute</a> script can be used to apply structure preserving smoothing. A region of data around each sample location is fitted by a second order 3D polynomial using gaussian weighted least squares. </p>
 <p>The approximation has the following form:</p>
-<p>\[
+<span>\[
     r_0 + r_1 * x + r_2 * y + r_3 * z + r_4 * x^2 + r_5 * y^2 + r_6 * z^2 + r_7 * x*y + r_8 * x*z + r_9 * y*z
-\]</p>
-<p>where x (inline), y (crossline) and z (time/depth) are relative to the analysis location, ie the analysis location has x=y=z=0.</p>
+\]</span><p>where x (inline), y (crossline) and z (time/depth) are relative to the analysis location, ie the analysis location has x=y=z=0.</p>
 <p>This attribute calculates and outputs only the r0 term of the local polynomial approximation. This provides a smoother version of the input with relatively minor smearing of steep dips and fault cuts. Increasing either the Weight Factor or size of the analysis volume (StepOut or Z window) increases the amount of smoothing.</p>
 <h2 id="examples">Examples</h2>
 <div class="juxtapose" style="margin:0px;padding:0px" data-startingposition="50" data-showlabels="true" data-showcredits="false" data-animate="false" data-mode="horizontal">
