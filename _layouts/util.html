@@ -1,0 +1,194 @@
+{% macro figure(fn, caption='') %}
+<figure>
+  <br/>
+  <img src="images/{{fn}}" class="img-responsive center-block" alt="{{caption}}">
+  {% if caption %}
+  <figcaption class="text-center">{{caption}}</figcaption>
+  {% endif %}
+  <br/>
+</figure>
+{% endmacro %}
+
+{% macro table_nohdr(data, style='') %}
+<table class="table {{style}}">
+    <tbody>
+    {% for row in range(0,data.__len__()) %}
+        <tr>
+        {% for item in data[row] %}
+            <td>{{ item }}</td>
+        {% endfor %}
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endmacro %}
+
+{% macro table_with_hdr(data, hdrstyle='', style='') %}
+<table class="table {{style}}">
+    <thead class="bg-primary">
+        <tr>
+        {% for col in range(data[0].__len__()) %}
+            <th class="{{hdrstyle[col]}}">{{ data[0][col] }}</th>
+        {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+    {% for row in range(1,data.__len__()) %}
+        <tr>
+        {% for item in data[row] %}
+            <td>{{ item }}</td>
+        {% endfor %}
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endmacro %}
+
+{% macro fa(name, class='', title='') %}
+{# Utility for inserting font awesome icons #}
+    <i class="fa fa-{{ name }} {{ class }}" title="{{ title }}"></i>
+{% endmacro %}
+
+{% macro card(page, site, date=true, year_only=true, show_oa=false, inprogress=false, collapse_side=false) %}
+{# Make a card linked to the page showing the thumbnail, title, etc #}
+    {% if collapse_side %}
+        {% set col_thumb = "col-xs-6 col-sm-4 col-md-12" %}
+        {% set col_title = "col-xs-6 col-sm-8 col-md-12" %}
+    {% else %}
+        {% set col_thumb = "col-md-12" %}
+        {% set col_title = "col-md-12" %}
+    {% endif %}
+    <a href="{{ page.url }}">
+    <div class="row card">
+
+        <div class="{{ col_thumb }}">
+            {{ insert_thumbnail(page, site, fancy=true) }}
+        </div>
+
+        <div class="{{ col_title }} card-caption">
+            <span class="card-title">
+                {{ page.title }}
+            </span>
+            {% if date %}
+                <br>
+                <span class="card-date">
+                {% if year_only %}
+                    ({{ page.date.year }})
+                {% else %}
+                    ({{ page.date.strftime('%d %b %Y') }})
+                {% endif %}
+                </span>
+            {% endif %}
+            <br>
+            {% if inprogress and page.inprogress is defined and page.inprogress %}
+                <span class="label label-primary">IN PROGRESS</span>
+            {% endif %}
+            {% if page.inreview is defined and page.inreview %}
+                <span class="label label-warning">UNDER REVIEW</span>
+            {% endif %}
+            {% if page.accepted is defined and page.accepted %}
+                <span class="label label-primary">ACCEPTED</span>
+            {% endif %}
+        </div>
+    </div></a>
+{% endmacro %}
+
+{% macro make_index(content, site, date=false, year_only=true, show_oa=false) %}
+{# Make an index of cards for all elements in content #}
+    {# There will be 4 cards in a row and collapse to 2 in a row for smaller
+    displays. The way to do this is to batch the cards into pairs, make a row
+    with 2 columns and place a pair in each column. #}
+    <hr>
+    {% for row in content|batch(2) %}
+        {% if loop.index % 2 != 0 %}
+            <div class="row">
+        {% endif %}
+            <div class="col-md-6">
+                <div class="row">
+                {% for article in row %}
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                        {{ card(article, site, date=date, year_only=year_only, show_oa=show_oa) }}
+                    </div>
+                {% endfor %}
+                </div>
+            </div>
+        {% if loop.index % 2 == 0 or loop.last %}
+            </div>
+        {% endif %}
+    {% endfor %}
+{% endmacro %}
+
+{% macro insert_thumbnail(article, site, fancy=true) %}
+{# Make the thumbnail image for the article #}
+    {% if fancy %}
+        {% set class = "pub-thumbnail" %}
+    {% else %}
+        {% set class = "" %}
+    {% endif %}
+    {% if article.thumbnail is defined %}
+    <img class="{{ class }}" alt="Thumbnail image for publication."
+         src="/{{ site.thumbnail_path }}/{{ article.thumbnail }}">
+    {% endif %}
+{% endmacro %}
+
+
+{% macro feedback(post, site, fancy=true) %}
+{# Make the feedback request boxes and Disqus comments section #}
+    <hr>
+
+    {% if fancy %}
+    <div class="panel panel-default feedback">
+        <div class="panel-body">
+            {{ fa("comments", "fa-fw") }}
+    {% else %}
+        <p>
+    {% endif %}
+            <strong>Comments?</strong>
+            Leave one below or
+            let me know on Twitter
+            <a href="https://twitter.com/intent/tweet?text=@{{ site.twitter }}&url={{ site.url }}{{ post.url }}">@{{ site.twitter }}</a>
+            or in the <a href="{{ site.reflinks.swung.url }}">{{ site.reflinks.swung.title }}</a>
+            Slack group.
+    {% if fancy %}
+        </div>
+    </div>
+    {% else %}
+        </p>
+    {% endif %}
+
+    {% if fancy %}
+    <div class="panel panel-default feedback">
+        <div class="panel-body">
+            {{ fa("bug", "fa-fw") }}
+    {% else %}
+        <p>
+    {% endif %}
+            <strong>Found a typo/mistake?</strong>
+            Send a <a href="{{ site.reflinks.site_repo.url }}/edit/master/{{ post.fn }}">fix through Github</a>
+            and I'll happily merge it
+            (<em>plus you'll feel great because you helped someone</em>).
+            All you need is an account and 5 minutes!
+    {% if fancy %}
+        </div>
+    </div>
+    {% else %}
+        </p>
+    {% endif %}
+
+    <!-- The Disqus comments code -->
+    <div id="disqus_thread"></div>
+    <script>
+        var disqus_config = function () {
+        this.page.url = '{{ site.url }}{{ post.url }}';
+        this.page.identifier = '{{ post.id }}';
+        };
+        (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = '//leouieda.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+{% endmacro %}

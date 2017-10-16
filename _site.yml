@@ -1,0 +1,38 @@
+brand: OpendTect Plugins
+
+bootswatch: flatly # flatly, yeti, lumen,...
+navbar_inverse: false
+bootstrap: 3.3.6
+navbar_right_items: 2
+thumbnail_path: articles/images
+ignore_patterns: ["README.md", "articles/draft_*.md"]
+baseurl: 'OpendTect-Plugin-Docs'
+keep_files: [ .nojekyll ]
+
+# Fill out your Google Analytics ID here
+google_analytics: UA-62607269-1
+
+
+reflinks:
+    opendtect:
+        url: https://opendtect.org
+        title: OpendTect
+    wmplugins:
+        url: https://github.com/waynegm/OpendTect-Plugins
+        title: OpendTect plugins
+    wmscripts:
+        url: https://github.com/waynegm/OpendTect-External-Attributes
+        title: external attribute scripts
+    wmlinkedin:
+        url: https://www.linkedin.com/in/waynemogg
+        title: linkedin
+    urubu:
+        url: http://urubu.jandecaluwe.com
+        title: Urubu
+    content_license:
+        url: http://creativecommons.org/licenses/by-sa/3.0/
+        title: CC-BY-SA License
+    software_license:
+        url: https://www.gnu.org/licenses/gpl-3.0-standalone.html
+        title: GNU General Public License Version 3
+

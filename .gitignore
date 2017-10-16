@@ -1,3 +1,4 @@
-site/
 .directory
 temp.*
+_build/
+_docs/

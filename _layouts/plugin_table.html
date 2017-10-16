@@ -1,0 +1,29 @@
+{% block body %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <main>
+            {% set plugin_url = '/' + site.baseurl + '/plugins/' %}
+                <table class="table table-bordered table-responsive">
+                  <thead class="bg-primary">
+                    <tr>
+                      <th class="col-xs-4">PLUGIN</th>
+                      <th class="col-xs-8">DESCRIPTION</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  {% for item in this.content|filtercontent(plugin_url) %}
+                     <tr>
+                       <td><a href="{{item.url}}">{{item.title}}</a></td>
+                       <td>{{item.description}}</td>
+					</tr>
+                  {% endfor %}
+                  </tbody>
+				</table>
+            </main>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
