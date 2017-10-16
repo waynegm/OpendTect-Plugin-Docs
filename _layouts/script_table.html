@@ -1,0 +1,22 @@
+{% block body %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 text-right">
+        <main>
+        {% for item in this.content|filtercontent('/external_attributes/') %}
+            <a href="{{item.url}}">{{item.title}}</a><br/>
+        {% endfor %}
+        </main>
+    </div>
+    <div class="col-md-8">
+        <main>
+        {% for item in this.content|filtercontent('/external_attributes/') %}
+            {{item.description}} <br/>
+        {% endfor %}
+        </main>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

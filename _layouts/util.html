@@ -1,0 +1,31 @@
+{% macro figure(fn, caption='') %}
+<figure>
+  <br/>
+  <img src="images/{{fn}}" class="img-responsive center-block" alt="{{caption}}">
+  {% if caption %}
+  <figcaption class="text-center">{{caption}}</figcaption>
+  {% endif %}
+  <br/>
+</figure>
+{% endmacro %}
+
+{% macro table_with_hdr(data, hdrstyle='', style='') %}
+<table class="table {{style}}">
+    <thead class="bg-primary">
+        <tr>
+        {% for col in range(data[0].__len__()) %}
+            <th class="{{hdrstyle[col]}}">{{ data[0][col] }}</th>
+        {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+    {% for row in range(1,data.__len__()) %}
+        <tr>
+        {% for item in data[row] %}
+            <td>{{ item }}</td>
+        {% endfor %}
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endmacro %}
