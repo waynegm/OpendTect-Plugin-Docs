@@ -9,7 +9,7 @@ tags: plugin
 {% from 'util.html' import figure %}
 {% from 'util.html' import table_with_hdr %}
 
-This attribute plugin for the open source seismic interpretation platform [opendtect] Version 6.0.0 or later performa time-frequency decomposition.
+This attribute plugin for the open source seismic interpretation platform [opendtect] Version 6.0.0 or later performs time-frequency decomposition using a recursive filter.
 
 ## Description
 

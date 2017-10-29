@@ -5,7 +5,7 @@ content:
     - installation
     - plugins
     - external_attributes
-    - news
+    - articles
     - about
 tagline:
     Documentation for Wayne Mogg's OpendTect plugins and external attribute scripts

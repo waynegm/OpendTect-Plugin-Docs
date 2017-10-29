@@ -9,7 +9,7 @@ tags: external-attribute
 {% from 'util.html' import figure %}
 
 ## Description
-These [External Attribute](../Attributes/ExternalAttrib) scripts estimate AVO intercept and gradient based on Shuey's 2 term approximation to the Zoeppritz  equation.
+These [../plugins/ExternalAttrib] scripts estimate AVO intercept and gradient based on Shuey's 2 term approximation to the Zoeppritz  equation.
 
 ## Intercept and Gradient from 4 Angle Stacks
 __Script: Miscellaneous/ex_angle_stacks_4_to_AVOIG.py__

@@ -13,7 +13,7 @@ This attribute plugin for the open source seismic interpretation platform [opend
 
 ## Description
 
-The intercept-gradient crossplot is widely used for amplitude-variation-with-offset (AVO) analysis in hydrocarbon exploration.  The intercept is the zero offset or normal incidence reflection amplitude/coefficient of an event while the gradient is the change in reflection amplitude/coefficient with offset at normal incidence. Some authors refer to intercept as A or P and gradient as B or G. Modelling studies show that changes in subsurface rock properties such as lithology, porosity and pore fluid content result in systematic changes in intercept-gradient space. The following figure, adapted from the very informative paper on AVO by [Foster etal (2010)](http://library.seg.org/doi/abs/10.1190/1.3467825 "Interpretation of AVO anomalies. Douglas J. Foster, Robert G. Keys, and F. David Lane. GEOPHYSICS 2010 75:5, 75A3-75A13"), illustrates the ideal intercept-gradient crossplot response for a clastic sequence to changes in porosity and pore fluid. The Fluid Line or Background Trend is where reflections from shales and some wet sands that have little contrast in Vp/Vs plot.
+The intercept-gradient crossplot is widely used for amplitude-variation-with-offset (AVO) analysis in hydrocarbon exploration.  The intercept is the zero offset or normal incidence reflection amplitude/coefficient of an event while the gradient is the change in reflection amplitude/coefficient with offset or incidence angle. Some authors refer to intercept as A or P and gradient as B or G. Modelling studies show that changes in subsurface rock properties such as lithology, porosity and pore fluid content result in systematic changes in intercept-gradient space. The following figure, adapted from the very informative paper on AVO by [Foster etal (2010)](http://library.seg.org/doi/abs/10.1190/1.3467825 "Interpretation of AVO anomalies. Douglas J. Foster, Robert G. Keys, and F. David Lane. GEOPHYSICS 2010 75:5, 75A3-75A13"), illustrates the ideal intercept-gradient crossplot response for a clastic sequence to changes in porosity and pore fluid. The Fluid Line or Background Trend is where reflections from shales and some wet sands that have little contrast in Vp/Vs plot.
 
 {{ figure('AVOAttrib_ideal_crossplot.jpg','Ideal AVO crossplot for a clastic sequence') }}
 
@@ -21,7 +21,7 @@ Another popular classification of AVO effects on the intercept-gradient crossplo
 
 {{ figure('AVOAttrib_classes.jpg', 'AVO classes') }}
 
-This plugin calculates 6 attributes which are essentially just coordinate transformations of the intercept and gradient that aim to highlight changes of a particular rock property based on the expected behaviour of pore fluid changes in clastic reservoir sequences.
+This plugin calculates 6 attributes which are essentially just coordinate transformations of the intercept and gradient that aim to highlight changes of a particular rock property based on the expected behaviour of clastic reservoir sequences.
 
 {% set figtable=[
 ['ATTRIBUTE','DESCRIPTION'],

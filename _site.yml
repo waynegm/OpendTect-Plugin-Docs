@@ -4,6 +4,7 @@ bootswatch: flatly # flatly, yeti, lumen,...
 navbar_inverse: false
 bootstrap: 3.3.6
 navbar_right_items: 1
+thumbnail_path: articles/images
 
 # Fill out your Google Analytics ID here
 google_analytics: UA-62607269-1

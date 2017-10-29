@@ -11,3 +11,16 @@ def filtercontent(sections,url="/tech/"):
     return []
 
 filters['filtercontent'] = filtercontent
+
+import random
+
+def shuffle(seq):
+    try:
+        randomized = list(seq)
+        random.shuffle(randomized)
+        return randomized
+    except:
+        return seq
+
+
+filters['shuffle'] = shuffle

@@ -9,7 +9,7 @@ tags: plugin
 {% from 'util.html' import figure %}
 {% from 'util.html' import table_with_hdr %}# LTFAttrib
 
-This attribute plugin for the open source seismic interpretation platform [opendtect] Version 6.0 or later performs time-frequency decomposition using local attribute.
+This attribute plugin for the open source seismic interpretation platform [opendtect] Version 6.0 or later performs time-frequency decomposition using local attributes.
 
 ## Description
 

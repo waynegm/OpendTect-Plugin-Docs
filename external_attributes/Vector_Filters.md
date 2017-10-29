@@ -14,7 +14,25 @@ __Script: ex_vector_filter_dip.py__
 ## Description
 This [../plugins/ExternalAttrib] script can be used to apply a vector filter to orientation ( inline and crossline dip) data. The script offers a choice of mean vector, L1 vector median and L2 vector median filters.
 
-The following outputs are available after filtering:
+Initially the inline and crossline dip data are converted to a normal vector to the local orientation: $ \[x_i, y_i, z_i\] $. 
+
+The Mean Vector Filter averages of the vector components of the orientation normal vectors in the analysis cube:
+$$
+\Big\[x_f, y_f, z_f\Big\]  = \frac{1}{N} \Big\[\sum\limits_{i}^N x_i, \sum\limits_{i}^N y_i, \sum\limits_{i}^N z_i\Big\]
+$$
+
+The L1 vector filter finds the normal vector in the analysis cube whose sum of absolute distance from all the others is a minimum:
+$$
+\Big\[x_f, y_f, z_f\Big\] = argmin \sum\limits_{i}^N \Big\[|x_f-x_i| + |y_f-y_i| + |z_f-z_i|\Big\]
+$$
+
+The L2 vector filter finds the normal vector in the analysis cube whose sum of squared distance from all the others is a minimum:
+$$
+\Big\[x_f, y_f, z_f\Big\] = argmin \sum\limits_{i}^N \Big\[(x_f-x_i)^2 + (y_f-y_i)^2 + (z_f-z_i)^2\Big\]
+$$
+
+
+The filtered orientation can be output as any of the following:
 {% set outtable=[
 ['OUTPUT','DESCRIPTION'],
 ['Inline Dip','Event dip observed on a crossline in microseconds per metre for time surveys and millimetres per metre for depth surveys. Output can be positive or negative with the convention that events dipping towards larger inline numbers producing positive dips.'],
