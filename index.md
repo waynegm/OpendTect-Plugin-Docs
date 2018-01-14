@@ -6,6 +6,7 @@ content:
     - plugins
     - external_attributes
     - articles
+    - about
     - ref: wmplugins
       title: '<i class="fa fa-github fa-lg" title="OpendTect Plugins on Github"></i>'
     - ref: wmlinkedin

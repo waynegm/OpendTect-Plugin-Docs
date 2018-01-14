@@ -3,7 +3,7 @@ brand: OpendTect Plugins
 bootswatch: flatly # flatly, yeti, lumen,...
 navbar_inverse: false
 bootstrap: 3.3.6
-navbar_right_items: 2
+navbar_right_items: 3
 thumbnail_path: articles/images
 ignore_patterns: ["README.md", "articles/draft_*.md"]
 baseurl: 'OpendTect-Plugin-Docs'
