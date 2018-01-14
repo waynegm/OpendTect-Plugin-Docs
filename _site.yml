@@ -5,6 +5,9 @@ navbar_inverse: false
 bootstrap: 3.3.6
 navbar_right_items: 1
 thumbnail_path: articles/images
+ignore_patterns: ["README.md"]
+baseurl: 'OpendTect-Plugin-Docs'
+keep_files: [ .nojekyll ]
 
 # Fill out your Google Analytics ID here
 google_analytics: UA-62607269-1

@@ -4,14 +4,15 @@
   <div class="row">
     <div class="col-md-4 text-right">
         <main>
-        {% for item in this.content|filtercontent('/external_attributes/') %}
+        {% set script_url = '/' + site.baseurl + '/external_attributes/' %}
+        {% for item in this.content|filtercontent(script_url) %}
             <a href="{{item.url}}">{{item.title}}</a><br/>
         {% endfor %}
         </main>
     </div>
     <div class="col-md-8">
         <main>
-        {% for item in this.content|filtercontent('/external_attributes/') %}
+        {% for item in this.content|filtercontent(script_url) %}
             {{item.description}} <br/>
         {% endfor %}
         </main>
