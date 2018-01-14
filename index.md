@@ -6,7 +6,11 @@ content:
     - plugins
     - external_attributes
     - articles
-    - about
+    - ref: wmplugins
+      title: '<i class="fa fa-github fa-lg" title="OpendTect Plugins on Github"></i>'
+    - ref: wmlinkedin
+      title: '<i class="fa fa-linkedin fa-lg" title="My LinkedIn"></i>'
+ 
 tagline:
     Documentation for Wayne Mogg's OpendTect plugins and external attribute scripts
 ---
