@@ -1,5 +1,5 @@
 ---
-title: Gradient Attributes
+title: GradientAttrib - Gradients
 description: calculate inline, crossline and time/depth gradients
 layout: page
 pager: true

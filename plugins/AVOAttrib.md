@@ -1,5 +1,5 @@
 ---
-title: AVO Attributes
+title: AVOAttrib - AVO Attributes
 description: 6 attributes based on different parameterizations of reflection intercept and gradient
 layout: page
 pager: true

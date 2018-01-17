@@ -1,6 +1,6 @@
 ---
-title: RSpec Attribute
-description: recursive time-frequency decomosition
+title: RSpecAttrib - Recursive Spectral Decomposition
+description: recursive time-frequency decomposition
 layout: page
 pager: true
 tags: plugin

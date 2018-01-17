@@ -1,5 +1,5 @@
 ---
-title: Mean of Least Variance Filter Attributes
+title: MLVFilterAttrib - Mean of Least Variance Filter
 description: structure preserving mean of least variance filter
 layout: page
 pager: true
