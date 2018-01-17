@@ -12,7 +12,7 @@ tags: external-attribute filter
 __Script: ex_lpa_smooth.py__
 
 ## Description
-This Python [../plugins/ExternalAttrib] script can be used to filter noise while preserving steep dips. A region of data around each sample location is fitted by a second order 3D polynomial using gaussian weighted least squares. 
+This Python [../plugins/ExternalAttrib] script can be used to filter noise while preserving steep dips. A region of data around each sample location is approximated by a second order 3D polynomial using gaussian weighted least squares. 
 
 The approximation has the following form:
 
