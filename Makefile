@@ -5,11 +5,8 @@ all: build
 build:
 	python -m urubu build
 	touch _build/.nojekyll
-	rsync -a --delete _build docs
+	rsync -a --delete _build/ docs/
 
 serve:
 	python -m urubu serve
 
-publish:
-	rm -R docs
-	cp -R _build docs

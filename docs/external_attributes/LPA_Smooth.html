@@ -123,7 +123,7 @@
     <main>
       <p><strong>Script: ex_lpa_smooth.py</strong></p>
 <h3 id="description">Description</h3>
-<p>This Python <a href="/OpendTect-Plugin-Docs/plugins/ExternalAttrib.html" title="ExternalAttrib - External Attribute">ExternalAttrib - External Attribute</a> script can be used to filter noise while preserving steep dips. A region of data around each sample location is fitted by a second order 3D polynomial using gaussian weighted least squares. </p>
+<p>This Python <a href="/OpendTect-Plugin-Docs/plugins/ExternalAttrib.html" title="ExternalAttrib - External Attribute">ExternalAttrib - External Attribute</a> script can be used to filter noise while preserving steep dips. A region of data around each sample location is approximated by a second order 3D polynomial using gaussian weighted least squares. </p>
 <p>The approximation has the following form:</p>
 <p>$$ r_0+ r_1 * x + r_2 * y + r_3 * z + r_4 * x^2 + r_5 * y^2 + r_6 * z^2 +r_7 * x * y + r_8 * x * z + r_9 * y * z $$</p>
 <p>where x (inline), y (crossline) and z (time/depth) are relative to the analysis location, ie the analysis location has x=y=z=0.</p>

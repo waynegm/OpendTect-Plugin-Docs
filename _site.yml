@@ -5,7 +5,7 @@ navbar_inverse: false
 bootstrap: 3.3.6
 navbar_right_items: 2
 thumbnail_path: articles/images
-ignore_patterns: ["README.md", "articles/draft_*.md"]
+ignore_patterns: ["README.md", "articles/draft_*.md", "docs"]
 baseurl: 'OpendTect-Plugin-Docs'
 keep_files: [ .nojekyll ]
 
