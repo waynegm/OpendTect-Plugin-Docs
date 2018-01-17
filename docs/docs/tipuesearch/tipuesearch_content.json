@@ -32,7 +32,7 @@
         },
         {
             "tags": "",
-            "text": "Download Binary Distribution Compiled versions of the plugins for Linux x86_64 and Windows x86_64 are available for download at the links below. OpendTect Version 6 OS LATEST OTHER Linux On Bintray Windows On Bintray OpendTect Version 5 OS LATEST OTHER Linux On Bintray Windows On Bintray OpendTect Version 4",
+            "text": "Download Binary Distribution Compiled versions of the plugins for Linux x86_64 and Windows x86_64 are available for download at the links below. OpendTect Version 6.2 OS LATEST Linux Windows OpendTect Version 6.0 OS LATEST OTHER Linux On Bintray Windows On Bintray OpendTect Version 5 OS LATEST OTHER Linux On Bintray Windows On Bintray OpendTect Version 4",
             "title": "Download Binary Distribution",
             "url": "/OpendTect-Plugin-Docs/installation/download-binary.html"
         },

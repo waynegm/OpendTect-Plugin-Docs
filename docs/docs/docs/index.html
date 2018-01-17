@@ -65,12 +65,12 @@
             <li class="dropdown">
               <a href="/OpendTect-Plugin-Docs/plugins/" class="dropdown-toggle" data-toggle="dropdown">Plugins <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="/OpendTect-Plugin-Docs/plugins/AVOAttrib.html">AVO Attributes</a></li>
-                <li><a href="/OpendTect-Plugin-Docs/plugins/ExternalAttrib.html">External Attribute</a></li>
-                <li><a href="/OpendTect-Plugin-Docs/plugins/GradientAttrib.html">Gradient Attributes</a></li>
-                <li><a href="/OpendTect-Plugin-Docs/plugins/LTFAttrib.html">Local Time-Frequency Attribute</a></li>
-                <li><a href="/OpendTect-Plugin-Docs/plugins/MLVFilter.html">Mean of Least Variance Filter Attributes</a></li>
-                <li><a href="/OpendTect-Plugin-Docs/plugins/RSpecAttrib.html">RSpec Attribute</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/AVOAttrib.html">AVOAttrib - AVO Attributes</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/ExternalAttrib.html">ExternalAttrib - External Attribute</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/GradientAttrib.html">GradientAttrib - Gradients</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/LTFAttrib.html">LTFAttrib - Spectral Decomposition by Local Attributes</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/MLVFilter.html">MLVFilterAttrib - Mean of Least Variance Filter</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/RSpecAttrib.html">RSpecAttrib - Recursive Spectral Decomposition</a></li>
               </ul>
             </li>
             <li class="dropdown">
@@ -97,12 +97,6 @@
           </form>
 
           <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown">
-              <a href="/OpendTect-Plugin-Docs/about/" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="/OpendTect-Plugin-Docs/about/licence.html">Licence</a></li>
-              </ul>
-            </li>
             <li><a href="https://github.com/waynegm/OpendTect-Plugins"><i class="fa fa-github fa-lg" title="OpendTect Plugins on Github"></i></a></li>
             <li><a href="https://www.linkedin.com/in/waynemogg"><i class="fa fa-linkedin fa-lg" title="My LinkedIn"></i></a></li>
           </ul>
@@ -112,11 +106,14 @@
     </div>
 
 
-<div class="jumbotron">
-  <div class="container-fluid text-center">
+<div class="jumbotron plugins">
+  <div class="container text-center">
     <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-         <h2>Documentation for Wayne Mogg's OpendTect plugins and external attribute scripts</h2>
+      <div class="col-md-2">
+         <img src="../images/banner.png" height="150px">
+      </div>
+      <div class="col-md-10">
+         <h2>OpendTect plugins and external attribute scripts by Wayne Mogg</h2>
       </div>
    </div>
  </div>
@@ -133,24 +130,42 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-4 text-right">
+        <div class="col-md-12">
             <main>
-                <a href="/OpendTect-Plugin-Docs/plugins/AVOAttrib.html">AVO Attributes</a><br/>
-                <a href="/OpendTect-Plugin-Docs/plugins/ExternalAttrib.html">External Attribute</a><br/>
-                <a href="/OpendTect-Plugin-Docs/plugins/GradientAttrib.html">Gradient Attributes</a><br/>
-                <a href="/OpendTect-Plugin-Docs/plugins/LTFAttrib.html">Local Time-Frequency Attribute</a><br/>
-                <a href="/OpendTect-Plugin-Docs/plugins/MLVFilter.html">Mean of Least Variance Filter Attributes</a><br/>
-                <a href="/OpendTect-Plugin-Docs/plugins/RSpecAttrib.html">RSpec Attribute</a><br/>
-            </main>
-        </div>
-        <div class="col-md-8">
-            <main>
-                6 attributes based on different parameterizations of reflection intercept and gradient<br/>
-                create attributes in a scripting language like Python<br/>
-                calculate inline, crossline and time/depth gradients<br/>
-                local time-frequency analysis<br/>
-                structure preserving mean of least variance filter<br/>
-                recursive time-frequency decomosition<br/>
+                <table class="table table-bordered table-responsive">
+                  <thead class="bg-primary">
+                    <tr>
+                      <th class="col-xs-4">PLUGIN</th>
+                      <th class="col-xs-8">DESCRIPTION</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                     <tr>
+                       <td><a href="/OpendTect-Plugin-Docs/plugins/AVOAttrib.html">AVOAttrib - AVO Attributes</a></td>
+                       <td>6 attributes based on different parameterizations of reflection intercept and gradient</td>
+					</tr>
+                     <tr>
+                       <td><a href="/OpendTect-Plugin-Docs/plugins/ExternalAttrib.html">ExternalAttrib - External Attribute</a></td>
+                       <td>create attributes in a scripting language like Python</td>
+					</tr>
+                     <tr>
+                       <td><a href="/OpendTect-Plugin-Docs/plugins/GradientAttrib.html">GradientAttrib - Gradients</a></td>
+                       <td>calculate inline, crossline and time/depth gradients</td>
+					</tr>
+                     <tr>
+                       <td><a href="/OpendTect-Plugin-Docs/plugins/LTFAttrib.html">LTFAttrib - Spectral Decomposition by Local Attributes</a></td>
+                       <td>time-frequency analysis using Fomels local attribute algorithm</td>
+					</tr>
+                     <tr>
+                       <td><a href="/OpendTect-Plugin-Docs/plugins/MLVFilter.html">MLVFilterAttrib - Mean of Least Variance Filter</a></td>
+                       <td>structure preserving mean of least variance filter</td>
+					</tr>
+                     <tr>
+                       <td><a href="/OpendTect-Plugin-Docs/plugins/RSpecAttrib.html">RSpecAttrib - Recursive Spectral Decomposition</a></td>
+                       <td>recursive time-frequency decomposition</td>
+					</tr>
+                  </tbody>
+				</table>
             </main>
         </div>
     </div>
@@ -161,34 +176,58 @@
             <h2 class="text-center">External Attribute Scripts</h2>
 
 <div class="container">
-  <div class="row">
-    <div class="col-md-4 text-right">
-        <main>
-            <a href="/OpendTect-Plugin-Docs/external_attributes/AVO_IG.html">AVO Intercept and Gradient</a><br/>
-            <a href="/OpendTect-Plugin-Docs/external_attributes/Add_Noise.html">Add Noise</a><br/>
-            <a href="/OpendTect-Plugin-Docs/external_attributes/DipandAzimuth.html">Dip and Azimuth</a><br/>
-            <a href="/OpendTect-Plugin-Docs/external_attributes/LPA_Smooth.html">LPA Smoothing</a><br/>
-            <a href="/OpendTect-Plugin-Docs/external_attributes/Spatial_Filter_Circular.html">Spatial Filter - Circular</a><br/>
-            <a href="/OpendTect-Plugin-Docs/external_attributes/Spatial_Filter_Rectangular.html">Spatial Filter - Rectangular</a><br/>
-            <a href="/OpendTect-Plugin-Docs/external_attributes/Z_Delay_Est.html">Time Delay Estimation</a><br/>
-            <a href="/OpendTect-Plugin-Docs/external_attributes/Vector_Filters.html">Vector Filter</a><br/>
-            <a href="/OpendTect-Plugin-Docs/external_attributes/ZC_Block.html">ZC Block</a><br/>
-        </main>
+    <div class="row">
+        <div class="col-md-12">
+            <main>
+                <table class="table table-bordered table-responsive">
+                  <thead class="bg-primary">
+                    <tr>
+                      <th class="col-xs-4">SCRIPT</th>
+                      <th class="col-xs-8">DESCRIPTION</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                     <tr>
+                       <td><a href="/OpendTect-Plugin-Docs/external_attributes/AVO_IG.html">AVO Intercept and Gradient</a></td>
+                       <td>estimate AVO intercept and gradient from angle stacks</td>
+					</tr>
+                     <tr>
+                       <td><a href="/OpendTect-Plugin-Docs/external_attributes/Add_Noise.html">Add Noise</a></td>
+                       <td>add gaussian distributed noise to an input</td>
+					</tr>
+                     <tr>
+                       <td><a href="/OpendTect-Plugin-Docs/external_attributes/DipandAzimuth.html">Dip and Azimuth</a></td>
+                       <td>various acripts to estimate orientation</td>
+					</tr>
+                     <tr>
+                       <td><a href="/OpendTect-Plugin-Docs/external_attributes/LPA_Smooth.html">LPA Smoothing</a></td>
+                       <td>smoothing using local polynomial approximation</td>
+					</tr>
+                     <tr>
+                       <td><a href="/OpendTect-Plugin-Docs/external_attributes/Spatial_Filter_Circular.html">Spatial Filter - Circular</a></td>
+                       <td>lowpass, highpass, bandpass or band reject circularly symmetric spatial filters</td>
+					</tr>
+                     <tr>
+                       <td><a href="/OpendTect-Plugin-Docs/external_attributes/Spatial_Filter_Rectangular.html">Spatial Filter - Rectangular</a></td>
+                       <td>lowpass, highpass, bandpass or band reject rectangular spatial filters</td>
+					</tr>
+                     <tr>
+                       <td><a href="/OpendTect-Plugin-Docs/external_attributes/Z_Delay_Est.html">Time Delay Estimation</a></td>
+                       <td>measure time shifts between volumes using correlation</td>
+					</tr>
+                     <tr>
+                       <td><a href="/OpendTect-Plugin-Docs/external_attributes/Vector_Filters.html">Vector Filter</a></td>
+                       <td>vector filter orientation (inline and crossline dip) data</td>
+					</tr>
+                     <tr>
+                       <td><a href="/OpendTect-Plugin-Docs/external_attributes/ZC_Block.html">ZC Block</a></td>
+                       <td>Blocks a seismic trace between zero crossings</td>
+					</tr>
+                  </tbody>
+				</table>
+            </main>
+        </div>
     </div>
-    <div class="col-md-8">
-        <main>
-            estimate AVO intercept and gradient from angle stacks <br/>
-            add gaussian distributed noise to an input <br/>
-            various acripts to estimate orientation <br/>
-            smoothing using local polynomial approximation <br/>
-            lowpass, highpass, bandpass or band reject circularly symmetric spatial filters <br/>
-            lowpass, highpass, bandpass or band reject rectangular spatial filters <br/>
-            measure time shifts between volumes using correlation <br/>
-            vector filter orientation (inline and crossline dip) data <br/>
-            Blocks a seismic trace between zero crossings <br/>
-        </main>
-    </div>
-  </div>
 </div>
 
         </div>

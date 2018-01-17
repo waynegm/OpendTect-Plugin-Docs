@@ -64,12 +64,12 @@
             <li class="dropdown">
               <a href="/OpendTect-Plugin-Docs/plugins/" class="dropdown-toggle" data-toggle="dropdown">Plugins <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="/OpendTect-Plugin-Docs/plugins/AVOAttrib.html">AVO Attributes</a></li>
-                <li><a href="/OpendTect-Plugin-Docs/plugins/ExternalAttrib.html">External Attribute</a></li>
-                <li><a href="/OpendTect-Plugin-Docs/plugins/GradientAttrib.html">Gradient Attributes</a></li>
-                <li><a href="/OpendTect-Plugin-Docs/plugins/LTFAttrib.html">Local Time-Frequency Attribute</a></li>
-                <li><a href="/OpendTect-Plugin-Docs/plugins/MLVFilter.html">Mean of Least Variance Filter Attributes</a></li>
-                <li><a href="/OpendTect-Plugin-Docs/plugins/RSpecAttrib.html">RSpec Attribute</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/AVOAttrib.html">AVOAttrib - AVO Attributes</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/ExternalAttrib.html">ExternalAttrib - External Attribute</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/GradientAttrib.html">GradientAttrib - Gradients</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/LTFAttrib.html">LTFAttrib - Spectral Decomposition by Local Attributes</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/MLVFilter.html">MLVFilterAttrib - Mean of Least Variance Filter</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/RSpecAttrib.html">RSpecAttrib - Recursive Spectral Decomposition</a></li>
               </ul>
             </li>
             <li class="active" class="dropdown">
@@ -96,12 +96,6 @@
           </form>
 
           <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown">
-              <a href="/OpendTect-Plugin-Docs/about/" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="/OpendTect-Plugin-Docs/about/licence.html">Licence</a></li>
-              </ul>
-            </li>
             <li><a href="https://github.com/waynegm/OpendTect-Plugins"><i class="fa fa-github fa-lg" title="OpendTect Plugins on Github"></i></a></li>
             <li><a href="https://www.linkedin.com/in/waynemogg"><i class="fa fa-linkedin fa-lg" title="My LinkedIn"></i></a></li>
           </ul>
@@ -129,7 +123,7 @@
     <main>
       <p><strong>Script: Miscellaneous/ex_correlation.py</strong></p>
 <h3 id="description">Description</h3>
-<p>This Python <a href="/OpendTect-Plugin-Docs/plugins/ExternalAttrib.html" title="External Attribute">External Attribute</a> script provides an alternative to the builtin OpendTect <a href="http://doc.opendtect.org/6.0.0/doc/od_userdoc/Default.htm#appendix_a-attributes_and_filters/match_delta.htm%3FTocPath%3D11%2520Appendix%2520A%2520-%2520Attributes%2520and%2520Filters%7C_____13">Match Delta</a> attribute to measure time shifts between similar events in different seismic volumes. This script uses local normalised cross correlation to determine the relative Z shift between 2 data volumes. Aside from the estimate of relative Z shift the attribute can also output the correlation value. The correlation value which ranges from 0 (low correlation) to 1 (high correlation) provides a quantitative assessment of the reliability of the Z shift estimate.</p>
+<p>This Python <a href="/OpendTect-Plugin-Docs/plugins/ExternalAttrib.html" title="ExternalAttrib - External Attribute">ExternalAttrib - External Attribute</a> script provides an alternative to the builtin OpendTect <a href="http://doc.opendtect.org/6.0.0/doc/od_userdoc/Default.htm#appendix_a-attributes_and_filters/match_delta.htm%3FTocPath%3D11%2520Appendix%2520A%2520-%2520Attributes%2520and%2520Filters%7C_____13">Match Delta</a> attribute to measure time shifts between similar events in different seismic volumes. This script uses local normalised cross correlation to determine the relative Z shift between 2 data volumes. Aside from the estimate of relative Z shift the attribute can also output the correlation value. The correlation value which ranges from 0 (low correlation) to 1 (high correlation) provides a quantitative assessment of the reliability of the Z shift estimate.</p>
 <p>The script requires the Numba Python package.</p>
 <h3 id="examples">Examples</h3>
 <p>This example provides a comparison of this external attribute script (left) with the Match Delta attribute (right) for a depth section and itself shifted up by 13 metres. The Match Delta attribute output is much noisier albiet it can be calulated much quicker.</p>
