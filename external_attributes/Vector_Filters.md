@@ -16,7 +16,7 @@ This [../plugins/ExternalAttrib] script can be used to apply a vector filter to 
 
 Initially the inline and crossline dip data are converted to a normal vector to the local orientation: $ \[x_i, y_i, z_i\] $. 
 
-The Mean Vector Filter averages of the vector components of the orientation normal vectors in the analysis cube:
+The Mean Vector Filter averages each of the vector components of the orientation normal vectors in the analysis cube:
 $$
 \Big\[x_f, y_f, z_f\Big\]  = \frac{1}{N} \Big\[\sum\limits_{i}^N x_i, \sum\limits_{i}^N y_i, \sum\limits_{i}^N z_i\Big\]
 $$
