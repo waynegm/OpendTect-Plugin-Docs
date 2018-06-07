@@ -446,58 +446,69 @@ start &quot;&quot; &quot;C:\Program Files\OpendTect_6\6.0.0\bin\win64\Release\od
         <tr>
             <th class="col-xs-2">SIZE</th>
             <th class="col-xs-2">FORMAT</th>
-            <th class="col-xs-8">DESCRIPTION</th>
+            <th class="col-xs-2">INDEX</th>
+            <th class="col-xs-6">DESCRIPTION</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td>4 bytes</td>
             <td>integer</td>
+            <td>nrtraces</td>
             <td>number of traces for each input attribute</td>
         </tr>
         <tr>
             <td>4 bytes</td>
             <td>integer</td>
+            <td>nrinput</td>
             <td>number of input attributes</td>
         </tr>
         <tr>
             <td>4 bytes</td>
             <td>integer</td>
+            <td>nroutput</td>
             <td>number of output atrributes</td>
         </tr>
         <tr>
             <td>4 bytes</td>
             <td>integer</td>
+            <td>nrinl</td>
             <td>number of inline traces in the input data block</td>
         </tr>
         <tr>
             <td>4 bytes</td>
             <td>integer</td>
+            <td>nrcrl</td>
             <td>number of crossline traces in the input data block</td>
         </tr>
         <tr>
             <td>4 bytes</td>
             <td>float</td>
+            <td>zstep</td>
             <td>trace sampling interval  (result of OpendTect API call <em>SI().zstep()</em>)</td>
         </tr>
         <tr>
             <td>4 bytes</td>
             <td>float</td>
+            <td>inldist</td>
             <td>distance between inlines (result of OpendTect API call <em>SI().inlDistance()</em.)</td>
         </tr>
         <tr>
             <td>4 bytes</td>
             <td>float</td>
+            <td>crldist</td>
             <td>distance between crosslines (result of OpendTect API call <em>SI().crlDistance()</em>)</td>
         </tr>
         <tr>
             <td>4 bytes</td>
             <td>float</td>
+            <td>zFactor</td>
             <td>(result of OpendTect API call <em>zFactor()</em>)</td>
         </tr>
         <tr>
             <td>4 bytes</td>
             <td>float</td>
+            <td>dipFactor</td>
             <td>(result of OpendTect API call <em>dipFactor()</em>)</td>
         </tr>
     </tbody>
@@ -510,28 +521,33 @@ start &quot;&quot; &quot;C:\Program Files\OpendTect_6\6.0.0\bin\win64\Release\od
         <tr>
             <th class="col-xs-2">SIZE</th>
             <th class="col-xs-2">FORMAT</th>
-            <th class="col-xs-8">DESCRIPTION</th>
+            <th class="col-xs-2">INDEX</th>
+            <th class="col-xs-6">DESCRIPTION</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td>4 bytes</td>
             <td>integer</td>
+            <td>nrsamp</td>
             <td>number of samples in each trace within the input data block (OpendTect <em>nrsamples</em> parameter)</td>
         </tr>
         <tr>
             <td>4 bytes</td>
             <td>integer</td>
+            <td>z0</td>
             <td>position of first sample in data trace within entire seismic trace ( OpendTect <em>z0</em> parameter)</td>
         </tr>
         <tr>
             <td>4 bytes</td>
             <td>integer</td>
+            <td>inl</td>
             <td>inline number of current calculation position</td>
         </tr>
         <tr>
             <td>4 bytes</td>
             <td>integer</td>
+            <td>crl</td>
             <td>crossline number of current calculation position</td>
         </tr>
     </tbody>

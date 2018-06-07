@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>LPA Smoothing</title>
+    <title>Anatomy of a Python External Attribute</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <!-- Bootstrap -->
@@ -72,7 +72,7 @@
                 <li><a href="/OpendTect-Plugin-Docs/plugins/RSpecAttrib.html">RSpecAttrib - Recursive Spectral Decomposition</a></li>
               </ul>
             </li>
-            <li class="active" class="dropdown">
+            <li class="dropdown">
               <a href="/OpendTect-Plugin-Docs/external_attributes/" class="dropdown-toggle" data-toggle="dropdown">External Attributes <b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li><a href="/OpendTect-Plugin-Docs/external_attributes/AVO_IG.html">AVO Intercept and Gradient</a></li>
@@ -86,7 +86,7 @@
                 <li><a href="/OpendTect-Plugin-Docs/external_attributes/ZC_Block.html">ZC Block</a></li>
               </ul>
             </li>
-            <li><a href="/OpendTect-Plugin-Docs/articles/">Articles</a></li>
+            <li class="active"><a href="/OpendTect-Plugin-Docs/articles/">Articles</a></li>
           </ul>
 
           <form class="navbar-form navbar-left" action="/search.html" role="search">
@@ -109,87 +109,90 @@
 
   <ol class="breadcrumb">
     <li><a href="/OpendTect-Plugin-Docs/">Home</a></li>
-      <li><a href="/OpendTect-Plugin-Docs/external_attributes/">External Attributes</a></li>
-      <li class="active">LPA Smoothing</li>
+      <li><a href="/OpendTect-Plugin-Docs/articles/">Articles</a></li>
+      <li class="active">Anatomy of a Python External Attribute</li>
   </ol>
 
   <div class="page-header">
-    <h1>LPA Smoothing</h1>
+    <h1>Anatomy of a Python External Attribute</h1>
   </div>
 
   <div class="row">
 
     <div class="col-md-9 content" role="main">
     <main>
-      <p><strong>Script: ex_lpa_smooth.py</strong></p>
-<h3 id="description">Description</h3>
-<p>This Python <a href="/OpendTect-Plugin-Docs/plugins/ExternalAttrib.html" title="ExternalAttrib - External Attribute">ExternalAttrib - External Attribute</a> script can be used to filter noise while preserving steep dips. A region of data around each sample location is approximated by a second order 3D polynomial using gaussian weighted least squares. </p>
-<p>The approximation has the following form:</p>
-<p>$$ r_0+ r_1 * x + r_2 * y + r_3 * z + r_4 * x^2 + r_5 * y^2 + r_6 * z^2 +r_7 * x * y + r_8 * x * z + r_9 * y * z $$</p>
-<p>where x (inline), y (crossline) and z (time/depth) are relative to the analysis location, ie the analysis location has x=y=z=0.</p>
-<p>This attribute calculates and outputs only the $ r_0 $ term of the local polynomial approximation. This provides a smoother version of the input with relatively minor smearing of steep dips and fault cuts. Increasing either the Weight Factor or size of the analysis volume (StepOut or Z window) increases the amount of smoothing.</p>
-<h3 id="examples">Examples</h3>
-<div class="juxtapose">
-    <img src="images/lpa_input.jpg" data-label="Input" />
-    <img src="images/lpa_2x2x2.jpg"  data-label="lpa 2x2x2 WF: 0.5" />
-</div>
-
-<h3 id="input-parameters">Input Parameters</h3>
+      <h3 id="introduction">Introduction</h3>
+<p>This article will review the structure of a simple Python <a href="/OpendTect-Plugin-Docs/plugins/ExternalAttrib.html" title="ExternalAttrib - External Attribute">ExternalAttrib - External Attribute</a> script, <a href="https://github.com/waynegm/OpendTect-External-Attributes/blob/master/Python_3/DipAndAzimuth/ex_dip.py">ex_dip.py</a>, which converts inline and crossline dip to true dip and dip azimuth. It is an example of multi attribute, single trace input and output. Some basic understanding of <a href="https://www.python.org/">Python</a> and <a href="http://www.numpy.org/">Numpy</a> is assumed.</p>
+<p>Every Python attribute script has 5 sections.</p>
+<h3 id="the-imports">The Imports</h3>
+<p><figure>
+  <br/>
+  <img src="images/18_06_04_01.png" class="img-responsive center-block" alt="">
+  <br/>
+</figure></p>
+<p>This is where external modules/libraries required by the script are loaded. At a minimum the script must load:</p>
+<ul>
+<li>the Python sys and os modules</li>
+<li>the Numpy module (the fundamental package for scientific computing with Python)</li>
+<li>the external attribute module (extattrib.py)</li>
+</ul>
+<p>Generally sys, os and Numpy will be part of the Python installation. The extattrib module is part of the <a href="https://github.com/waynegm/OpendTect-External-Attributes" title="external attribute scripts">external attribute scripts</a> package and its location is unknown to the Python installation unless we help out. The sys.path.insert call on line 11 provides this help by extending the default search path for Python modules to include the parent folder of the folder containing the script. This reflects the folder structure of the <a href="https://github.com/waynegm/OpendTect-External-Attributes" title="external attribute scripts">external attribute scripts</a> package, so if you develop scripts outside this structure then you will need to change line 11 appropriately to append the location of extattrib.py to the module search path.</p>
+<p>Of course if your script requires other Python modules (eg SciPy, Numba) then add the appropriate import statements in this section.</p>
+<h3 id="the-parameters">The Parameters</h3>
+<p><figure>
+  <br/>
+  <img src="images/18_06_04_02.png" class="img-responsive center-block" alt="">
+  <br/>
+</figure></p>
+<p>The xa.params global variable must be assigned a JSON object string describing the input parameters for the script. This JSON string is used by the plugin to build an input dialog box. This attribute is very simple specifying just 2 input volumes and 2 output volumes and a url for documentation. The plugin dynamically builds the following input dialog for this script:</p>
 <figure>
   <br/>
-  <img src="images/lpa_smooth_inputpar.jpg" class="img-responsive center-block" alt="LPA Smoothing external attribute input parameters">
-  <figcaption class="text-center">LPA Smoothing external attribute input parameters</figcaption>
+  <img src="images/18_06_04_06.png" class="img-responsive center-block" alt="">
   <br/>
 </figure>
 
-<table class="table table-striped table-bordered table-responsive">
-    <thead class="bg-primary">
-        <tr>
-            <th class="col-xs-4">NAME</th>
-            <th class="col-xs-8">DESCRIPTION</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Z window (+/-samples)</td>
-            <td>Specifies the extent of the analysis cube in the Z direction. Number of Z samples in cube will be $ 2 * Zwindow + 1 $.</td>
-        </tr>
-        <tr>
-            <td>Stepout</td>
-            <td>Specifies the inline and crossline extent of the analysis cube. Number of samples in each direction will be $ 2 * Stepout + 1 $.</td>
-        </tr>
-        <tr>
-            <td>Weight Factor</td>
-            <td>Determines the extent of the gaussian weight function used in the weighted least squares approximation.  The standard deviation of the gaussian weight function ($ \sigma $) is related to this value by
-
-$$ \sigma = min(2*Stepout, 2*Zwindow) * WeightFactor $$
-
-A value of 0.15 gives near zero weight for points at the smallest extent of the analysis cube.</td>
-        </tr>
-    </tbody>
-</table>
-
-<h2 id="references">References</h2>
-<p><a href="http://www.doc.ic.ac.uk/research/technicalreports/2006/DTR06-8.pdf">Anisotropic Multidimensional Savitzky Golay kernels for Smoothing, Differentiation and Reconstruction</a></p>
-<p><a href="http://www.diva-portal.org/smash/get/diva2:302485/FULLTEXT01.pdf">Polynomial Expansion for Orientation and Motion Estimation</a></p>
+<p>A variety of other input elements can be specified to build more complex input dialogs. See the <a href="/OpendTect-Plugin-Docs/plugins/ExternalAttrib.html#json-parameter-string" title="ExternalAttrib - External Attribute">JSON Parameter String</a> section of the plugin documentation for full details or look at other scripts to see what is possible.</p>
+<h3 id="the-compute-loop-initialisation">The Compute Loop Initialisation</h3>
+<p><figure>
+  <br/>
+  <img src="images/18_06_04_03.png" class="img-responsive center-block" alt="">
+  <br/>
+</figure></p>
+<p>The doCompute function is where the attribute calculation occurs. The function is divided into 2 parts some initialisation and the "while True:" loop, discussed in the next section, where the calculations actually take place. Any code in this initialisation section will be executed just once when the attribute script is run and is a good place to calculate constants for use in the Compute Loop.</p>
+<p>This particular script shows how information stored in the <a href="/OpendTect-Plugin-Docs/plugins/ExternalAttrib.html#seismicinfo-block" title="ExternalAttrib - External Attribute">SeismicInfo Block</a> can be used to calculate some constants purely as an example. This attribute is so simple that no initialisation is actually required. </p>
+<h3 id="the-compute-loop">The Compute Loop</h3>
+<p><figure>
+  <br/>
+  <img src="images/18_06_04_04.png" class="img-responsive center-block" alt="">
+  <br/>
+</figure></p>
+<p>This is where the attribute calculation takes place. The <em>xa.doInput()</em> and <em>xa.doOutput()</em> function calls control the input and output of seismic trace data between the script and OpendTect. Generally these should be the first and last statements within the compute loop.</p>
+<p>Within the compute loop, some information about the current trace data such as the number of samples and the inline and crossline location are provided in the <a href="/OpendTect-Plugin-Docs/plugins/ExternalAttrib.html#traceinfo-block" title="ExternalAttrib - External Attribute">TraceInfo Block</a>. These can be accessed using constructs like <em>xa.TI['nrsamp']</em>. This information is not required for this particular script.</p>
+<p>The global Numpy array <em>xa.Input</em> contains the input trace data. <em>xa.Input['name of input attribute']</em> returns a Numpy array with the trace data for the current compute location. The shape of this Numpy array depends on the traces stepouts required by the attribute. As this particular script uses just single trace input (inline and crossline step out of 0) the Numpy array has a shape of <em>(1,1,xa.TI['nrsamp'])</em>. In the more general case of a multi-trace attribute the Numpy array shape would be <em>(xa.SI['nrinl'], xa.SI['nrcrl'], xa.TI['nrsamp'])</em> and the input trace at the current location would be at the centre of the array, ie at index <em>[xa.SI['nrinl']//2, xa.SI['nrcrl']//2,...]</em>.</p>
+<p>Attribute ouput must be put into the <em>xa.Output</em> global Numpy array before the <em>xa.doOutput()</em> function call. Each element (eg <em>xa.Output['name of output attribute']</em>) of the output array must have a shape of <em>(1,1,xa.TI['nrsamp'])</em></p>
+<h3 id="the-postamble">The Postamble</h3>
+<p><figure>
+  <br/>
+  <img src="images/18_06_04_05.png" class="img-responsive center-block" alt="">
+  <br/>
+</figure></p>
+<p>This section is just boilerplate code that apprears in every attribute script which should never be changed.</p>
     </main>
-    <ul class="pager">
-      <li class="previous"><a href="/OpendTect-Plugin-Docs/external_attributes/DipandAzimuth.html">&larr; Dip and Azimuth</a></li>
-      <li class="next"><a href="/OpendTect-Plugin-Docs/external_attributes/Spatial_Filter_Circular.html">Spatial Filter - Circular &rarr;</a></li>
-    </ul>
     </div>
 
     <div class="col-md-3" role="complementary">
       <nav class="hidden-print hidden-xs hidden-sm">
         <div class="sidebar" data-spy="affix" data-offset-top="80" data-offset-bottom="60">
           <div class="well">
-            <a href="#"><strong>LPA Smoothing</strong></a>
+            <a href="#"><strong>Anatomy of a Python External Attribute</strong></a>
             <div class="toc">
 <ul>
-<li><a href="#description">Description</a></li>
-<li><a href="#examples">Examples</a></li>
-<li><a href="#input-parameters">Input Parameters</a></li>
-<li><a href="#references">References</a></li>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#the-imports">The Imports</a></li>
+<li><a href="#the-parameters">The Parameters</a></li>
+<li><a href="#the-compute-loop-initialisation">The Compute Loop Initialisation</a></li>
+<li><a href="#the-compute-loop">The Compute Loop</a></li>
+<li><a href="#the-postamble">The Postamble</a></li>
 </ul>
 </div>
 
