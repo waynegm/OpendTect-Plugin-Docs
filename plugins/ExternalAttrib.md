@@ -185,31 +185,31 @@ The rules that a comforming application must follow are described below and the 
 This block of binary data is written to the applications stdin immediately after it is started with the `-c` argument. It consists of 40 bytes as follows:
 
 {%set btable=[
-['SIZE','FORMAT','DESCRIPTION'],
-['4 bytes','integer','number of traces for each input attribute'],
-['4 bytes','integer','number of input attributes'],
-['4 bytes','integer','number of output atrributes'],
-['4 bytes','integer','number of inline traces in the input data block'],
-['4 bytes','integer','number of crossline traces in the input data block'],
-['4 bytes','float','trace sampling interval  (result of OpendTect API call <em>SI().zstep()</em>)'],
-['4 bytes','float','distance between inlines (result of OpendTect API call <em>SI().inlDistance()</em.)'],
-['4 bytes','float','distance between crosslines (result of OpendTect API call <em>SI().crlDistance()</em>)'],
-['4 bytes','float','(result of OpendTect API call <em>zFactor()</em>)'],
-['4 bytes','float','(result of OpendTect API call <em>dipFactor()</em>)']]
+['SIZE','FORMAT','INDEX','DESCRIPTION'],
+['4 bytes','integer','nrtraces','number of traces for each input attribute'],
+['4 bytes','integer','nrinput','number of input attributes'],
+['4 bytes','integer','nroutput','number of output atrributes'],
+['4 bytes','integer','nrinl','number of inline traces in the input data block'],
+['4 bytes','integer','nrcrl','number of crossline traces in the input data block'],
+['4 bytes','float','zstep','trace sampling interval  (result of OpendTect API call <em>SI().zstep()</em>)'],
+['4 bytes','float','inldist','distance between inlines (result of OpendTect API call <em>SI().inlDistance()</em.)'],
+['4 bytes','float','crldist','distance between crosslines (result of OpendTect API call <em>SI().crlDistance()</em>)'],
+['4 bytes','float','zFactor','(result of OpendTect API call <em>zFactor()</em>)'],
+['4 bytes','float','dipFactor','(result of OpendTect API call <em>dipFactor()</em>)']]
 %}
-{{ table_with_hdr(btable, hdrstyle=['col-xs-2','col-xs-2','col-xs-8'],style='table-striped table-bordered table-responsive') }}
+{{ table_with_hdr(btable, hdrstyle=['col-xs-2','col-xs-2','col-xs-2','col-xs-6'],style='table-striped table-bordered table-responsive') }}
 
 ### TraceInfo Block
 This block of binary data is written to the application stdin immediately before each block of trace data. It consists of 16 bytes as follows:
 
 {%set btable=[
-['SIZE','FORMAT','DESCRIPTION'],
-['4 bytes','integer','number of samples in each trace within the input data block (OpendTect <em>nrsamples</em> parameter)'],
-['4 bytes','integer','position of first sample in data trace within entire seismic trace ( OpendTect <em>z0</em> parameter)'],
-['4 bytes','integer','inline number of current calculation position'],
-['4 bytes','integer','crossline number of current calculation position']]
+['SIZE','FORMAT','INDEX','DESCRIPTION'],
+['4 bytes','integer','nrsamp','number of samples in each trace within the input data block (OpendTect <em>nrsamples</em> parameter)'],
+['4 bytes','integer','z0','position of first sample in data trace within entire seismic trace ( OpendTect <em>z0</em> parameter)'],
+['4 bytes','integer','inl','inline number of current calculation position'],
+['4 bytes','integer','crl','crossline number of current calculation position']]
 %}
-{{ table_with_hdr(btable, hdrstyle=['col-xs-2','col-xs-2','col-xs-8'],style='table-striped table-bordered table-responsive') }}
+{{ table_with_hdr(btable, hdrstyle=['col-xs-2','col-xs-2','col-xs-2','col-xs-6'],style='table-striped table-bordered table-responsive') }}
 
 
 
