@@ -18,7 +18,7 @@ With this plugin it is possible to calculate single and multitrace attributes ou
 
 Instead of doing the attribute calculation within OpendTect this plugin starts up a user specified external application and then reads and writes the trace data to/from the external application's stdin and stdout. The external application could be written in any programming language, compiled or interpreted, provided it has the [#Structure of a Conforming Application]. This essentially means you can write a new OpendTect attribute in your computer language of choice and not have to delve into the internals of OpendTect.
 
-A reference implementation for writing external attributes in Python/Numpy (version 3) is available. This consists of a module *extattrib.py* that handles the stdin/stdout details and presents the trace data as a numpy array. 
+A reference implementation for writing external attributes in Python/Numpy (version 3) is available. This consists of a module *extattrib.py* that handles the stdin/stdout details and presents the trace data as a numpy array. Guides and Tips and Tricks to assist can be found in various [../articles]
 
 There are [wmscripts] for everything from dip estimation to filtering described in the [../external_attributes] section of this documentation.
 

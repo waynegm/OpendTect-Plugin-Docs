@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Articles</title>
+    <title>Python External Attribute Tips & Tricks - Debugging</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <!-- Bootstrap -->
@@ -105,37 +105,93 @@
     </div>
 
 
-<div class="jumbotron">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2 text-center">
-        <h1>Articles</h1>
-          <p></p>
-       </div>
+<div class="container-fluid">
+
+  <ol class="breadcrumb">
+    <li><a href="/OpendTect-Plugin-Docs/">Home</a></li>
+      <li><a href="/OpendTect-Plugin-Docs/articles/">Articles</a></li>
+      <li class="active">Python External Attribute Tips & Tricks - Debugging</li>
+  </ol>
+
+  <div class="page-header">
+    <h1>Python External Attribute Tips & Tricks - Debugging</h1>
+  </div>
+
+  <div class="row">
+
+    <div class="col-md-9 content" role="main">
+    <main>
+      <h3 id="introduction">Introduction</h3>
+<p>Because the Python <a href="/OpendTect-Plugin-Docs/plugins/ExternalAttrib.html" title="ExternalAttrib - External Attribute">ExternalAttrib - External Attribute</a> script is running in a process started by the OpendTect application most standard methods to examine the script as it runs, eg using the standard Python debugger <a href="https://docs.python.org/3/library/pdb.html">pdb</a>, are not available.</p>
+<p>A solution is to use the <a href="https://github.com/romanvm/python-web-pdb">Web-PDB</a> Python module which allows the Python script to be debugged remotely in a web-browser.</p>
+<h3 id="web-pdb-installation">Web-PDB Installation</h3>
+<p><a href="https://github.com/romanvm/python-web-pdb">Web-PDB</a> is not included by default in most Python installations but it can be easily added using <em>pip</em>:</p>
+<p><code>pip install web-pdb</code></p>
+<h3 id="adding-web-pdb-to-a-script">Adding Web-PDB to a Script</h3>
+<p><figure>
+  <br/>
+  <img src="images/18_06_08_01.png" class="img-responsive center-block" alt="">
+  <br/>
+</figure></p>
+<p>Adding <a href="https://github.com/romanvm/python-web-pdb">Web-PDB</a> to a script is just a matter of importing the module as shown on line 5 and adding a call to  <code>web_pdb.set_trace()</code> as shown on line 19. The <code>web_pdb.set_trace()</code> call acts like a breakpoint and can be inserted as many times as required.</p>
+<p>For simplicity it is best to disable multi-threaded processing (add a <em>Parallel: False</em> line to the <em>xa.params</em> object) while debugging. </p>
+<h3 id="debugging-with-web-pdb">Debugging with Web-PDB</h3>
+<p><figure>
+  <br/>
+  <img src="images/18_06_08_02.png" class="img-responsive center-block" alt="">
+  <br/>
+</figure></p>
+<p>After adding <a href="https://github.com/romanvm/python-web-pdb">Web-PDB</a> to the <a href="/OpendTect-Plugin-Docs/plugins/ExternalAttrib.html" title="ExternalAttrib - External Attribute">ExternalAttrib - External Attribute</a> script it will run to the first breakpoint where execution will be suspended and a web-UI opened at the default port 5555. Pointing a web browser at <code>http://&lt;your  machine hostname or IP&gt;:5555</code>, eg <code>http://127.0.0.1:5555</code>, should show an interface for debugging as above. </p>
+<p>The buttons provide control on the script execution, hover the mouse pointer over them to see tooltips for each. More complex <a href="https://docs.python.org/3/library/pdb.html">pdb</a> commands can be inserted in the entry at the bottom of the screen. Click the ? button for a list of useful <a href="https://docs.python.org/3/library/pdb.html">pdb</a> commands.</p>
+<h3 id="web-pdb-and-multi-threaded-processing">Web-PDB and Multi-threaded Processing</h3>
+<p>It is possible to use <a href="https://github.com/romanvm/python-web-pdb">Web-PDB</a> with a script that has multi-threaded processing enabled by replacing the initial <code>web_pdb.set_trace</code> call with:</p>
+<p><code>web_pdb.set_trace( port=-1 )</code></p>
+<p>This will cause each Python process to select a random port between 32768 and 65536. Operating System specific commands can then be used to determine the ports opened, eg:</p>
+<ul>
+<li>
+<p>On Linux: <code>ss -lntu</code> in a console window.</p>
+</li>
+<li>
+<p>On Windows: <code>netstat -an</code> in a command window.</p>
+</li>
+</ul>
+<p>A web-UI will need to be opened for each port and each process will need to be stepped through all breakpoints for attribute execution to progress.</p>
+    </main>
     </div>
+
+    <div class="col-md-3" role="complementary">
+      <nav class="hidden-print hidden-xs hidden-sm">
+        <div class="sidebar" data-spy="affix" data-offset-top="80" data-offset-bottom="60">
+          <div class="well">
+            <a href="#"><strong>Python External Attribute Tips & Tricks - Debugging</strong></a>
+            <div class="toc">
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#web-pdb-installation">Web-PDB Installation</a></li>
+<li><a href="#adding-web-pdb-to-a-script">Adding Web-PDB to a Script</a></li>
+<li><a href="#debugging-with-web-pdb">Debugging with Web-PDB</a></li>
+<li><a href="#web-pdb-and-multi-threaded-processing">Web-PDB and Multi-threaded Processing</a></li>
+</ul>
+</div>
+
+          </div>
+        </div>
+      </nav>
+    </div>
+
   </div>
 </div>
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-7 col-md-offset-2" role="main">
-    <main>
-      <h4><a href="/OpendTect-Plugin-Docs/articles/2018-06-08.html">Python External Attribute Tips & Tricks - Debugging</a>
-        <small>08-Jun-2018</small></h4>
-      </h4>
-      <p></p>
-      <h4><a href="/OpendTect-Plugin-Docs/articles/2018-06-06.html">Python External Attribute Tips & Tricks - Logging</a>
-        <small>06-Jun-2018</small></h4>
-      </h4>
-      <p></p>
-      <h4><a href="/OpendTect-Plugin-Docs/articles/2018-06-04.html">Anatomy of a Python External Attribute</a>
-        <small>04-Jun-2018</small></h4>
-      </h4>
-      <p></p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="footer">
+            <hr>
+            <p>All content and images &copy; 2015 by Wayne Mogg</p>
+            <p>Website powered by <a href="http://urubu.jandecaluwe.com">Urubu</a></p>
+        </div>
     </div>
-  </main>
-  </div>
 </div>
+
 
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
