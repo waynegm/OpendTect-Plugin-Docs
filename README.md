@@ -6,7 +6,12 @@ To read the documentation click [here](http://waynegm.github.io/OpendTect-Plugin
 
 To build the documentation:
 
-  * [Urubu](http://urubu.jandecaluwe.com/) is required - install it
-  * Run *make* to build the documentation into the *_build* folder
+  * [Urubu](http://urubu.jandecaluwe.com/) is required - install it in a python virtual environment
+    * *virtualenv urubu*
+    * *source urubu/bin/activate*
+    * *pip install mardown==2.6.9*
+    * *pip install urubu* 
+  * cd to the documentation repo folder
+  * Run *make* to build the documentation
   * Run *make serve*  to start a local web server to display the build results - point a browser at [localhost:8000](http://localhost:8000/) to see the result
 
