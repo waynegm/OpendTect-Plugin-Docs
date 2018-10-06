@@ -44,6 +44,6 @@ On Windows it is also possible to install the plugin files in a users __.od__ fo
 
 1. Copy the contents of the __bin\win64\Release\ __ folder in the zip file to the users __C:\Users\%username%\\.od\bin\win64\Release\ __ folder;
 
-2. Copy the contents of the __plugins\win64\ __ folder in the zip file to the users __C:\Users\%username%\\.od\plugin\win64\ __ folder; and
+2. Copy the contents of the __plugins\win64\ __ folder in the zip file to the users __C:\Users\%username%\\.od\plugins\win64\ __ folder; and
 
 3. Restart OpendTect.
