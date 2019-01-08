@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MLVFilterAttrib - Mean of Least Variance Filter</title>
+    <title>AVOPolarAttrib - AVO Polarization Attributes</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <!-- Bootstrap -->
@@ -111,49 +111,65 @@
   <ol class="breadcrumb">
     <li><a href="/OpendTect-Plugin-Docs/">Home</a></li>
       <li><a href="/OpendTect-Plugin-Docs/plugins/">Plugins</a></li>
-      <li class="active">MLVFilterAttrib - Mean of Least Variance Filter</li>
+      <li class="active">AVOPolarAttrib - AVO Polarization Attributes</li>
   </ol>
 
   <div class="page-header">
-    <h1>MLVFilterAttrib - Mean of Least Variance Filter</h1>
+    <h1>AVOPolarAttrib - AVO Polarization Attributes</h1>
   </div>
 
   <div class="row">
 
     <div class="col-md-9 content" role="main">
     <main>
-      <p>This attribute plugin for the open source seismic interpretation platform <a href="https://opendtect.org" title="OpendTect">OpendTect</a> applies a structure preserving Mean of Least Variance filter.</p>
+      <p>This attribute plugin for the open source seismic interpretation platform <a href="https://opendtect.org" title="OpendTect">OpendTect</a> calculates 6 attributes derived from AVO Polarization in the AVO Intercept-Gradient crossplot as described by <a href="https://library.seg.org/doi/10.1190/1.1581037" title="AVO polarization and hodograms: AVO strength and polarization product. Patrice Nsoga Mahob and John P. Castagna, GEOPHYSICS, VOL. 68, NO. 3, MAY-JUNE 2003">Mahob and Castagna (2003)</a>.</p>
 <h3 id="description">Description</h3>
-<p>This attribute is an implementation of a mean of least variance filter <a href="http://proceedings.spiedigitallibrary.org/proceeding.aspx?articleid=1008684" title="Value-and-criterion filters: a new filter structure based on morphological opening and closing. Mark A. Schulze and John A. Pearce. Proc. SPIE 1902, Nonlinear Image Processing IV, 106 (May 21, 1993)">Schulze &amp; Pearce (1993)</a> where the analysis elements are all the possible planes through the sample points in the analysis block. This algorithm may be similar to that proposed by <a href="http://library.seg.org/doi/abs/10.1190/1.3627375" title="Structure‐preserving smoothing for 3D seismic attributes. Saleh Al‐Dossary and Yuchun Eugene Wang. SEG Technical Program Expanded Abstracts 2011. January 2011, 1004-1008">Al-Dossary &amp; Wang (2011)</a>. </p>
-<p>The sample variance for all samples on each analysis element is calculated and the output statistic (average, mean or element index) is output for the element with the least variance. </p>
-<p>The following figure shows the relationship between the geometry of the analysis elements and the element index.</p>
+<p>The intercept-gradient crossplot is widely used for amplitude-variation-with-offset (AVO) analysis in hydrocarbon exploration.  The intercept is the zero offset or normal incidence reflection amplitude/coefficient of an event while the gradient is the change in reflection amplitude/coefficient with offset or incidence angle. Some authors refer to intercept as A or P and gradient as B or G. Traditional methods of AVO interpretation focus on individual sample points in isolation essentially treating them as reflection coefficients. <a href="https://library.seg.org/doi/abs/10.1190/1.1487253" title="The AVO hodogram: Using polarization to identify anomalies. Tim Keho, Skip Lemanski, Robert Ripple, and Bahal Raja Tambunan The Leading Edge 2001 20:11, 1214-1224">Keho etal (2001)</a> observed that this approach ignores the seismic wavelet. Convolving a seismic reflection coefficient with a typical seismic wavelet produces a series of points spread across all 4 quadrants of the AVO crossplot. Further distortions are introduced by residual time shifts across offsets and NMO stretch. <a href="https://library.seg.org/doi/abs/10.1190/1.1487253" title="The AVO hodogram: Using polarization to identify anomalies. Tim Keho, Skip Lemanski, Robert Ripple, and Bahal Raja Tambunan The Leading Edge 2001 20:11, 1214-1224">Keho etal (2001)</a> proposed analysing the AVO crossplot for small time windows of 0.5-1 times the wavelet wavelength as hodograms using the polarization angle as a key measure. <a href="https://library.seg.org/doi/10.1190/1.1581037" title="AVO polarization and hodograms: AVO strength and polarization product. Patrice Nsoga Mahob and John P. Castagna, GEOPHYSICS, VOL. 68, NO. 3, MAY-JUNE 2003">Mahob and Castagna (2003)</a> subsequently extended the analysis with a number of other measures to describe the hodogram.</p>
 <figure>
   <br/>
-  <img src="images/MLVFilterAttrib_elements.jpg" class="img-responsive center-block" alt="MLV Filter analysis elements">
-  <figcaption class="text-center">MLV Filter analysis elements</figcaption>
+  <img src="images/AVOStrengthAttrib_hodogram_example.png" class="img-responsive center-block" alt="Example AVO hodogram crossplot for a 36 millisec TWT window">
+  <figcaption class="text-center">Example AVO hodogram crossplot for a 36 millisec TWT window</figcaption>
   <br/>
 </figure>
 
-<h3 id="examples">Examples</h3>
-<div class="juxtapose">
-    <img src="images/MLVFilterAttrib_input.jpg" data-label="Input"/>
-    <img src="images/MLVFilterAttrib_MLV3_Mean.jpg"  data-label="MLV Size 3 Average - 1 pass"/>
-</div>
-
-<p><br/>
-<div class="juxtapose">
-    <img src="images/MLVFilterAttrib_MLV5_Mean.jpg" data-label="MLV Size 5 Average - 1 pass"/>
-    <img src="images/MLVFilterAttrib_MLV3_Mean2.jpg"  data-label="MLV Size 3 Average - 2 passes"/>
-</div></p>
-<figure>
-  <br/>
-  <img src="images/MLVFilterAttrib_MLV3_Elements.jpg" class="img-responsive center-block" alt="MLV 3 elements">
-  <figcaption class="text-center">MLV 3 elements</figcaption>
-  <br/>
-</figure>
+<p>This plugin calculates the 6 attributes (Background Polarization Angle, Event Polarization Angle, Polarization Angle Difference, Strength, Polarization Product and Quality) defined by <a href="https://library.seg.org/doi/10.1190/1.1581037" title="AVO polarization and hodograms: AVO strength and polarization product. Patrice Nsoga Mahob and John P. Castagna, GEOPHYSICS, VOL. 68, NO. 3, MAY-JUNE 2003">Mahob and Castagna (2003)</a>.</p>
+<table class="table  table-bordered table-responsive">
+    <thead class="bg-primary">
+        <tr>
+            <th class="col-xs-6">EXAMPLE</th>
+            <th class="col-xs-6">ATTRIBUTE</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><img class="img-responsive" alt="Background Polarization Angle" src="images/AVOPolarAttrib_bgangle.jpg" title="Background Polarization Angle"/></td>
+            <td><h4 class="text-center">Background Polarization Angle</h4><br/> Polarization Angle for all AVO crossplot points over a user specified time/depth window and volume of traces. The polarization angle is measure relative to the positive intercept axis and can vary from -90 to 90 degrees.</td>
+        </tr>
+        <tr>
+            <td><img class="img-responsive" alt="Event Polarization Angle" src="images/AVOPolarAttrib_angle.jpg" title="Event Polarization Angle"/></td>
+            <td><h4 class="text-center">Event Polarization Angle</h4><br/>Polarization  Angle for AVO crossplot points in the user specified event time/depth window. Recommend using 0.5-1 times the wavelength. The polarization angle is measure relative to the positive intercept axis and can vary from -90 to 90 degrees.</td>
+        </tr>
+        <tr>
+            <td><img class="img-responsive" alt="Polarization Angle Difference" src="images/AVOPolarAttrib_anglediff.jpg" title="Polarization Angle Difference"/></td>
+            <td><h4 class="text-center">Polarization Angle Difference</h4><br/>The difference between the event and background polarization angles.</td>
+        </tr>
+        <tr>
+            <td><img class="img-responsive" alt="Strength" src="images/AVOPolarAttrib_strength.jpg" title="AVO Strength"/></td>
+            <td><h4 class="text-center">Strength</h4><br/>The Mahob and Castagna measure of the distance of the hodogram points from the origin within the event time/depth window.</td>
+        </tr>
+        <tr>
+            <td><img class="img-responsive" alt="Polarization Product" src="images/AVOPolarAttrib_product.jpg" title="Polarization Product"/></td>
+            <td><h4 class="text-center">Polarization Product</h4><br/> The product of the Strength and Polarization Angle Difference attributes.</td>
+        </tr>
+        <tr>
+            <td><img class="img-responsive" alt="Quality" src="images/AVOPolarAttrib_quality.jpg" title="Quality"/></td>
+            <td><h4 class="text-center">Quality</h4><br/> The absolute value of the linear correlation coefficient of the hodogram points in the event time/depth window. Ranges from 0 to 1 with higher values indicating more reliable results.</td>
+        </tr>
+    </tbody>
+</table>
 
 <h3 id="input-parameters">Input Parameters</h3>
-<p>This attribute has 2 parameters:
+<p>These attributes have 3 required parameters and 3 extra parameters that may be required depending on the attribute being calculated:</p>
 <table class="table table-striped table-bordered table-responsive">
     <thead class="bg-primary">
         <tr>
@@ -163,25 +179,42 @@
     </thead>
     <tbody>
         <tr>
-            <td>Filter size</td>
-            <td>Specifies a cube of samples centred  at the analysis location. Increasing the size will increase the degree of smoothing at the risk of smearing structural features. As the examples show it may be better to apply multiple passes of a small size filter than a single pass of a larger filter to reduce the risk of artifacts in the output. OpendTect makes it really easy to cascade multiple filter passes.</td>
+            <td>Intercept</td>
+            <td>The attribute volume to use as the zero offset or normal incidence reflection amplitude coefficient. If no intercept volume is available a near angle or offset stack can be used as an alternative.</td>
         </tr>
         <tr>
-            <td>Output statistic</td>
-            <td>What the filter will output. The options are average, median or the element index. The element index is included for curiosity and quality control. Generally the default <em>Average</em> provides the most pleasing output.</td>
+            <td>Gradient</td>
+            <td>The attribute volume to use as the change in reflection amplitude/coefficient with offset at normal incidence. If no gradient volume is available, the difference between amplitudes on far and near angle or offset stacks can be used as an alternative.</td>
+        </tr>
+        <tr>
+            <td>Output</td>
+            <td>The attribute to calculate. There is a choice of Background Polarization Angle, Event Polarization Angle, Polarization Angle Difference, Strength, Polarization Product or Quality.</td>
+        </tr>
+        <tr>
+            <td>Background time/depth gate (Optional)</td>
+            <td>The time/depth gate used to estimate the Background Polarization Angle. Only required for the Background Polarization Angle, Polarization Angle Difference and Polarization Product attributes.</td>
+        </tr>
+        <tr>
+            <td>Stepout (Optional)</td>
+            <td>The extent of the trace volume used to estimate the Background Polarization Angle. Only required for the Background Polarization Angle, Polarization Angle Difference and Polarization Product attributes.</td>
+        </tr>
+        <tr>
+            <td>Event time/depth gate (Optional)</td>
+            <td>The time/depth gate used to estimate the Event Polarization Angle. Required for the Event Polarization, Polarization Angle Difference, Polarization Product and  Quality attributes.</td>
         </tr>
     </tbody>
-</table></p>
+</table>
+
 <figure>
   <br/>
-  <img src="images/MLVFilterAttrib_par1.jpg" class="img-responsive center-block" alt="MLF Filter input parameters">
-  <figcaption class="text-center">MLF Filter input parameters</figcaption>
+  <img src="images/AVOPolarAttrib_input_parameters.jpg" class="img-responsive center-block" alt="AVO Polarization Attribute Plugin input parameters">
+  <figcaption class="text-center">AVO Polarization Attribute Plugin input parameters</figcaption>
   <br/>
 </figure>
     </main>
     <ul class="pager">
-      <li class="previous"><a href="/OpendTect-Plugin-Docs/plugins/LTFAttrib.html">&larr; LTFAttrib - Spectral Decomposition by Local Attributes</a></li>
-      <li class="next"><a href="/OpendTect-Plugin-Docs/plugins/RSpecAttrib.html">RSpecAttrib - Recursive Spectral Decomposition &rarr;</a></li>
+      <li class="previous"><a href="/OpendTect-Plugin-Docs/plugins/AVOAttrib.html">&larr; AVOAttrib - AVO Attributes</a></li>
+      <li class="next"><a href="/OpendTect-Plugin-Docs/plugins/ExternalAttrib.html">ExternalAttrib - External Attribute &rarr;</a></li>
     </ul>
     </div>
 
@@ -189,11 +222,10 @@
       <nav class="hidden-print hidden-xs hidden-sm">
         <div class="sidebar" data-spy="affix" data-offset-top="80" data-offset-bottom="60">
           <div class="well">
-            <a href="#"><strong>MLVFilterAttrib - Mean of Least Variance Filter</strong></a>
+            <a href="#"><strong>AVOPolarAttrib - AVO Polarization Attributes</strong></a>
             <div class="toc">
 <ul>
 <li><a href="#description">Description</a></li>
-<li><a href="#examples">Examples</a></li>
 <li><a href="#input-parameters">Input Parameters</a></li>
 </ul>
 </div>
