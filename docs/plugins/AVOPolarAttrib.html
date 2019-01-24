@@ -132,7 +132,7 @@
   <br/>
 </figure>
 
-<p>This plugin calculates the 6 attributes (Background Polarization Angle, Event Polarization Angle, Polarization Angle Difference, Strength, Polarization Product and Quality) defined by <a href="https://library.seg.org/doi/10.1190/1.1581037" title="AVO polarization and hodograms: AVO strength and polarization product. Patrice Nsoga Mahob and John P. Castagna, GEOPHYSICS, VOL. 68, NO. 3, MAY-JUNE 2003">Mahob and Castagna (2003)</a>.</p>
+<p>This plugin calculates the 6 attributes (Background Polarization Angle, Event Polarization Angle, Polarization Angle Difference, Strength, Polarization Product and Quality) defined by <a href="https://library.seg.org/doi/10.1190/1.1581037" title="AVO polarization and hodograms: AVO strength and polarization product. Patrice Nsoga Mahob and John P. Castagna, GEOPHYSICS, VOL. 68, NO. 3, MAY-JUNE 2003">Mahob and Castagna (2003)</a>. The parameters are estimated by eigendecomposition of the covariance matrix for the intercept-gradient crossplot. </p>
 <table class="table  table-bordered table-responsive">
     <thead class="bg-primary">
         <tr>
@@ -143,11 +143,11 @@
     <tbody>
         <tr>
             <td><img class="img-responsive" alt="Background Polarization Angle" src="images/AVOPolarAttrib_bgangle.jpg" title="Background Polarization Angle"/></td>
-            <td><h4 class="text-center">Background Polarization Angle</h4><br/> Polarization Angle for all AVO crossplot points over a user specified time/depth window and volume of traces. The polarization angle is measure relative to the positive intercept axis and can vary from -90 to 90 degrees.</td>
+            <td><h4 class="text-center">Background Polarization Angle</h4><br/> Polarization Angle for all AVO crossplot points over a user specified time/depth window and volume of traces. The polarization angle is the orientation of the largest eigenvector relative to the positive intercept axis and varies from -90 to 90 degrees.</td>
         </tr>
         <tr>
             <td><img class="img-responsive" alt="Event Polarization Angle" src="images/AVOPolarAttrib_angle.jpg" title="Event Polarization Angle"/></td>
-            <td><h4 class="text-center">Event Polarization Angle</h4><br/>Polarization  Angle for AVO crossplot points in the user specified event time/depth window. Recommend using 0.5-1 times the wavelength. The polarization angle is measure relative to the positive intercept axis and can vary from -90 to 90 degrees.</td>
+            <td><h4 class="text-center">Event Polarization Angle</h4><br/>Polarization  Angle for AVO crossplot points in the user specified event time/depth window. Recommend using 0.5-1 times the wavelength. The polarization angle is the orientation of the largest eigenvector relative to the positive intercept axis and varies from -90 to 90 degrees.</td>
         </tr>
         <tr>
             <td><img class="img-responsive" alt="Polarization Angle Difference" src="images/AVOPolarAttrib_anglediff.jpg" title="Polarization Angle Difference"/></td>
@@ -163,7 +163,7 @@
         </tr>
         <tr>
             <td><img class="img-responsive" alt="Quality" src="images/AVOPolarAttrib_quality.jpg" title="Quality"/></td>
-            <td><h4 class="text-center">Quality</h4><br/> The absolute value of the linear correlation coefficient of the hodogram points in the event time/depth window. Ranges from 0 to 1 with higher values indicating more reliable results.</td>
+            <td><h4 class="text-center">Quality</h4><br/> This is the ratio of the eigenvalue difference to the eigenvalue sum. It is a measure of the linearity of the points in the intercept-gradient crossplot. It ranges from 0 to 1 with higher values indicating the analysis points have a more linear hodogram and more reliable results.</td>
         </tr>
     </tbody>
 </table>
