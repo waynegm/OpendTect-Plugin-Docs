@@ -44,6 +44,10 @@
 </table>
 {% endmacro %}
 
+{%macro download(version, os, url) %}
+    <a href="{{ url }}" onClick="ga('set', 'nonInteraction', true);ga('send', 'event', { eventCategory: '{{ os }}', eventAction: 'download', eventLabel: '{{ version }}', eventValue: 1});" download><button class="button"><i class="fa fa-download"></i><b>Download {{ version }}</b></button></a>
+{% endmacro %}
+
 {% macro fa(name, class='', title='') %}
 {# Utility for inserting font awesome icons #}
     <i class="fa fa-{{ name }} {{ class }}" title="{{ title }}"></i>
