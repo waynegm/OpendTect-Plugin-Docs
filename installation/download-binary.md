@@ -13,30 +13,30 @@ Compiled versions of the plugins for Linux x86_64 and Windows x86_64 are availab
 ## OpendTect Version 6.4
 | OS | LATEST |
 |---|---|
-| **Linux** | {{ download('6.4.1', 'Linux', 'https://github.com/waynegm/OpendTect-Plugins/releases/download/v6.4.1/opendtect-6.4.1-plugins_lux64.tar.gz') }} |
-| **Windows** | {{ download('6.4.1', 'Windows','https://github.com/waynegm/OpendTect-Plugins/releases/download/v6.4.1/opendtect-plugins-6.4.1_win64.zip') }} |
+| **Linux** | {{ download('Linux_6.4.1', 'https://github.com/waynegm/OpendTect-Plugins/releases/download/v6.4.1/opendtect-6.4.1-plugins_lux64.tar.gz') }} |
+| **Windows** | {{ download('Win_6.4.1', 'https://github.com/waynegm/OpendTect-Plugins/releases/download/v6.4.1/opendtect-plugins-6.4.1_win64.zip') }} |
 
 
 ## OpendTect Version 6.2
 | OS | LATEST |
 |---|---|
-| **Linux** | {{ download('6.2.4', 'Linux','https://bintray.com/waynegm/OpendTect-Plugins/OpendTect-6-plugins-linux/6.2.4/link') }} |
-| **Windows** |  {{ download('6.2.4', 'Windows','https://bintray.com/waynegm/OpendTect-Plugins/OpendTect-6-plugins-windows/6.2.4/link') }} |
+| **Linux** | {{ download('Linux_6.2.4', 'https://bintray.com/waynegm/OpendTect-Plugins/OpendTect-6-plugins-linux/6.2.4/link') }} |
+| **Windows** |  {{ download('Win_6.2.4', 'https://bintray.com/waynegm/OpendTect-Plugins/OpendTect-6-plugins-windows/6.2.4/link') }} |
 
 ## OpendTect Version 6.0
 | OS | LATEST |
 |---|---|
-| **Linux** | {{ download('6.0.4','Linux','https://bintray.com/waynegm/OpendTect-Plugins/OpendTect-6-plugins-linux/6.0.4/link') }} |
-| **Windows** | {{ download('6.0.4','Windows','https://bintray.com/waynegm/OpendTect-Plugins/OpendTect-6-plugins-windows/6.0.4/link') }} |
+| **Linux** | {{ download('Linux_6.0.4', 'https://bintray.com/waynegm/OpendTect-Plugins/OpendTect-6-plugins-linux/6.0.4/link') }} |
+| **Windows** | {{ download('Win_6.0.4', 'https://bintray.com/waynegm/OpendTect-Plugins/OpendTect-6-plugins-windows/6.0.4/link') }} |
 
 ## OpendTect Version 5
 | OS | LATEST |
 |---|---|
-| **Linux **| {{ download('5.0.10','Linux','https://bintray.com/waynegm/OpendTect-Plugins/OpendTect-5-plugins-linux/5.0.10/link') }} |
-| **Windows** | {{ download('5.0.10','Windows','https://bintray.com/waynegm/OpendTect-Plugins/OpendTect-5-plugins-windows/5.0.10/link') }} |
+| **Linux **| {{ download('Linux_5.0.10', 'https://bintray.com/waynegm/OpendTect-Plugins/OpendTect-5-plugins-linux/5.0.10/link') }} |
+| **Windows** | {{ download('Win_5.0.10', 'https://bintray.com/waynegm/OpendTect-Plugins/OpendTect-5-plugins-windows/5.0.10/link') }} |
 
 ## OpendTect Version 4
 | OS | LATEST |
 |---|---|
-| **Windows and Linux**| {{ download('4.6.0','None','https://bintray.com/waynegm/OpendTect-Plugins/OpendTect-4-plugins/4.6.0/link') }} |
+| **Windows and Linux**| {{ download('4.6.0', 'https://bintray.com/waynegm/OpendTect-Plugins/OpendTect-4-plugins/4.6.0/link') }} |
 

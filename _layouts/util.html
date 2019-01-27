@@ -44,8 +44,8 @@
 </table>
 {% endmacro %}
 
-{%macro download(version, os, url) %}
-    <a href="{{ url }}" onclick="ga('set', 'nonInteraction', true);ga('send', 'event', '{{ os }}', 'download', '{{ version }}', 1);" download><button class="button"><i class="fa fa-download"></i><b>Download {{ version }}</b></button></a>
+{%macro download(tag, url) %}
+    <a href="{{ url }}" onclick="ga('set', 'nonInteraction', true);ga('send', 'event', '{{ tag }}', 'download', $.format.date(new Date(), 'yyyy/MM/dd');, 1);" download><button class="button"><i class="fa fa-download"></i><b>Download {{ tag }}</b></button></a>
 {% endmacro %}
 
 {% macro fa(name, class='', title='') %}
