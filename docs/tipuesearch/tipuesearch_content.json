@@ -56,7 +56,7 @@
         },
         {
             "tags": "",
-            "text": "AVOAttrib - AVO Attributes AVOPolarAttrib - AVO Polarization Attributes ExternalAttrib - External Attribute GradientAttrib - Gradients LTFAttrib - Spectral Decomposition by Local Attributes MLVFilterAttrib - Mean of Least Variance Filter RSpecAttrib - Recursive Spectral Decomposition",
+            "text": "AVOAttrib - AVO Attributes AVOPolarAttrib - AVO Polarization Attributes ExternalAttrib - External Attribute GeopackageExport - Export to GeoPackage database (coming soon) GradientAttrib - Gradients LTFAttrib - Spectral Decomposition by Local Attributes MLVFilterAttrib - Mean of Least Variance Filter RSpecAttrib - Recursive Spectral Decomposition",
             "title": "Plugins",
             "url": "/OpendTect-Plugin-Docs/plugins/index.html"
         },
@@ -77,6 +77,12 @@
             "text": "LTFAttrib This attribute plugin for the open source seismic interpretation platform OpendTect Version 6.0 or later performs time-frequency decomposition using local attributes. Description This is an implementation of the method of local time-frequency analysis described by Liu, G etal (2011) . The time-frequency decomposition uses least-squares inversion with shaping regularization. It is different to STFT (short time fourier transform) which divides the data into windows to  localize frequency content in time. This plugin requires a working installation of Madagascar and provides an example of an attribute using the Madagascar libraries. This attribute can be unstable. The issue apppears to be in the Madagascar libraries as the same instabilites exist when the equivalent Madagascar command line program ( sftimefreq ) is applied. Examples The output of the LTF attribute (ltf30) is visually identical and also highly correlated to the OpendTect FFT spectral decomposition (sdfreq30) as shown in the following crossplot of the two attributes. Crossplot of LTFAttrib vs FFT Spectral Decomposition Input Parameters This attribute has 4 parameters: NAME DESCRIPTION Input Volume The attribute volume to be analysed. Frequency The frequency component to estimate. Smoothing Radius In shaping regularization this parameter controls the smoothness of the model. Iterations The number of inversion iterations. Margin Amount of data around the calculation sample to include in the calculation. Specified in number of smoothing radii. LTF Attributes input parameters",
             "title": "LTFAttrib - Spectral Decomposition by Local Attributes",
             "url": "/OpendTect-Plugin-Docs/plugins/LTFAttrib.html"
+        },
+        {
+            "tags": "plugin",
+            "text": "This plugin, for the open source seismic interpretation platform OpendTect Version 6.4.0 or later, exports OpendTect data to a GeoPackage database. GeoPackage is an open, non-proprietary, platform-independent, self describing standards-based data format for geospatial data. Description The plugin adds a \"Geopackage Export\" item to the Survey-Export main menu. Selecting the item opens a tabbed dialog box for selecting the various elements to export and the destination file name. The following table shows the OpendTect data elements supported and the corresponding tables created in the exported GeoPackage database. OpendTect Item GeoPackage Table Name Geometry Notes Survey Box Survey Polygon Single attribute, the survey name 2D Line Geometry 2DLines LineString Single attribute, the line name 2D Line Stations 2DStations Points Two attributes, the line name and station number Random Lines RandomLines LineString Single attribute, the random line name Wells Wells Points Three attributes, the well name, UWID and status (not currently set by OpendTect) Open Polygons PolyLines LineString Single attribute, the polyline name. The z values of the polyline are not exported Closed Polygons Polygons Polygon Single attribute, the polygon name. The z values of the polygon are not exported 2D and 3D Horizons Set by the user Point Single attribute, the horizon z value in millisecs or metres depending on the Z domain of the survey Notes It is possible to append to an existing database. This is primarily used for exporting multiple horizons/attributes to the same GeoPackage. Appending does not overwrite items already in the GeoPackage it will just add another copy to the respective table. The plugin requires the survey to have a projection based CRS defined. The GeoPackage format is supported by major GIS software packages. The following figure shows display of data exported from OpendTect using the plugin in the open source GIS package, QGIS . OpendTect data displayed in QGIS Input Parameters The dialog box associated with the plugin has a file entry control to select the output file, a check box to allow appending to the output file instead of overwriting and 8 tabs to select the content to export: Survey tab 2D Lines tab Random Lines tab Wells tab Polylines tab Horizon tab GeoPackageExport plugin Horizon tab",
+            "title": "GeopackageExport - Export to GeoPackage database (coming soon)",
+            "url": "/OpendTect-Plugin-Docs/plugins/GeopackageExport.html"
         },
         {
             "tags": "plugin",
@@ -182,7 +188,7 @@
         },
         {
             "tags": "",
-            "text": "AVOPolarAttrib - AVO Polarization Attributes ExternalAttrib - External Attribute GradientAttrib - Gradients AVOAttrib - AVO Attributes RSpecAttrib - Recursive Spectral Decomposition LTFAttrib - Spectral Decomposition by Local Attributes",
+            "text": "GeopackageExport - Export to GeoPackage database (coming soon) AVOPolarAttrib - AVO Polarization Attributes ExternalAttrib - External Attribute GradientAttrib - Gradients AVOAttrib - AVO Attributes RSpecAttrib - Recursive Spectral Decomposition LTFAttrib - Spectral Decomposition by Local Attributes",
             "title": "plugin",
             "url": "/OpendTect-Plugin-Docs/tag/plugin/"
         },

@@ -2,6 +2,7 @@
 title: Download Binary Distribution
 layout: page 
 pager: true
+tag: download
 ---
 
 {% from 'util.html' import download %}

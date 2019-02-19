@@ -3,7 +3,7 @@ brand: OpendTect Plugins
 bootswatch: flatly # flatly, yeti, lumen,...
 navbar_inverse: false
 bootstrap: 3.3.6
-navbar_right_items: 2
+navbar_right_items: 3
 thumbnail_path: articles/images
 ignore_patterns: ["README.md", "articles/draft_*.md", "docs"]
 baseurl: 'OpendTect-Plugin-Docs'
@@ -17,6 +17,9 @@ reflinks:
     opendtect:
         url: https://opendtect.org
         title: OpendTect
+    download:
+        url: http://waynegm.github.io/OpendTect-Plugin-Docs/installation/download-binary.html
+        title: Download them Now
     wmplugins:
         url: https://github.com/waynegm/OpendTect-Plugins
         title: OpendTect plugins

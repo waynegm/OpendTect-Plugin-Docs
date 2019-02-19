@@ -6,6 +6,8 @@ content:
     - plugins
     - external_attributes
     - articles
+    - ref: download
+      title: <button class="button" ><i class="fa fa-download" style="color:rgb(24,188,156);"></i><b style="color:rgb(24,188,156);">Download them Now</b></button>
     - ref: wmplugins
       title: '<i class="fa fa-github fa-lg" title="OpendTect Plugins on Github"></i>'
     - ref: wmlinkedin
