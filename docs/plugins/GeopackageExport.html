@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>GeopackageExport - Export to GeoPackage database (coming soon)</title>
+    <title>GeopackageExport - Export to GeoPackage database</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <!-- Bootstrap -->
@@ -66,7 +66,7 @@
                 <li><a href="/OpendTect-Plugin-Docs/plugins/AVOAttrib.html">AVOAttrib - AVO Attributes</a></li>
                 <li><a href="/OpendTect-Plugin-Docs/plugins/AVOPolarAttrib.html">AVOPolarAttrib - AVO Polarization Attributes</a></li>
                 <li><a href="/OpendTect-Plugin-Docs/plugins/ExternalAttrib.html">ExternalAttrib - External Attribute</a></li>
-                <li><a href="/OpendTect-Plugin-Docs/plugins/GeopackageExport.html">GeopackageExport - Export to GeoPackage database (coming soon)</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/GeopackageExport.html">GeopackageExport - Export to GeoPackage database</a></li>
                 <li><a href="/OpendTect-Plugin-Docs/plugins/GradientAttrib.html">GradientAttrib - Gradients</a></li>
                 <li><a href="/OpendTect-Plugin-Docs/plugins/LTFAttrib.html">LTFAttrib - Spectral Decomposition by Local Attributes</a></li>
                 <li><a href="/OpendTect-Plugin-Docs/plugins/MLVFilter.html">MLVFilterAttrib - Mean of Least Variance Filter</a></li>
@@ -112,11 +112,11 @@
   <ol class="breadcrumb">
     <li><a href="/OpendTect-Plugin-Docs/">Home</a></li>
       <li><a href="/OpendTect-Plugin-Docs/plugins/">Plugins</a></li>
-      <li class="active">GeopackageExport - Export to GeoPackage database (coming soon)</li>
+      <li class="active">GeopackageExport - Export to GeoPackage database</li>
   </ol>
 
   <div class="page-header">
-    <h1>GeopackageExport - Export to GeoPackage database (coming soon)</h1>
+    <h1>GeopackageExport - Export to GeoPackage database</h1>
   </div>
 
   <div class="row">
@@ -192,6 +192,7 @@
 <li>It is possible to append to an existing database. This is primarily used for exporting multiple horizons/attributes to the same GeoPackage.</li>
 <li>Appending does not overwrite items already in the GeoPackage it will just add another copy to the respective table. </li>
 <li>The plugin requires the survey to have a projection based CRS defined.</li>
+<li><strong>On Windows the folder containing the plugin DLL's must be added to the PATH environment variable either by editing the corresponding system variable (Control Panel&gt;System and Security&gt;System - Advanced system settings - Environment Variables) or adding a line like "@set PATH=%HOMEPATH%.od\bin\win64\Release;%PATH%" (adjust "%HOMEPATH%.od\bin\win64\Release" to reflect your installation) to the bat script used to start OpendTect.</strong></li>
 <li>The GeoPackage format is supported by major GIS software packages. The following figure shows display of data exported from OpendTect using the plugin in the open source GIS package, <a href="https://www.qgis.org/en/site/">QGIS</a>.</li>
 </ul>
 <figure>
@@ -256,7 +257,7 @@
       <nav class="hidden-print hidden-xs hidden-sm">
         <div class="sidebar" data-spy="affix" data-offset-top="80" data-offset-bottom="60">
           <div class="well">
-            <a href="#"><strong>GeopackageExport - Export to GeoPackage database (coming soon)</strong></a>
+            <a href="#"><strong>GeopackageExport - Export to GeoPackage database</strong></a>
             <div class="toc">
 <ul>
 <li><a href="#description">Description</a><ul>

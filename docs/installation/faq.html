@@ -66,7 +66,7 @@
                 <li><a href="/OpendTect-Plugin-Docs/plugins/AVOAttrib.html">AVOAttrib - AVO Attributes</a></li>
                 <li><a href="/OpendTect-Plugin-Docs/plugins/AVOPolarAttrib.html">AVOPolarAttrib - AVO Polarization Attributes</a></li>
                 <li><a href="/OpendTect-Plugin-Docs/plugins/ExternalAttrib.html">ExternalAttrib - External Attribute</a></li>
-                <li><a href="/OpendTect-Plugin-Docs/plugins/GeopackageExport.html">GeopackageExport - Export to GeoPackage database (coming soon)</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/GeopackageExport.html">GeopackageExport - Export to GeoPackage database</a></li>
                 <li><a href="/OpendTect-Plugin-Docs/plugins/GradientAttrib.html">GradientAttrib - Gradients</a></li>
                 <li><a href="/OpendTect-Plugin-Docs/plugins/LTFAttrib.html">LTFAttrib - Spectral Decomposition by Local Attributes</a></li>
                 <li><a href="/OpendTect-Plugin-Docs/plugins/MLVFilter.html">MLVFilterAttrib - Mean of Least Variance Filter</a></li>
@@ -124,6 +124,14 @@
     <div class="col-md-9 content" role="main">
     <main>
       <h2 id="faq">FAQ</h2>
+<p>Can't find an answer here - then submit an issue on <a href="https://github.com/waynegm/OpendTect-Plugins/issues">Github</a>.</p>
+<h3 id="geopackage-export-plugin-isnt-loading">Geopackage Export plugin isn't loading</h3>
+<p>The GeopackageExport plugin  requires access to external files (DLL's on Windows and lib*.so on Linux). These should have been included in the binary package for the plugins.</p>
+<p>On Windows the folder containing the plugin and support DLL's must be added to the PATH environment variable. Do this by either:</p>
+<ul>
+<li>Editing/Adding the PATH environment variable for the System or User (Control Panel&gt;System and Security&gt;System - Advanced system settings - Environment Variables)</li>
+<li>Adding a line like "@set PATH=%HOMEPATH%.od\bin\win64\Release;%PATH%" (adjust "%HOMEPATH%.od\bin\win64\Release" to reflect your installation) to the bat script used to start OpendTect</li>
+</ul>
 <h3 id="building-plugins-that-require-madagascar">Building plugins that require Madagascar</h3>
 <p>To build plugins that use the Madagascar libraries (eg LTFAttrib) you need to set the RSFROOT environment variable before building the plugins.</p>
 <div class="codehilite"><pre><span></span>    export RSFROOT=/opt/OpendTect_4/4.6.0/Madagascar
@@ -139,9 +147,6 @@
 </li>
 <li>
 <p>Check the OpendTect log file for error messages and see if there is already a solution outlined elsewhere in this page.</p>
-</li>
-<li>
-<p>Open an <a href="https://github.com/waynegm/OpendTect-5-plugins/issues" target="_blank">issue</a> on GitHub.</p>
 </li>
 </ol>
 <h3 id="per-user-installation-and-multiple-opendtect-versions">Per-user Installation and Multiple OpendTect versions</h3>
@@ -252,6 +257,7 @@ start &quot;&quot; &quot;C:\Program Files\OpendTect_5\5.0.0\bin\win64\Release\od
             <div class="toc">
 <ul>
 <li><a href="#faq">FAQ</a><ul>
+<li><a href="#geopackage-export-plugin-isnt-loading">Geopackage Export plugin isn't loading</a></li>
 <li><a href="#building-plugins-that-require-madagascar">Building plugins that require Madagascar</a></li>
 <li><a href="#plugins-not-loading">Plugins not loading</a></li>
 <li><a href="#per-user-installation-and-multiple-opendtect-versions">Per-user Installation and Multiple OpendTect versions</a><ul>

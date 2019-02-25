@@ -1,5 +1,5 @@
 ---
-title: GeopackageExport - Export to GeoPackage database (coming soon)
+title: GeopackageExport - Export to GeoPackage database
 description: export OpendTect data to a GeoPackage database
 layout: page
 pager: true
@@ -32,6 +32,7 @@ The plugin adds a "Geopackage Export" item to the Survey-Export main menu. Selec
 -  It is possible to append to an existing database. This is primarily used for exporting multiple horizons/attributes to the same GeoPackage.
 -  Appending does not overwrite items already in the GeoPackage it will just add another copy to the respective table. 
 -  The plugin requires the survey to have a projection based CRS defined.
+-  **On Windows the folder containing the plugin DLL's must be added to the PATH environment variable either by editing the corresponding system variable (Control Panel>System and Security>System - Advanced system settings - Environment Variables) or adding a line like "@set PATH=%HOMEPATH%\.od\bin\win64\Release;%PATH%" (adjust "%HOMEPATH%\.od\bin\win64\Release" to reflect your installation) to the bat script used to start OpendTect.**
 -  The GeoPackage format is supported by major GIS software packages. The following figure shows display of data exported from OpendTect using the plugin in the open source GIS package, [QGIS](https://www.qgis.org/en/site/).
 
 {{ figure('geopackage_qgis.jpg', 'OpendTect data displayed in QGIS') }}

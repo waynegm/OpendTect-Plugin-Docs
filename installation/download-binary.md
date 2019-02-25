@@ -9,13 +9,13 @@ tag: download
 
 # Download Binary Distribution
 
-Compiled versions of the plugins for Linux x86_64 and Windows x86_64 are available for download at the links below. Note that the plugin  version installed should match the OpendTect version. For example the 6.2 series of plugin binaries should work with all OpendTect 6.2 releases but won't work with OpendTect 6.0 or 6.4.
+Compiled versions of the plugins for Linux x86_64 and Windows x86_64 are available for download at the links below. Note that the plugin  version installed should match the OpendTect version. For example the 6.4 series of plugin binaries should work with all OpendTect 6.4 releases but won't work with OpendTect 6.0 or 6.2.
 
 ## OpendTect Version 6.4
 | OS | LATEST |
 |---|---|
-| **Linux** | {{ download('Linux_6.4.1', 'https://github.com/waynegm/OpendTect-Plugins/releases/download/v6.4.1/opendtect-6.4.1-plugins_lux64.tar.gz') }} |
-| **Windows** | {{ download('Win_6.4.1', 'https://github.com/waynegm/OpendTect-Plugins/releases/download/v6.4.1/opendtect-plugins-6.4.1_win64.zip') }} |
+| **Linux** | {{ download('Linux_6.4.2', 'https://github.com/waynegm/OpendTect-Plugins/releases/download/v6.4.2/opendtect-6.4.2-plugins_lux64.tar.gz') }} |
+| **Windows** | {{ download('Win_6.4.2', 'https://github.com/waynegm/OpendTect-Plugins/releases/download/v6.4.2/opendtect-6.4.2-plugins_win64.zip') }} |
 
 
 ## OpendTect Version 6.2

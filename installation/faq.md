@@ -4,6 +4,17 @@ layout: page
 pager: true
 ---
 # FAQ
+Can't find an answer here - then submit an issue on [Github](https://github.com/waynegm/OpendTect-Plugins/issues).
+
+## Geopackage Export plugin isn't loading
+
+The GeopackageExport plugin  requires access to external files (DLL's on Windows and lib*.so on Linux). These should have been included in the binary package for the plugins.
+
+On Windows the folder containing the plugin and support DLL's must be added to the PATH environment variable. Do this by either:
+
+- Editing/Adding the PATH environment variable for the System or User (Control Panel>System and Security>System - Advanced system settings - Environment Variables)
+- Adding a line like "@set PATH=%HOMEPATH%.od\bin\win64\Release;%PATH%" (adjust "%HOMEPATH%.od\bin\win64\Release" to reflect your installation) to the bat script used to start OpendTect
+
 
 ## Building plugins that require Madagascar
 
@@ -20,7 +31,6 @@ To build plugins that use the Madagascar libraries (eg LTFAttrib) you need to se
 
 2. Check the OpendTect log file for error messages and see if there is already a solution outlined elsewhere in this page.
 
-3. Open an <a href="https://github.com/waynegm/OpendTect-5-plugins/issues" target="_blank">issue</a> on GitHub.
 
 ## Per-user Installation and Multiple OpendTect versions
 
