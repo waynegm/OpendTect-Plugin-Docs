@@ -21,7 +21,9 @@ The plugin adds a "Geopackage Export" item to the Survey-Export main menu. Selec
 ['2D Line Geometry','2DLines','LineString','Single attribute, the line name'],
 ['2D Line Stations','2DStations','Points','Two attributes, the line name and station number'],
 ['Random Lines','RandomLines','LineString','Single attribute, the random line name'],
-['Wells','Wells','Points','Three attributes, the well name, UWID and status (not currently set by OpendTect)'],
+['Wells','Wells','Points','Well surface location and 3 attributes, the well name, UWID and status (not currently set by OpendTect)'],
+['Well Tracks','WellTracks','LineString','Single attribute, the well name'],
+['Well Markers', 'WellMarkers', 'Points','Four attributes, well name, marker name, MD and TVDSS'],
 ['Open Polygons','PolyLines','LineString','Single attribute, the polyline name. The z values of the polyline are not exported'],
 ['Closed Polygons','Polygons','Polygon','Single attribute, the polygon name. The z values of the polygon are not exported'],
 ['2D and 3D Horizons','Set by the user','Point','Single attribute, the horizon z value in millisecs or metres depending on the Z domain of the survey ']]

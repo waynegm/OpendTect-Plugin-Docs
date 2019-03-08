@@ -14,8 +14,8 @@ Compiled versions of the plugins for Linux x86_64 and Windows x86_64 are availab
 ## OpendTect Version 6.4
 | OS | LATEST |
 |---|---|
-| **Linux** | {{ download('Linux_6.4.2', 'https://github.com/waynegm/OpendTect-Plugins/releases/download/v6.4.2/opendtect-6.4.2-plugins_lux64.tar.gz') }} |
-| **Windows** | {{ download('Win_6.4.2', 'https://github.com/waynegm/OpendTect-Plugins/releases/download/v6.4.2/opendtect-6.4.2-plugins_win64.zip') }} |
+| **Linux** | {{ download('Linux_6.4.3', 'https://github.com/waynegm/OpendTect-Plugins/releases/download/v6.4.3/opendtect-6.4.3-plugins_lux64.tar.gz') }} |
+| **Windows** | {{ download('Win_6.4.3', 'https://github.com/waynegm/OpendTect-Plugins/releases/download/v6.4.3/opendtect-6.4.3-plugins_win64.zip') }} |
 
 
 ## OpendTect Version 6.2
