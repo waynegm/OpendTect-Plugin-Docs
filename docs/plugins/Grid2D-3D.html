@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>GradientAttrib - Gradients</title>
+    <title>Grid 2D-3D Horizon - Grid 2D and 3D horizon interpretation</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <!-- Bootstrap -->
@@ -114,63 +114,101 @@
   <ol class="breadcrumb">
     <li><a href="/OpendTect-Plugin-Docs/">Home</a></li>
       <li><a href="/OpendTect-Plugin-Docs/plugins/">Plugins</a></li>
-      <li class="active">GradientAttrib - Gradients</li>
+      <li class="active">Grid 2D-3D Horizon - Grid 2D and 3D horizon interpretation</li>
   </ol>
 
   <div class="page-header">
-    <h1>GradientAttrib - Gradients</h1>
+    <h1>Grid 2D-3D Horizon - Grid 2D and 3D horizon interpretation</h1>
   </div>
 
   <div class="row">
 
     <div class="col-md-9 content" role="main">
     <main>
-      <p>This attibute plugin for the open source seismic interpretation platform <a href="https://opendtect.org" title="OpendTect">OpendTect</a> Version 6.0.0 or later calculates inline, crossline and time/depth gradients.</p>
+      <p>This plugin, for the open source seismic interpretation platform <a href="https://opendtect.org" title="OpendTect">OpendTect</a> Version 6.4.0 or later, creates a 3D horizon/grid from the 2D and 3D horizon interpretation in an <a href="https://opendtect.org" title="OpendTect">OpendTect</a> survey/project. </p>
 <h3 id="description">Description</h3>
-<p>This plugin calculates the inline, crossline or time/depth gradient using operators optimised for rotation invariance, ie equal response in all directions, proposed  by <a href="http://www.k-zone.nl/Kroon_DerivativePaper.pdf" title="NUMERICAL OPTIMIZATION OF KERNEL BASED IMAGE DERIVATIVES. Dirk-Jan Kroon, University of Twente, Enschede">Kroon (2009)</a> and <a href="http://www.cns.nyu.edu/pub/lcv/farid03-reprint.pdf" title="Differentiation of Discrete Multidimensional Signals. Hany Farid and Eero P. Simoncelli, IEEE TRANSACTIONS ON IMAGE PROCESSING, VOL. 13, NO. 4, APRIL 2004">Farid and Simoncelli(2004)</a>. These provide more accurate alternatives to the Prewitt filter option of the OpendTect Convolve attribute for computing gradients.</p>
-<p>The attribute offers a choice of Kroon's 3x3x3, Farid and Simoncelli's 5x5x5 or Farid and Simoncelli's 7x7x7 operator. The following figures demonstrate the relative accuracy of these operators and the OpendTect Prewitt filter on a simple periodic signal (top left) with event dip angle shown top right. Gradients calculated using each operator are used to compute the event dip angle and the absolute dip angle error. The superior accuracy of the operators provided by this attribute is clear.</p>
+<p>The plugin adds a "Grid 2D-3D Horizon..." item to the "Processing|Create Horizon Output" menu which opens a dialog box for:</p>
+<ul>
+<li>Selecting 2D and 3D seismic interpretation to grid</li>
+<li>Specifying the output horizon name, extent and inline /crossline interval</li>
+<li>Specifying a cropping polygon </li>
+<li>Specifying a set of fault polygon constraints</li>
+<li>Selecting the interpolation algorithm to use</li>
+</ul>
+<p>In the current release the plugin includes two gridding/interolation algorithms:</p>
+<ul>
+<li>Continuous curvature splines with tension - <a href="https://doi.org/10.1023/A:1021713421882" title="Interpolation with Splines in Tension: A Green's Function Approach. Paul Wessel and David Bercovici Mathematical Geology 1998 30:1, 77-93">Wessel and Bercovici (1998)</a></li>
+<li>Inverse distance squared weighted averages</li>
+</ul>
+<p>If fault constraints are provided only input data on the same side of the fault is used to interpolate a grid node.</p>
 <figure>
   <br/>
-  <img src="images/gradient_attrib.jpg" class="img-responsive center-block" alt="Accuracy of the gradient attribute operators">
-  <figcaption class="text-center">Accuracy of the gradient attribute operators</figcaption>
+  <img src="images/grid2d-3d_lccts_nofaults.jpg" class="img-responsive center-block" alt="Example of continuous curvature spline gridding without fault constraints">
+  <figcaption class="text-center">Example of continuous curvature spline gridding without fault constraints</figcaption>
+  <br/>
+</figure>
+
+<figure>
+  <br/>
+  <img src="images/grid2d-3d_lccts_faults.jpg" class="img-responsive center-block" alt="Example of continuous curvature spline gridding with fault constraints">
+  <figcaption class="text-center">Example of continuous curvature spline gridding with fault constraints</figcaption>
+  <br/>
+</figure>
+
+<figure>
+  <br/>
+  <img src="images/grid2d-3d_idw_faults.jpg" class="img-responsive center-block" alt="Example of inverse distance squared gridding with fault constraints">
+  <figcaption class="text-center">Example of inverse distance squared gridding with fault constraints</figcaption>
   <br/>
 </figure>
 
 <h3 id="input-parameters">Input Parameters</h3>
-<p>This attribute has 3 parameters:</p>
-<table class="table table-striped table-bordered table-responsive">
-    <thead class="bg-primary">
-        <tr>
-            <th class="col-xs-4">NAME</th>
-            <th class="col-xs-8">DESCRIPTION</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Input Volume</td>
-            <td>The input attribute volume.</td>
-        </tr>
-        <tr>
-            <td>Output Gradient</td>
-            <td>What to calculate - choice of Inline, Crossline or Z gradient.</td>
-        </tr>
-        <tr>
-            <td>Operator</td>
-            <td>What operator to use - choice of Kroon's 3x3x3, Farid's 5x5x5 or Farid's 7x7x7.</td>
-        </tr>
-    </tbody>
-</table>
+<figure>
+  <br/>
+  <img src="images/grid2d-3d_input_1.jpg" class="img-responsive center-block" alt="Grid 2D-3D horizon plugin input data selection dialog">
+  <figcaption class="text-center">Grid 2D-3D horizon plugin input data selection dialog</figcaption>
+  <br/>
+</figure>
 
 <figure>
   <br/>
-  <img src="images/GradientAttrib_input.jpg" class="img-responsive center-block" alt="Gradient attribute input parameter dialog">
-  <figcaption class="text-center">Gradient attribute input parameter dialog</figcaption>
+  <img src="images/grid2d-3d_input_2.jpg" class="img-responsive center-block" alt="Grid 2D-3D horizon plugin input dialog, continuous curvature interpolation settings">
+  <figcaption class="text-center">Grid 2D-3D horizon plugin input dialog, continuous curvature interpolation settings</figcaption>
   <br/>
 </figure>
+
+<ul>
+<li>Grid Extent: Two options available:<ul>
+<li>Bounding Box - set the output horizon extent from the extent of the input data, adjusted to snap to the specified Inl/Crl steps</li>
+<li>Horizon - set the output horizon extent to match an existing horizon in the survey/project</li>
+</ul>
+</li>
+<li>Inl/Crl Step - specifies the the output grid spacing </li>
+<li>Cropping Polygon - select a polygon to crop the grid output</li>
+<li>Fault Polygons - select  polygons to use as fault constraints during gridding. Suggest fault naming scheme that prefixes the polygons with "f_horizon name" to make them easy to select</li>
+<li>Algorithm - Local Continuous Curvature Tension Spline parameters:<ul>
+<li>Search radius - only data within a square +/- this radius  is used to estimate a grid node</li>
+<li>Tension - the spline tensioning parameter, varies from 0 (equivalent to Minimum Curvature) to 1 (equivalent to an elastic membrane) </li>
+</ul>
+</li>
+</ul>
+<figure>
+  <br/>
+  <img src="images/grid2d-3d_input_3.jpg" class="img-responsive center-block" alt="Grid 2D-3D horizon plugin input dialog, inverse distance weighted interpolation settings">
+  <figcaption class="text-center">Grid 2D-3D horizon plugin input dialog, inverse distance weighted interpolation settings</figcaption>
+  <br/>
+</figure>
+
+<ul>
+<li>Algorithm - Inverse Distance Squared parameters:<ul>
+<li>Search radius (if checked) - only data within a square +/- this radius  is used to estimate a grid node, otherwise use all input data (subject to the fault constaints) for each grid node.</li>
+</ul>
+</li>
+</ul>
     </main>
     <ul class="pager">
-      <li class="previous"><a href="/OpendTect-Plugin-Docs/plugins/GeopackageExport.html">&larr; GeopackageExport - Export to GeoPackage database</a></li>
-      <li class="next"><a href="/OpendTect-Plugin-Docs/plugins/Grid2D-3D.html">Grid 2D-3D Horizon - Grid 2D and 3D horizon interpretation &rarr;</a></li>
+      <li class="previous"><a href="/OpendTect-Plugin-Docs/plugins/GradientAttrib.html">&larr; GradientAttrib - Gradients</a></li>
+      <li class="next"><a href="/OpendTect-Plugin-Docs/plugins/LTFAttrib.html">LTFAttrib - Spectral Decomposition by Local Attributes &rarr;</a></li>
     </ul>
     </div>
 
@@ -178,7 +216,7 @@
       <nav class="hidden-print hidden-xs hidden-sm">
         <div class="sidebar" data-spy="affix" data-offset-top="80" data-offset-bottom="60">
           <div class="well">
-            <a href="#"><strong>GradientAttrib - Gradients</strong></a>
+            <a href="#"><strong>Grid 2D-3D Horizon - Grid 2D and 3D horizon interpretation</strong></a>
             <div class="toc">
 <ul>
 <li><a href="#description">Description</a></li>
