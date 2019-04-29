@@ -38,19 +38,19 @@ If fault constraints are provided only input data on the same side of the fault 
 
 {{ figure('grid2d-3d_input_1.jpg', 'Grid 2D-3D horizon plugin input data selection dialog') }}
 
-{{ figure('grid2d-3d_input_2.jpg', 'Grid 2D-3D horizon plugin input dialog, continuous curvature interpolation settings') }}
+{{ figure('grid2d-3d_input_2.jpg', 'Grid 2D-3D horizon plugin input dialog, showing Bounding Box grid extent and continuous curvature interpolation settings') }}
 
 -  Grid Extent: Two options available:
     -  Bounding Box - set the output horizon extent from the extent of the input data, adjusted to snap to the specified Inl/Crl steps
     -  Horizon - set the output horizon extent to match an existing horizon in the survey/project
--  Inl/Crl Step - specifies the the output grid spacing 
+-  Inl/Crl Step - Under the BoundingBox Grid Extent option the output grid spacing can be specified relative to the 3D survey step/sampling 
 -  Cropping Polygon - select a polygon to crop the grid output
 -  Fault Polygons - select  polygons to use as fault constraints during gridding. Suggest fault naming scheme that prefixes the polygons with "f_horizon name" to make them easy to select
 -  Algorithm - Local Continuous Curvature Tension Spline parameters:
     -  Search radius - only data within a square +/- this radius  is used to estimate a grid node
     -  Tension - the spline tensioning parameter, varies from 0 (equivalent to Minimum Curvature) to 1 (equivalent to an elastic membrane) 
 
-{{ figure('grid2d-3d_input_3.jpg', 'Grid 2D-3D horizon plugin input dialog, inverse distance weighted interpolation settings') }}
+{{ figure('grid2d-3d_input_3.jpg', 'Grid 2D-3D horizon plugin input dialog, showing Horizon grid extent settings and inverse distance squared interpolation settings') }}
 
 -  Algorithm - Inverse Distance Squared parameters:
     -  Search radius (if checked) - only data within a square +/- this radius  is used to estimate a grid node, otherwise use all input data (subject to the fault constaints) for each grid node.

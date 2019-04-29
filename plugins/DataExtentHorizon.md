@@ -13,7 +13,7 @@ This plugin, for the open source seismic interpretation platform [opendtect] Ver
 
 ## Description
 
-The plugin adds a "Covering 2D-3D Data Extent..." item to the "New" menu option for 3D Horizon items in the data display tree. Selecting the item opens a dialog box for:
+The plugin adds a "Covering 2D-3D Data Extent..." item to the "Processing|Create Horizon Output" menu item which opens a dialog box for:
 
 -  Specifying a constant Z value for the output horizon
 -  Selecting 2D and 3D seismic data that the horizon should cover
