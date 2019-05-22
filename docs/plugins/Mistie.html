@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Python External Attribute Tips & Tricks - Logging</title>
+    <title>Mistie - edit/apply mistie corrections</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <!-- Bootstrap -->
@@ -60,7 +60,7 @@
                 <li><a href="/OpendTect-Plugin-Docs/installation/faq.html">Frequently Asked Questions</a></li>
               </ul>
             </li>
-            <li class="dropdown">
+            <li class="active" class="dropdown">
               <a href="/OpendTect-Plugin-Docs/plugins/" class="dropdown-toggle" data-toggle="dropdown">Plugins <b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li><a href="/OpendTect-Plugin-Docs/plugins/AVOAttrib.html">AVOAttrib - AVO Attributes</a></li>
@@ -91,7 +91,7 @@
                 <li><a href="/OpendTect-Plugin-Docs/external_attributes/ZC_Block.html">ZC Block</a></li>
               </ul>
             </li>
-            <li class="active"><a href="/OpendTect-Plugin-Docs/articles/">Articles</a></li>
+            <li><a href="/OpendTect-Plugin-Docs/articles/">Articles</a></li>
           </ul>
 
           <form class="navbar-form navbar-left" action="/search.html" role="search">
@@ -115,49 +115,95 @@
 
   <ol class="breadcrumb">
     <li><a href="/OpendTect-Plugin-Docs/">Home</a></li>
-      <li><a href="/OpendTect-Plugin-Docs/articles/">Articles</a></li>
-      <li class="active">Python External Attribute Tips & Tricks - Logging</li>
+      <li><a href="/OpendTect-Plugin-Docs/plugins/">Plugins</a></li>
+      <li class="active">Mistie - edit/apply mistie corrections</li>
   </ol>
 
   <div class="page-header">
-    <h1>Python External Attribute Tips & Tricks - Logging</h1>
+    <h1>Mistie - edit/apply mistie corrections</h1>
   </div>
 
   <div class="row">
 
     <div class="col-md-9 content" role="main">
     <main>
-      <h3 id="introduction">Introduction</h3>
-<p>It is possible to write information to the OpendTect logfile from inside a Python <a href="/OpendTect-Plugin-Docs/plugins/ExternalAttrib.html" title="ExternalAttrib - External Attribute">ExternalAttrib - External Attribute</a> script.</p>
-<p>The global variable <em>xa.logH</em> (assuming the extattrib module has been imported using <em>import extattrib as xa</em>) is a <a href="https://docs.python.org/3/library/logging.html">Python logger object</a>. </p>
-<h3 id="an-example">An Example</h3>
-<p><figure>
+      <p>This plugin, for the open source seismic interpretation platform <a href="https://opendtect.org" title="OpendTect">OpendTect</a> Version 6.4.0 or later, allows creation and editing of a file with Z shift, phase rotations and amplitude scaling corrections for 2D and 3D seismic in an <a href="https://opendtect.org" title="OpendTect">OpendTect</a> survey/project. The plugin also includes an attribute (Mistie Application) that will apply the corrections.</p>
+<p>In an ideal world we would be given 2D seismic data that has consistent Z, phase and amplitude scales. In the real world this doesn't always happen and 2D seismic interpretation projects accumulate inconsistencies as more data is added. The concept implemented by this plugin is the interpreter builds/maintains the correction table as they work through the data. The virtual corrected seismic from the Mistie Application attribute can be interpreted on the fly or the interpreter can generate a new adjusted dataset and interpret that.</p>
+<p>Future planned enhancements include:</p>
+<ul>
+<li>Add an option to generate a correction file from the data itself that minimizes the misties in a least squares sense for all line interections </li>
+<li>Add an option to apply the Z shifts to an existing seismic interpretation</li>
+</ul>
+<h3 id="description">Description</h3>
+<h4 id="mistie-correction-editor">Mistie Correction Editor</h4>
+<p>The plugin adds a "Mistie Corrections" item to the Survey-Manage main menu. Selecting the item opens the Mistie Correction Editor.</p>
+<figure>
   <br/>
-  <img src="images/18_06_06_01.png" class="img-responsive center-block" alt="">
+  <img src="images/mistie_editor.jpg" class="img-responsive center-block" alt="Mistie correction editor">
+  <figcaption class="text-center">Mistie correction editor</figcaption>
   <br/>
-</figure></p>
-<p>On line 18 the Python logger is modified by adjusting the severity level of messages that will appear in the log file. By default only CRITICAL, ERROR and WARNING messages will be written.</p>
-<p>On line 22 a message is written to the logfile showing the full path to the Python interpreter executing the script. As this line is in the Compute Loop Initialisation section it is only written at each invocation of the script.</p>
-<p>On line 32 a message is written that identifies the location, minimum and maximum of the trace being processed. As this line is in the Compute Loop a message is output for every trace processed.</p>
-<h3 id="the-result">The Result</h3>
-<p><figure>
+</figure>
+
+<p>The editor has toolbar buttons to:</p>
+<ul>
+<li>Create a mistie correction set with all the  2D lines in the project (with default corrections that make no change to the  data)</li>
+<li>Read (open) a mistie correction set previously saved to a file </li>
+<li>Save any updates to the currently open mistie correction set </li>
+<li>Save the current mistie correction set to a user selected file</li>
+<li>Merge another mistie correction set file with the current set, optionally keeping or replacing the existing corrections where there is duplicate line/dataset names</li>
+</ul>
+<p>Within the editor it is possible to:</p>
+<ul>
+<li>Add new lines/datasets and associated corrections</li>
+<li>Edit existing corrections</li>
+<li>RightMouseButton click on a row brings up a menu to insert or delete selected row(s)</li>
+<li>Limited clipboard copy and paste is available</li>
+</ul>
+<p>You can include corrections for a particular 3D seismic volume by using a line/dataset name of the form "3D_XXXX" where the "XXXX" is the volume name, eg note the "3D_pstm" in the above figure. Multiple unique "3D_XXXX" entries are allowed to specify corrections for different 3D volumes in the project. </p>
+<p>If a line doesn't need a correction it can be omitted from the set and default (no change) corrections will be assumed when the Mistie Application attribute. A message (which can be safely ignored) is added to the log file when this occurs. </p>
+<p>The name in the line/dataset column must exactly match the project line name.</p>
+<h4 id="mistie-application-attribute">Mistie Application Attribute</h4>
+<p>The plugin adds a "Mistie Application" attribute to the list of <a href="https://opendtect.org" title="OpendTect">OpendTect</a> attributes.</p>
+<figure>
   <br/>
-  <img src="images/18_06_06_02.png" class="img-responsive center-block" alt="">
+  <img src="images/mistieapplication_input.jpg" class="img-responsive center-block" alt="Mistie Application attribute input parameters">
+  <figcaption class="text-center">Mistie Application attribute input parameters</figcaption>
   <br/>
-</figure></p>
+</figure>
+
+<p>The attribute parameters include:</p>
+<ul>
+<li>The input seismic volume to be corrected</li>
+<li>A file with the mistie correction set to apply</li>
+<li>Which corrections to apply </li>
+</ul>
+<p>When the attribute is displayed the shift, phase rotation and amplitude scalar for the line is read from the correction file and applied.</p>
+<h4 id="notes">Notes</h4>
+<ul>
+<li>The default file extension for the mistie corrections is "mst"</li>
+<li>The default file location is the <strong>Misc</strong> folder in the OpendTect survey/project folder</li>
+<li>The file is in the OpendTect IOPar file format. This is a simple text format which can also be modified using a text editor</li>
+</ul>
     </main>
+    <ul class="pager">
+      <li class="previous"><a href="/OpendTect-Plugin-Docs/plugins/MLVFilter.html">&larr; MLVFilterAttrib - Mean of Least Variance Filter</a></li>
+      <li class="next"><a href="/OpendTect-Plugin-Docs/plugins/RSpecAttrib.html">RSpecAttrib - Recursive Spectral Decomposition &rarr;</a></li>
+    </ul>
     </div>
 
     <div class="col-md-3" role="complementary">
       <nav class="hidden-print hidden-xs hidden-sm">
         <div class="sidebar" data-spy="affix" data-offset-top="80" data-offset-bottom="60">
           <div class="well">
-            <a href="#"><strong>Python External Attribute Tips & Tricks - Logging</strong></a>
+            <a href="#"><strong>Mistie - edit/apply mistie corrections</strong></a>
             <div class="toc">
 <ul>
-<li><a href="#introduction">Introduction</a></li>
-<li><a href="#an-example">An Example</a></li>
-<li><a href="#the-result">The Result</a></li>
+<li><a href="#description">Description</a><ul>
+<li><a href="#mistie-correction-editor">Mistie Correction Editor</a></li>
+<li><a href="#mistie-application-attribute">Mistie Application Attribute</a></li>
+<li><a href="#notes">Notes</a></li>
+</ul>
+</li>
 </ul>
 </div>
 

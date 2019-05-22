@@ -17,8 +17,7 @@ The plugin adds a "Geotiff Export" item to the Survey-Export main menu. Selectin
 
 ### Notes
 -  The plugin requires the survey to have a projection based CRS defined.
--  This plugin is actually part of the GeopackageExport plugin
--  **On Windows the folder containing the plugin DLL's must be added to the PATH environment variable either by editing the corresponding system variable (Control Panel>System and Security>System - Advanced system settings - Environment Variables) or adding a line like "@set PATH=%HOMEPATH%\.od\bin\win64\Release;%PATH%" (adjust "%HOMEPATH%\.od\bin\win64\Release" to reflect your installation) to the bat script used to start OpendTect.**
+-  This plugin is actually part of the [GeopackageExport](GeopackageExport.md) plugin - see notes there as well 
 
 {{ figure('geotiff_qgis.jpg', 'OpendTect 3D horizon data displayed in a QGIS print layout') }}
 

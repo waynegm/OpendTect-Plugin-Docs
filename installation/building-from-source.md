@@ -6,11 +6,13 @@ pager: true
 # Building from Source
 
 ## Linux
-These instructions are for Linux. Some of the attributes won't build (eg [LTFAttrib](../Attributes/LTFAttrib.md))unless Madagascar is installed.
+These instructions are for Linux. Some of the attributes won't build (eg [LTFAttrib](../plugins/LTFAttrib.html))unless Madagascar is installed.
 
 1. Download the source for the plugins for the appropriate version of OpendTect from Github
-   * [OpendTect v5+](https://github.com/waynegm/OpendTect-5-plugins/archive/master.zip)
-   * [OpendTect v4](https://github.com/waynegm/OpendTect-4-plugins/archive/master.zip)
+
+    - [Latest (OpendTect 6.4)](https://github.com/waynegm/OpendTect-Plugins/archive/master.zip)
+    - [OpendTect v5](https://github.com/waynegm/OpendTect-Plugins/archive/v5-stable.zip)
+    - [OpendTect v4](https://github.com/waynegm/OpendTect-4-plugins/archive/master.zip)
 
 2. Use the OpendTect installation manager to install the OpendTect developer packages and install any other packages required for compiling and building code for your operating environment as per the <a href="http://www.opendtect.org/rel/doc/Programmer/" target="_blank">OpendTect Programmer's Manual</a>
 
@@ -38,11 +40,12 @@ These instructions are for Linux. Some of the attributes won't build (eg [LTFAtt
 If you don't have Madagascar installed or RSFROOT is not set the plugins that depend on the Madagascar libraries (eg LTFAttrib) won't build and there will be error messages. These error messages can be ignored if you don't want the Madagascar dependent attributes.
 
 ## Windows
-These instructions are for Windows. Note that the attributes that require Madagascar (eg [LTFAttrib](../Attributes/LTFAttrib.md)) cannot be built on Windows.
+These instructions are for Windows. Note that the attributes that require Madagascar (eg [LTFAttrib](../plugins/LTFAttrib.html)) cannot be built on Windows.
 
 1. Download the source for the plugins for the appropriate version of OpendTect from Github
-   * [OpendTect v5+](https://github.com/waynegm/OpendTect-5-plugins/archive/master.zip)
-   * [OpendTect v4](https://github.com/waynegm/OpendTect-4-plugins/archive/master.zip)
+    - [Latest (OpendTect 6.4)](https://github.com/waynegm/OpendTect-Plugins/archive/master.zip)
+    - [OpendTect v5](https://github.com/waynegm/OpendTect-Plugins/archive/v5-stable.zip)
+    - [OpendTect v4](https://github.com/waynegm/OpendTect-4-plugins/archive/master.zip)
 
 2. Use the OpendTect installation manager to install the OpendTect developer packages and install any other packages required for compiling and building code for your operating environment as per the <a href="http://www.opendtect.org/rel/doc/Programmer/" target="_blank">OpendTect Programmer's Manual</a>
 

@@ -73,6 +73,7 @@
                 <li><a href="/OpendTect-Plugin-Docs/plugins/Grid2D-3D.html">Grid 2D-3D Horizon - Grid 2D and 3D horizon interpretation</a></li>
                 <li><a href="/OpendTect-Plugin-Docs/plugins/LTFAttrib.html">LTFAttrib - Spectral Decomposition by Local Attributes</a></li>
                 <li><a href="/OpendTect-Plugin-Docs/plugins/MLVFilter.html">MLVFilterAttrib - Mean of Least Variance Filter</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/Mistie.html">Mistie - edit/apply mistie corrections</a></li>
                 <li><a href="/OpendTect-Plugin-Docs/plugins/RSpecAttrib.html">RSpecAttrib - Recursive Spectral Decomposition</a></li>
               </ul>
             </li>
@@ -153,83 +154,30 @@
 </li>
 </ol>
 <h3 id="per-user-installation-and-multiple-opendtect-versions">Per-user Installation and Multiple OpendTect versions</h3>
-<p>The OpendTect-4-plugins won't work in OpendTect 5+ and the OpendTect-5-plugins won't work in OpendTect 4. There are a couple of ways you can have access to plugins for both versions of OpendTect.</p>
+<p>The OpendTect-6.4-plugins won't work in OpendTect 6.2 and the OpendTect-6.2-plugins won't work in OpendTect 6.4. Here is a way to use the plugins with mutliple versions of OpendTect.</p>
 <h4 id="use-the-od_user_plugin_dir-environment-variable">Use the OD_USER_PLUGIN_DIR environment variable</h4>
-<p>This is the preferred option because it allows the same application settings files to be shared by both versions of OpendTect.</p>
 <h5 id="for-windows">For Windows</h5>
-<ol>
-<li>
-<p>Create <em>od5</em> and <em>od4</em> folders in the C:\Users\ <em>username</em> folder</p>
-</li>
-<li>
-<p>Install the OpendTect-4-plugins in the <em>od4</em> folder and the OpendTect-5-plugins in the <em>od5</em> folder as per the <a href="installation.md">installation instructions</a>.</p>
-</li>
-<li>
-<p>Create a "bat" file to start each version of OpendTect that sets the <em>OD_USER_PLUGIN_DIR</em> environment variable to the appropriate folder before starting OpendTect. Here is what odt_5.bat might look like:</p>
-</li>
-</ol>
-<div class="codehilite"><pre><span></span>@set OD_USER_PLUGIN_DIR=%HOMEPATH%\od5
-start &quot;&quot; &quot;C:\Program Files\OpendTect_5\5.0.0\bin\win64\Release\od_start_dtect.exe&quot;
+<p>1.Create <strong>ODPlugins\6.4.0</strong> and <strong>ODPlugins\6.2.0</strong> folders in the <strong>C:\Users\%username%</strong> folder</p>
+<p>2.Install the OpendTect-6.2-plugins in the <strong>6.2.0</strong> folder and the OpendTect-6.4-plugins in the <strong>6.4.0</strong> folder as per the <a href="installation.html">installation instructions</a>.</p>
+<p>3.Create a "bat" file to start each version of OpendTect that sets the <strong>OD_USER_PLUGIN_DIR</strong> environment variable to the appropriate folder before starting OpendTect. Here is what odt_6_4.bat might look like:</p>
+<div class="codehilite"><pre><span></span>@set OD_USER_PLUGIN_DIR=%HOMEPATH%\ODPlugins\6.4.0
+start &quot;&quot; &quot;C:\Program Files\OpendTect\6.4.0\bin\win64\Release\od_start_dtect.exe&quot;
 </pre></div>
 
 
 <h5 id="for-linux">For Linux</h5>
-<ol>
-<li>Create <em>.od5</em> and <em>.od4</em> folders in the users home directory</li>
-</ol>
-<div class="codehilite"><pre><span></span>    mkdir ~/.od5 
-    mkdir ~/.od4
+<p>1.Create <strong>ODPlugins\6.4.0</strong> and <strong>ODPlugins\6.2.0</strong> folders in the users home directory</p>
+<div class="codehilite"><pre><span></span>    mkdir ~/ODPlugins
+    mkdir ~/ODPlugins/6.4.0 
+    mkdir ~/ODPlugins/6.2.0 
 </pre></div>
 
 
-<ol>
-<li>
-<p>Install the OpendTect-4-plugins in the users <em>.od4</em> folder and the OpendTect-5-plugins in the <em>.od5</em> folder as per the <a href="installation.md">installation instructions</a>.</p>
-</li>
-<li>
-<p>Create executable shell scripts to start each version of OpendTect that sets the <em>OD_USER_PLUGIN_DIR</em> to the appropriate folder before starting OpendTect. Here is what odt_5.csh might look like:</p>
-</li>
-</ol>
+<p>2.Install the OpendTect-6.4-plugins in the users <strong>6.4.0</strong> folder and the OpendTect-6.2-plugins in the <strong>6.2.0</strong> folder as per the <a href="installation.html">installation instructions</a>.</p>
+<p>3.Create executable shell scripts to start each version of OpendTect that sets the <strong>OD_USER_PLUGIN_DIR</strong> to the appropriate folder before starting OpendTect. Here is what odt_6_4.csh might look like:</p>
 <div class="codehilite"><pre><span></span>    #!/bin/csh -f
-    setenv OD_USER_PLUGIN_DIR &quot;$HOME/.od5&quot;
-    /path to OpendTect 5/start_dtect
-</pre></div>
-
-
-<h4 id="have-2-user-settings-folders">Have 2 user settings folders</h4>
-<h5 id="for-windows_1">For Windows</h5>
-<ol>
-<li>
-<p>Copy the users existing <em>.od</em> folder to <em>.od5</em></p>
-</li>
-<li>
-<p>Install the OpendTect-4-plugins in the <em>.od</em> folder and the OpendTect-5-plugins in the <em>.od5</em> folder as per the <a href="installation.md">installation instructions</a>.</p>
-</li>
-<li>
-<p>Create a "bat" file to start OpendTect 5  that sets the <em>DTECT_SETTINGS</em> environment variable to the appropriate folder before starting OpendTect. Here is what odt_5.bat might look like:</p>
-</li>
-</ol>
-<div class="codehilite"><pre><span></span>@set DTECT_SETTINGS=%HOMEPATH%\.od5
-start &quot;&quot; &quot;C:\Program Files\OpendTect_5\5.0.0\bin\win64\Release\od_start_dtect.exe&quot;
-</pre></div>
-
-
-<h5 id="for-linux_1">For Linux</h5>
-<ol>
-<li>
-<p>Copy the users existing <em>.od</em> folder to <em>.od5</em></p>
-</li>
-<li>
-<p>Install the OpendTect-4-plugins in the <em>.od</em> folder and the OpendTect-5-plugins in the <em>.od5</em> folder as per the <a href="installation.md">installation instructions</a>.</p>
-</li>
-<li>
-<p>Create an executable shell script to start OpendTect 5 that sets the <em>DTECT_SETTINGS</em> environment variable to the appropriate folder before starting OpendTect. Here is what odt_5.csh might look like:</p>
-</li>
-</ol>
-<div class="codehilite"><pre><span></span>    #!/bin/csh -f
-
-    setenv DTECT_SETTINGS &quot;$HOME/.od5&quot;
-    /path to OpendTect 5/start_dtect
+    setenv OD_USER_PLUGIN_DIR &quot;$HOME/ODPlugins/6.4.0&quot;
+    /path to OpendTect 6.4/start_dtect
 </pre></div>
 
 
@@ -267,11 +215,6 @@ start &quot;&quot; &quot;C:\Program Files\OpendTect_5\5.0.0\bin\win64\Release\od
 <li><a href="#use-the-od_user_plugin_dir-environment-variable">Use the OD_USER_PLUGIN_DIR environment variable</a><ul>
 <li><a href="#for-windows">For Windows</a></li>
 <li><a href="#for-linux">For Linux</a></li>
-</ul>
-</li>
-<li><a href="#have-2-user-settings-folders">Have 2 user settings folders</a><ul>
-<li><a href="#for-windows_1">For Windows</a></li>
-<li><a href="#for-linux_1">For Linux</a></li>
 </ul>
 </li>
 </ul>

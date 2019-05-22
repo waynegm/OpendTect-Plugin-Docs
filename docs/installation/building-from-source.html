@@ -73,6 +73,7 @@
                 <li><a href="/OpendTect-Plugin-Docs/plugins/Grid2D-3D.html">Grid 2D-3D Horizon - Grid 2D and 3D horizon interpretation</a></li>
                 <li><a href="/OpendTect-Plugin-Docs/plugins/LTFAttrib.html">LTFAttrib - Spectral Decomposition by Local Attributes</a></li>
                 <li><a href="/OpendTect-Plugin-Docs/plugins/MLVFilter.html">MLVFilterAttrib - Mean of Least Variance Filter</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/Mistie.html">Mistie - edit/apply mistie corrections</a></li>
                 <li><a href="/OpendTect-Plugin-Docs/plugins/RSpecAttrib.html">RSpecAttrib - Recursive Spectral Decomposition</a></li>
               </ul>
             </li>
@@ -128,12 +129,15 @@
     <main>
       <h2 id="building-from-source">Building from Source</h2>
 <h3 id="linux">Linux</h3>
-<p>These instructions are for Linux. Some of the attributes won't build (eg <a href="../Attributes/LTFAttrib.md">LTFAttrib</a>)unless Madagascar is installed.</p>
+<p>These instructions are for Linux. Some of the attributes won't build (eg <a href="../plugins/LTFAttrib.html">LTFAttrib</a>)unless Madagascar is installed.</p>
 <ol>
-<li>Download the source for the plugins for the appropriate version of OpendTect from Github</li>
-<li><a href="https://github.com/waynegm/OpendTect-5-plugins/archive/master.zip">OpendTect v5+</a></li>
 <li>
-<p><a href="https://github.com/waynegm/OpendTect-4-plugins/archive/master.zip">OpendTect v4</a></p>
+<p>Download the source for the plugins for the appropriate version of OpendTect from Github</p>
+<ul>
+<li><a href="https://github.com/waynegm/OpendTect-Plugins/archive/master.zip">Latest (OpendTect 6.4)</a></li>
+<li><a href="https://github.com/waynegm/OpendTect-Plugins/archive/v5-stable.zip">OpendTect v5</a></li>
+<li><a href="https://github.com/waynegm/OpendTect-4-plugins/archive/master.zip">OpendTect v4</a></li>
+</ul>
 </li>
 <li>
 <p>Use the OpendTect installation manager to install the OpendTect developer packages and install any other packages required for compiling and building code for your operating environment as per the <a href="http://www.opendtect.org/rel/doc/Programmer/" target="_blank">OpendTect Programmer's Manual</a></p>
@@ -171,12 +175,15 @@
 </ol>
 <p>If you don't have Madagascar installed or RSFROOT is not set the plugins that depend on the Madagascar libraries (eg LTFAttrib) won't build and there will be error messages. These error messages can be ignored if you don't want the Madagascar dependent attributes.</p>
 <h3 id="windows">Windows</h3>
-<p>These instructions are for Windows. Note that the attributes that require Madagascar (eg <a href="../Attributes/LTFAttrib.md">LTFAttrib</a>) cannot be built on Windows.</p>
+<p>These instructions are for Windows. Note that the attributes that require Madagascar (eg <a href="../plugins/LTFAttrib.html">LTFAttrib</a>) cannot be built on Windows.</p>
 <ol>
-<li>Download the source for the plugins for the appropriate version of OpendTect from Github</li>
-<li><a href="https://github.com/waynegm/OpendTect-5-plugins/archive/master.zip">OpendTect v5+</a></li>
 <li>
-<p><a href="https://github.com/waynegm/OpendTect-4-plugins/archive/master.zip">OpendTect v4</a></p>
+<p>Download the source for the plugins for the appropriate version of OpendTect from Github</p>
+<ul>
+<li><a href="https://github.com/waynegm/OpendTect-Plugins/archive/master.zip">Latest (OpendTect 6.4)</a></li>
+<li><a href="https://github.com/waynegm/OpendTect-Plugins/archive/v5-stable.zip">OpendTect v5</a></li>
+<li><a href="https://github.com/waynegm/OpendTect-4-plugins/archive/master.zip">OpendTect v4</a></li>
+</ul>
 </li>
 <li>
 <p>Use the OpendTect installation manager to install the OpendTect developer packages and install any other packages required for compiling and building code for your operating environment as per the <a href="http://www.opendtect.org/rel/doc/Programmer/" target="_blank">OpendTect Programmer's Manual</a></p>
