@@ -1,5 +1,5 @@
 ---
-title: Grid 2D-3D Horizon - Grid 2D and 3D horizon interpretation
+title: Grid 2D-3D Horizon
 description: creates a 3D horizon/grid from 2D and 3D horizon interpretation
 layout: page
 pager: true

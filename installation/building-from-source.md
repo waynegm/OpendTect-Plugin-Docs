@@ -6,7 +6,7 @@ pager: true
 # Building from Source
 
 ## Linux
-These instructions are for Linux. Some of the attributes won't build (eg [LTFAttrib](../plugins/LTFAttrib.html))unless Madagascar is installed.
+These instructions are for Linux. Some of the attributes won't build (eg [../plugins/ltfattrib])unless Madagascar is installed.
 
 1. Download the source for the plugins for the appropriate version of OpendTect from Github
 
@@ -37,10 +37,10 @@ These instructions are for Linux. Some of the attributes won't build (eg [LTFAtt
 
 9. This should create the binary files for each plugin, lib\*.so and libui\*.so, in the bin folder (eg in ODWork/bin/lux64/Release/) and four \*.alo files for each plugin in the root of the development work folder.
 
-If you don't have Madagascar installed or RSFROOT is not set the plugins that depend on the Madagascar libraries (eg LTFAttrib) won't build and there will be error messages. These error messages can be ignored if you don't want the Madagascar dependent attributes.
+If you don't have Madagascar installed or RSFROOT is not set the plugins that depend on the Madagascar libraries (eg [../plugins/ltfattrib]) won't build and there will be error messages. These error messages can be ignored if you don't want the Madagascar dependent attributes.
 
 ## Windows
-These instructions are for Windows. Note that the attributes that require Madagascar (eg [LTFAttrib](../plugins/LTFAttrib.html)) cannot be built on Windows.
+These instructions are for Windows. Note that the attributes that require Madagascar (eg [../plugins/ltfattrib]) cannot be built on Windows.
 
 1. Download the source for the plugins for the appropriate version of OpendTect from Github
     - [Latest (OpendTect 6.4)](https://github.com/waynegm/OpendTect-Plugins/archive/master.zip)

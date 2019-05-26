@@ -1,5 +1,5 @@
 ---
-title: ExternalAttrib - External Attribute
+title: ExternalAttrib
 description: create attributes in a scripting language like Python
 layout: page
 pager: true

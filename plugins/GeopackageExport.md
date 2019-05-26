@@ -1,5 +1,5 @@
 ---
-title: GeopackageExport - Export to GeoPackage database
+title: GeopackageExport
 description: export OpendTect data to a GeoPackage database
 layout: page
 pager: true

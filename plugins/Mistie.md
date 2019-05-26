@@ -1,5 +1,5 @@
 ---
-title: Mistie - edit/apply mistie corrections
+title: Mistie
 description: edit/apply Z shifts, phase rotations and amplitude corrections to seismic data
 layout: page
 pager: true

@@ -1,6 +1,6 @@
 ---
-title: MLVFilterAttrib - Mean of Least Variance Filter
-description: structure preserving mean of least variance filter
+title: MLVFilterAttrib
+description: structure preserving spatial filter by mean of least variance filter
 layout: page
 pager: true
 tags: plugin filter

@@ -63,18 +63,18 @@
             <li class="dropdown">
               <a href="/OpendTect-Plugin-Docs/plugins/" class="dropdown-toggle" data-toggle="dropdown">Plugins <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="/OpendTect-Plugin-Docs/plugins/AVOAttrib.html">AVOAttrib - AVO Attributes</a></li>
-                <li><a href="/OpendTect-Plugin-Docs/plugins/AVOPolarAttrib.html">AVOPolarAttrib - AVO Polarization Attributes</a></li>
-                <li><a href="/OpendTect-Plugin-Docs/plugins/DataExtentHorizon.html">DataExtentHorizon - Create a 3D horizon</a></li>
-                <li><a href="/OpendTect-Plugin-Docs/plugins/ExternalAttrib.html">ExternalAttrib - External Attribute</a></li>
-                <li><a href="/OpendTect-Plugin-Docs/plugins/GeopackageExport.html">GeopackageExport - Export to GeoPackage database</a></li>
-                <li><a href="/OpendTect-Plugin-Docs/plugins/GeotiffExport.html">GeotiffExport - Export 3D horizon to GeoTIFF image</a></li>
-                <li><a href="/OpendTect-Plugin-Docs/plugins/GradientAttrib.html">GradientAttrib - Gradients</a></li>
-                <li><a href="/OpendTect-Plugin-Docs/plugins/Grid2D-3D.html">Grid 2D-3D Horizon - Grid 2D and 3D horizon interpretation</a></li>
-                <li><a href="/OpendTect-Plugin-Docs/plugins/LTFAttrib.html">LTFAttrib - Spectral Decomposition by Local Attributes</a></li>
-                <li><a href="/OpendTect-Plugin-Docs/plugins/MLVFilter.html">MLVFilterAttrib - Mean of Least Variance Filter</a></li>
-                <li><a href="/OpendTect-Plugin-Docs/plugins/Mistie.html">Mistie - edit/apply mistie corrections</a></li>
-                <li><a href="/OpendTect-Plugin-Docs/plugins/RSpecAttrib.html">RSpecAttrib - Recursive Spectral Decomposition</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/AVOAttrib.html">AVOAttrib</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/AVOPolarAttrib.html">AVOPolarAttrib</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/DataExtentHorizon.html">DataExtentHorizon</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/ExternalAttrib.html">ExternalAttrib</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/GeopackageExport.html">GeopackageExport</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/GeotiffExport.html">GeotiffExport</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/GradientAttrib.html">GradientAttrib</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/Grid2D-3D.html">Grid 2D-3D Horizon</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/LTFAttrib.html">LTFAttrib</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/MLVFilter.html">MLVFilterAttrib</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/Mistie.html">Mistie</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/RSpecAttrib.html">RSpecAttrib</a></li>
               </ul>
             </li>
             <li class="dropdown">
@@ -128,7 +128,7 @@
     <div class="col-md-9 content" role="main">
     <main>
       <h3 id="introduction">Introduction</h3>
-<p>This article will review the structure of a simple Python <a href="/OpendTect-Plugin-Docs/plugins/ExternalAttrib.html" title="ExternalAttrib - External Attribute">ExternalAttrib - External Attribute</a> script, <a href="https://github.com/waynegm/OpendTect-External-Attributes/blob/master/Python_3/DipAndAzimuth/ex_dip.py">ex_dip.py</a>, which converts inline and crossline dip to true dip and dip azimuth. It is an example of multi attribute, single trace input and output. Some basic understanding of <a href="https://www.python.org/">Python</a> and <a href="http://www.numpy.org/">Numpy</a> is assumed.</p>
+<p>This article will review the structure of a simple Python <a href="/OpendTect-Plugin-Docs/plugins/ExternalAttrib.html" title="ExternalAttrib">ExternalAttrib</a> script, <a href="https://github.com/waynegm/OpendTect-External-Attributes/blob/master/Python_3/DipAndAzimuth/ex_dip.py">ex_dip.py</a>, which converts inline and crossline dip to true dip and dip azimuth. It is an example of multi attribute, single trace input and output. Some basic understanding of <a href="https://www.python.org/">Python</a> and <a href="http://www.numpy.org/">Numpy</a> is assumed.</p>
 <p>Every Python attribute script has 5 sections.</p>
 <h3 id="the-imports">The Imports</h3>
 <p><figure>
@@ -157,7 +157,7 @@
   <br/>
 </figure>
 
-<p>A variety of other input elements can be specified to build more complex input dialogs. See the <a href="/OpendTect-Plugin-Docs/plugins/ExternalAttrib.html#json-parameter-string" title="ExternalAttrib - External Attribute">JSON Parameter String</a> section of the plugin documentation for full details or look at other scripts to see what is possible.</p>
+<p>A variety of other input elements can be specified to build more complex input dialogs. See the <a href="/OpendTect-Plugin-Docs/plugins/ExternalAttrib.html#json-parameter-string" title="ExternalAttrib">JSON Parameter String</a> section of the plugin documentation for full details or look at other scripts to see what is possible.</p>
 <h3 id="the-compute-loop-initialisation">The Compute Loop Initialisation</h3>
 <p><figure>
   <br/>
@@ -165,7 +165,7 @@
   <br/>
 </figure></p>
 <p>The doCompute function is where the attribute calculation occurs. The function is divided into 2 parts some initialisation and the "while True:" loop, discussed in the next section, where the calculations actually take place. Any code in this initialisation section will be executed just once when the attribute script is run and is a good place to calculate constants for use in the Compute Loop.</p>
-<p>This particular script shows how information stored in the <a href="/OpendTect-Plugin-Docs/plugins/ExternalAttrib.html#seismicinfo-block" title="ExternalAttrib - External Attribute">SeismicInfo Block</a> can be used to calculate some constants purely as an example. This attribute is so simple that no initialisation is actually required. </p>
+<p>This particular script shows how information stored in the <a href="/OpendTect-Plugin-Docs/plugins/ExternalAttrib.html#seismicinfo-block" title="ExternalAttrib">SeismicInfo Block</a> can be used to calculate some constants purely as an example. This attribute is so simple that no initialisation is actually required. </p>
 <h3 id="the-compute-loop">The Compute Loop</h3>
 <p><figure>
   <br/>
@@ -173,7 +173,7 @@
   <br/>
 </figure></p>
 <p>This is where the attribute calculation takes place. The <em>xa.doInput()</em> and <em>xa.doOutput()</em> function calls control the input and output of seismic trace data between the script and OpendTect. Generally these should be the first and last statements within the compute loop.</p>
-<p>Within the compute loop, some information about the current trace data such as the number of samples and the inline and crossline location are provided in the <a href="/OpendTect-Plugin-Docs/plugins/ExternalAttrib.html#traceinfo-block" title="ExternalAttrib - External Attribute">TraceInfo Block</a>. These can be accessed using constructs like <em>xa.TI['nrsamp']</em>. This information is not required for this particular script.</p>
+<p>Within the compute loop, some information about the current trace data such as the number of samples and the inline and crossline location are provided in the <a href="/OpendTect-Plugin-Docs/plugins/ExternalAttrib.html#traceinfo-block" title="ExternalAttrib">TraceInfo Block</a>. These can be accessed using constructs like <em>xa.TI['nrsamp']</em>. This information is not required for this particular script.</p>
 <p>The global Numpy array <em>xa.Input</em> contains the input trace data. <em>xa.Input['name of input attribute']</em> returns a Numpy array with the trace data for the current compute location. The shape of this Numpy array depends on the traces stepouts required by the attribute. As this particular script uses just single trace input (inline and crossline step out of 0) the Numpy array has a shape of <em>(1,1,xa.TI['nrsamp'])</em>. In the more general case of a multi-trace attribute the Numpy array shape would be <em>(xa.SI['nrinl'], xa.SI['nrcrl'], xa.TI['nrsamp'])</em> and the input trace at the current location would be at the centre of the array, ie at index <em>[xa.SI['nrinl']//2, xa.SI['nrcrl']//2,...]</em>.</p>
 <p>Attribute ouput must be put into the <em>xa.Output</em> global Numpy array before the <em>xa.doOutput()</em> function call. Each element (eg <em>xa.Output['name of output attribute']</em>) of the output array must have a shape of <em>(1,1,xa.TI['nrsamp'])</em></p>
 <h3 id="the-postamble">The Postamble</h3>

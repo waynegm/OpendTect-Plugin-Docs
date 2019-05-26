@@ -1,6 +1,6 @@
 ---
 title: Dip and Azimuth
-description: various acripts to estimate orientation
+description: various scripts to estimate orientation
 layout: page
 pager: true
 tags: external-attribute structure

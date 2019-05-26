@@ -63,18 +63,18 @@
             <li class="dropdown">
               <a href="/OpendTect-Plugin-Docs/plugins/" class="dropdown-toggle" data-toggle="dropdown">Plugins <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="/OpendTect-Plugin-Docs/plugins/AVOAttrib.html">AVOAttrib - AVO Attributes</a></li>
-                <li><a href="/OpendTect-Plugin-Docs/plugins/AVOPolarAttrib.html">AVOPolarAttrib - AVO Polarization Attributes</a></li>
-                <li><a href="/OpendTect-Plugin-Docs/plugins/DataExtentHorizon.html">DataExtentHorizon - Create a 3D horizon</a></li>
-                <li><a href="/OpendTect-Plugin-Docs/plugins/ExternalAttrib.html">ExternalAttrib - External Attribute</a></li>
-                <li><a href="/OpendTect-Plugin-Docs/plugins/GeopackageExport.html">GeopackageExport - Export to GeoPackage database</a></li>
-                <li><a href="/OpendTect-Plugin-Docs/plugins/GeotiffExport.html">GeotiffExport - Export 3D horizon to GeoTIFF image</a></li>
-                <li><a href="/OpendTect-Plugin-Docs/plugins/GradientAttrib.html">GradientAttrib - Gradients</a></li>
-                <li><a href="/OpendTect-Plugin-Docs/plugins/Grid2D-3D.html">Grid 2D-3D Horizon - Grid 2D and 3D horizon interpretation</a></li>
-                <li><a href="/OpendTect-Plugin-Docs/plugins/LTFAttrib.html">LTFAttrib - Spectral Decomposition by Local Attributes</a></li>
-                <li><a href="/OpendTect-Plugin-Docs/plugins/MLVFilter.html">MLVFilterAttrib - Mean of Least Variance Filter</a></li>
-                <li><a href="/OpendTect-Plugin-Docs/plugins/Mistie.html">Mistie - edit/apply mistie corrections</a></li>
-                <li><a href="/OpendTect-Plugin-Docs/plugins/RSpecAttrib.html">RSpecAttrib - Recursive Spectral Decomposition</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/AVOAttrib.html">AVOAttrib</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/AVOPolarAttrib.html">AVOPolarAttrib</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/DataExtentHorizon.html">DataExtentHorizon</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/ExternalAttrib.html">ExternalAttrib</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/GeopackageExport.html">GeopackageExport</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/GeotiffExport.html">GeotiffExport</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/GradientAttrib.html">GradientAttrib</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/Grid2D-3D.html">Grid 2D-3D Horizon</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/LTFAttrib.html">LTFAttrib</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/MLVFilter.html">MLVFilterAttrib</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/Mistie.html">Mistie</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/RSpecAttrib.html">RSpecAttrib</a></li>
               </ul>
             </li>
             <li class="dropdown">
@@ -137,7 +137,7 @@
 <li>Adding a line like "@set PATH=%HOMEPATH%.od\bin\win64\Release;%PATH%" (adjust "%HOMEPATH%.od\bin\win64\Release" to reflect your installation) to the bat script used to start OpendTect</li>
 </ul>
 <h3 id="building-plugins-that-require-madagascar">Building plugins that require Madagascar</h3>
-<p>To build plugins that use the Madagascar libraries (eg LTFAttrib) you need to set the RSFROOT environment variable before building the plugins.</p>
+<p>To build plugins that use the Madagascar libraries (eg <a href="/OpendTect-Plugin-Docs/plugins/LTFAttrib.html" title="LTFAttrib">LTFAttrib</a>) you need to set the RSFROOT environment variable before building the plugins.</p>
 <div class="codehilite"><pre><span></span>    export RSFROOT=/opt/OpendTect_4/4.6.0/Madagascar
     cmake.
     make
@@ -158,7 +158,7 @@
 <h4 id="use-the-od_user_plugin_dir-environment-variable">Use the OD_USER_PLUGIN_DIR environment variable</h4>
 <h5 id="for-windows">For Windows</h5>
 <p>1.Create <strong>ODPlugins\6.4.0</strong> and <strong>ODPlugins\6.2.0</strong> folders in the <strong>C:\Users\%username%</strong> folder</p>
-<p>2.Install the OpendTect-6.2-plugins in the <strong>6.2.0</strong> folder and the OpendTect-6.4-plugins in the <strong>6.4.0</strong> folder as per the <a href="installation.html">installation instructions</a>.</p>
+<p>2.Install the OpendTect-6.2-plugins in the <strong>6.2.0</strong> folder and the OpendTect-6.4-plugins in the <strong>6.4.0</strong> folder as per the <a href="/OpendTect-Plugin-Docs/installation/installation.html" title="Installation">Installation</a> instructions.</p>
 <p>3.Create a "bat" file to start each version of OpendTect that sets the <strong>OD_USER_PLUGIN_DIR</strong> environment variable to the appropriate folder before starting OpendTect. Here is what odt_6_4.bat might look like:</p>
 <div class="codehilite"><pre><span></span>@set OD_USER_PLUGIN_DIR=%HOMEPATH%\ODPlugins\6.4.0
 start &quot;&quot; &quot;C:\Program Files\OpendTect\6.4.0\bin\win64\Release\od_start_dtect.exe&quot;
@@ -173,7 +173,7 @@ start &quot;&quot; &quot;C:\Program Files\OpendTect\6.4.0\bin\win64\Release\od_s
 </pre></div>
 
 
-<p>2.Install the OpendTect-6.4-plugins in the users <strong>6.4.0</strong> folder and the OpendTect-6.2-plugins in the <strong>6.2.0</strong> folder as per the <a href="installation.html">installation instructions</a>.</p>
+<p>2.Install the OpendTect-6.4-plugins in the users <strong>6.4.0</strong> folder and the OpendTect-6.2-plugins in the <strong>6.2.0</strong> folder as per the <a href="/OpendTect-Plugin-Docs/installation/installation.html" title="Installation">Installation</a> instructions.</p>
 <p>3.Create executable shell scripts to start each version of OpendTect that sets the <strong>OD_USER_PLUGIN_DIR</strong> to the appropriate folder before starting OpendTect. Here is what odt_6_4.csh might look like:</p>
 <div class="codehilite"><pre><span></span>    #!/bin/csh -f
     setenv OD_USER_PLUGIN_DIR &quot;$HOME/ODPlugins/6.4.0&quot;

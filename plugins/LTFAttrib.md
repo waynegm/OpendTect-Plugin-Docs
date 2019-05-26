@@ -1,6 +1,6 @@
 ---
-title: LTFAttrib - Spectral Decomposition by Local Attributes
-description: time-frequency analysis using Fomels local attribute algorithm
+title: LTFAttrib
+description: spectral (time-frequency) decomposition by Fomel's local attribute algorithm
 layout: page
 pager: true
 tags: plugin

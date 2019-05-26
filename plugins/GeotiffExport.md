@@ -1,5 +1,5 @@
 ---
-title: GeotiffExport - Export 3D horizon to GeoTIFF image
+title: GeotiffExport
 description: export OpendTect 3D horizon and attribute data to a GeoTIFF image
 layout: page
 pager: true
@@ -17,7 +17,7 @@ The plugin adds a "Geotiff Export" item to the Survey-Export main menu. Selectin
 
 ### Notes
 -  The plugin requires the survey to have a projection based CRS defined.
--  This plugin is actually part of the [GeopackageExport](GeopackageExport.md) plugin - see notes there as well 
+-  This plugin is actually part of the [geopackageexport] plugin - see notes there as well 
 
 {{ figure('geotiff_qgis.jpg', 'OpendTect 3D horizon data displayed in a QGIS print layout') }}
 

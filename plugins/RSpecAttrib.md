@@ -1,6 +1,6 @@
 ---
-title: RSpecAttrib - Recursive Spectral Decomposition
-description: recursive time-frequency decomposition
+title: RSpecAttrib
+description: spectral (time-frequency) decomposition using recursive filters
 layout: page
 pager: true
 tags: plugin

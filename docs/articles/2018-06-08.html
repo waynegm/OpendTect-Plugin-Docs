@@ -63,18 +63,18 @@
             <li class="dropdown">
               <a href="/OpendTect-Plugin-Docs/plugins/" class="dropdown-toggle" data-toggle="dropdown">Plugins <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="/OpendTect-Plugin-Docs/plugins/AVOAttrib.html">AVOAttrib - AVO Attributes</a></li>
-                <li><a href="/OpendTect-Plugin-Docs/plugins/AVOPolarAttrib.html">AVOPolarAttrib - AVO Polarization Attributes</a></li>
-                <li><a href="/OpendTect-Plugin-Docs/plugins/DataExtentHorizon.html">DataExtentHorizon - Create a 3D horizon</a></li>
-                <li><a href="/OpendTect-Plugin-Docs/plugins/ExternalAttrib.html">ExternalAttrib - External Attribute</a></li>
-                <li><a href="/OpendTect-Plugin-Docs/plugins/GeopackageExport.html">GeopackageExport - Export to GeoPackage database</a></li>
-                <li><a href="/OpendTect-Plugin-Docs/plugins/GeotiffExport.html">GeotiffExport - Export 3D horizon to GeoTIFF image</a></li>
-                <li><a href="/OpendTect-Plugin-Docs/plugins/GradientAttrib.html">GradientAttrib - Gradients</a></li>
-                <li><a href="/OpendTect-Plugin-Docs/plugins/Grid2D-3D.html">Grid 2D-3D Horizon - Grid 2D and 3D horizon interpretation</a></li>
-                <li><a href="/OpendTect-Plugin-Docs/plugins/LTFAttrib.html">LTFAttrib - Spectral Decomposition by Local Attributes</a></li>
-                <li><a href="/OpendTect-Plugin-Docs/plugins/MLVFilter.html">MLVFilterAttrib - Mean of Least Variance Filter</a></li>
-                <li><a href="/OpendTect-Plugin-Docs/plugins/Mistie.html">Mistie - edit/apply mistie corrections</a></li>
-                <li><a href="/OpendTect-Plugin-Docs/plugins/RSpecAttrib.html">RSpecAttrib - Recursive Spectral Decomposition</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/AVOAttrib.html">AVOAttrib</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/AVOPolarAttrib.html">AVOPolarAttrib</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/DataExtentHorizon.html">DataExtentHorizon</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/ExternalAttrib.html">ExternalAttrib</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/GeopackageExport.html">GeopackageExport</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/GeotiffExport.html">GeotiffExport</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/GradientAttrib.html">GradientAttrib</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/Grid2D-3D.html">Grid 2D-3D Horizon</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/LTFAttrib.html">LTFAttrib</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/MLVFilter.html">MLVFilterAttrib</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/Mistie.html">Mistie</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/RSpecAttrib.html">RSpecAttrib</a></li>
               </ul>
             </li>
             <li class="dropdown">
@@ -128,7 +128,7 @@
     <div class="col-md-9 content" role="main">
     <main>
       <h3 id="introduction">Introduction</h3>
-<p>Because the Python <a href="/OpendTect-Plugin-Docs/plugins/ExternalAttrib.html" title="ExternalAttrib - External Attribute">ExternalAttrib - External Attribute</a> script is running in a process started by the OpendTect application most standard methods to examine the script as it runs, eg using the standard Python debugger <a href="https://docs.python.org/3/library/pdb.html">pdb</a>, are not available.</p>
+<p>Because the Python <a href="/OpendTect-Plugin-Docs/plugins/ExternalAttrib.html" title="ExternalAttrib">ExternalAttrib</a> script is running in a process started by the OpendTect application most standard methods to examine the script as it runs, eg using the standard Python debugger <a href="https://docs.python.org/3/library/pdb.html">pdb</a>, are not available.</p>
 <p>A solution is to use the <a href="https://github.com/romanvm/python-web-pdb">Web-PDB</a> Python module which allows the Python script to be debugged remotely in a web-browser.</p>
 <h3 id="web-pdb-installation">Web-PDB Installation</h3>
 <p><a href="https://github.com/romanvm/python-web-pdb">Web-PDB</a> is not included by default in most Python installations but it can be easily added using <em>pip</em>:</p>
@@ -147,7 +147,7 @@
   <img src="images/18_06_08_02.png" class="img-responsive center-block" alt="">
   <br/>
 </figure></p>
-<p>After adding <a href="https://github.com/romanvm/python-web-pdb">Web-PDB</a> to the <a href="/OpendTect-Plugin-Docs/plugins/ExternalAttrib.html" title="ExternalAttrib - External Attribute">ExternalAttrib - External Attribute</a> script it will run to the first breakpoint where execution will be suspended and a web-UI opened at the default port 5555. Pointing a web browser at <code>http://&lt;your  machine hostname or IP&gt;:5555</code>, eg <code>http://127.0.0.1:5555</code>, should show an interface for debugging as above. </p>
+<p>After adding <a href="https://github.com/romanvm/python-web-pdb">Web-PDB</a> to the <a href="/OpendTect-Plugin-Docs/plugins/ExternalAttrib.html" title="ExternalAttrib">ExternalAttrib</a> script it will run to the first breakpoint where execution will be suspended and a web-UI opened at the default port 5555. Pointing a web browser at <code>http://&lt;your  machine hostname or IP&gt;:5555</code>, eg <code>http://127.0.0.1:5555</code>, should show an interface for debugging as above. </p>
 <p>The buttons provide control on the script execution, hover the mouse pointer over them to see tooltips for each. More complex <a href="https://docs.python.org/3/library/pdb.html">pdb</a> commands can be inserted in the entry at the bottom of the screen. Click the ? button for a list of useful <a href="https://docs.python.org/3/library/pdb.html">pdb</a> commands.</p>
 <h3 id="web-pdb-and-multi-threaded-processing">Web-PDB and Multi-threaded Processing</h3>
 <p>It is possible to use <a href="https://github.com/romanvm/python-web-pdb">Web-PDB</a> with a script that has multi-threaded processing enabled by replacing the initial <code>web_pdb.set_trace</code> call with:</p>

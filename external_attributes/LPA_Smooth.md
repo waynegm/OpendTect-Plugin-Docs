@@ -1,6 +1,6 @@
 ---
 title: LPA Smoothing
-description: smoothing using local polynomial approximation
+description: structure preserving spatial filter by local polynomial approximation
 layout: page
 pager: true
 tags: external-attribute filter

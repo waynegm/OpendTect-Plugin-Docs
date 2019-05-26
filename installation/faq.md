@@ -18,7 +18,7 @@ On Windows the folder containing the plugin and support DLL's must be added to t
 
 ## Building plugins that require Madagascar
 
-To build plugins that use the Madagascar libraries (eg LTFAttrib) you need to set the RSFROOT environment variable before building the plugins.
+To build plugins that use the Madagascar libraries (eg [../plugins/ltfattrib]) you need to set the RSFROOT environment variable before building the plugins.
 ```
 	export RSFROOT=/opt/OpendTect_4/4.6.0/Madagascar
 	cmake.
@@ -41,7 +41,7 @@ The OpendTect-6.4-plugins won't work in OpendTect 6.2 and the OpendTect-6.2-plug
 #### For Windows
 1.Create __ODPlugins\6.4.0__ and __ODPlugins\6.2.0__ folders in the __C:\Users\%username%__ folder
 
-2.Install the OpendTect-6.2-plugins in the __6.2.0__ folder and the OpendTect-6.4-plugins in the __6.4.0__ folder as per the [installation instructions](installation.html).
+2.Install the OpendTect-6.2-plugins in the __6.2.0__ folder and the OpendTect-6.4-plugins in the __6.4.0__ folder as per the [installation] instructions.
 
 3.Create a "bat" file to start each version of OpendTect that sets the __OD_USER_PLUGIN_DIR__ environment variable to the appropriate folder before starting OpendTect. Here is what odt_6_4.bat might look like:
 ```
@@ -57,7 +57,7 @@ start "" "C:\Program Files\OpendTect\6.4.0\bin\win64\Release\od_start_dtect.exe"
 	mkdir ~/ODPlugins/6.2.0 
 ```
 
-2.Install the OpendTect-6.4-plugins in the users __6.4.0__ folder and the OpendTect-6.2-plugins in the __6.2.0__ folder as per the [installation instructions](installation.html).
+2.Install the OpendTect-6.4-plugins in the users __6.4.0__ folder and the OpendTect-6.2-plugins in the __6.2.0__ folder as per the [installation] instructions.
 
 3.Create executable shell scripts to start each version of OpendTect that sets the __OD_USER_PLUGIN_DIR__ to the appropriate folder before starting OpendTect. Here is what odt_6_4.csh might look like:
 ```

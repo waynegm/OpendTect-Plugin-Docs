@@ -1,6 +1,6 @@
 ---
 title: ZC Block
-description: Blocks a seismic trace between zero crossings
+description: blocks a seismic trace between zero crossings
 layout: page
 pager: true
 tags: external-attribute

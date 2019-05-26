@@ -63,18 +63,18 @@
             <li class="dropdown">
               <a href="/OpendTect-Plugin-Docs/plugins/" class="dropdown-toggle" data-toggle="dropdown">Plugins <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="/OpendTect-Plugin-Docs/plugins/AVOAttrib.html">AVOAttrib - AVO Attributes</a></li>
-                <li><a href="/OpendTect-Plugin-Docs/plugins/AVOPolarAttrib.html">AVOPolarAttrib - AVO Polarization Attributes</a></li>
-                <li><a href="/OpendTect-Plugin-Docs/plugins/DataExtentHorizon.html">DataExtentHorizon - Create a 3D horizon</a></li>
-                <li><a href="/OpendTect-Plugin-Docs/plugins/ExternalAttrib.html">ExternalAttrib - External Attribute</a></li>
-                <li><a href="/OpendTect-Plugin-Docs/plugins/GeopackageExport.html">GeopackageExport - Export to GeoPackage database</a></li>
-                <li><a href="/OpendTect-Plugin-Docs/plugins/GeotiffExport.html">GeotiffExport - Export 3D horizon to GeoTIFF image</a></li>
-                <li><a href="/OpendTect-Plugin-Docs/plugins/GradientAttrib.html">GradientAttrib - Gradients</a></li>
-                <li><a href="/OpendTect-Plugin-Docs/plugins/Grid2D-3D.html">Grid 2D-3D Horizon - Grid 2D and 3D horizon interpretation</a></li>
-                <li><a href="/OpendTect-Plugin-Docs/plugins/LTFAttrib.html">LTFAttrib - Spectral Decomposition by Local Attributes</a></li>
-                <li><a href="/OpendTect-Plugin-Docs/plugins/MLVFilter.html">MLVFilterAttrib - Mean of Least Variance Filter</a></li>
-                <li><a href="/OpendTect-Plugin-Docs/plugins/Mistie.html">Mistie - edit/apply mistie corrections</a></li>
-                <li><a href="/OpendTect-Plugin-Docs/plugins/RSpecAttrib.html">RSpecAttrib - Recursive Spectral Decomposition</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/AVOAttrib.html">AVOAttrib</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/AVOPolarAttrib.html">AVOPolarAttrib</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/DataExtentHorizon.html">DataExtentHorizon</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/ExternalAttrib.html">ExternalAttrib</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/GeopackageExport.html">GeopackageExport</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/GeotiffExport.html">GeotiffExport</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/GradientAttrib.html">GradientAttrib</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/Grid2D-3D.html">Grid 2D-3D Horizon</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/LTFAttrib.html">LTFAttrib</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/MLVFilter.html">MLVFilterAttrib</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/Mistie.html">Mistie</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/RSpecAttrib.html">RSpecAttrib</a></li>
               </ul>
             </li>
             <li class="active" class="dropdown">
@@ -129,7 +129,7 @@
     <main>
       <p><strong>Script: ex_lpa_smooth.py</strong></p>
 <h3 id="description">Description</h3>
-<p>This Python <a href="/OpendTect-Plugin-Docs/plugins/ExternalAttrib.html" title="ExternalAttrib - External Attribute">ExternalAttrib - External Attribute</a> script can be used to filter noise while preserving steep dips. A region of data around each sample location is approximated by a second order 3D polynomial using gaussian weighted least squares. </p>
+<p>This Python <a href="/OpendTect-Plugin-Docs/plugins/ExternalAttrib.html" title="ExternalAttrib">ExternalAttrib</a> script can be used to filter noise while preserving steep dips. A region of data around each sample location is approximated by a second order 3D polynomial using gaussian weighted least squares. </p>
 <p>The approximation has the following form:</p>
 <p>$$ r_0+ r_1 * x + r_2 * y + r_3 * z + r_4 * x^2 + r_5 * y^2 + r_6 * z^2 +r_7 * x * y + r_8 * x * z + r_9 * y * z $$</p>
 <p>where x (inline), y (crossline) and z (time/depth) are relative to the analysis location, ie the analysis location has x=y=z=0.</p>

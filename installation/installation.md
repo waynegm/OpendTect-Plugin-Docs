@@ -19,7 +19,7 @@ To install the plugins into the OpendTect program folder (eg __/opt/seismic/Open
 
 ### Per-user Installation
 
-On Linux it is also possible to install the plugin files in a users __.od__ folder. Note that the OpendTect-6.4.0-plugins won't work in OpendTect 6.2.0 and the OpendTect-6.2.0-plugins won't work in OpendTect 6.4.0. See the [FAQ](faq.html) for a workaround if you want to use this method of installation and want to run both versions of OpendTect.
+On Linux it is also possible to install the plugin files in a users __.od__ folder. Note that the OpendTect-6.4.0-plugins won't work in OpendTect 6.2.0 and the OpendTect-6.2.0-plugins won't work in OpendTect 6.4.0. See the [faq] for a workaround if you want a per-user installation and want to run multiple versions of OpendTect.
 
 1. Copy the contents of the __bin/lux64/Release/__ folder in the tgz file to the users __.od/bin/lux64/Release/__ folder;
 
@@ -40,7 +40,7 @@ To install the plugins into the OpendTect program folder (eg __c:\Program Files\
 
 ### Per-user Installation
 
-On Windows it is also possible to install the plugin files in a users __.od__ folder. Note that the OpendTect-6.4.0-plugins won't work in OpendTect 6.2 and the OpendTect-6.2-plugins won't work in OpendTect 6.4. See the [FAQ](faq.html) for a workaround if you want to use this method of installation and want to run both versions of OpendTect.
+On Windows it is also possible to install the plugin files in a users __.od__ folder. Note that the OpendTect-6.4.0-plugins won't work in OpendTect 6.2 and the OpendTect-6.2-plugins won't work in OpendTect 6.4. See the [faq] for a workaround if you want a per-user installation and want to run multiple versions of OpendTect.
 
 1. Copy the contents of the __bin\win64\Release\ __ folder in the zip file to the users __C:\Users\%username%\\.od\bin\win64\Release\ __ folder;
 

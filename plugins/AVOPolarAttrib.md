@@ -1,5 +1,5 @@
 ---
-title: AVOPolarAttrib - AVO Polarization Attributes
+title: AVOPolarAttrib
 description: 6 attributes derived from AVO Polarization in the AVO Intercept-Gradient crossplot
 layout: page
 pager: true
