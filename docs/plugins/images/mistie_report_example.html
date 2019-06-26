@@ -1,0 +1,184 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Mistie Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.6/nv.d3.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+</head>
+<body>
+<h1>MISTIE REPORT</h1>
+
+<table id="mistie_table" class="display" width="100%"> </table>
+<br/>
+<table style="width: 100%; border: 2px solid black;">
+    <caption>MISTIE HISTOGRAMS</caption>
+    <tr>
+        <td style="width: 30%;"><div id="zmistie" ></div></td>
+        <td style="width: 30%;"><div id="phasemistie"></div></td>
+        <td style="width: 30%;"><div id="ampmistie"></div></td>
+    </tr>
+</table>
+<br/>
+<table style="width: 100%; height: 800px; border: 2px solid black;">
+    <caption>MISTIE CROSSPLOT</caption>
+    <tr>
+        <td><div id="xplot" style= "width: 100%; height: 800px;"></div>
+    </tr>
+</table>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+<script>
+    function arrayColumn(arr, n) {
+        return arr.map(x=> x[n]);
+    }
+    $(document).ready(function() {
+        var coltitles = [];
+        labels.forEach(function(item) { var v= {}; v.title = item; coltitles.push(v); });
+        var ralTargets = [];
+        if (labels.length>10) 
+            ralTargets = [ 4, 5, 6, 7, 8, 9, 10, 11, 12 ];
+        else
+            ralTargets = [ 4, 5, 6, 7, 8, 9 ];
+            
+        var intsecs = [];
+        misties.forEach(function(item) { intsecs.push(item[0]+"/"+item[2]); });
+        
+        $('#mistie_table').DataTable( {
+            data: misties,
+            render: $.fn.dataTable.render.number( '', '.', 2, '' ),
+            columns: coltitles,
+            columnDefs: [{
+                targets: ralTargets,
+                className: 'dt-body-right',
+                render: $.fn.dataTable.render.number( '', '.', 2, '' )
+            }]
+        } );
+        
+        var zHistLayout= {
+           barmode: "overlay",
+           xaxis: {title: labels[6]},
+           yaxis: {title: "Count"},
+           legend: { x: 0.5, y: 1.2 }
+        };
+        var zdata;
+        var zraw = { x: arrayColumn(misties,6), name: 'Before Correction', autobinx: false, xbins:{ size: 1.0 }, type: 'histogram', opacity: 0.5, text: intsecs, hoverinfo: "text"  };
+        if (labels.length>10) { 
+            var zcor = { x: arrayColumn(misties,10), name: 'After Correction', autobinx: false, xbins:{ size: 1.0 }, type: 'histogram', opacity: 0.5 , text: intsecs, hoverinfo: "text" };
+            zdata = [zraw, zcor];
+        } else
+            zdata = [zraw];
+        Plotly.newPlot('zmistie', zdata, zHistLayout);
+        
+        var pHistLayout= {
+           barmode: "overlay",
+           xaxis: {title: labels[7]},
+           yaxis: {title: "Count"},
+           legend: { x: 0.5, y: 1.2 }
+        };
+        var pdata;
+        var praw = { x: arrayColumn(misties,7), name: 'Before Correction', autobinx: false, xbins:{ size: 10.0 }, type: 'histogram', opacity: 0.5, text: intsecs, hoverinfo: "text" };
+        if (labels.length>10) { 
+            var pcor = { x: arrayColumn(misties,11), name: 'After Correction', autobinx: false, xbins:{ size: 10.0 }, type: 'histogram', opacity: 0.5, text: intsecs, hoverinfo: "text"  };
+            pdata = [praw, pcor];
+        } else
+            pdata = [praw];
+        Plotly.newPlot('phasemistie', pdata, pHistLayout);
+        
+        var aHistLayout= {
+           barmode: "overlay",
+           xaxis: {title: labels[8]},
+           yaxis: {title: "Count"},
+           legend: { x: 0.5, y: 1.2 }
+        };
+        var adata;
+        var araw = { x: arrayColumn(misties,8), name: 'Before Correction', autobinx: false, xbins:{ size: 0.1 }, type: 'histogram', opacity: 0.5, text: intsecs, hoverinfo: "text"  };
+        if (labels.length>10) { 
+            var acor = { x: arrayColumn(misties,12), name: 'After Correction', autobinx: false, xbins:{ size: 0.1 }, type: 'histogram', opacity: 0.5, text: intsecs, hoverinfo: "text"  };
+            adata = [araw, acor];
+        } else
+            adata = [araw];
+        Plotly.newPlot('ampmistie', adata, aHistLayout);
+        
+        var xplot_data;
+        var xplot_raw = {
+            name: 'Before Correction',
+            x: arrayColumn(misties,6), y: arrayColumn(misties,7), z: arrayColumn(misties,8),
+            text: intsecs,
+            mode: 'markers',
+            marker: { size: 4 },
+            type: 'scatter3d',
+            hoverinfo: "text"
+        };
+        var xplot_layout = {
+            scene: { xaxis: {title: labels[6]}, yaxis: {title: labels[7]}, zaxis: {title: labels[8]} },
+            margin: { l: 0, r: 0, b: 0, t: 0 },
+            legend: { x: 0.5, y: 1.0 }
+        };
+        if (labels.length>10) {
+                var xplot_cor = {
+                    name: 'After Correction',
+                    x: arrayColumn(misties,10), y: arrayColumn(misties,11), z: arrayColumn(misties,12),
+                    mode: 'markers',
+                    marker: { size: 4 },
+                    type: 'scatter3d',
+                    text: intsecs,
+                    hoverinfo: "text"
+                };
+                xplot_data = [xplot_raw, xplot_cor];
+            } else
+                xplot_data = [xplot_raw];
+        
+        Plotly.newPlot('xplot', xplot_data, xplot_layout);
+    } );
+</script>
+<script>
+var labels = [ "LineA" , "LineB" , "TrcA" , "TrcB" , "X" , "Y" , "Z Mistie(ms)" , "PhaseRotation (deg)" , "AmplitudeScalar" , "Quality" , "Res Z", "Res Phase", "Res Amp" ];
+var misties = [ 
+[ "12" , 201, "A", 205, 500664.375, 7830748.625, -0.02135408, -1.8035717, 1.0148102, 0.94387287, -0.9458288, -10.50036621, 0.9927848],
+[ "12" , 201, "B", 2420, 500664.375, 7830748.625, 8.91142464, 44.69176483, 0.75254095, 0.6617049, 3.09154844, 18.5581131, 0.88795513],
+[ "12" , 1649, "27", 603, 519491.875, 7817870.125, -2.77120328, 5.25677061, 0.92773676, 0.88115478, -6.0363121, -6.98559666, 1.02854764],
+[ "12" , 2104, "D", 1160, 524323.5, 7811910, 0.75131857, 9.18779182, 0.96630657, 0.85763925, -3.62688613, -6.27072334, 1.04769349],
+[ "12" , 2785, "33", 3478, 532962.125, 7804330.375, 0.52577198, 9.55785561, 0.98939472, 0.81503862, -0.36683786, -17.63378906, 0.97104037],
+[ "12" , 3966, "37", 204, 550773.625, 7796643, 5.37096548, -2.23113418, 1.06904542, 0.89351231, 5.29460239, -4.55107212, 1.07988405],
+[ "12" , 5617, "41", 204, 576352, 7786624, 5.30316305, 4.46229124, 0.94981694, 0.85979551, 3.16499662, 28.80457878, 0.986911],
+[ "16" , 178, "41", 1071, 568709.25, 7774238.5, 0.71379781, -44.1679, 1.03403151, 0.92104048, -3.51101637, -29.48336411, 1.0338136],
+[ "16" , 719, "31", 541, 560578, 7778119.75, -2.46617579, 30.69907188, 0.97920555, 0.8593235, -0.22208834, -0.37541294, 1.00677466],
+[ "16" , 1964, "37", 793, 543483, 7789961, 4.23591709, -4.97722816, 1.17054057, 0.86619741, 2.07290649, -16.95491791, 1.13772619],
+[ "16" , 3120, "33", 3007, 526653.5, 7799523.5, 8.29797459, 108.76073456, 1.05259633, 0.56932414, 5.318717, 71.91133881, 0.99403107],
+[ "16" , 3301, "D", 518, 524062.75, 7801122.875, 6.5272994, 56.25235748, 1.00601768, 0.92709738, 0.06244695, 31.13608932, 1.04953098],
+[ "16" , 3895, "27", 1350, 515348.75, 7805972, 8.27046967, -12.32174206, 0.73475099, 0.89024478, 2.91871309, -34.22186279, 0.78380895],
+[ "16" , 4521, "B", 1080, 505352.25, 7809118.75, -0.96167189, 4.9562645, 1, 0.94771081, -8.86819649, -30.83514023, 1.13436317],
+[ "16" , 5560, "A", 1483, 488442.5, 7813064, 6.22274494, 29.16492081, 0.95286942, 0.89318067, 3.21162271, 10.81037331, 0.89696199],
+[ "18" , 196, "22", 3229, 448289, 7817866, -4.12562466, 12.82280254, 0.90697563, 0.8788324, -0.08007836, -7.93728447, 1.06810248],
+[ "18" , 2555, "A", 2296, 483824.375, 7800255.75, -2.37695074, 16.95834732, 1.15114295, 0.84849763, 1.9861511, 25.08839226, 0.96546],
+[ "18" , 4009, "27", 2163, 506969.875, 7795244.875, 0.51983076, -5.09437323, 0.95545095, 0.94811398, 2.54229832, -0.50990224, 0.90811908],
+[ "18" , 4070, "B", 204, 507907.75, 7794837.75, 0.34408289, 3.57261252, 1.04364431, 0.95745385, -0.18821716, -5.73419952, 1.05571854],
+[ "18" , 4764, "33", 2106, 517036, 7787986, -8.44672298, 0.21781687, 1.3028127, 0.92255491, -4.05175638, -10.14698982, 1.09618652],
+[ "22" , 803, "28", 5339, 474480.625, 7786995.75, -1.03571534, -41.27044678, 1.436746, 0.6566245, -0.12936401, -8.02371979, 1.10835695],
+[ "27" , 204, "D", 1897, 522396.5, 7823914.5, 2.67052913, -12.68350697, 1.00765204, 0.89786381, 1.55743325, -15.89965439, 0.98544008],
+[ "27" , 2048, "B", 315, 508289.75, 7796666.75, 3.83388925, 2.01660061, 0.96461314, 0.94265705, 1.27912188, -11.87468243, 1.02663112],
+[ "27" , 3425, "28", 3963, 495301, 7777763.125, 2.35160065, -19.91153145, 0.92284006, 0.93947035, 5.28103065, -12.00936317, 0.88208205],
+[ "27" , 4052, "33", 207, 494783.25, 7767294.25, -3.88963175, -7.04554605, 0.9777084, 0.93026108, -1.51713276, -21.99482346, 0.8655206],
+[ "27" , 4161, "58", 3253, 494899, 7765456.875, 11.5980711, 168.02827454, 1.24625683, 0.6758697, -1.40536594, 20.63615417, 0.97129023],
+[ "27" , 4700, "34", 196, 491983, 7756983.75, -5.7660265, -13.9698658, 0.96843511, 0.880943, -5.7289772, -0.40380669, 0.96844524],
+[ "28" , 199, "39", 2320, 552118.875, 7755436.125, 1.14798629, -3.2426734, 1.00683534, 0.90923613, -0.72219777, -2.13028431, 1.07851231],
+[ "28" , 1227, "37", 2529, 536554.125, 7762321.125, 0.40172026, -0.03133093, 1.03083158, 0.89743, 0.66103625, 1.98892975, 0.98262191],
+[ "28" , 2265, "C", 2149, 520015.5, 7766755.5, 6.92939425, 19.75512314, 0.92276919, 0.89526439, 3.13690472, 9.2653389, 0.92670065],
+[ "28" , 3132, "33", 1084, 507842, 7773460, 2.36995435, -10.1260519, 1.09867454, 0.89847696, 1.81302333, -32.9774971, 1.01754725],
+[ "28" , 4924, "A", 3291, 480655, 7783801, 0.18153127, 6.74251366, 1.10764718, 0.92998201, -0.40726447, 2.38591766, 1.02256167],
+[ "33" , 2870, "D", 334, 524827.75, 7798122.5, 5.08882904, -21.62351227, 0.84738833, 0.89594686, 1.60323417, -9.89038181, 0.93612546],
+[ "34" , 1860, "C", 785, 515929, 7744369, -1.54993093, 15.72421265, 1.18928599, 0.88381976, -2.45003939, -0.42946231, 1.14159131],
+[ "34" , 2686, "37", 4104, 527723.5, 7737520.75, -2.73626161, 17.03742027, 0.964095, 0.85127479, 0.41543519, 13.39379025, 0.87840861],
+[ "34" , 3572, "39", 667, 540366, 7730333, -5.53991556, -10.65437126, 0.93933076, 0.8928737, -4.51771879, -15.20587254, 0.96175224],
+[ "37" , 3274, "58", 4080, 532888, 7750358.75, 24.31919861, 150.25236511, 1.17832577, 0.6256606, 8.12701511, -7.06217957, 1.00791883],
+[ "39" , 1565, "58", 4384, 546542.75, 7744086.375, 8.15721416, 137.4528656, 1.32998252, 0.6007275, -5.90546942, -18.95381165, 1.01236749],
+[ "58" , 3765, "C", 1537, 518622.5, 7756730, -12.16028309, -152.02268982, 0.78876364, 0.71237218, -0.01990497, -7.21818733, 0.97148108],
+[ "A" , 205, "B", 2420, 500665.25, 7830748.75, 9.13154221, 46.14975357, 0.74155831, 0.67534828, 4.23614025, 28.71289825, 0.89440846 ]
+];
+</script>
+</body>
+</html>

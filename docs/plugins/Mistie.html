@@ -127,16 +127,126 @@
 
     <div class="col-md-9 content" role="main">
     <main>
-      <p>This plugin, for the open source seismic interpretation platform <a href="https://opendtect.org" title="OpendTect">OpendTect</a> Version 6.4.0 or later, allows creation and editing of a file with Z shift, phase rotations and amplitude scaling corrections for 2D and 3D seismic in an <a href="https://opendtect.org" title="OpendTect">OpendTect</a> survey/project. The plugin also includes an attribute (Mistie Application) that will apply the corrections.</p>
+      <figure>
+  <br/>
+  <img src="images/mistie_plugin.jpg" class="img-responsive center-block" alt="">
+  <br/>
+</figure>
+
+<p>This plugin, for the open source seismic interpretation platform <a href="https://opendtect.org" title="OpendTect">OpendTect</a> Version 6.4.0 or later, allows creation and editing of a file with Z shift, phase rotations and amplitude scaling corrections for 2D and 3D seismic in an <a href="https://opendtect.org" title="OpendTect">OpendTect</a> survey/project. The plugin also includes an attribute (Mistie Application) that will apply the corrections.</p>
 <p>In an ideal world we would be given 2D seismic data that has consistent Z, phase and amplitude scales. In the real world this doesn't always happen and 2D seismic interpretation projects accumulate inconsistencies as more data is added. The concept implemented by this plugin is the interpreter builds/maintains the correction table as they work through the data. The virtual corrected seismic from the Mistie Application attribute can be interpreted on the fly or the interpreter can generate a new adjusted dataset and interpret that.</p>
-<p>Future planned enhancements include:</p>
+<p>Future planned enhancements:</p>
 <ul>
-<li>Add an option to generate a correction file from the data itself that minimizes the misties in a least squares sense for all line interections </li>
+<li>Include 3D seismic data in the mistie analysis </li>
 <li>Add an option to apply the Z shifts to an existing seismic interpretation</li>
 </ul>
 <h3 id="description">Description</h3>
-<h4 id="mistie-correction-editor">Mistie Correction Editor</h4>
-<p>The plugin adds a "Mistie Corrections" item to the Survey-Manage main menu. Selecting the item opens the Mistie Correction Editor.</p>
+<p>The plugin provides components to:</p>
+<ol>
+<li>Estimate misties from seismic data </li>
+<li>Analyse the misties and estimate corrections to minimize the misties in a least squares sense</li>
+<li>Edit/Maintain a set of mistie corrections</li>
+<li>Attribute to apply the corrections.</li>
+</ol>
+<p>There are two alternative workflows to build a mistie correction file:</p>
+<ol>
+<li>Estimate the misties from the data and compute a mistie correction file in the <a href="/OpendTect-Plugin-Docs/plugins/Mistie.html#mistie-analysis" title="Mistie">Mistie Analysis</a> dialog</li>
+<li>Manually build the mistie correction file in the <a href="/OpendTect-Plugin-Docs/plugins/Mistie.html#mistie-correction-editor" title="Mistie">Mistie Correction Editor</a></li>
+</ol>
+<h4 id="mistie-analysis"><strong>Mistie Analysis</strong></h4>
+<p>The plugin adds a "Mistie Analysis" item to the Analysis main menu. Selecting the item opens the Mistie Analysis dialog:</p>
+<figure>
+  <br/>
+  <img src="images/mistie_analysis.jpg" class="img-responsive center-block" alt="Mistie Analysis">
+  <figcaption class="text-center">Mistie Analysis</figcaption>
+  <br/>
+</figure>
+
+<p>Actions associated with the toolbar buttons are:</p>
+<table class="table table-striped table-bordered table-responsive">
+    <thead class="bg-primary">
+        <tr>
+            <th class="col-xs-2">ICON</th>
+            <th class="col-xs-10">DESCRIPTION</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><img class="img-responsive" alt="New" src="images/new.png" title="New"/></td>
+            <td>Open the Mistie Estimation dialog to estimate misties from the seismic data. Existing contents of the mistie table are erased.</td>
+        </tr>
+        <tr>
+            <td><img class="img-responsive" alt="Open" src="images/open.png" title="Open"/></td>
+            <td>Load mistie estimates from a previously saved file. Existing contents of the mistie table are erased.</td>
+        </tr>
+        <tr>
+            <td><img class="img-responsive" alt="Save" src="images/save.png" title="Save"/></td>
+            <td>Save the current mistie estimates. If the current misties were loaded from a file then that will be overwritten, otherwise user will be asked to provide a new file name.</td>
+        </tr>
+        <tr>
+            <td><img class="img-responsive" alt="SaveAs" src="images/saveas.png" title="SaveAs"/></td>
+            <td>Prompts for a file and saves the current mistie estimates.</td>
+        </tr>
+        <tr>
+            <td><img class="img-responsive" alt="Merge" src="images/plus.png" title="Merge"/></td>
+            <td>Prompts for another mistie file and merges the results with the mistie set currently active in the tool optionally keeping or replacing common items.</td>
+        </tr>
+        <tr>
+            <td><img class="img-responsive" alt="Calculate Corrections" src="images/attributes.png" title="Calculate Corrections"/></td>
+            <td>Open the Correction Calculation dialog.</td>
+        </tr>
+        <tr>
+            <td><img class="img-responsive" alt="Mistie Report" src="images/xplot.png" title="Mistie Report"/></td>
+            <td>Opens a web browser and displays an interactive dashboard report for the current misties and correction set active in the tool.</td>
+        </tr>
+    </tbody>
+</table>
+
+<h4 id="mistie-estimation"><strong>Mistie Estimation</strong></h4>
+<p>The <img alt="New" src="images/new.png" /> toolbar item in the <a href="/OpendTect-Plugin-Docs/plugins/Mistie.html#mistie-analysis" title="Mistie">Mistie Analysis</a> dialog opens the following dialog to estimate misties from the seismic data using the method described by <a href="https://library.seg.org/doi/10.1190/1.1443654" title="Correcting amplitude, time, and phase mis‐ties in seismic data. Thomas N. Bishop and Alan G. Nunns, GEOPHYSICS 1994 59:6, 946-953">Bishop and Nunns (1994)</a>:</p>
+<figure>
+  <br/>
+  <img src="images/mistie_estimation.jpg" class="img-responsive center-block" alt="Mistie Estimation">
+  <figcaption class="text-center">Mistie Estimation</figcaption>
+  <br/>
+</figure>
+
+<p>The user can:</p>
+<ul>
+<li>Select the data type (attribute) and which lines to include in the analysis</li>
+<li>Limit the maximum time-shift or mistie to consider</li>
+<li>Specify a Z window for the cross correlation of traces at line interections</li>
+</ul>
+<p>The Apply button will initiate the estimation of the misties, when complete results are displayed in the <a href="/OpendTect-Plugin-Docs/plugins/Mistie.html#mistie-analysis" title="Mistie">Mistie Analysis</a> dialog. Clicking the <img alt="Mistie Report" src="images/xplot.png" /> icon will generate a <a href="/OpendTect-Plugin-Docs/plugins/Mistie.html#mistie-report" title="Mistie">Mistie Report</a> with histograms and scatterplot of the mistie estimates  for review.</p>
+<h4 id="mistie-correction-calculation"><strong>Mistie Correction Calculation</strong></h4>
+<p>The <img alt="Calculate Corrections" src="images/attributes.png" /> toolbar item in the <a href="/OpendTect-Plugin-Docs/plugins/Mistie.html#mistie-analysis" title="Mistie">Mistie Analysis</a> dialog opens the following dialog to compute mistie corrections that minimize the root mean square (RMS) mistie after correction:</p>
+<figure>
+  <br/>
+  <img src="images/mistie_correction.jpg" class="img-responsive center-block" alt="Mistie correction calculation">
+  <figcaption class="text-center">Mistie correction calculation</figcaption>
+  <br/>
+</figure>
+
+<p>The user can:</p>
+<ul>
+<li>Optional select one or more line(s) to use as a reference. Reference lines will have Z, phase and amplitude corrections constrained to be 0, 0, 1 respectively and corrections will be computed only for  the non-reference lines. Selecting no lines will distribute corrections across all lines.</li>
+<li>Restrict calculation to intersections with a correlation coefficient (tie quality) above a minimum threshhold. The intersection quality can vary from 0.0 (no tie) to 1.0 (perfect tie). A cut-off of 0.5-0.6 should prevent unreliable mistie estimates being used to compute corrections.</li>
+<li>Control the maximum number of iterations used to calculate the corrections - the default value should be adequate in most circumstances.</li>
+<li>Control the convergence criteria that stops the iteration used to calulate the corrections - iterations stop if the change in the RMS mistie (after applying corrections) between successive iterations is less than the threshhold. Thresholds exist for the Z, phase and amplitude corrections. The default values should be adquate in most circumstances. </li>
+</ul>
+<p>The calculated corrections will be displayed in a new table dialog:</p>
+<figure>
+  <br/>
+  <img src="images/mistie_correction_viewer.jpg" class="img-responsive center-block" alt="Mistie correction viewer">
+  <figcaption class="text-center">Mistie correction viewer</figcaption>
+  <br/>
+</figure>
+
+<p>The toolbar buttons can be used to save the corrrections to a disk file.</p>
+<h4 id="mistie-report"><strong>Mistie Report</strong></h4>
+<p>The <img alt="Mistie Report" src="images/xplot.png" /> toolbar item in the <a href="/OpendTect-Plugin-Docs/plugins/Mistie.html#mistie-analysis" title="Mistie">Mistie Analysis</a> dialog generates and displays in the system web browser a graphical, html format dashboard of the mistie anaysis and correction calculation results. This includes tabulated data, histograms and a 3D scatterplot. Here is an example of a <a href="images/mistie_report_example.html">mistie report</a>.</p>
+<h4 id="mistie-correction-editor"><strong>Mistie Correction Editor</strong></h4>
+<p>The plugin adds a "Mistie Corrections" item to the Survey-Manage main menu. Selecting the item opens the Mistie Correction Editor. This tool can be used to manually create mistie correction files or modify files generated by the <a href="/OpendTect-Plugin-Docs/plugins/Mistie.html#mistie-correction-calculation" title="Mistie">Mistie Correction Calculation</a>.</p>
 <figure>
   <br/>
   <img src="images/mistie_editor.jpg" class="img-responsive center-block" alt="Mistie correction editor">
@@ -145,13 +255,37 @@
 </figure>
 
 <p>The editor has toolbar buttons to:</p>
-<ul>
-<li>Create a mistie correction set with all the  2D lines in the project (with default corrections that make no change to the  data)</li>
-<li>Read (open) a mistie correction set previously saved to a file </li>
-<li>Save any updates to the currently open mistie correction set </li>
-<li>Save the current mistie correction set to a user selected file</li>
-<li>Merge another mistie correction set file with the current set, optionally keeping or replacing the existing corrections where there is duplicate line/dataset names</li>
-</ul>
+<table class="table table-striped table-bordered table-responsive">
+    <thead class="bg-primary">
+        <tr>
+            <th class="col-xs-2">ICON</th>
+            <th class="col-xs-10">DESCRIPTION</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><img class="img-responsive" alt="New" src="images/new.png" title="New"/></td>
+            <td>Create a mistie correction set with all the  2D lines in the project (with default corrections that make no change to the  data). Existing contents of the mistie table are erased.</td>
+        </tr>
+        <tr>
+            <td><img class="img-responsive" alt="Open" src="images/open.png" title="Open"/></td>
+            <td>Load mistie corrections from a previously saved file. Existing contents of the mistie table are erased.</td>
+        </tr>
+        <tr>
+            <td><img class="img-responsive" alt="Save" src="images/save.png" title="Save"/></td>
+            <td>Save the current mistie corrections. If the current corrections were loaded from a file then that will be overwritten, otherwise the user will be asked to provide a new file name.</td>
+        </tr>
+        <tr>
+            <td><img class="img-responsive" alt="SaveAs" src="images/saveas.png" title="SaveAs"/></td>
+            <td>Prompts for a file and saves the current mistie corrections.</td>
+        </tr>
+        <tr>
+            <td><img class="img-responsive" alt="Merge" src="images/plus.png" title="Merge Corrections"/></td>
+            <td>Merge another mistie correction set file with the current set, optionally keeping or replacing the existing corrections where there is duplicate line/dataset names.</td>
+        </tr>
+    </tbody>
+</table>
+
 <p>Within the editor it is possible to:</p>
 <ul>
 <li>Add new lines/datasets and associated corrections</li>
@@ -160,9 +294,9 @@
 <li>Limited clipboard copy and paste is available</li>
 </ul>
 <p>You can include corrections for a particular 3D seismic volume by using a line/dataset name of the form "3D_XXXX" where the "XXXX" is the volume name, eg note the "3D_pstm" in the above figure. Multiple unique "3D_XXXX" entries are allowed to specify corrections for different 3D volumes in the project. </p>
-<p>If a line doesn't need a correction it can be omitted from the set and default (no change) corrections will be assumed when the Mistie Application attribute. A message (which can be safely ignored) is added to the log file when this occurs. </p>
+<p>If a line doesn't need a correction it can be omitted from the set and default (no change) corrections will be assumed when the Mistie Application attribute is applied. A message (which can be safely ignored) is added to the log file when this occurs. </p>
 <p>The name in the line/dataset column must exactly match the project line name.</p>
-<h4 id="mistie-application-attribute">Mistie Application Attribute</h4>
+<h4 id="mistie-application-attribute"><strong>Mistie Application Attribute</strong></h4>
 <p>The plugin adds a "Mistie Application" attribute to the list of <a href="https://opendtect.org" title="OpendTect">OpendTect</a> attributes.</p>
 <figure>
   <br/>
@@ -180,9 +314,10 @@
 <p>When the attribute is displayed the shift, phase rotation and amplitude scalar for the line is read from the correction file and applied.</p>
 <h4 id="notes">Notes</h4>
 <ul>
-<li>The default file extension for the mistie corrections is "mst"</li>
-<li>The default file location is the <strong>Misc</strong> folder in the OpendTect survey/project folder</li>
-<li>The file is in the OpendTect IOPar file format. This is a simple text format which can also be modified using a text editor</li>
+<li>The default file extension for saved mistie estimates is "mistie"</li>
+<li>The default file extension for saved mistie corrections is "miscor"</li>
+<li>The default file location for all files is the <strong>Misc</strong> folder in the OpendTect survey/project folder</li>
+<li>All files are in a simple text format which can also be modified using a text editor</li>
 </ul>
     </main>
     <ul class="pager">
@@ -199,6 +334,10 @@
             <div class="toc">
 <ul>
 <li><a href="#description">Description</a><ul>
+<li><a href="#mistie-analysis">Mistie Analysis</a></li>
+<li><a href="#mistie-estimation">Mistie Estimation</a></li>
+<li><a href="#mistie-correction-calculation">Mistie Correction Calculation</a></li>
+<li><a href="#mistie-report">Mistie Report</a></li>
 <li><a href="#mistie-correction-editor">Mistie Correction Editor</a></li>
 <li><a href="#mistie-application-attribute">Mistie Application Attribute</a></li>
 <li><a href="#notes">Notes</a></li>
