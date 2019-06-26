@@ -12,6 +12,8 @@ content:
       title: '<i class="fa fa-github fa-lg" title="OpendTect Plugins on Github"></i>'
     - ref: wmlinkedin
       title: '<i class="fa fa-linkedin fa-lg" title="My LinkedIn"></i>'
+    - ref: wmseismicsolutions
+      title: '<img src="https://waynegm.github.io/images/logo_thin_small.png" height="20px">'
  
 tagline: OpendTect plugins and external attribute scripts by Wayne Mogg
 ---

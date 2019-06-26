@@ -3,7 +3,7 @@ brand: OpendTect Plugins
 bootswatch: flatly # flatly, yeti, lumen,...
 navbar_inverse: false
 bootstrap: 3.3.6
-navbar_right_items: 3
+navbar_right_items: 4
 thumbnail_path: articles/images
 ignore_patterns: ["README.md", "articles/draft_*.md", "docs"]
 baseurl: 'OpendTect-Plugin-Docs'
@@ -29,6 +29,9 @@ reflinks:
     wmlinkedin:
         url: https://www.linkedin.com/in/waynemogg
         title: linkedin
+    wmseismicsolutions:
+        url: https://waynegm.github.io/
+        title: WM Seismic Solutions
     urubu:
         url: http://urubu.jandecaluwe.com
         title: Urubu
