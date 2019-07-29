@@ -67,6 +67,7 @@
                 <li><a href="/OpendTect-Plugin-Docs/plugins/AVOPolarAttrib.html">AVOPolarAttrib</a></li>
                 <li><a href="/OpendTect-Plugin-Docs/plugins/DataExtentHorizon.html">DataExtentHorizon</a></li>
                 <li><a href="/OpendTect-Plugin-Docs/plugins/ExternalAttrib.html">ExternalAttrib</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/GeopackageDisplay.html">GeopackageDisplay</a></li>
                 <li><a href="/OpendTect-Plugin-Docs/plugins/GeopackageExport.html">GeopackageExport</a></li>
                 <li><a href="/OpendTect-Plugin-Docs/plugins/GeotiffExport.html">GeotiffExport</a></li>
                 <li><a href="/OpendTect-Plugin-Docs/plugins/GradientAttrib.html">GradientAttrib</a></li>
@@ -138,7 +139,6 @@
 <p>In an ideal world we would be given 2D seismic data that has consistent Z, phase and amplitude scales. In the real world this doesn't always happen and 2D seismic interpretation projects accumulate inconsistencies as more data is added. The concept implemented by this plugin is the interpreter builds/maintains the correction table as they work through the data. The virtual corrected seismic from the Mistie Application attribute can be interpreted on the fly or the interpreter can generate a new adjusted dataset and interpret that.</p>
 <p>Future planned enhancements:</p>
 <ul>
-<li>Include 3D seismic data in the mistie analysis </li>
 <li>Add an option to apply the Z shifts to an existing seismic interpretation</li>
 </ul>
 <h3 id="description">Description</h3>
@@ -215,6 +215,8 @@
 <p>The user can:</p>
 <ul>
 <li>Select the data type (attribute) and which lines to include in the analysis</li>
+<li>Include and select a 3D seismic volume to include in the analysis</li>
+<li>Specify the trace interval along 2D lines to estimate the 2D to 3D misties, the average mistie is assigned to the 2D to 3D tie </li>
 <li>Limit the maximum time-shift or mistie to consider</li>
 <li>Specify a Z window for the cross correlation of traces at line interections</li>
 </ul>

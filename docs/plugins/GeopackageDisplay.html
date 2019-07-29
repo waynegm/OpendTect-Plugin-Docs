@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Building from Source</title>
+    <title>GeopackageDisplay</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <!-- Bootstrap -->
@@ -51,7 +51,7 @@
         <div class="navbar-collapse collapse">
 
           <ul class="nav navbar-nav navbar-left">
-            <li class="active" class="dropdown">
+            <li class="dropdown">
               <a href="/OpendTect-Plugin-Docs/installation/" class="dropdown-toggle" data-toggle="dropdown">Installation <b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li><a href="/OpendTect-Plugin-Docs/installation/download-binary.html">Download Binary Distribution</a></li>
@@ -60,7 +60,7 @@
                 <li><a href="/OpendTect-Plugin-Docs/installation/faq.html">Frequently Asked Questions</a></li>
               </ul>
             </li>
-            <li class="dropdown">
+            <li class="active" class="dropdown">
               <a href="/OpendTect-Plugin-Docs/plugins/" class="dropdown-toggle" data-toggle="dropdown">Plugins <b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li><a href="/OpendTect-Plugin-Docs/plugins/AVOAttrib.html">AVOAttrib</a></li>
@@ -117,100 +117,43 @@
 
   <ol class="breadcrumb">
     <li><a href="/OpendTect-Plugin-Docs/">Home</a></li>
-      <li><a href="/OpendTect-Plugin-Docs/installation/">Installation</a></li>
-      <li class="active">Building from Source</li>
+      <li><a href="/OpendTect-Plugin-Docs/plugins/">Plugins</a></li>
+      <li class="active">GeopackageDisplay</li>
   </ol>
 
   <div class="page-header">
-    <h1>Building from Source</h1>
+    <h1>GeopackageDisplay</h1>
   </div>
 
   <div class="row">
 
     <div class="col-md-9 content" role="main">
     <main>
-      <h2 id="building-from-source">Building from Source</h2>
-<h3 id="linux">Linux</h3>
-<p>These instructions are for Linux. Some of the attributes won't build (eg <a href="/OpendTect-Plugin-Docs/plugins/LTFAttrib.html" title="LTFAttrib">LTFAttrib</a>)unless Madagascar is installed.</p>
-<ol>
-<li>
-<p>Download the source for the plugins for the appropriate version of OpendTect from Github</p>
+      <p>This is an extension of the <a href="/OpendTect-Plugin-Docs/plugins/GeopackageExport.html" title="GeopackageExport">GeopackageExport</a> plugin that displays lines and polylines from a Geopackage database file over an <a href="https://opendtect.org" title="OpendTect">OpendTect</a> 3D horizon.</p>
+<h3 id="description">Description</h3>
+<p>The plugin adds a "Geopackage Display" item to the "Add" context menu of 3D Horizons in the scene tree. Selecting the item opens a dialog box for selecting the Geopackage file, the layer to display and the line color and width. Multiple layers can be displayed.</p>
+<figure>
+  <br/>
+  <img src="images/geopackage_display_menu.jpg" class="img-responsive center-block" alt="Geopackage Display menu item">
+  <figcaption class="text-center">Geopackage Display menu item</figcaption>
+  <br/>
+</figure>
+
+<h4 id="notes">Notes</h4>
 <ul>
-<li><a href="https://github.com/waynegm/OpendTect-Plugins/archive/master.zip">Latest (OpendTect 6.4)</a></li>
-<li><a href="https://github.com/waynegm/OpendTect-Plugins/archive/v5-stable.zip">OpendTect v5</a></li>
-<li><a href="https://github.com/waynegm/OpendTect-4-plugins/archive/master.zip">OpendTect v4</a></li>
+<li>The plugin requires the survey to have a projection based CRS defined.</li>
+<li>This plugin is actually part of the <a href="/OpendTect-Plugin-Docs/plugins/GeopackageExport.html" title="GeopackageExport">GeopackageExport</a> plugin - see notes there as well </li>
 </ul>
-</li>
-<li>
-<p>Use the OpendTect installation manager to install the OpendTect developer packages and install any other packages required for compiling and building code for your operating environment as per the <a href="http://www.opendtect.org/rel/doc/Programmer/" target="_blank">OpendTect Programmer's Manual</a></p>
-</li>
-<li>
-<p>Start OpendTect</p>
-</li>
-<li>
-<p>Select the <em>Utilities-Tools-Create Plugin Devel. Env.</em> menu item to create a development work folder (eg /home/user/ODWork).</p>
-</li>
-<li>
-<p>Unzip the attribute source zip archive downloaded in step 1 in the development work folder. This will overwrite the <em>CMakeLists.txt</em> in the development work folder and add the plugin source folders to the plugin folder.</p>
-</li>
-<li>
-<p>Optionally edit <em>CMakeCache.txt</em> in the development work folder and change Debug to Release.</p>
-</li>
-<li>
-<p>Optionally set the environment variable pointing to your Madagascar install</p>
-</li>
-</ol>
-<div class="codehilite"><pre><span></span>    export RSFROOT=/opt/OpendTect_4/4.6.0/Madagascar
-</pre></div>
-
-
-<ol>
-<li>Open a terminal, cd to the development work folder and type:</li>
-</ol>
-<div class="codehilite"><pre><span></span>    cmake .
-    make
-</pre></div>
-
-
-<ol>
-<li>This should create the binary files for each plugin, lib*.so and libui*.so, in the bin folder (eg in ODWork/bin/lux64/Release/) and four *.alo files for each plugin in the root of the development work folder.</li>
-</ol>
-<p>If you don't have Madagascar installed or RSFROOT is not set the plugins that depend on the Madagascar libraries (eg <a href="/OpendTect-Plugin-Docs/plugins/LTFAttrib.html" title="LTFAttrib">LTFAttrib</a>) won't build and there will be error messages. These error messages can be ignored if you don't want the Madagascar dependent attributes.</p>
-<h3 id="windows">Windows</h3>
-<p>These instructions are for Windows. Note that the attributes that require Madagascar (eg <a href="/OpendTect-Plugin-Docs/plugins/LTFAttrib.html" title="LTFAttrib">LTFAttrib</a>) cannot be built on Windows.</p>
-<ol>
-<li>
-<p>Download the source for the plugins for the appropriate version of OpendTect from Github</p>
-<ul>
-<li><a href="https://github.com/waynegm/OpendTect-Plugins/archive/master.zip">Latest (OpendTect 6.4)</a></li>
-<li><a href="https://github.com/waynegm/OpendTect-Plugins/archive/v5-stable.zip">OpendTect v5</a></li>
-<li><a href="https://github.com/waynegm/OpendTect-4-plugins/archive/master.zip">OpendTect v4</a></li>
-</ul>
-</li>
-<li>
-<p>Use the OpendTect installation manager to install the OpendTect developer packages and install any other packages required for compiling and building code for your operating environment as per the <a href="http://www.opendtect.org/rel/doc/Programmer/" target="_blank">OpendTect Programmer's Manual</a></p>
-</li>
-<li>
-<p>Start OpendTect</p>
-</li>
-<li>
-<p>Select the <em>Utilities-Tools-Create Plugin Devel. Env.</em> menu item to create a development work folder (eg c:\Users\user\ODWork).</p>
-</li>
-<li>
-<p>Unzip the attribute source zip archive downloaded in step 1 in the development work folder. This will overwrite the <em>CMakeLists.txt</em> in the development work folder and add the plugin source folders to the plugin folder.</p>
-</li>
-<li>
-<p>Follow the instructions in the <a href="http://opendtect.org/rel/doc/Programmer/windows.html">OpendTect Programmer's Manual</a> to configure and build the plugins.</p>
-</li>
-<li>
-<p>This should create the binary files for each plugin in the bin folder (eg in ODWork\bin\win64\Release).</p>
-</li>
-</ol>
-<p>On Windows you must use "Release" build plugins with the "Release" version of OpendTect.</p>
+<figure>
+  <br/>
+  <img src="images/geopackage_display_example.jpg" class="img-responsive center-block" alt="GIS data draped on an OpendTect 3D horizon">
+  <figcaption class="text-center">GIS data draped on an OpendTect 3D horizon</figcaption>
+  <br/>
+</figure>
     </main>
     <ul class="pager">
-      <li class="previous"><a href="/OpendTect-Plugin-Docs/installation/installation.html">&larr; Installation</a></li>
-      <li class="next"><a href="/OpendTect-Plugin-Docs/installation/faq.html">Frequently Asked Questions &rarr;</a></li>
+      <li class="previous"><a href="/OpendTect-Plugin-Docs/plugins/ExternalAttrib.html">&larr; ExternalAttrib</a></li>
+      <li class="next"><a href="/OpendTect-Plugin-Docs/plugins/GeopackageExport.html">GeopackageExport &rarr;</a></li>
     </ul>
     </div>
 
@@ -218,12 +161,11 @@
       <nav class="hidden-print hidden-xs hidden-sm">
         <div class="sidebar" data-spy="affix" data-offset-top="80" data-offset-bottom="60">
           <div class="well">
-            <a href="#"><strong>Building from Source</strong></a>
+            <a href="#"><strong>GeopackageDisplay</strong></a>
             <div class="toc">
 <ul>
-<li><a href="#building-from-source">Building from Source</a><ul>
-<li><a href="#linux">Linux</a></li>
-<li><a href="#windows">Windows</a></li>
+<li><a href="#description">Description</a><ul>
+<li><a href="#notes">Notes</a></li>
 </ul>
 </li>
 </ul>

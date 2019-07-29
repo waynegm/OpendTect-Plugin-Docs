@@ -16,7 +16,6 @@ In an ideal world we would be given 2D seismic data that has consistent Z, phase
 
 Future planned enhancements:
 
--  Include 3D seismic data in the mistie analysis 
 -  Add an option to apply the Z shifts to an existing seismic interpretation
 
 ## Description
@@ -59,6 +58,8 @@ The ![New](images/new.png) toolbar item in the [#Mistie Analysis] dialog opens t
 The user can:
 
 -  Select the data type (attribute) and which lines to include in the analysis
+-  Include and select a 3D seismic volume to include in the analysis
+-  Specify the trace interval along 2D lines to estimate the 2D to 3D misties, the average mistie is assigned to the 2D to 3D tie 
 -  Limit the maximum time-shift or mistie to consider
 -  Specify a Z window for the cross correlation of traces at line interections
 

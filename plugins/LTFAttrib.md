@@ -15,7 +15,7 @@ This attribute plugin for the open source seismic interpretation platform [opend
 
 This is an implementation of the method of local time-frequency analysis described by [Liu, G etal (2011)](http://library.seg.org/doi/abs/10.1190/geo2010-0185.1 "Time-frequency analysis of seismic data using local attributes. Guochang Liu, Sergey Fomel, and Xiaohong Chen. GEOPHYSICS 2011 76:6, P23-P34"). The time-frequency decomposition uses least-squares inversion with shaping regularization. It is different to STFT (short time fourier transform) which divides the data into windows to  localize frequency content in time.
 
-This plugin requires a working installation of <a href="http://www.ahay.org/" target="_blank">Madagascar</a> and provides an example of an attribute using the Madagascar libraries.
+This plugin is only available on Linux and requires a working installation of <a href="http://www.ahay.org/" target="_blank">Madagascar</a> with the Madagascar "lib" folder on the linker search path (eg: add ${RSFROOT}/lib to the LD_LIBRARY_PATH environment variable). The plugin provides an example of an attribute using the Madagascar libraries.
 
 This attribute can be unstable. The issue apppears to be in the Madagascar libraries as the same instabilites exist when the equivalent Madagascar command line program (<a href="http://www.reproducibility.org/RSF/sftimefreq.html" target="_blank">sftimefreq</a>) is applied.
 
