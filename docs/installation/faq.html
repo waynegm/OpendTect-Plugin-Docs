@@ -72,7 +72,7 @@
                 <li><a href="/OpendTect-Plugin-Docs/plugins/GeotiffExport.html">GeotiffExport</a></li>
                 <li><a href="/OpendTect-Plugin-Docs/plugins/GradientAttrib.html">GradientAttrib</a></li>
                 <li><a href="/OpendTect-Plugin-Docs/plugins/Grid2D-3D.html">Grid 2D-3D Horizon</a></li>
-                <li><a href="/OpendTect-Plugin-Docs/plugins/LTFAttrib.html">LTFAttrib</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/LocalAttrib.html">LocalAttrib</a></li>
                 <li><a href="/OpendTect-Plugin-Docs/plugins/MLVFilter.html">MLVFilterAttrib</a></li>
                 <li><a href="/OpendTect-Plugin-Docs/plugins/Mistie.html">Mistie</a></li>
                 <li><a href="/OpendTect-Plugin-Docs/plugins/RSpecAttrib.html">RSpecAttrib</a></li>
@@ -138,14 +138,6 @@
 <li>Editing/Adding the PATH environment variable for the System or User (Control Panel&gt;System and Security&gt;System - Advanced system settings - Environment Variables)</li>
 <li>Adding a line like "@set PATH=%HOMEPATH%.od\bin\win64\Release;%PATH%" (adjust "%HOMEPATH%.od\bin\win64\Release" to reflect your installation) to the bat script used to start OpendTect</li>
 </ul>
-<h3 id="building-plugins-that-require-madagascar">Building plugins that require Madagascar</h3>
-<p>To build plugins that use the Madagascar libraries (eg <a href="/OpendTect-Plugin-Docs/plugins/LTFAttrib.html" title="LTFAttrib">LTFAttrib</a>) you need to set the RSFROOT environment variable before building the plugins.</p>
-<div class="codehilite"><pre><span></span>    export RSFROOT=/opt/OpendTect_4/4.6.0/Madagascar
-    cmake.
-    make
-</pre></div>
-
-
 <h3 id="plugins-not-loading">Plugins not loading</h3>
 <ol>
 <li>
@@ -211,7 +203,6 @@ start &quot;&quot; &quot;C:\Program Files\OpendTect\6.4.0\bin\win64\Release\od_s
 <ul>
 <li><a href="#faq">FAQ</a><ul>
 <li><a href="#geopackage-export-plugin-isnt-loading">Geopackage Export plugin isn't loading</a></li>
-<li><a href="#building-plugins-that-require-madagascar">Building plugins that require Madagascar</a></li>
 <li><a href="#plugins-not-loading">Plugins not loading</a></li>
 <li><a href="#per-user-installation-and-multiple-opendtect-versions">Per-user Installation and Multiple OpendTect versions</a><ul>
 <li><a href="#use-the-od_user_plugin_dir-environment-variable">Use the OD_USER_PLUGIN_DIR environment variable</a><ul>

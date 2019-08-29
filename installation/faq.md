@@ -15,16 +15,6 @@ On Windows the folder containing the plugin and support DLL's must be added to t
 - Editing/Adding the PATH environment variable for the System or User (Control Panel>System and Security>System - Advanced system settings - Environment Variables)
 - Adding a line like "@set PATH=%HOMEPATH%.od\bin\win64\Release;%PATH%" (adjust "%HOMEPATH%.od\bin\win64\Release" to reflect your installation) to the bat script used to start OpendTect
 
-
-## Building plugins that require Madagascar
-
-To build plugins that use the Madagascar libraries (eg [../plugins/ltfattrib]) you need to set the RSFROOT environment variable before building the plugins.
-```
-	export RSFROOT=/opt/OpendTect_4/4.6.0/Madagascar
-	cmake.
-	make
-```
-
 ## Plugins not loading
 
 1. Try manually loading the plugin.

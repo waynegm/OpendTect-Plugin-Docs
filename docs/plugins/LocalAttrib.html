@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>LocalAttrib</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <!-- Bootstrap -->
+    <link href="//netdna.bootstrapcdn.com/bootswatch/3.3.6/flatly/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- mathjax for asciimath -->
+   
+    <link href="/OpendTect-Plugin-Docs/css/site.css" rel="stylesheet" media="screen">
+    <link href="/OpendTect-Plugin-Docs/css/syntax.css" rel="stylesheet" media="screen">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-62607269-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+        });
+    </script>
+   <link rel="stylesheet" href="https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
+  </head>
+
+  <body>
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/OpendTect-Plugin-Docs/">OpendTect Plugins</a>
+        </div>
+        <div class="navbar-collapse collapse">
+
+          <ul class="nav navbar-nav navbar-left">
+            <li class="dropdown">
+              <a href="/OpendTect-Plugin-Docs/installation/" class="dropdown-toggle" data-toggle="dropdown">Installation <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="/OpendTect-Plugin-Docs/installation/download-binary.html">Download Binary Distribution</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/installation/installation.html">Installation</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/installation/building-from-source.html">Building from Source</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/installation/faq.html">Frequently Asked Questions</a></li>
+              </ul>
+            </li>
+            <li class="active" class="dropdown">
+              <a href="/OpendTect-Plugin-Docs/plugins/" class="dropdown-toggle" data-toggle="dropdown">Plugins <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="/OpendTect-Plugin-Docs/plugins/AVOAttrib.html">AVOAttrib</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/AVOPolarAttrib.html">AVOPolarAttrib</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/DataExtentHorizon.html">DataExtentHorizon</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/ExternalAttrib.html">ExternalAttrib</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/GeopackageDisplay.html">GeopackageDisplay</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/GeopackageExport.html">GeopackageExport</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/GeotiffExport.html">GeotiffExport</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/GradientAttrib.html">GradientAttrib</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/Grid2D-3D.html">Grid 2D-3D Horizon</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/LocalAttrib.html">LocalAttrib</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/MLVFilter.html">MLVFilterAttrib</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/Mistie.html">Mistie</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/RSpecAttrib.html">RSpecAttrib</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="/OpendTect-Plugin-Docs/external_attributes/" class="dropdown-toggle" data-toggle="dropdown">External Attributes <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="/OpendTect-Plugin-Docs/external_attributes/AVO_IG.html">AVO Intercept and Gradient</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/external_attributes/Add_Noise.html">Add Noise</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/external_attributes/DipandAzimuth.html">Dip and Azimuth</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/external_attributes/LPA_Smooth.html">LPA Smoothing</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/external_attributes/Spatial_Filter_Circular.html">Spatial Filter - Circular</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/external_attributes/Spatial_Filter_Rectangular.html">Spatial Filter - Rectangular</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/external_attributes/Z_Delay_Est.html">Time Delay Estimation</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/external_attributes/Vector_Filters.html">Vector Filter</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/external_attributes/ZC_Block.html">ZC Block</a></li>
+              </ul>
+            </li>
+            <li><a href="/OpendTect-Plugin-Docs/articles/">Articles</a></li>
+          </ul>
+
+          <form class="navbar-form navbar-left" action="/search.html" role="search">
+            <div class="form-group">
+              <input type="text" required name="q" id="tipue_search_input" class="form-control" placeholder="Search"> 
+            </div>
+          </form>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="http://waynegm.github.io/OpendTect-Plugin-Docs/installation/download-binary.html"><button class="button" ><i class="fa fa-download" style="color:rgb(24,188,156);"></i><b style="color:rgb(24,188,156);">Download them Now</b></button></a></li>
+            <li><a href="https://github.com/waynegm/OpendTect-Plugins"><i class="fa fa-github fa-lg" title="OpendTect Plugins on Github"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/waynemogg"><i class="fa fa-linkedin fa-lg" title="My LinkedIn"></i></a></li>
+            <li><a href="https://waynegm.github.io/"><img src="https://waynegm.github.io/images/logo_thin_small.png" height="20px"></a></li>
+          </ul>
+
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+
+<div class="container-fluid">
+
+  <ol class="breadcrumb">
+    <li><a href="/OpendTect-Plugin-Docs/">Home</a></li>
+      <li><a href="/OpendTect-Plugin-Docs/plugins/">Plugins</a></li>
+      <li class="active">LocalAttrib</li>
+  </ol>
+
+  <div class="page-header">
+    <h1>LocalAttrib</h1>
+  </div>
+
+  <div class="row">
+
+    <div class="col-md-9 content" role="main">
+    <main>
+      <p>This plugin for the open source seismic interpretation platform <a href="https://opendtect.org" title="OpendTect">OpendTect</a> Version 6.0 or later is a collection of "Local Attributes" based on the work of <a href="https://library.seg.org/doi/abs/10.1190/1.2437573" title="Local seismic attributes. Sergey Fomel. GEOPHYSICS 2007 72:3">Fomel (2007) and others</a> for the <a href="http://www.ahay.org/" target="_blank">Madagascar</a> package. At this point only spectral (time-frequency) decomposition using local attributes (previously called the LTFAttrib) is implemented. The predecessor to this plugin (LTFAttrib, now obsolete) had a hard dependency on the Madagascar libraries and was consequently only available for Linux. This dependency has been removed and the plugin is now available for both Linux and Windows.</p>
+<h3 id="spectral-time-frequency-decomposition-by-local-attributes">Spectral (Time-frequency) Decomposition by Local Attributes</h3>
+<p>Formerly called the LTFAttrib, this is an implementation of the method of local time-frequency analysis as described by <a href="http://library.seg.org/doi/abs/10.1190/geo2010-0185.1" title="Time-frequency analysis of seismic data using local attributes. Guochang Liu, Sergey Fomel, and Xiaohong Chen. GEOPHYSICS 2011 76:6, P23-P34">Liu, G etal (2011)</a>. This decomposition uses least-squares inversion with shaping regularization to estimate the time-varying Fourier coefficients. Its principal advantages over the STFT (short time fourier transform) is it much quicker if only a few frequencies are required and it is generally more accurate for short window lengths.</p>
+<h4 id="examples">Examples</h4>
+<div class="juxtapose">
+    <img src="images/LTFAttrib_sd.jpg" data-label="FFT Spectral Decomposition (30Hz +/-28ms window)" />
+    <img src="images/LTFAttrib_1.jpg"  data-label="Local time-frequency attribute (30Hz 7 sample smoothing radius)"/>
+</div>
+
+<p><br/>
+The output of the LTF attribute (ltf30) is visually identical and also highly correlated to the OpendTect FFT spectral decomposition (sdfreq30) as shown in the following crossplot of the two attributes.</p>
+<figure>
+  <br/>
+  <img src="images/LTFAttrib_2.jpg" class="img-responsive center-block" alt="Crossplot of LTFAttrib vs FFT Spectral Decomposition">
+  <figcaption class="text-center">Crossplot of LTFAttrib vs FFT Spectral Decomposition</figcaption>
+  <br/>
+</figure>
+
+<h4 id="input-parameters">Input Parameters</h4>
+<p>This attribute has 4 parameters:</p>
+<table class="table table-striped table-bordered table-responsive">
+    <thead class="bg-primary">
+        <tr>
+            <th class="col-xs-4">NAME</th>
+            <th class="col-xs-8">DESCRIPTION</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Input Volume</td>
+            <td>The attribute volume to be analysed.</td>
+        </tr>
+        <tr>
+            <td>Time Gate</td>
+            <td>Where the attribute is calulated. The time gate does not have to be symmetric. The time gate length is used as the smoothing radius for shaping regularization.The value from the gate centre is output - useful for analysing a zone offset from an horizon. Recommend setting the gate length equal to or less than the FFT window length you would used for the standard OpendTect FFT spectral decomposition.</td>
+        </tr>
+        <tr>
+            <td>Frequency</td>
+            <td>The frequency component(s) to estimate.</td>
+        </tr>
+        <tr>
+            <td>Iterations</td>
+            <td>The number of inversion iterations.</td>
+        </tr>
+    </tbody>
+</table>
+
+<figure>
+  <br/>
+  <img src="images/LTFAttrib_input_parameters.jpg" class="img-responsive center-block" alt="LTF Attributes input parameters">
+  <figcaption class="text-center">LTF Attributes input parameters</figcaption>
+  <br/>
+</figure>
+    </main>
+    <ul class="pager">
+      <li class="previous"><a href="/OpendTect-Plugin-Docs/plugins/Grid2D-3D.html">&larr; Grid 2D-3D Horizon</a></li>
+      <li class="next"><a href="/OpendTect-Plugin-Docs/plugins/MLVFilter.html">MLVFilterAttrib &rarr;</a></li>
+    </ul>
+    </div>
+
+    <div class="col-md-3" role="complementary">
+      <nav class="hidden-print hidden-xs hidden-sm">
+        <div class="sidebar" data-spy="affix" data-offset-top="80" data-offset-bottom="60">
+          <div class="well">
+            <a href="#"><strong>LocalAttrib</strong></a>
+            <div class="toc">
+<ul>
+<li><a href="#spectral-time-frequency-decomposition-by-local-attributes">Spectral (Time-frequency) Decomposition by Local Attributes</a><ul>
+<li><a href="#examples">Examples</a></li>
+<li><a href="#input-parameters">Input Parameters</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+          </div>
+        </div>
+      </nav>
+    </div>
+
+  </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="footer">
+            <hr>
+            <p>All content and images &copy; 2015 by Wayne Mogg</p>
+            <p>Website powered by <a href="http://urubu.jandecaluwe.com">Urubu</a></p>
+        </div>
+    </div>
+</div>
+
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- <script src="https://code.jquery.com/jquery.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+ 
+    <script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
+    <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML">
+    </script>
+   </body>
+</html>
