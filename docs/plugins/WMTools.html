@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>DataExtentHorizon</title>
+    <title>WMTools</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <!-- Bootstrap -->
@@ -65,7 +65,6 @@
               <ul class="dropdown-menu">
                 <li><a href="/OpendTect-Plugin-Docs/plugins/AVOAttrib.html">AVOAttrib</a></li>
                 <li><a href="/OpendTect-Plugin-Docs/plugins/AVOPolarAttrib.html">AVOPolarAttrib</a></li>
-                <li><a href="/OpendTect-Plugin-Docs/plugins/DataExtentHorizon.html">DataExtentHorizon</a></li>
                 <li><a href="/OpendTect-Plugin-Docs/plugins/ExternalAttrib.html">ExternalAttrib</a></li>
                 <li><a href="/OpendTect-Plugin-Docs/plugins/GeopackageDisplay.html">GeopackageDisplay</a></li>
                 <li><a href="/OpendTect-Plugin-Docs/plugins/GeopackageExport.html">GeopackageExport</a></li>
@@ -76,6 +75,7 @@
                 <li><a href="/OpendTect-Plugin-Docs/plugins/MLVFilter.html">MLVFilterAttrib</a></li>
                 <li><a href="/OpendTect-Plugin-Docs/plugins/Mistie.html">Mistie</a></li>
                 <li><a href="/OpendTect-Plugin-Docs/plugins/RSpecAttrib.html">RSpecAttrib</a></li>
+                <li><a href="/OpendTect-Plugin-Docs/plugins/WMTools.html">WMTools</a></li>
               </ul>
             </li>
             <li class="dropdown">
@@ -118,25 +118,86 @@
   <ol class="breadcrumb">
     <li><a href="/OpendTect-Plugin-Docs/">Home</a></li>
       <li><a href="/OpendTect-Plugin-Docs/plugins/">Plugins</a></li>
-      <li class="active">DataExtentHorizon</li>
+      <li class="active">WMTools</li>
   </ol>
 
   <div class="page-header">
-    <h1>DataExtentHorizon</h1>
+    <h1>WMTools</h1>
   </div>
 
   <div class="row">
 
     <div class="col-md-9 content" role="main">
     <main>
-      <p>This plugin, for the open source seismic interpretation platform <a href="https://opendtect.org" title="OpendTect">OpendTect</a> Version 6.4.0 or later, creates a constant Z value 3D horizon which covers the extent of 2D and 3D seismic data in an <a href="https://opendtect.org" title="OpendTect">OpendTect</a> survey/project. With the horizon displayed it is possible to draw fault polygons and grid clipping polygons that extend beyond the 3D survey definition. These can then be used in the <a href="/OpendTect-Plugin-Docs/plugins/Grid2D-3D.html" title="Grid 2D-3D Horizon">Grid 2D-3D Horizon</a> plugin to produce structure maps that extend across both 2D and 3D seismic interpretation in an <a href="https://opendtect.org" title="OpendTect">OpendTect</a> survey/project.</p>
-<h3 id="description">Description</h3>
-<p>The plugin adds a "Covering 2D-3D Data Extent..." item to the "Processing|Create Horizon Output" menu item which opens a dialog box for:</p>
+      <p>This plugin provides various tools to enhance the open source seismic interpretation platform <a href="https://opendtect.org" title="OpendTect">OpendTect</a> Version 6.4.0 or later.</p>
+<h3 id="convex-hull-polygon">Convex Hull Polygon</h3>
+<h4 id="description">Description</h4>
+<p>Generate a convex hull polygon covering either the extent of 2D/3D seismic coverage or 2D/3D horizon interpretation. The user has full control over the 2D and 3D data included. The polygon can be used as is or after editing as a clipping polygon in the  <a href="/OpendTect-Plugin-Docs/plugins/Grid2D-3D.html" title="Grid 2D-3D Horizon">Grid 2D-3D Horizon</a>  plugin. To edit the polygon in the 3D scene a 3D horizon of suitable extent must be displayed eg such as a DataExtentHorizon.</p>
+<p>The tool is accessed from the Tools submenu of the Polygon tree context menu.</p>
+<figure>
+  <br/>
+  <img src="images/convexhull_ex.jpg" class="img-responsive center-block" alt="Example of polygons created by tool">
+  <figcaption class="text-center">Example of polygons created by tool</figcaption>
+  <br/>
+</figure>
+
+<h4 id="input">Input</h4>
+<figure>
+  <br/>
+  <img src="images/convexhull_input.jpg" class="img-responsive center-block" alt="Convex Hull tool input dialog">
+  <figcaption class="text-center">Convex Hull tool input dialog</figcaption>
+  <br/>
+</figure>
+
+<p>The tool dialog allows:</p>
 <ul>
-<li>Specifying a constant Z value for the output horizon</li>
-<li>Selecting 2D and 3D seismic data that the horizon should cover</li>
-<li>Specifying the name of the generated horizon</li>
+<li>Specifying a constant Z value for the output polygon</li>
+<li>Selecting 2D and 3D seismic data or horizon interpretation to use as the polygon scope</li>
+<li>Specifying the name and display settings of the generated polygon.</li>
 </ul>
+<h3 id="constant-z-polyline">Constant Z Polyline</h3>
+<h4 id="description_1">Description</h4>
+<p>This tool allows a series of points to be digitized in the 3D scene that can subsequently be used as additional surface control in the Grid 2D3D plugin.</p>
+<p>The tool is accessed from the Tools submenu of the Polygon tree context menu.</p>
+<figure>
+  <br/>
+  <img src="images/constantz_ex.jpg" class="img-responsive center-block" alt="Example of some polylines drawn in a gap in the seismic coverage to guide subsequent gridding">
+  <figcaption class="text-center">Example of some polylines drawn in a gap in the seismic coverage to guide subsequent gridding</figcaption>
+  <br/>
+</figure>
+
+<h4 id="input_1">Input</h4>
+<figure>
+  <br/>
+  <img src="images/constantz_input.jpg" class="img-responsive center-block" alt="Constant Z polyline tool input dialog">
+  <figcaption class="text-center">Constant Z polyline tool input dialog</figcaption>
+  <br/>
+</figure>
+
+<h3 id="fault-surface-3d-horizon-intersection-polyline">Fault Surface-3D Horizon Intersection Polyline</h3>
+<h4 id="description_2">Description</h4>
+<p>This tool attempts to generate 3D poly-lines at the intersection of 3D horizons and fault surfaces. OpendTect has a builtin facility for displaying fault intersections on 3D horizons. This tool uses that feature adds a simple UI and extracts the intersection as a 3D poly-line. This tool is not working perfectly, in the example below note how the bottom right third of the poly-line doesn't follow the surface and then ends before it reaches the edge of the horizon.</p>
+<p>The tool is accessed from the Tools submenu of the Polygon tree context menu.</p>
+<figure>
+  <br/>
+  <img src="images/faultpoly_ex.jpg" class="img-responsive center-block" alt="Example of polylines generated by this tool">
+  <figcaption class="text-center">Example of polylines generated by this tool</figcaption>
+  <br/>
+</figure>
+
+<h4 id="input_2">Input</h4>
+<p>The UI specifies a poly-line name prefix to which the fault surface names will be appended.</p>
+<figure>
+  <br/>
+  <img src="images/faultpoly_input.jpg" class="img-responsive center-block" alt="Fault polyline generation tool input dialog">
+  <figcaption class="text-center">Fault polyline generation tool input dialog</figcaption>
+  <br/>
+</figure>
+
+<h3 id="data-extent-horizon">Data Extent Horizon</h3>
+<h4 id="description_3">Description</h4>
+<p>Generate a constant Z value 3D horizon which covers the extent of 2D and 3D seismic data in an <a href="https://opendtect.org" title="OpendTect">OpendTect</a> survey/project. The user has full control over the 2D and 3D data included.  With the horizon displayed it is possible to draw fault polygons and grid clipping polygons that extend beyond the 3D survey definition. These can then be used in the <a href="/OpendTect-Plugin-Docs/plugins/Grid2D-3D.html" title="Grid 2D-3D Horizon">Grid 2D-3D Horizon</a> plugin to produce structure maps that extend across both 2D and 3D seismic interpretation in an <a href="https://opendtect.org" title="OpendTect">OpendTect</a> survey/project.</p>
+<p>The tool is accessed either from the "Processing|Create Horizon Output" main menu item or from the New submenu of the 3D Horizon tree context menu.</p>
 <figure>
   <br/>
   <img src="images/dataextenthorizon.jpg" class="img-responsive center-block" alt="Example of an horizon created by the plugin and various polygons drawn across the extent of the 2D and 3D seismic data in the project">
@@ -144,17 +205,23 @@
   <br/>
 </figure>
 
-<h3 id="input-parameters">Input Parameters</h3>
+<h4 id="input_3">Input</h4>
 <figure>
   <br/>
-  <img src="images/dataextenthorizon_input.jpg" class="img-responsive center-block" alt="DataExtentHorizon plugin input dialog">
-  <figcaption class="text-center">DataExtentHorizon plugin input dialog</figcaption>
+  <img src="images/dataextenthorizon_input.jpg" class="img-responsive center-block" alt="Data Extent Horizon tool input dialog">
+  <figcaption class="text-center">Data Extent Horizon tool input dialog</figcaption>
   <br/>
 </figure>
+
+<p>The tool dialog allows:</p>
+<ul>
+<li>Specifying a constant Z value for the output horizon</li>
+<li>Selecting 2D and 3D seismic data that the horizon should cover</li>
+<li>Specifying the name of the generated horizon</li>
+</ul>
     </main>
     <ul class="pager">
-      <li class="previous"><a href="/OpendTect-Plugin-Docs/plugins/AVOPolarAttrib.html">&larr; AVOPolarAttrib</a></li>
-      <li class="next"><a href="/OpendTect-Plugin-Docs/plugins/ExternalAttrib.html">ExternalAttrib &rarr;</a></li>
+      <li class="previous"><a href="/OpendTect-Plugin-Docs/plugins/RSpecAttrib.html">&larr; RSpecAttrib</a></li>
     </ul>
     </div>
 
@@ -162,11 +229,29 @@
       <nav class="hidden-print hidden-xs hidden-sm">
         <div class="sidebar" data-spy="affix" data-offset-top="80" data-offset-bottom="60">
           <div class="well">
-            <a href="#"><strong>DataExtentHorizon</strong></a>
+            <a href="#"><strong>WMTools</strong></a>
             <div class="toc">
 <ul>
+<li><a href="#convex-hull-polygon">Convex Hull Polygon</a><ul>
 <li><a href="#description">Description</a></li>
-<li><a href="#input-parameters">Input Parameters</a></li>
+<li><a href="#input">Input</a></li>
+</ul>
+</li>
+<li><a href="#constant-z-polyline">Constant Z Polyline</a><ul>
+<li><a href="#description_1">Description</a></li>
+<li><a href="#input_1">Input</a></li>
+</ul>
+</li>
+<li><a href="#fault-surface-3d-horizon-intersection-polyline">Fault Surface-3D Horizon Intersection Polyline</a><ul>
+<li><a href="#description_2">Description</a></li>
+<li><a href="#input_2">Input</a></li>
+</ul>
+</li>
+<li><a href="#data-extent-horizon">Data Extent Horizon</a><ul>
+<li><a href="#description_3">Description</a></li>
+<li><a href="#input_3">Input</a></li>
+</ul>
+</li>
 </ul>
 </div>
 
