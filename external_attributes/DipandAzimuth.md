@@ -58,14 +58,14 @@ Uses either [Kroon's (2009)](http://www.k-zone.nl/Kroon_DerivativePaper.pdf "NUM
 {% set inputtable=[
 ['NAME','DESCRIPTION'],
 ['Output','What to calculate - choice of inline dip, crossline dip, true dip or dip azimuth.'],
-['Z window (+/-samples)','Specifies the extent of the analysis cube in the Z direction. Number of Z samples in cube will be $ (2\*Zwindow+1) $.'],
-['Stepout','Specifies the inline and crossline extent of the analysis cube. Number of samples in each direction will be $ (2\*Stepout+1) $.']]
+['Z window (+/-samples)','Specifies the extent of the analysis cube in the Z direction. Number of Z samples in cube will be $ (2*Zwindow+1) $.'],
+['Stepout','Specifies the inline and crossline extent of the analysis cube. Number of samples in each direction will be $ (2*Stepout+1) $.']]
 %}
 {{ table_with_hdr(inputtable,hdrstyle=['col-xs-4','col-xs-8'],style='table-striped table-bordered table-responsive') }}
 
 For the ex_gradient3 script the structure tensor is formed from an aperture of $ (2\*Zwindow-1) $ Z samples and $ (2\*Stepout-1) $ samples in the inline and crossline direction.
 
-For the ex_gradient5 script the structure tensor is formed from an aperture of $ (2\*Z_window-2) $ Z samples and $ (2\*Stepout-2) $ samples in the inline and crossline direction.
+For the ex_gradient5 script the structure tensor is formed from an aperture of $ (2\*Zwindow-2) $ Z samples and $ (2\*Stepout-2) $ samples in the inline and crossline direction.
 
 {{ figure('ex_gst3_dip.jpg', 'Gradient3 structure tensor dip - crossline dip on an inline - 5x5x5 input') }}
 
