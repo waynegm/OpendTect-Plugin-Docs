@@ -44,7 +44,7 @@ The tool is accessed from the Tools submenu of the Polygon tree context menu.
 
 ## Fault Surface-3D Horizon Intersection Polyline
 ### Description
-This tool attempts to generate 3D poly-lines at the intersection of 3D horizons and fault surfaces. OpendTect has a builtin facility for displaying fault intersections on 3D horizons. This tool uses that feature adds a simple UI and extracts the intersection as a 3D poly-line. This tool is not working perfectly, in the example below note how the bottom right third of the poly-line doesn't follow the surface and then ends before it reaches the edge of the horizon.
+This tool generates 3D poly-lines at the intersection of 3D horizons and fault surfaces. The intersection line is made by joining the intersections of the fault sticks with the horizon. A potential use of the tool is to grid a 3D horizon without any fault constraint, use the tool to gererate fault lines at the intersection of the 3D horizon and existing fault surfaces and then regrid the horizon using the new fault lines as a fault constraint. (Note the performance of this tool was substantially improved as of version 6.4.13)
 
 The tool is accessed from the Tools submenu of the Polygon tree context menu.
 

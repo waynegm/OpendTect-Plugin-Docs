@@ -29,8 +29,8 @@ This attribute has 3 required parameters and up to 9 optional parameters determi
 
 {% set inputtable=[
 ['NAME','DESCRIPTION'],
-['Interpreter','For external attributes written in a scripted language this field specifies the location of the  interpreter required to run the script, eg /usr/bin/python3. As of version 6.6.1 this field will default to the OpendTect Python settings'],
-['External File','The external application to be used for attribute calculation. As of version 6.6.1 this field will default to the OpendTect/bin/python/wmpy folder.'],
+['Interpreter','For external attributes written in a scripted language this field specifies the location of the  interpreter required to run the script, eg /usr/bin/python3. As of version 6.6.1 and 6.4.13 this field will default to the OpendTect Python settings'],
+['External File','The external application to be used for attribute calculation. As of version 6.6.1 and 6.4.13 this field will default to the OpendTect/bin/python/wmpy folder.'],
 ['Input','The input attribute to use']]
 %}
 
