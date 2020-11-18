@@ -34,7 +34,7 @@ The tool dialog allows:
 ### Description
 This tool allows a series of points to be digitized in the 3D scene that can subsequently be used as additional surface control in the Grid 2D3D plugin.
 
-The tool is accessed from the Tools submenu of the Polygon tree context menu.
+The tool is accessed from the Tools submenu of the Polygon tree context menu. After adding a contour polyline remember to use the Right-Click | Save menu to commit the item. 
 
 {{ figure('constantz_ex.jpg', 'Example of some polylines drawn in a gap in the seismic coverage to guide subsequent gridding') }}
 

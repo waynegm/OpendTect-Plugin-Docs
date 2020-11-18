@@ -6,24 +6,29 @@ tag: download
 ---
 
 {% from 'util.html' import download %}
+{% from 'util.html' import figure %}
 
 # Download Binary Distribution
 
 **As of OpendTect 6.4.5 this suite of plugins can be installed using the OpendTect Installation Manager. Just activate the WMPlugins option in the installer.**
 
-Compiled versions of the plugins for Linux x86_64 and Windows x86_64 are available for download at the links below. Note that the plugin  version installed should match the OpendTect version. For example the 6.4 series of plugin binaries should work with all OpendTect 6.4 releases but won't work with OpendTect 6.0 or 6.2.
+{{ figure('od_install_mgr.jpg', 'OpendTect Installation Manager') }}
 
-## OpendTect Version 6.6
+This will automatically install the latest available version of the plugin for your OpendTect installation in the OpendTect installation folder.
+
+Compiled versions of the plugins for Linux x86_64 and Windows x86_64 are available for download at the links below for manual installation. Note that the plugin  version installed should match the OpendTect version. For example the 6.4 series of plugin binaries should work with all OpendTect 6.4 releases but won't work with OpendTect 6.0, 6.2 or 6.6.
+
+## OpendTect Version 6.6.1
 | OS | LATEST |
 |---|---|
-| **Linux** | {{ download('Linux_6.6.1', 'https://github.com/waynegm/OpendTect-Plugins/releases/download/v6.6.1/wmplugins_lux64.zip') }} |
-| **Windows** | {{ download('Win_6.6.1', 'https://github.com/waynegm/OpendTect-Plugins/releases/download/v6.6.1/wmplugins_win64.zip') }} |
+| **Linux** | {{ download('Linux_6.6.6', 'https://github.com/waynegm/OpendTect-Plugins/releases/download/v6.6.6/wmplugins_lux64.zip') }} |
+| **Windows** | {{ download('Win_6.6.6', 'https://github.com/waynegm/OpendTect-Plugins/releases/download/v6.6.6/wmplugins_win64.zip') }} |
 
 ## OpendTect Version 6.4
 | OS | LATEST |
 |---|---|
-| **Linux** | {{ download('Linux_6.4.13', 'https://github.com/waynegm/OpendTect-Plugins/releases/download/v6.4.13/wmplugins_lux64.zip') }} |
-| **Windows** | {{ download('Win_6.4.13', 'https://github.com/waynegm/OpendTect-Plugins/releases/download/v6.4.13/wmplugins_win64.zip') }} |
+| **Linux** | {{ download('Linux_6.4.15', 'https://github.com/waynegm/OpendTect-Plugins/releases/download/v6.4.15/wmplugins_lux64.zip') }} |
+| **Windows** | {{ download('Win_6.4.15', 'https://github.com/waynegm/OpendTect-Plugins/releases/download/v6.4.15/wmplugins_win64.zip') }} |
 
 
 ## OpendTect Version 6.2

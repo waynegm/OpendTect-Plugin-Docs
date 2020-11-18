@@ -2,9 +2,16 @@
 title: Installation 
 layout: page
 ---
+{% from 'util.html' import figure %}
 # Installation
 
-For both Linux and Windows there are 2 alternatives, site wide installation or per-user installation.
+**As of OpendTect 6.4.5 this suite of plugins can be installed using the OpendTect Installation Manager. Just activate the WMPlugins option in the installer.**
+
+{{ figure('od_install_mgr.jpg', 'OpendTect Installation Manager') }}
+
+This will install the wmPlugins into the OpendTect installation folder.
+
+The following instructions are only needed for a manual intallation.
 
 ## Linux
 

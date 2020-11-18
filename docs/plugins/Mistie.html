@@ -137,17 +137,13 @@
 
 <p>This plugin, for the open source seismic interpretation platform <a href="https://opendtect.org" title="OpendTect">OpendTect</a> Version 6.4.0 or later, allows creation and editing of a file with Z shift, phase rotations and amplitude scaling corrections for 2D and 3D seismic in an <a href="https://opendtect.org" title="OpendTect">OpendTect</a> survey/project. The plugin also includes an attribute (Mistie Application) that will apply the corrections.</p>
 <p>In an ideal world we would be given 2D seismic data that has consistent Z, phase and amplitude scales. In the real world this doesn't always happen and 2D seismic interpretation projects accumulate inconsistencies as more data is added. The concept implemented by this plugin is the interpreter builds/maintains the correction table as they work through the data. The virtual corrected seismic from the Mistie Application attribute can be interpreted on the fly or the interpreter can generate a new adjusted dataset and interpret that.</p>
-<p>Future planned enhancements:</p>
-<ul>
-<li>Add an option to apply the Z shifts to an existing seismic interpretation</li>
-</ul>
 <h3 id="description">Description</h3>
 <p>The plugin provides components to:</p>
 <ol>
-<li>Estimate misties from seismic data </li>
+<li>Estimate misties from seismic data or horizon interpretation </li>
 <li>Analyse the misties and estimate corrections to minimize the misties in a least squares sense</li>
 <li>Edit/Maintain a set of mistie corrections</li>
-<li>Attribute to apply the corrections.</li>
+<li>Attribute to apply the corrections to seismic data and tools to apply Z corrections to horizon interpretation.</li>
 </ol>
 <p>There are two alternative workflows to build a mistie correction file:</p>
 <ol>
@@ -193,6 +189,10 @@
             <td>Prompts for another mistie file and merges the results with the mistie set currently active in the tool optionally keeping or replacing common items.</td>
         </tr>
         <tr>
+            <td><img class="img-responsive" alt="Filter" src="images/minus.png" title="Filter"/></td>
+            <td>Opens a dialog to filter the misties listed in the table, used for correction calculation and displayed in the mistie report.</td>
+        </tr>
+        <tr>
             <td><img class="img-responsive" alt="Calculate Corrections" src="images/attributes.png" title="Calculate Corrections"/></td>
             <td>Open the Correction Calculation dialog.</td>
         </tr>
@@ -204,11 +204,12 @@
 </table>
 
 <h4 id="mistie-estimation"><strong>Mistie Estimation</strong></h4>
-<p>The <img alt="New" src="images/new.png" /> toolbar item in the <a href="/OpendTect-Plugin-Docs/plugins/Mistie.html#mistie-analysis" title="Mistie">Mistie Analysis</a> dialog opens the following dialog to estimate misties from the seismic data using the method described by <a href="https://library.seg.org/doi/10.1190/1.1443654" title="Correcting amplitude, time, and phase mis‐ties in seismic data. Thomas N. Bishop and Alan G. Nunns, GEOPHYSICS 1994 59:6, 946-953">Bishop and Nunns (1994)</a>:</p>
+<p>The <img alt="New" src="images/new.png" /> toolbar item in the <a href="/OpendTect-Plugin-Docs/plugins/Mistie.html#mistie-analysis" title="Mistie">Mistie Analysis</a> dialog opens a dialog box where the user can specify whether misties should be estimated from the seismic data or from horizon interpretation.</p>
+<p>In the case of estimation from the seismic data the dialog looks like:</p>
 <figure>
   <br/>
-  <img src="images/mistie_estimation.jpg" class="img-responsive center-block" alt="Mistie Estimation">
-  <figcaption class="text-center">Mistie Estimation</figcaption>
+  <img src="images/mistie_estimation_seismic.jpg" class="img-responsive center-block" alt="Mistie Estimation from Seismic">
+  <figcaption class="text-center">Mistie Estimation from Seismic</figcaption>
   <br/>
 </figure>
 
@@ -219,8 +220,34 @@
 <li>Specify the trace interval along 2D lines to estimate the 2D to 3D misties, the average mistie is assigned to the 2D to 3D tie </li>
 <li>Limit the maximum time-shift or mistie to consider</li>
 <li>Specify a Z window for the cross correlation of traces at line interections</li>
+<li>Indicate if only time corrections should be estimated (default is to simultaneously estimate Z, phase rotation and amplitude corrections)</li>
+</ul>
+<p>The default estimation of Z phase rotation and amplitude misties is based on the method described by <a href="https://library.seg.org/doi/10.1190/1.1443654" title="Correcting amplitude, time, and phase mis‐ties in seismic data. Thomas N. Bishop and Alan G. Nunns, GEOPHYSICS 1994 59:6, 946-953">Bishop and Nunns (1994)</a> using cross correlation of the amplitude envelope of the traces. This is the preferred method for seismic data with a reasonable bandwidth. For narrow bandwidth data (eg site survey data) the time corrections only estimation method which uses cross correlation of the raw seismic traces may generate better results.</p>
+<p>In the case of estimation from horizon interpretation the dialog looks like:</p>
+<figure>
+  <br/>
+  <img src="images/mistie_estimation_horizon.jpg" class="img-responsive center-block" alt="Mistie Estimation from Horizon Interpretation">
+  <figcaption class="text-center">Mistie Estimation from Horizon Interpretation</figcaption>
+  <br/>
+</figure>
+
+<p>The user can:</p>
+<ul>
+<li>Select a 2D horizon and set of lines to use</li>
+<li>Select a 3D horizon to use</li>
+<li>Specify the trace interval along 2D lines to estimate the 2D to 3D misties, the average mistie is assigned to the 2D to 3D tie</li>
 </ul>
 <p>The Apply button will initiate the estimation of the misties, when complete results are displayed in the <a href="/OpendTect-Plugin-Docs/plugins/Mistie.html#mistie-analysis" title="Mistie">Mistie Analysis</a> dialog. Clicking the <img alt="Mistie Report" src="images/xplot.png" /> icon will generate a <a href="/OpendTect-Plugin-Docs/plugins/Mistie.html#mistie-report" title="Mistie">Mistie Report</a> with histograms and scatterplot of the mistie estimates  for review.</p>
+<h4 id="mistie-filter"><strong>Mistie Filter</strong></h4>
+<p>The <img alt="Filter" src="images/minus.png" /> toolbar item in the <a href="/OpendTect-Plugin-Docs/plugins/Mistie.html#mistie-analysis" title="Mistie">Mistie Analysis</a> dialog opens the following dialog that allows filtering of the misties displayed in the list, used for correction calculation and included in the mistie report:</p>
+<figure>
+  <br/>
+  <img src="images/mistie_filter.jpg" class="img-responsive center-block" alt="Mistie filtering">
+  <figcaption class="text-center">Mistie filtering</figcaption>
+  <br/>
+</figure>
+
+<p>Activate the checkbox next to the filter to activate it. At this moment only filtering by the tie quality (correlation coefficient) is supported. The tie quality can vary from 0.0 (no tie) to 1.0 (perfect tie). A cut-off of 0.5-0.6 should filter unreliable mistie estimates.</p>
 <h4 id="mistie-correction-calculation"><strong>Mistie Correction Calculation</strong></h4>
 <p>The <img alt="Calculate Corrections" src="images/attributes.png" /> toolbar item in the <a href="/OpendTect-Plugin-Docs/plugins/Mistie.html#mistie-analysis" title="Mistie">Mistie Analysis</a> dialog opens the following dialog to compute mistie corrections that minimize the root mean square (RMS) mistie after correction:</p>
 <figure>
@@ -232,8 +259,7 @@
 
 <p>The user can:</p>
 <ul>
-<li>Optional select one or more line(s) to use as a reference. Reference lines will have Z, phase and amplitude corrections constrained to be 0, 0, 1 respectively and corrections will be computed only for  the non-reference lines. Selecting no lines will distribute corrections across all lines.</li>
-<li>Restrict calculation to intersections with a correlation coefficient (tie quality) above a minimum threshhold. The intersection quality can vary from 0.0 (no tie) to 1.0 (perfect tie). A cut-off of 0.5-0.6 should prevent unreliable mistie estimates being used to compute corrections.</li>
+<li>Optionally select one or more line(s) to use as a reference. Reference lines will have Z, phase and amplitude corrections constrained to be 0, 0, 1 respectively and corrections will be computed only for  the non-reference lines. Selecting no lines will distribute corrections across all lines.</li>
 <li>Control the maximum number of iterations used to calculate the corrections - the default value should be adequate in most circumstances.</li>
 <li>Control the convergence criteria that stops the iteration used to calulate the corrections - iterations stop if the change in the RMS mistie (after applying corrections) between successive iterations is less than the threshhold. Thresholds exist for the Z, phase and amplitude corrections. The default values should be adquate in most circumstances. </li>
 </ul>
@@ -247,7 +273,7 @@
 
 <p>The toolbar buttons can be used to save the corrrections to a disk file.</p>
 <h4 id="mistie-report"><strong>Mistie Report</strong></h4>
-<p>The <img alt="Mistie Report" src="images/xplot.png" /> toolbar item in the <a href="/OpendTect-Plugin-Docs/plugins/Mistie.html#mistie-analysis" title="Mistie">Mistie Analysis</a> dialog generates and displays in the system web browser a graphical, html format dashboard of the mistie anaysis and correction calculation results. This includes tabulated data, histograms and a 3D scatterplot. Here is an example of a <a href="images/mistie_report_example.html">mistie report</a>.</p>
+<p>The <img alt="Mistie Report" src="images/xplot.png" /> toolbar item in the <a href="/OpendTect-Plugin-Docs/plugins/Mistie.html#mistie-analysis" title="Mistie">Mistie Analysis</a> dialog generates and displays in the system web browser a graphical, html format dashboard of the mistie anaysis and correction calculation results. This includes tabulated data, histograms and a 3D scatterplot. Here is an example of a <a href="images/mistie_report_example.html">mistie report</a>. The html file displayed in the browser can be saved for later display suing the browser's save page functionality. </p>
 <h4 id="mistie-correction-editor"><strong>Mistie Correction Editor</strong></h4>
 <p>The plugin adds a "Mistie Corrections" item to the Survey-Manage main menu. Selecting the item opens the Mistie Correction Editor. This tool can be used to manually create mistie correction files or modify files generated by the <a href="/OpendTect-Plugin-Docs/plugins/Mistie.html#mistie-correction-calculation" title="Mistie">Mistie Correction Calculation</a>.</p>
 <figure>
@@ -315,7 +341,23 @@
 <li>Which corrections to apply </li>
 </ul>
 <p>When the attribute is displayed the shift, phase rotation and amplitude scalar for the line is read from the correction file and applied.</p>
-<h4 id="notes">Notes</h4>
+<h4 id="mistie-correction-of-horizon-interpretation"><strong>Mistie Correction of Horizon Interpretation</strong></h4>
+<p>The plugin adds an "Apply Mistie Corrections" item to the "Processing | Create Horizon Output" main menu that opens a dialog box to apply mistie corrections to 2D and 3D horizon interpretation.</p>
+<figure>
+  <br/>
+  <img src="images/mistie_horizon_2D_apply.jpg" class="img-responsive center-block" alt="Mistie Application to 2D Horizon">
+  <figcaption class="text-center">Mistie Application to 2D Horizon</figcaption>
+  <br/>
+</figure>
+
+<figure>
+  <br/>
+  <img src="images/mistie_horizon_3D_apply.jpg" class="img-responsive center-block" alt="Mistie Application to 3D Horizon">
+  <figcaption class="text-center">Mistie Application to 3D Horizon</figcaption>
+  <br/>
+</figure>
+
+<h4 id="general-notes">General Notes</h4>
 <ul>
 <li>The default file extension for saved mistie estimates is "mistie"</li>
 <li>The default file extension for saved mistie corrections is "miscor"</li>
@@ -339,11 +381,13 @@
 <li><a href="#description">Description</a><ul>
 <li><a href="#mistie-analysis">Mistie Analysis</a></li>
 <li><a href="#mistie-estimation">Mistie Estimation</a></li>
+<li><a href="#mistie-filter">Mistie Filter</a></li>
 <li><a href="#mistie-correction-calculation">Mistie Correction Calculation</a></li>
 <li><a href="#mistie-report">Mistie Report</a></li>
 <li><a href="#mistie-correction-editor">Mistie Correction Editor</a></li>
 <li><a href="#mistie-application-attribute">Mistie Application Attribute</a></li>
-<li><a href="#notes">Notes</a></li>
+<li><a href="#mistie-correction-of-horizon-interpretation">Mistie Correction of Horizon Interpretation</a></li>
+<li><a href="#general-notes">General Notes</a></li>
 </ul>
 </li>
 </ul>
